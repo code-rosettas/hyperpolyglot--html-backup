@@ -1,0 +1,1658 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<link rel="icon" type="image/gif" href="/favicon.gif"/>
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+<title>Lorem Ipsum</title>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css" id="internal-style">
+@import url(hyperpolyglot.css);
+</style>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="en"/>
+</head>
+
+<body>
+<div id="container-wrap-wrap">
+  <div id="container-wrap">
+    <div id="container">
+      <div id="header">
+        <h1><a href="/"><span>Hyperpolyglot</span></a></h1>
+      </div>
+      <div id="content-wrap">
+        <div id="main-content">
+          <div id="page-title">Lorem Ipsum</div>
+          <div id="page-content">
+
+<p><a name="top"></a><em>a side-by-side reference sheet</em></p>
+<p><a href="#grammar-invocation">grammar and invocation</a> | <a href="#var-expr">variables and expression</a> | <a href="#arithmetic-logic">arithmetic and logic</a> | <a href="#strings">strings</a> | <a href="#regexes">regexes</a> | <a href="#dates-time">dates and time</a> | <a href="#arrays">arrays</a> | <a href="#dictionaries">dictionaries</a> | <a href="#tables">tables</a> | <a href="#relational-algebra">relational algebra</a> | <a href="#aggregation">aggregation</a> | <a href="#functions">functions</a> | <a href="#execution-control">execution control</a> | <a href="#files">files</a> | <a href="#libraries-namespaces">libraries and namespaces</a> | <a href="#reflection">reflection</a></p>
+<table class="wiki-content-table">
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="version-used"></a><a href="#version-used-note">version used</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>PostgreSQL 9.0</em></span></td>
+<td><span style="color: gray"><em>20070501</em></span></td>
+<td><span style="color: gray"><em>0.9</em></span></td>
+</tr>
+<tr>
+<td><a name="show-version"></a><a href="#show-version-note">show version</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="white-space: pre-wrap;">&gt;</span> SELECT version();</td>
+<td>$ awk <span style="white-space: pre-wrap;">--</span>version</td>
+<td>$ pig <span style="white-space: pre-wrap;">--</span>version</td>
+</tr>
+<tr>
+<th colspan="4"><a name="grammar-invocation"></a><a href="#grammar-invocation-note">grammar and invocation</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="interpreter"></a><a href="#interpreter-note">interpreter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ psql -f foo.sql</td>
+<td>$ awk -f foo.awk bar.txt</td>
+<td>$ pig -f foo.pig</td>
+</tr>
+<tr>
+<td><a name="repl"></a><a href="#repl-note">repl</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ psql</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>$ pig -x local</td>
+</tr>
+<tr>
+<td><a name="input-format"></a><a href="#input-format-note">input data format</a></td>
+<td><span style="color: gray"><em>multiple tables defined by</em> create table <em>statements</em></span></td>
+<td><span style="color: gray"><em>single field and record delimited file. By default fields are delimited by whitespace and records by newlines</em></span></td>
+<td><span style="color: gray"><em>multiple files. Default loading function is</em> PigStorage <em>and default delimiter is tab</em></span></td>
+</tr>
+<tr>
+<td><a name="statement-separator"></a><a href="#statement-separator-note">statement separator</a></td>
+<td>;</td>
+<td>; <span style="color: gray"><em>or newline</em></span></td>
+<td>; <span style="color: gray"><em>and newline when using REPL</em></span></td>
+</tr>
+<tr>
+<td><a name="block-delimiters"></a><a href="#block-delimiters-note">block delimiters</a></td>
+<td><span style="color: gray"><em>none in SQL; PL/SQL uses keywords to delimit blocks</em></span></td>
+<td>{ }</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="eol-comment"></a><a href="#eol-comment-note">end-of-line comment</a></td>
+<td><span style="white-space: pre-wrap;">--</span> <span style="color: gray"><em>comment</em></span></td>
+<td># <span style="color: gray"><em>comment</em></span></td>
+<td><span style="white-space: pre-wrap;">--</span> <span style="color: gray"><em>comment</em></span></td>
+</tr>
+<tr>
+<td><a name="multiple-line-comment"></a><a href="#multiple-line-comment-note">multiple line comment</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray">/* comment<br />
+another comment */</span></td>
+</tr>
+<tr>
+<th colspan="4"><a name="var-expr"></a><a href="#var-expr-note">variables and expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="case-sensitive"></a><a href="#case-sensitive-note">case sensitive?</a></td>
+<td><span style="color: gray"><em>no</em></span></td>
+<td><span style="color: gray"><em>yes</em></span></td>
+<td><span style="color: gray"><em>functions and aliases are case sensitive; commands and operators are not</em></span></td>
+</tr>
+<tr>
+<td><a name="quoted-id"></a><a href="#quoted-id-note">quoted identifier</a></td>
+<td>CREATE TABLE &quot;select&quot; (<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;foo bar&quot; INT<br />
+);<br />
+<br />
+<span style="color: gray"><em>MySQL:</em></span><br />
+CREATE TABLE <span style="white-space: pre-wrap;">`select`</span> (<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span> <span style="white-space: pre-wrap;">`foo&#32;bar`</span> INT<br />
+);</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="null"></a><a href="#null-note">null</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>NULL</td>
+<td>&quot;&quot;</td>
+<td>null</td>
+</tr>
+<tr>
+<td><a name="null-test"></a><a href="#null-test-note">null test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>foo IS NULL</td>
+<td>foo == &quot;&quot;</td>
+<td><span style="color: gray"><em>in filter clause:</em></span><br />
+is null</td>
+</tr>
+<tr>
+<td><a name="coalesce"></a><a href="#coalesce-note">coalesce</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>coalesce(foo, 0)</td>
+<td> </td>
+<td>foo is null ? 0 : foo</td>
+</tr>
+<tr>
+<td><a name="nullif"></a><a href="#nullif-note">nullif</a></td>
+<td>nullif(foo, -999)</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="conditional-expr"></a><a href="#conditional-expr-note">conditional expression</a></td>
+<td>CASE WHEN x &gt; 0 THEN x ELSE -x END</td>
+<td>x &gt; 0 ? x : -x</td>
+<td>x &gt; 0 ? x : -x</td>
+</tr>
+<tr>
+<th colspan="4"><a name="arithmetic-logic"></a><a href="#arithmetic-logic-note">arithmetic and logic</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="boolean-type"></a><a href="#boolean-type-note">boolean type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>BOOLEAN</td>
+<td><span style="color: gray"><em>values are untyped</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="true-false"></a><a href="#true-false-note">true and false</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>TRUE FALSE</td>
+<td>1 0</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="falsehoods"></a><a href="#falsehoods-note">falsehoods</a></td>
+<td>FALSE<br />
+<br />
+<span style="color: gray"><em>the predicate of a</em> where <em>clause evaluates as false if it contains a null</em></span></td>
+<td>0 &quot;&quot;</td>
+<td><span style="color: gray"><em>none; the first operand of a conditional expression must be a comparison operator expression</em></span></td>
+</tr>
+<tr>
+<td><a name="logical-op"></a><a href="#logical-op-note">logical operators</a></td>
+<td>AND OR NOT</td>
+<td>&amp;&amp; @</td>
+<td>@@ !</td>
+<td><span style="color: gray"><em>in filter clause:</em></span><br />
+and or not</td>
+</tr>
+<tr>
+<td><a name="logical-expr"></a><a href="#logical-expr-note">logical expression</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="relational-op"></a><a href="#relational-op-note">relational operators</a></td>
+<td><span style="white-space: pre-wrap;">=</span> != &gt; &lt; &gt;= &lt;=</td>
+<td>== != &gt; &lt; &gt;= &lt;=</td>
+<td>== != &gt; &lt; &gt;= &lt;=</td>
+</tr>
+<tr>
+<td><a name="int-type"></a><a href="#int-type-note">integer type</a></td>
+<td>smallint <span style="color: gray"><em>2 bytes</em></span><br />
+int <span style="color: gray"><em>4 bytes</em></span><br />
+bigint <span style="color: gray"><em>8 bytes</em></span></td>
+<td><span style="color: gray"><em>variables are untyped</em></span></td>
+<td>int <span style="color: gray"><em>4 bytes</em></span><br />
+long <span style="color: gray"><em>8 bytes</em></span></td>
+</tr>
+<tr>
+<td><a name="float-type"></a><a href="#float-type-note">float type</a></td>
+<td>float <span style="color: gray"><em>4 bytes</em></span><br />
+double <span style="color: gray"><em>8 bytes</em></span></td>
+<td><span style="color: gray"><em>variables are untyped</em></span></td>
+<td>float <span style="color: gray"><em>4 bytes</em></span><br />
+double <span style="color: gray"><em>8 bytes</em></span></td>
+</tr>
+<tr>
+<td><a name="fixed-type"></a><a href="#fixed-type-note">fixed type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>numeric(<span style="color: gray"><em>precision</em></span>, <span style="color: gray"><em>scale</em></span>)</td>
+<td><span style="color: gray"><em>variables are untyped</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="arith-op"></a><a href="#arith-op-note">arithmetic operators</a><br />
+<span style="color: gray"><em>addition, subtraction, multiplication, division, remainder</em></span></td>
+<td>+ - * / %</td>
+<td>+ - * / %</td>
+<td>+ - * / %</td>
+</tr>
+<tr>
+<td><a name="int-div"></a><a href="#int-div-note">integer division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>13 / 5</td>
+<td>int(13 / 5)</td>
+<td>13 / 5</td>
+</tr>
+<tr>
+<td><a name="int-div-zero"></a><a href="#int-div-zero-note">integer division by zero</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td>null</td>
+</tr>
+<tr>
+<td><a name="float-div"></a><a href="#float-div-note">float division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>cast(13 as float) / 5</td>
+<td>13 / 5</td>
+<td>1.0 * 13 / 5</td>
+</tr>
+<tr>
+<td><a name="float-div-zero"></a><a href="#float-div-zero-note">float division by zero</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td>null</td>
+</tr>
+<tr>
+<td><a name="power"></a><a href="#power-note">power</a></td>
+<td>2 ^ 32</td>
+<td>2 ^ 32<br />
+2 ** 32</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="sqrt"></a><a href="#sqrt-note">sqrt</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>sqrt(2)</td>
+<td>sqrt(2)</td>
+<td>SQRT(2)</td>
+</tr>
+<tr>
+<td><a name="sqrt-negative-one"></a><a href="#sqrt-negative-one-note">sqrt -1</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>generates a warning:</em></span><br />
+nan</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td><a name="transcendental-func"></a><a href="#transcendental-func-note">transcendental functions</a></td>
+<td>exp ln sin cos tan asin acos atan atan2</td>
+<td>exp log sin cos <span style="color: gray"><em>none</em></span> <span style="color: gray"><em>none</em></span> <span style="color: gray"><em>none</em></span> <span style="color: gray"><em>none</em></span> atan2</td>
+<td>EXP LOG SIN COS TAN ASIN ACOS ATAN <span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="float-trunc"></a><a href="#float-trunc-note">float truncation</a></td>
+<td>cast(2.7 as int)<br />
+round(2.7)<br />
+ceil(2.7)<br />
+floor(2.7)</td>
+<td>int(2.7)</td>
+<td>(int)2.7<br />
+ROUND(2.7)<br />
+CEIL(2.7)<br />
+FLOOR(2.7)</td>
+</tr>
+<tr>
+<td><a name="absolute-val"></a><a href="#absolute-val-note">absolute value</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>abs(-2.7)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>ABS(-2.7)</td>
+</tr>
+<tr>
+<td><a name="random-num"></a><a href="#random-num-note">random number</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>random()</td>
+<td>rand()</td>
+<td>RANDOM()</td>
+</tr>
+<tr>
+<td><a name="bit-op"></a><a href="#bit-op-note">bit operators</a></td>
+<td><span style="white-space: pre-wrap;"><<&#32;>></span> &amp; | # ~</td>
+<td><span style="color: gray"><em>gawk:</em></span><br />
+lshift(<span style="color: gray"><em>val</em></span>, <span style="color: gray"><em>cnt</em></span>)<br />
+rshift(<span style="color: gray"><em>val</em></span>, <span style="color: gray"><em>cnt</em></span>)<br />
+and(<span style="color: gray"><em>val1</em></span>, <span style="color: gray"><em>val2</em></span>)<br />
+or(<span style="color: gray"><em>val1</em></span>, <span style="color: gray"><em>val2</em></span>)<br />
+xor(<span style="color: gray"><em>val1</em></span>, <span style="color: gray"><em>val2</em></span>)<br />
+compl(<span style="color: gray"><em>val</em></span>)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="4"><a name="strings"></a><a href="#strings-note">strings</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="str-types"></a><a href="#str-types-note">types</a></td>
+<td>text<br />
+varchar(<span style="color: gray"><em>n</em></span>)<br />
+char(<span style="color: gray"><em>n</em></span>)</td>
+<td><span style="color: gray"><em>variables are untyped</em></span></td>
+<td>chararray<br />
+bytearray</td>
+</tr>
+<tr>
+<td><a name="str-literal"></a><a href="#str-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&#x27;don&#x27;&#x27;t say &quot;no&quot;&#x27;<br />
+<br />
+<span style="color: gray"><em>PostgreSQL escape literal:</em></span><br />
+E&#x27;don\&#x27;t say &quot;no&quot;&#x27;</td>
+<td>&quot;don&#x27;t say \&quot;no\&quot;&quot;</td>
+<td>&#x27;don\&#x27;t say &quot;no&quot;&#x27;</td>
+</tr>
+<tr>
+<td><a name="str-len"></a><a href="#str-len-note">length</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(&#x27;lorem ipsum&#x27;)</td>
+<td>length(&quot;lorem ipsum&quot;)</td>
+<td>SIZE(&#x27;lorem ipsum&#x27;)</td>
+</tr>
+<tr>
+<td><a name="str-esc"></a><a href="#str-esc-note">escapes</a></td>
+<td><span style="color: gray"><em>no backslash escapes in SQL standard string literals</em></span><br />
+<br />
+<span style="color: gray"><em>in PostgreSQL escape literals:</em></span><br />
+\b \f \n \r \t \<span style="color: gray"><em>ooo</em></span> \x<span style="color: gray"><em>hh</em></span> \u<span style="color: gray"><em>hhhh</em></span> \u<span style="color: gray"><em>hhhhhhhh</em></span></td>
+<td>\\ \&quot; \a \b \f \n \r \t \v \<span style="color: gray"><em>ooo</em></span> \x<span style="color: gray"><em>hh</em></span></td>
+<td>\n \t \u<span style="color: gray"><em>hhhh</em></span></td>
+</tr>
+<tr>
+<td><a name="str-concat"></a><a href="#str-concat-note">concatenation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&#x27;Hello&#x27; @</td>
+<td><span style="white-space: pre-wrap;">&#32;&#x27;,&#32;&#x27;&#32;</span></td>
+<td>@@ &#x27;World!&#x27;</td>
+<td>(&quot;Hello&quot; &quot; &quot; &quot;World!&quot;)</td>
+<td>CONCAT(CONCAT(&#x27;Hello&#x27;, &#x27;, &#x27;), &#x27;World!&#x27;)</td>
+</tr>
+<tr>
+<td><a name="split"></a><a href="#split-note">split</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>regexp_split_to_array(<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&#x27;do re mi&#x27;, &#x27; &#x27;<br />
+)</td>
+<td>split(&quot;do re mi&quot;, a, &quot; &quot;)</td>
+<td>STRSPLIT(&#x27;do re mi&#x27;, &#x27; &#x27;)</td>
+</tr>
+<tr>
+<td><a name="case-manipulation"></a><a href="#case-manipulation-note">case manipulation</a></td>
+<td>upper(&#x27;lorem&#x27;)<br />
+lower(&#x27;LOREM&#x27;)<br />
+initcap(&#x27;lorem&#x27;)</td>
+<td>toupper(&quot;lorem&quot;)<br />
+tolower(&quot;LOREM&quot;)<br />
+<span style="color: gray"><em>none</em></span></td>
+<td>UPPER(&#x27;lorem&#x27;)<br />
+LOWER(&#x27;LOREM&#x27;)<br />
+UCFIRST(&#x27;lorem&#x27;)</td>
+</tr>
+<tr>
+<td><a name="strip"></a><a href="#strip-note">strip</a></td>
+<td>trim(&#x27; lorem &#x27;)<br />
+ltrim(&#x27; lorem&#x27;)<br />
+rtrim(&#x27;lorem &#x27;)</td>
+<td> </td>
+<td>TRIM(&#x27; lorem &#x27;)</td>
+</tr>
+<tr>
+<td><a name="index-substr"></a><a href="#index-substr-note">index of substring</a></td>
+<td><span style="color: gray"><em>index starts from 1; returns 0 if not found:</em></span><br />
+strpos(&#x27;lorem ipsum&#x27;, &#x27;ipsum&#x27;)</td>
+<td><span style="color: gray"><em>index starts from 1; returns 0 if not found:</em></span><br />
+index(&quot;lorem ipsum&quot;, &quot;ipsum&quot;)</td>
+<td><span style="color: gray"><em>index starts from 0; returns -1 if not found:</em></span><br />
+INDEXOF(&#x27;lorem ipsum&#x27;, &#x27;ipsum&#x27;, 0)</td>
+</tr>
+<tr>
+<td><a name="substr"></a><a href="#substr-note">extract substring</a></td>
+<td>substr(&#x27;lorem ipsum&#x27;, 7, 5)</td>
+<td>substr(&quot;lorem ipsum&quot;, 7, 5)</td>
+<td>SUBSTRING(&#x27;lorem ipsum&#x27;, 6, 11)</td>
+</tr>
+<tr>
+<td><a name="sprintf"></a><a href="#sprintf-note">sprintf</a></td>
+<td>select format(&#x27;%s %s %s&#x27;, &#x27;foo&#x27;, 7, 13.2);</td>
+<td>sprintf(&quot;%s %d %f&quot;, &quot;foo&quot;, 7, 13.2)</td>
+<td>REGISTER /PATH/TO/piggybank-0.3-amzn.jar;<br />
+DEFINE FORMAT org.apache.pig.piggybank.<br />
+evaluation.string.FORMAT();<br />
+<br />
+foo = FOREACH foo GENERATE<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>FORMAT(&#x27;%s %d %f&#x27;, &#x27;foo&#x27;, 7, 13.2);</td>
+</tr>
+<tr>
+<th colspan="4"><a name="regexes"></a><a href="#regexes-note">regular expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="match"></a><a href="#match-note">match</a></td>
+<td>select *<br />
+from pwt<br />
+where name similar to &#x27;r[a-z]+&#x27;;</td>
+<td><span style="color: gray"><em>matching inside pattern:</em></span><br />
+$1 ~ /^r[a-z]+/ { print $0 }<br />
+<br />
+<span style="color: gray"><em>matching inside action:</em></span><br />
+{ if (match($1, /^r[a-z]+$/)) print $0 }</td>
+<td>root_pwf = filter pwf<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>by SIZE(REGEX_EXTRACT(name, &#x27;^(root)$&#x27;,1)) &gt; 0;</td>
+</tr>
+<tr>
+<td><a name="substitute"></a><a href="#substitute-note">substitute</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>select regexp_replace(&#x27;foo bar&#x27;, &#x27;bar$&#x27;, &#x27;baz&#x27;);</td>
+<td>s = &quot;foo bar&quot;<br />
+sub(/bar$/, &quot;baz&quot;, s)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="extract-subgroup"></a><a href="#extract-subgroup-note">extract subgroup</a></td>
+<td>select (regexp_matches(&#x27;foobar&#x27;, &#x27;(f..)bar&#x27;))[1];</td>
+<td> </td>
+<td>properties = FOREACH urls GENERATE FLATTEN(EXTRACT($0, &#x27;^https?:<span style="white-space: pre-wrap;">//</span>([^/]+)&#x27;)) as host:chararray;</td>
+</tr>
+<tr>
+<th colspan="4"><a name="dates-time"></a><a href="#dates-time-note">dates and time</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="current-date-time"></a><a href="#current-date-time-note">current date and time</a></td>
+<td>now()</td>
+<td><span style="color: gray"><em>gawk:</em></span><br />
+systime()</td>
+<td>REGISTER /PATH/TO/piggybank-0.3-amzn.jar;<br />
+DEFINE DATE_TIME org.apache.pig.piggybank.<br />
+evaluation.datetime.DATE_TIME();<br />
+<br />
+bar = FOREACH foo GENERATE DATE_TIME(&#x27;-00:00&#x27;);</td>
+</tr>
+<tr>
+<td><a name="date-time-to-str"></a><a href="#date-time-to-str-note">datetime to string</a></td>
+<td>to_char(now(), &#x27;YYYY-MM-DD HH24:MI:SS&#x27;)</td>
+<td><span style="color: gray"><em>gawk:</em></span><br />
+strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, systime())</td>
+<td>REGISTER /PATH/TO/piggybank-0.3-amzn.jar;<br />
+DEFINE FORMAT_DT org.apache.pig.piggybank.<br />
+evaluation.datetime.FORMAT_DT();<br />
+<br />
+baz = FOREACH bar GENERATE FORMAT_DT(&#x27;yyyy-MM-dd HH::mm:ss&#x27;, $0);</td>
+</tr>
+<tr>
+<td><a name="str-to-date-time"></a><a href="#str-to-date-time-note">string to datetime</a></td>
+<td>to_timestamp(&#x27;2011-09-26 00:00:47&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS&#x27;)</td>
+<td><span style="color: gray"><em>gawk:</em></span><br />
+mktime(&quot;2011 09 26 00 00 47&quot;)</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="4"><a name="arrays"></a><a href="#arrays-note">arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="array-literal"></a><a href="#array-literal-note">literal</a></td>
+<td><span style="color: gray"><em>PostgreSQL:</em></span><br />
+create temp table foo ( a int[] );<br />
+insert into foo values ( &#x27;{1,2,3}&#x27; );</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>one_row = LOAD &#x27;/tmp/one_line.txt&#x27;;<br />
+foo = FOREACH one_row GENERATE (1,2,3);</td>
+</tr>
+<tr>
+<td><a name="array-size"></a><a href="#array-size-note">size</a></td>
+<td><span style="color: gray"><em>PostgreSQL:</em></span><br />
+select array_upper(a, 1) from foo;</td>
+<td><span style="color: gray"><em>none, but</em> split <em>function returns length</em></span></td>
+<td>bar = FOREACH foo GENERATE SIZE(a);</td>
+</tr>
+<tr>
+<td><a name="array-lookup"></a><a href="#array-lookup-note">lookup</a></td>
+<td><span style="color: gray"><em>PostgreSQL:</em></span><br />
+select a[1] from foo;</td>
+<td>a[0]</td>
+<td>bar = FOREACH foo GENERATE a.$0;</td>
+</tr>
+<tr>
+<td><a name="array-update"></a><a href="#array-update-note">update</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="array-iteration"></a><a href="#array-iteration-note">iteration</a></td>
+<td> </td>
+<td>for (i in a) print i, a[i]</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="membership"></a><a href="#membership-note">membership</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="4"><a name="dictionaries"></a><a href="#dictionaries-note">dictionaries</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="dictionary-literal"></a><a href="#dictionary-literal-note">literal</a></td>
+<td> </td>
+<td> </td>
+<td>['t'#1, &#x27;f&#x27;#0]</td>
+</tr>
+<tr>
+<th colspan="4"><a name="tables"></a><a href="#tables-note">tables</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="order-by"></a><a href="#order-by-note">order rows by column</a></td>
+<td><span style="color: gray"><em>ordering depends on type of column</em></span><br />
+select name<br />
+from pwt<br />
+order by name;</td>
+<td><span style="color: gray"><em>ordering is lexical unless</em> -n <em>flag is used</em></span><br />
+$ sort -k1 -t: /etc/passwd</td>
+<td>names = foreach pwf generate name;<br />
+ordered_names = order names by name;</td>
+</tr>
+<tr>
+<td><a name="order-by-multiple"></a><a href="#order-by-multiple-note">order rows by multiple columns</a></td>
+<td>select group, name<br />
+from pwt<br />
+order by group, name;</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>order rows in descending order</td>
+<td>select name<br />
+from pwt<br />
+order by name;</td>
+<td>$ sort -k1 -r -t: /etc/passwd</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="limit"></a><a href="#limit-note">limit</a></td>
+<td>select name from pwt order by name limit 10;</td>
+<td> </td>
+<td>first_ten = limit ordered_names 10;</td>
+</tr>
+<tr>
+<td><a name="offset"></a><a href="#offset-note">offset</a></td>
+<td>select name from pwt order by name limit 10 offset 10;</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="4"><a name="relational-algebra"></a><a href="#relational-algebra-note">relational algebra</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="poject-column-by-name"></a><a href="#project-column-by-name-note">project columns by name</a></td>
+<td>select name, pw from pwt;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>name_pw = foreach pwf generate name, pw;</td>
+</tr>
+<tr>
+<td><a name="project-column-by-position"></a><a href="#project-column-by-position-note">project columns by position</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>{ print $1, $2 }</td>
+<td>name_pw = foreach pwf generate $0, $1;</td>
+</tr>
+<tr>
+<td><a name="project-expr"></a><a href="#project-expr-note">project expression</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="project-all-columns"></a><a href="#project-all-columns-note">project all columns</a></td>
+<td>select * from pwt;</td>
+<td><span style="color: gray"># prints input line:</span><br />
+{ print $0 }</td>
+<td>pwf2 = foreach pwf generate *;</td>
+</tr>
+<tr>
+<td><a name="rename-columns"></a><a href="#rename-columns-note">rename columns</a></td>
+<td>select uid as userid, gid as groupid<br />
+from pwf;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>usergroups = foreach pwf generate uid as userid, gid as groupid;</td>
+</tr>
+<tr>
+<td><a name="select-rows"></a><a href="#select-rows-note">select rows</a></td>
+<td>select * from pwt where name = &#x27;root&#x27;;</td>
+<td>$1 == &quot;root&quot; { print $0 }</td>
+<td>pwf3 = filter pwf by name == &#x27;root&#x27;;</td>
+</tr>
+<tr>
+<td><a name="select-distinct-rows"></a><a href="#select-distinct-rows-note">select distinct rows</a></td>
+<td>select distinct gid from pwt;</td>
+<td>$ cat &gt; gid.awk<br />
+BEGIN { FS=&quot;:&quot; }<br />
+!/^#/ { print $4 }<br />
+$ awk -f gid.awk /etc/passwd &gt; /tmp/x<br />
+$ sort -u /tmp/x</td>
+<td>gids1 = foreach pwf generate gid;<br />
+gids2 = distinct gids1;</td>
+</tr>
+<tr>
+<td><a name="split-rows"></a><a href="#split-rows-note">split rows</a></td>
+<td> </td>
+<td> </td>
+<td>split pwf into rootpwf if name == &#x27;root&#x27;, otherpwf if name != &#x27;root&#x27;;</td>
+</tr>
+<tr>
+<td><a name="inner-join"></a><a href="#inner-join-note">inner join</a></td>
+<td>create temp table gt (<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>name text, pw text,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>gid int, members text<br />
+);<br />
+<br />
+copy gt from &#x27;/etc/group&#x27;<br />
+with delimiter &#x27;:&#x27;;<br />
+<br />
+select * from pwt<br />
+join gt on pwt.gid = gt.gid;</td>
+<td>$ awk &#x27;!/^#/&#x27; /etc/passwd &gt; /tmp/x<br />
+$ sort -k4,4 -t: &lt; /tmp/x &gt; /tmp/pw<br />
+<br />
+$ awk &#x27;!/^#/&#x27; /etc/group &gt; /tmp/y<br />
+$ sort -k3,3 -t: &lt; /tmp/y &gt; /tmp/g<br />
+<br />
+$ join -t: -14 -23 /tmp/pw /tmp/g</td>
+<td>gf = load &#x27;/etc/group&#x27; using PigStorage(&#x27;:&#x27;) as (name:chararray, pw:chararray, gid:int, members:chararray);<br />
+<br />
+pwgf = join pwf by gid, gf by gid;</td>
+</tr>
+<tr>
+<td><a name="nulls-as-join-values"></a><a href="#nulls-as-join-values-note">nulls as join values</a></td>
+<td><span style="color: gray"><em>input tuples with nulls for join values are omitted from inner joins</em></span></td>
+<td><span style="color: gray"><em>no null value; empty strings are joinable values</em></span></td>
+<td><span style="color: gray"><em>input tuples with nulls for join values are omitted from inner joins</em></span></td>
+</tr>
+<tr>
+<td><a name="self-join"></a><a href="#self-join-note">self join</a></td>
+<td>select pwt1.name, pwt2.name<br />
+from pwt as pwt1, pwt as pwt2<br />
+where pwt1.gid = pwt2.gid;</td>
+<td>$ join -t: -14 -24 /tmp/pw /tmp/pw</td>
+<td>pwf2 = foreach pwf generate *;<br />
+joined_by_gid = join pwf by gid, pwf2 by gid;<br />
+name_pairs = foreach by_group generate pwf::name, pwf2::name;</td>
+</tr>
+<tr>
+<td><a name="left-join"></a><a href="#left-join-note">left join</a></td>
+<td>select *<br />
+from customers c<br />
+left join orders o<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>on c.id = o.customer_id;</td>
+<td>$ join -t: -a1 -11 -22 /tmp/c /tmp/o</td>
+<td>j = join customers by id left, orders by customer_id;</td>
+</tr>
+<tr>
+<td><a name="outer-join"></a><a href="#full-join-note">full join</a></td>
+<td>select *<br />
+from customers c<br />
+full join orders o<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>on c.id = o.customer_id;</td>
+<td>$ join -t: -a1 -a2 -11 -22 /tmp/c /tmp/o</td>
+<td>j = join customers by id full, orders by customer_id;</td>
+</tr>
+<tr>
+<td><a name="antijoin"></a><a href="#antijoin-note">antijoin</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="cross-join"></a><a href="#cross-join-note">cross join</a></td>
+<td>create table files ( file text );<br />
+insert into files values (&#x27;a&#x27;), (&#x27;b&#x27;), (&#x27;c&#x27;), (&#x27;d&#x27;), (&#x27;e&#x27;), (&#x27;f&#x27;), (&#x27;g&#x27;), (&#x27;h&#x27;);<br />
+<br />
+create table ranks ( rank int );<br />
+insert into ranks values (1), (2), (3), (4), (5), (6), (7), (8);<br />
+<br />
+create table chessboard ( file text, rank int );<br />
+insert into chessboard<br />
+select *<br />
+from files, ranks;</td>
+<td><span style="color: gray"><em>specify nonexistent join fields:</em></span><br />
+<br />
+$ join -12 -22 /tmp/f /tmp/r</td>
+<td>files = load &#x27;/tmp/files.txt&#x27; as (file:chararray);<br />
+<br />
+ranks = load &#x27;/tmp/ranks.txt&#x27; as (rank:int);<br />
+<br />
+chessboard = cross files, ranks;</td>
+</tr>
+<tr>
+<th colspan="4"><a name="aggregation"></a><a href="#aggregation-note">aggregation</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="group-by"></a><a href="#group-by-note">group by</a></td>
+<td>select gid, count(*)<br />
+from pwf<br />
+group by gid;</td>
+<td>BEGIN { FS=&quot;:&quot; }<br />
+!/^#/ { cnt[$4]++ }<br />
+END { for (i in cnt) print i, cnt[i] }</td>
+<td>by_group = group pwf by gid;<br />
+cnts = foreach by_group generate $0, COUNT($1);</td>
+</tr>
+<tr>
+<td><a name="group-by-multiple"></a><a href="#group-by-multiple-note">group by multiple columns</a></td>
+<td>select gid, sh, count(*)<br />
+from pwf<br />
+group by gid, sh;</td>
+<td> </td>
+<td>by_group = group pwf by (gid, sh);<br />
+cnts = foreach by_group generate FLATTEN($0), COUNT($1);</td>
+</tr>
+<tr>
+<td><a name="aggregation-func"></a><a href="#aggregation-func-note">aggregation functions</a></td>
+<td>count sum min max avg stddev</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>COUNT SUM MIN MAX AVG <span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="4"><a name="functions"></a><a href="#functions-note">functions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">pl/sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="def-func"></a><a href="#def-func-note">define function</a></td>
+<td>create or replace function<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>add ( x int, y int )<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>returns int as $$<br />
+begin<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x + y;<br />
+end; $$ language plpgsql;</td>
+<td><span style="color: gray"><em>can be defined at position of pattern-action statement:</em></span><br />
+<br />
+function add(x, y) { return x+y }</td>
+<td><span style="color: gray"><em>in</em> org/hpglot/Add.java:</span><br />
+package org.hpglot;<br />
+<br />
+import java.io.IOException;<br />
+import org.apache.pig.EvalFunc;<br />
+import org.apache.pig.data.Tuple;<br />
+<br />
+public class Add extends EvalFunc&lt;Integer&gt; {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>@Override public Integer<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>exec(Tuple input) throws IOException {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Integer x, y;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (input == null @@</td>
+</tr>
+<tr>
+<td><a name="invoke-func"></a><a href="#invoke-func-note">invoke function</a></td>
+<td>select add(x, y) from foo;</td>
+<td>{ print add($1, $2) }</td>
+<td>REGISTER Add.jar<br />
+DEFINE ADD org.hpglot.Add();<br />
+<br />
+foo = LOAD &#x27;foo.txt&#x27; AS (x:int, y:int);<br />
+bar = FOREACH foo GENERATE ADD(x, y);</td>
+</tr>
+<tr>
+<td><a name="drop-func"></a><a href="#drop-func-note">drop function</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>drop function add(integer, integer);</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="4"><a name="execution-control"></a><a href="#execution-control-note">execution control</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">pl/sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="if"></a><a href="#if-note">if</a></td>
+<td> </td>
+<td>if (!0) print &quot;foo&quot;; else print &quot;bar&quot;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="while"></a><a href="#while-note">while</a></td>
+<td> </td>
+<td>i = 0; while (i&lt;5) print i++</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="for"></a><a href="#for-note">for</a></td>
+<td> </td>
+<td>for (i=0; i&lt;5; i++) print i</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="4"><a name="files"></a><a href="#files-note">files</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="field-delimiter"></a><a href="#field-delimiter-note">set field delimiter</a></td>
+<td>$ grep -v &#x27;^#&#x27; /etc/passwd &gt; /tmp/pw<br />
+<br />
+create table pwt ( name text, pw text, uid int, gid int, gecos text, home text, sh text );<br />
+<br />
+copy pwt from &#x27;/tmp/pw&#x27; with delimiter &#x27;:&#x27;;</td>
+<td>BEGIN { FS=&quot;:&quot; }</td>
+<td>pwf = LOAD &#x27;/etc/passwd&#x27; USING PigStorage(&#x27;:&#x27;) AS (name:chararray, pw:chararray, uid:int, gid:int, gecos:chararray, home:chararray, sh:chararray);</td>
+</tr>
+<tr>
+<td><a name="write-table-file"></a><a href="#write-table-file-note">write table to file</a></td>
+<td> </td>
+<td> </td>
+<td>STORE foo INTO &#x27;/tmp/foo.tab&#x27;;</td>
+</tr>
+<tr>
+<th colspan="4"><a name="libraries-namespaces"></a><a href="#libraries-namespaces-note">libraries and namespaces</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<th colspan="4"><a name="reflection"></a><a href="#reflection-note">reflection</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#sql">sql</a></th>
+<th><a href="#awk">awk</a></th>
+<th><a href="#pig">pig</a></th>
+</tr>
+<tr>
+<td><a name="table-schema"></a><a href="#table-schema-note">table schema</a></td>
+<td> </td>
+<td> </td>
+<td>DESCRIBE foo;</td>
+</tr>
+<tr>
+<th></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">_________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">_________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">_________________________________________</span></span></th>
+</tr>
+</table>
+<p><a name="general-note"></a></p>
+<h1 id="toc0"><span><a href="#general">General</a></span></h1>
+<p><a name="version-used-note"></a></p>
+<h2 id="toc1"><span><a href="#version-used">versions used</a></span></h2>
+<p>The versions used for testing code in the reference sheet.</p>
+<p><a name="show-version-note"></a></p>
+<h2 id="toc2"><span><a href="#show-version">show version</a></span></h2>
+<p>How to get the version.</p>
+<p><a name="grammar-invocation-note"></a></p>
+<h1 id="toc3"><span><a href="#grammar-invocation">Grammar and Invocation</a></span></h1>
+<p><a name="interpreter-note"></a></p>
+<h2 id="toc4"><span><a href="#interpreter">interpreter</a></span></h2>
+<p>How to run the interpreter on a script.</p>
+<p><a name="repl-note"></a></p>
+<h2 id="toc5"><span><a href="#repl">repl</a></span></h2>
+<p>How to invoke the REPL.</p>
+<p><a name="statement-separator-note"></a></p>
+<h2 id="toc6"><span><a href="#statement-separator">statement separator</a></span></h2>
+<p>The statement separator.</p>
+<p><a name="block-delimiters-note"></a></p>
+<h2 id="toc7"><span><a href="#block-delimiters">block delimiters</a></span></h2>
+<p>The delimiters used for blocks.</p>
+<p><a name="eol-comment-note"></a></p>
+<h2 id="toc8"><span><a href="#eol-comment">end-of-line comment</a></span></h2>
+<p>How to create a comment that ends at the next newline.</p>
+<p><a name="multiple-line-comment-note"></a></p>
+<h2 id="toc9"><span><a href="#multiple-line-comment">multiple line comment</a></span></h2>
+<p>How to comment out multiple lines.</p>
+<p><a name="var-expr-note"></a></p>
+<h1 id="toc10"><span><a href="#var-expr">Variables and Expressions</a></span></h1>
+<p><a name="case-sensitive-note"></a></p>
+<h2 id="toc11"><span><a href="#case-sensitive">case sensitive?</a></span></h2>
+<p>Are identifiers which differ only by case treated as distinct identifiers?</p>
+<p><a name="quoted-id-note"></a></p>
+<h2 id="toc12"><span><a href="#quoted-id">quoted identifier</a></span></h2>
+<p>How to quote an identifier.</p>
+<p>Quoting an identifier is a way to include characters which aren&#x27;t normally permitted in an identifier.</p>
+<p>In SQL quoting is also a way to refer to an identifier that would otherwise be interpreted as a reserved word</p>
+<p><a name="null-note"></a></p>
+<h2 id="toc13"><span><a href="#null">null</a></span></h2>
+<p>The null literal.</p>
+<p><strong>pig:</strong></p>
+<p><tt>PigStorage</tt>, the default function for loading and persisting relations, represents a null value with an empty string. Null is distinct from an empty string since <tt>null == &#x27;&#x27;</tt> evaluates as false. Thus <tt>PigStorage</tt> cannot load or store an empty string.</p>
+<p><a name="null-test-note"></a></p>
+<h2 id="toc14"><span><a href="#null-test">null test</a></span></h2>
+<p>How to test whether an expression is null.</p>
+<p><strong>sql:</strong></p>
+<p>The expression <tt>null = null</tt> evaluates as <tt>null</tt>, which is a ternary boolean value distinct from true and false. Expressions built up from arithmetic operators or comparison operators which contain a null evaluate as null. When logical operators are involved, null behaves like the <em>unknown</em> value of <a href="http://en.wikipedia.org/wiki/Three-valued_logic#Kleene_logic">Kleene logic</a>.</p>
+<p><a name="coalesce-note"></a></p>
+<h2 id="toc15"><span><a href="#coalesce">coalesce</a></span></h2>
+<p>How to use the value of an expression, replacing it with an alternate value if it is null.</p>
+<p><a name="nullif-note"></a></p>
+<h2 id="toc16"><span><a href="#nullif">nullif</a></span></h2>
+<p>How to use the value of an expression, replacing a specific value with null.</p>
+<p><a name="conditional-expr-note"></a></p>
+<h2 id="toc17"><span><a href="#conditional-expr">conditional expression</a></span></h2>
+<p>The syntax for a conditional expression.</p>
+<p><a name="arithmetic-logic-note"></a></p>
+<h1 id="toc18"><span><a href="#arithmetic-logic">Arithmetic and Logic</a></span></h1>
+<p><a name="true-false-note"></a></p>
+<h2 id="toc19"><span><a href="#true-false">true and false</a></span></h2>
+<p>Literals for true and false.</p>
+<p><a name="falsehoods-note"></a></p>
+<h2 id="toc20"><span><a href="#falsehoods">falsehoods</a></span></h2>
+<p>Values which evaluate as false in a boolean context.</p>
+<p><a name="logical-op-note"></a></p>
+<h2 id="toc21"><span><a href="#logical-op">logical operators</a></span></h2>
+<p>The logical operators. Logical operators impose a boolean context on their arguments and return a boolean value.</p>
+<p><a name="relational-op-note"></a></p>
+<h2 id="toc22"><span><a href="#relational-op">relational operators</a></span></h2>
+<p>The comparison operators, also known as the relational operators.</p>
+<p><a name="int-type-note"></a></p>
+<h2 id="toc23"><span><a href="#int-type">integer type</a></span></h2>
+<p>Integer types.</p>
+<p><strong>sql:</strong></p>
+<p>Datatypes are database specific, but the mentioned types are provided by both PostgreSQL and MySQL.</p>
+<p><strong>awk:</strong></p>
+<p>Variables are untyped and implicit conversions are performed between numeric and string types.</p>
+<p>The numeric literal for zero, 0, evaluates as false, but the string &quot;0&quot; evaluates as true. Hence we can infer that awk has at least two distinct data types.</p>
+<p><a name="float-type-note"></a></p>
+<h2 id="toc24"><span><a href="#float-type">float type</a></span></h2>
+<p>Floating point decimal types.</p>
+<p><strong>sql:</strong></p>
+<p>Datatypes are database specific, but the mentioned types are provided by both PostgreSQL and MySQL.</p>
+<p><a name="fixed-type-note"></a></p>
+<h2 id="toc25"><span><a href="#fixed-type">fixed type</a></span></h2>
+<p>Fixed precision decimal types.</p>
+<p><strong>sql:</strong></p>
+<p>Datatypes are database specific, but the mentioned types are provided by both PostgreSQL and MySQL.</p>
+<p><a name="arith-op-note"></a></p>
+<h2 id="toc26"><span><a href="#arith-op">arithmetic operations</a></span></h2>
+<p>The arithmetic operators: addition, subtraction, multiplication, division, modulus, and exponentiation.</p>
+<p><a name="int-div-note"></a></p>
+<h2 id="toc27"><span><a href="#int-div">integer division</a></span></h2>
+<p>How to compute the quotient of two numbers. The quotient is always an integer.</p>
+<p><a name="int-div-zero-note"></a></p>
+<h2 id="toc28"><span><a href="#int-div-zero">integer division by zero</a></span></h2>
+<p>What happens when an integer is divided by zero.</p>
+<p><strong>pig:</strong></p>
+<p>Division by zero evaluates to null. Recall that <tt>PigStorage</tt> stores nulls in files as empty strings.</p>
+<p><a name="float-div-note"></a></p>
+<h2 id="toc29"><span><a href="#float-div">float division</a></span></h2>
+<p>How to perform floating point division, even if the operands are integers.</p>
+<p><a name="float-div-zero-note"></a></p>
+<h2 id="toc30"><span><a href="#float-div-zero">float division by zero</a></span></h2>
+<p>The result of dividing a float by zero.</p>
+<p><strong>pig:</strong></p>
+<p>Division by zero evaluates to null. Recall that <tt>PigStorage</tt> stores nulls in files as empty strings.</p>
+<p><a name="power-note"></a></p>
+<h2 id="toc31"><span><a href="#power">power</a></span></h2>
+<p>How to raise a number to a power.</p>
+<p><a name="sqrt-note"></a></p>
+<h2 id="toc32"><span><a href="#sqrt">sqrt</a></span></h2>
+<p>How to get the square root of a number.</p>
+<p><a name="sqrt-negative-one-note"></a></p>
+<h2 id="toc33"><span><a href="#sqrt-negative-one">sqrt -1</a></span></h2>
+<p>The result of taking the square root of negative one.</p>
+<p><a name="transcendental-func-note"></a></p>
+<h2 id="toc34"><span><a href="#transcendental-func">transcendental functions</a></span></h2>
+<p>The standard transcendental functions of mathematics.</p>
+<p><a name="float-trunc-note"></a></p>
+<h2 id="toc35"><span><a href="#float-trunc">float truncation</a></span></h2>
+<p>How to truncate floats to integers. The functions (1) round towards zero, (2) round to the nearest integer, (3) round towards positive infinity, and (4) round towards negative infinity. How to get the absolute value of a number is also illustrated.</p>
+<p><a name="absolute-val-note"></a></p>
+<h2 id="toc36"><span><a href="#absolute-val">absolute value</a></span></h2>
+<p>The absolute value of a number.</p>
+<p><a name="random-num-note"></a></p>
+<h2 id="toc37"><span><a href="#random-num">random number</a></span></h2>
+<p>How to create a unit random float.</p>
+<p><a name="strings-note"></a></p>
+<h1 id="toc38"><span><a href="#strings">Strings</a></span></h1>
+<p><a name="str-types-note"></a></p>
+<h2 id="toc39"><span><a href="#str-types">types</a></span></h2>
+<p>The available string types.</p>
+<p><strong>pig:</strong></p>
+<p>A <em>chararray</em> is a string of Unicode characters. Like in Java the characters are UTF-16 encoded.</p>
+<p>A <em>bytearray</em> is a string of bytes. Data imported into Pig is of type <em>bytearray</em> unless declared otherwise.</p>
+<p><a name="str-literal-note"></a></p>
+<h2 id="toc40"><span><a href="#str-literal">literal</a></span></h2>
+<p>The syntax for string literals.</p>
+<p><strong>sql:</strong></p>
+<p>MySQL also has double quoted string literals. PostgreSQL and most other database use double quotes for identifiers.</p>
+<p>In a MySQL double quoted string double quote characters must be escaped with reduplication but single quote characters do not need to be escaped.</p>
+<p><strong>pig:</strong></p>
+<p>Single quoted string literals are of type <em>chararray</em>. There is no syntax for a <em>bytearray</em> literal.</p>
+<p><a name="str-len-note"></a></p>
+<h2 id="toc41"><span><a href="#str-len">length</a></span></h2>
+<p>How to get the length of a string.</p>
+<p><a name="str-esc-note"></a></p>
+<h2 id="toc42"><span><a href="#str-esc">escapes</a></span></h2>
+<p>Escape sequences which are available in string literals.</p>
+<p><strong>sql:</strong></p>
+<p>Here is a portable way to include a newline character in a SQL string:</p>
+<div class="code">
+<pre>
+<code>select &#x27;foo&#x27; || chr(10) || &#x27;bar&#x27;;</code>
+</pre></div>
+<p>MySQL double and single quoted strings support C-style backslash escapes. Backslash escapes are not part of the SQL standard. Their interpretation can be disabled at the session level with</p>
+<div class="code">
+<pre>
+<code>SET sql_mode=&#x27;NO_BACKSLASH_ESCAPES&#x27;;</code>
+</pre></div>
+<p><a name="str-concat-note"></a></p>
+<h2 id="toc43"><span><a href="#str-concat">concatenation</a></span></h2>
+<p>How to concatenate strings.</p>
+<p><a name="split-note"></a></p>
+<h2 id="toc44"><span><a href="#split">split</a></span></h2>
+<p>How to split a string into an array of substrings.</p>
+<p><strong>sql:</strong></p>
+<p>How to split a string into multiple rows of data:</p>
+<div class="code">
+<pre>
+<code>=&gt; create temp table foo ( bar text );
+CREATE TABLE
+
+=&gt; insert into foo select regexp_split_to_table(&#x27;do re mi&#x27;, &#x27; &#x27;);
+INSERT 0 3</code>
+</pre></div>
+<p><a name="case-manipulation-note"></a></p>
+<h2 id="toc45"><span><a href="#case-manipulation">case manipulation</a></span></h2>
+<p>How to uppercase a string; how to lower case a string; how to capitalize the first character.</p>
+<p><a name="strip-note"></a></p>
+<h2 id="toc46"><span><a href="#strip">strip</a></span></h2>
+<p>How to remove whitesapce from the edges of a string.</p>
+<p><a name="index-substr-note"></a></p>
+<h2 id="toc47"><span><a href="#index-substr">index of substring</a></span></h2>
+<p>How to get the leftmost index of a substring in a string.</p>
+<p><a name="substr-note"></a></p>
+<h2 id="toc48"><span><a href="#substr">extract substring</a></span></h2>
+<p>How to extract a substring from a string.</p>
+<p><a name="sprintf-note"></a></p>
+<h2 id="toc49"><span><a href="#sprintf">sprintf</a></span></h2>
+<p>How to create a string from a format.</p>
+<p><a name="regexes-note"></a></p>
+<h1 id="toc50"><span><a href="#regexes">Regular Expressions</a></span></h1>
+<p><a name="match-note"></a></p>
+<h2 id="toc51"><span><a href="#match">match</a></span></h2>
+<p><strong>pig:</strong></p>
+<p>Pig does not directly support a regex match test. The technique illustrated is to extract a subgroup and see whether the resulting tuple has anything in it. This can be done in the <tt>by</tt> clause of a <tt>filter</tt> statement, but not as the first operand of a conditional expression.</p>
+<p><a name="substitute-note"></a></p>
+<h2 id="toc52"><span><a href="#substitute">substitute</a></span></h2>
+<p>How to perform substitution on a string.</p>
+<p><strong>awk:</strong></p>
+<p><tt>sub</tt> and the global variant <tt>gsub</tt> return the number of substitutions performed.</p>
+<p><a name="extract-subgroup-note"></a></p>
+<h2 id="toc53"><span><a href="#extract-subgroup">extract subgroup</a></span></h2>
+<p><a name="dates-time-note"></a></p>
+<h1 id="toc54"><span><a href="#dates-time">Date and Time</a></span></h1>
+<p><a name="arrays-note"></a></p>
+<h1 id="toc55"><span><a href="#arrays">Arrays</a></span></h1>
+<p><a name="array-literal-note"></a></p>
+<h2 id="toc56"><span><a href="#array-literal">literal</a></span></h2>
+<p>The syntax for an array literal.</p>
+<p><strong>sql:</strong></p>
+<p>The syntax for arrays is specific to PostgreSQL. MySQL does not support arrays.</p>
+<p>Defining a column to be an array violates first normal form.</p>
+<p><strong>pig:</strong></p>
+<p>Pig tuples can be used to store a sequence of data in a field. Pig tuples are heterogeneous; the components do not need to be of the same type.</p>
+<p><a name="array-size-note"></a></p>
+<h2 id="toc57"><span><a href="#array-size">size</a></span></h2>
+<p>How to get the number of elements in an array.</p>
+<p><a name="array-lookup-note"></a></p>
+<h2 id="toc58"><span><a href="#array-lookup">lookup</a></span></h2>
+<p>How to get the value in an array by index.</p>
+<p><a name="array-update-note"></a></p>
+<h2 id="toc59"><span><a href="#array-update">update</a></span></h2>
+<p>How to change a value in an array.</p>
+<p><a name="array-iteration-note"></a></p>
+<h2 id="toc60"><span><a href="#array-iteration">iteration</a></span></h2>
+<p>How to iterate through the values of an array.</p>
+<p><a name="dictionaries-note"></a></p>
+<h1 id="toc61"><span><a href="#dictionaries">Dictionaries</a></span></h1>
+<p><a name="dictionary-literal-note"></a></p>
+<h1 id="toc62"><span><a href="#dictionary-literal">literal</a></span></h1>
+<p><strong>pig:</strong></p>
+<p>Dictionaries are called <em>maps</em> in Pig. The keys must be character arrays, but the values can be any type.</p>
+<p><a name="tables-note"></a></p>
+<h1 id="toc63"><span><a href="#tables">Tables</a></span></h1>
+<p><a name="order-by-note"></a></p>
+<h2 id="toc64"><span><a href="#order-by">order by</a></span></h2>
+<p>How to sort the rows in table using the values in one of the columns.</p>
+<p><a name="order-by-multiple-note"></a></p>
+<h2 id="toc65"><span><a href="#order-by-multiple">order by multiple columns</a></span></h2>
+<p>How to sort the rows in a table using the values in multiple columns. If the values in the first column are the same, the values in the seconds column are used as a tie breaker.</p>
+<p><a name="limit-note"></a></p>
+<h2 id="toc66"><span><a href="#limit">limit</a></span></h2>
+<p><a name="offset-note"></a></p>
+<h2 id="toc67"><span><a href="#offset">offset</a></span></h2>
+<p><a name="relational-algebra-note"></a></p>
+<h1 id="toc68"><span><a href="#relational-algebra">Relational Algebra</a></span></h1>
+<p>In a mapping operation the output relation has the same number of rows as the input relation. A mapping operation can be specified with a function which accepts an input record and returns an output record.</p>
+<p>In a filtering operation the output relation has a less than or equal number of rows as the input relation. A filtering operation can be specified with a function which accepts an input record and returns a boolean value.</p>
+<p><a name="input-format-note"></a></p>
+<h2 id="toc69"><span><a href="#input-format">input data format</a></span></h2>
+<p>The data formats the language can operate on.</p>
+<p><a name="field-delimiter-note"></a></p>
+<h2 id="toc70"><span><a href="#field-delimiter">set field delimiter</a></span></h2>
+<p>For languages which can operate on field and record delimited files, how to set the field delimiter.</p>
+<p><strong>sql:</strong></p>
+<p>The PostgreSQL <tt>copy</tt> command requires superuser privilege unless the input source is <tt>stdin</tt>. Here is an example of how to use the <tt>copy</tt> command without superuser privilege:</p>
+<div class="code">
+<pre>
+<code>$ ( echo &quot;copy pwt from stdin with delimiter &#x27;:&#x27;;&quot;; cat /tmp/pw ) | psql</code>
+</pre></div>
+<p>The <tt>copy</tt> command is not part of the SQL standard. MySQL uses the following:</p>
+<div class="code">
+<pre>
+<code>load data infile &#x27;/etc/passwd&#x27; into table pwt fields terminated by &#x27;:&#x27;;</code>
+</pre></div>
+<p>Both PostgreSQL and MySQL will use tab characters if a field separator is not specified. MySQL permits the record terminator to changed from the default newline, but PostgreSQL does not.</p>
+<p><a name="select-column-name-note"></a></p>
+<h2 id="toc71"><span><a href="#select-column-name">select column by name</a></span></h2>
+<p>How to select fields by name.</p>
+<p><a name="select-column-position-note"></a></p>
+<h2 id="toc72"><span><a href="#select-column-position">select column by position</a></span></h2>
+<p><a name="select-all-columns-note"></a></p>
+<h2 id="toc73"><span><a href="#select-all-columns">select all columns</a></span></h2>
+<p><a name="rename-columns-note"></a></p>
+<h2 id="toc74"><span><a href="#rename-columns">rename columns</a></span></h2>
+<p><a name="filter-rows-note"></a></p>
+<h2 id="toc75"><span><a href="#filter-rows">filter rows</a></span></h2>
+<p><a name="split-rows-note"></a></p>
+<h2 id="toc76"><span><a href="#split-rows">split rows</a></span></h2>
+<p>An aggregation operation is similar to a filtering operation in that it accepts an input relation and produces an output relation with less than or equal number of rows. An aggregation is defined by two functions: a partitioning function which accepts a record and produces a partition value, and a reduction function which accepts a set of records which share a partition value and produces an output record.</p>
+<p><a name="distinct-note"></a></p>
+<h2 id="toc77"><span><a href="#distinct">select distinct</a></span></h2>
+<p>How to remove duplicate rows from the output set.</p>
+<p>Removing duplicates can be accomplished with an aggregation operation in which the partition value is the entire row and a reduction function which returns the first row in the set of rows sharing the partition value.</p>
+<p><a name="inner-join-note"></a></p>
+<h2 id="toc78"><span><a href="#inner-join">inner join</a></span></h2>
+<p>In an <em>inner join</em>, only tuples from the input relations which satisfy a <em>join predicate</em> are used in the output relation.</p>
+<p>A special but common case is when the join predicate consists of an equality test or a conjunction of two or more equality tests. Such a join is called an <em>equi-join</em>.</p>
+<p><strong>awk:</strong></p>
+<p>If <tt>awk</tt> is available at the command line then chances are good that <tt>join</tt> is also available.</p>
+<p><a name="null-join-note"></a></p>
+<h2 id="toc79"><span><a href="#null-join">null treatment in joins</a></span></h2>
+<p>How rows which have a null value for the join column are handled.</p>
+<p>Both SQL and Pig do not include such rows in the output relation unless an outer join (i.e. a left, right, or full join) is specified. Even in the case of an outer join the rows with a null join column value are not joined with any rows from the other relations, even if there are also rows in the other relation with null join column values. Instead the columns that derive from the other input relation will have null values in the output relation.</p>
+<p><a name="self-join-note"></a></p>
+<h2 id="toc80"><span><a href="#self-join">self join</a></span></h2>
+<p>A self join is when a relation is joined with itself.</p>
+<p>If a relation contained a list of people and their parents, then a self join could be used to find a persons grandparents.</p>
+<p><strong>pig:</strong></p>
+<p>An alias be used in a JOIN statement more than once. Thus to join a relation with itself it must first be copied with a FOREACH statement.</p>
+<p><a name="left-join-note"></a></p>
+<h2 id="toc81"><span><a href="#left-join">left join</a></span></h2>
+<p>How to include rows from the input relation listed on the left (i.e. listed first) which have values in the join column which don&#x27;t match any rows from the input relation listed on the right (i.e. listed second). The term in short for <em>left outer join</em>.</p>
+<p>As an example, a left join between customers and orders would have a row for every order placed and the customer who placed it. In addition it would have rows for customers who haven&#x27;t placed any orders. Such rows would have null values for the order information.</p>
+<p><strong>sql:</strong></p>
+<p>Here is a complete example with the schemas and data used in the left join:</p>
+<div class="code">
+<pre>
+<code>create table customers ( id int, name text );
+
+insert into customers values ( 1, &#x27;John&#x27; ), ( 2, &#x27;Mary&#x27; ), (3, &#x27;Jane&#x27;);
+
+create table orders ( id int, customer_id int, amount numeric(9, 2));
+
+insert into orders values ( 1, 2, 12.99 );
+insert into orders values ( 2, 3, 5.99 );
+insert into orders values ( 3, 3, 12.99 );
+
+select * from customers c left join orders o on c.id = o.customer_id;
+ id | name | id | customer_id | amount
+----+------+----+-------------+--------
+  1 | John |    |             |
+  2 | Mary |  1 |           2 |  12.99
+  3 | Jane |  2 |           3 |   5.99
+  3 | Jane |  3 |           3 |  12.99
+(4 rows)</code>
+</pre></div>
+<p><tt>left outer join</tt> is synonymous with <tt>left join</tt>. The following query is identical to the one above:</p>
+<div class="code">
+<pre>
+<code>select *
+from customers c
+left outer join orders o
+  on c.id = o.customer_id;</code>
+</pre></div>
+<p><strong>pig:</strong></p>
+<p>For a complete example assume the following data is in <tt>/tmp/customers.txt</tt>:</p>
+<div class="code">
+<pre>
+<code>1:John
+2:Mary
+3:Jane</code>
+</pre></div>
+<p>and <tt>/tmp/orders.txt</tt>:</p>
+<div class="code">
+<pre>
+<code>1:2:12.99
+2:3:5.99
+3:3:12.99</code>
+</pre></div>
+<p>Here is the Pig session:</p>
+<div class="code">
+<pre>
+<code>customers = LOAD &#x27;/tmp/customers.txt&#x27; USING PigStorage(&#x27;:&#x27;) AS (id:int, name:chararray);
+orders = LOAD &#x27;/tmp/orders.txt&#x27; USING PigStorage(&#x27;:&#x27;) AS (id:int, customer_id:int, amount:float);
+j = join customers by id left, orders by customer_id;
+dump j;</code>
+</pre></div>
+<p>Here is the output:</p>
+<div class="code">
+<pre>
+<code>(1,John,,,)
+(2,Mary,1,2,12.99)
+(3,Jane,2,3,5.99)
+(3,Jane,3,3,12.99)</code>
+</pre></div>
+<p><a name="full-join-note"></a></p>
+<h2 id="toc82"><span><a href="#full-join">full join</a></span></h2>
+<p>A full join is a join in which rows with null values for the join condition from both input relations are included in the output relation.</p>
+<p>Left joins, right joins, and full joins are collectively called <em>outer joins</em>.</p>
+<p><strong>sql:</strong></p>
+<p>We illustrate a full join by using the schema and data from the left join example and adding an order with a null <tt>customer_id</tt>:</p>
+<div class="code">
+<pre>
+<code>insert into orders values ( 4, null, 7.99);
+
+select * from customers c full join orders o on c.id = o.customer_id;
+ id | name | id | customer_id | amount
+----+------+----+-------------+--------
+  1 | John |    |             |
+  2 | Mary |  1 |           2 |  12.99
+  3 | Jane |  2 |           3 |   5.99
+  3 | Jane |  3 |           3 |  12.99
+    |      |  4 |             |   7.99
+(5 rows)</code>
+</pre></div>
+<p><strong>pig:</strong></p>
+<p>For a complete example assume the following data is in <tt>/tmp/customers.txt</tt>:</p>
+<div class="code">
+<pre>
+<code>1:John
+2:Mary
+3:Jane</code>
+</pre></div>
+<p>and <tt>/tmp/orders.txt</tt>:</p>
+<div class="code">
+<pre>
+<code>1:2:12.99
+2:3:5.99
+3:3:12.99
+4::7.99</code>
+</pre></div>
+<p>Here is the Pig session:</p>
+<div class="code">
+<pre>
+<code>customers = LOAD &#x27;/tmp/customers.txt&#x27; USING PigStorage(&#x27;:&#x27;) AS (id:int, name:chararray);
+orders = LOAD &#x27;/tmp/orders.txt&#x27; USING PigStorage(&#x27;:&#x27;) AS (id:int, customer_id:int, amount:float);
+j = join customers by id full, orders by customer_id;
+dump j;</code>
+</pre></div>
+<p>Here is the output:</p>
+<div class="code">
+<pre>
+<code>(1,John,,,)
+(2,Mary,1,2,12.99)
+(3,Jane,2,3,5.99)
+(3,Jane,3,3,12.99)
+(,,4,,7.99)</code>
+</pre></div>
+<p><a name="cross-join-note"></a></p>
+<h2 id="toc83"><span><a href="#cross-join">cross join</a></span></h2>
+<p>A cross join is a join with no join predicate. It is also called a Cartesian product. If the input relations have <em>N<sub>1</sub></em>, <em>N<sub>2</sub></em>, ..., <em>N<sub>m</sub></em> rows respectively, then the output relation has [[$ \prod_{i=1}^{m} N_i $]] rows.</p>
+<p><a name="aggregation-note"></a></p>
+<h1 id="toc84"><span><a href="#aggregation">Aggregation</a></span></h1>
+<p><a name="group-by-note"></a></p>
+<h2 id="toc85"><span><a href="#group-by">group by</a></span></h2>
+<p><strong>sql:</strong></p>
+<p>The columns in the select clause of a select statement with a group by clause must be expressions built up of columns listed in the group by clause and aggregation functions. Aggregation functions can contain expressions containing columns not in the group by clause as arguments.</p>
+<p><strong>pig:</strong></p>
+<p>The output relation of a GROUP BY operation is always a relation with two fields. The first is the partition value, and the second is a bag containing all the tuples in the input relation which have the partition value.</p>
+<p><a name="group-by-multiple-note"></a></p>
+<h2 id="toc86"><span><a href="#group-by-multiple">group by multiple columns</a></span></h2>
+<p>How to group by multiple columns. The output relation will have a row for each distinct tuple of column values.</p>
+<p><strong>pig:</strong></p>
+<p>Tuples must be used to group on multiple fields. Tuple syntax is used in the GROUP BY statement and the first field in the output relation will be tuple. The FLATTEN function can be used to replace the tuple field with multiple fields, one for each component of the tuple.</p>
+<p><a name="aggregation-func-note"></a></p>
+<h2 id="toc87"><span><a href="#aggregation-func">aggregation functions</a></span></h2>
+<p>The aggregation functions.</p>
+<p><strong>sql:</strong></p>
+<p>Rows for which the expression given as an argument of an aggregation function is null are excluded from a result. In particular, <tt>COUNT(foo)</tt> is the number of rows for which the <tt>foo</tt> column is not null. <tt>COUNT(*)</tt> always returns the number of rows in the input set, including even rows with columns that are all null.</p>
+<p><strong>pig:</strong></p>
+<p>The Pig aggregation functions operate on bags. The GROUP BY operator produces a relation of tuples in which the first field is the partition value and the second is a bag of all the tuples which have the partition value. Since <tt>$1</tt> references the second component of a tuple, it is often the argument to the aggregation functions.</p>
+<p>A <em>join</em> is an operation on <em>m</em> input relations. If the input relations have <em>n<sub>1</sub></em>, <em>n<sub>2</sub></em>, ..., <em>n<sub>m</sub></em> columns respectively, then the output relation has [[$ \sum_{i=1}^{m} n_i $]] columns.</p>
+<p><a name="functions-note"></a></p>
+<h1 id="toc88"><span><a href="#functions">Functions</a></span></h1>
+<p><a name="def-func-note"></a></p>
+<h2 id="toc89"><span><a href="#def-func">define function</a></span></h2>
+<p>How to define a function.</p>
+<p><strong>sql:</strong></p>
+<p>To be able to write PL/pgSQL functions on a PostgreSQL database, someone with superuser privilege must run the following command:</p>
+<div class="code">
+<pre>
+<code>create language plpgsql;</code>
+</pre></div>
+<p><a name="invoke-func-note"></a></p>
+<h2 id="toc90"><span><a href="#invoke-func">invoke function</a></span></h2>
+<p>How to invoke a function.</p>
+<p><a name="drop-func-note"></a></p>
+<h2 id="toc91"><span><a href="#drop-func">drop function</a></span></h2>
+<p>How to remove a function.</p>
+<p><strong>sql:</strong></p>
+<p>PL/pgSQL permits functions with the same name and different parameter types. Resolution happens at invocation using the types of the arguments.</p>
+<p>When dropping the function the parameter types must be specified. There is no statement for dropping multiple functions with a common name.</p>
+<p><a name="execution-control-note"></a></p>
+<h1 id="toc92"><span><a href="#execution-control">Execution Control</a></span></h1>
+<p><a name="if-note"></a></p>
+<h2 id="toc93"><span><a href="#if">if</a></span></h2>
+<p>How to execute code conditionally.</p>
+<p><a name="while-note"></a></p>
+<h2 id="toc94"><span><a href="#while">while</a></span></h2>
+<p>How to implement a while loop.</p>
+<p><a name="for-note"></a></p>
+<h2 id="toc95"><span><a href="#for">for</a></span></h2>
+<p>How to implement a C-style for loop.</p>
+<p><a name="files-note"></a></p>
+<h1 id="toc96"><span><a href="#files">Files</a></span></h1>
+<p><a name="libraries-namespaces-note"></a></p>
+<h1 id="toc97"><span><a href="#libraries-namespaces">Library and Namespaces</a></span></h1>
+<p><a name="reflection-note"></a></p>
+<h1 id="toc98"><span><a href="#reflection">Reflection</a></span></h1>
+<p><a name="sql"></a></p>
+<h1 id="toc99"><span><a href="#top">SQL</a></span></h1>
+<p><a href="http://www.postgresql.org/docs/9.1/static/sql.html">PostgreSQL 9.1: The SQL Language</a><br />
+<a href="http://dev.mysql.com/doc/refman/5.6/en/">MySQL 5.6 Reference Manual</a></p>
+<p>SQL has been the leading query language for relational databases since the early 1980s. It received its first ISO standardization in 1986.</p>
+<p>SQL statements are classified into three types: data manipulation language (DML), data definition language (DDL), and data control language (DCL). DDL defines and alters the database schema. DCL controls the privileges of database users. DML queries and modifies the data in the tables.</p>
+<table class="wiki-content-table">
+<tr>
+<th>sql statement</th>
+<th>type</th>
+</tr>
+<tr>
+<td>select</td>
+<td>DML</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>DML</td>
+</tr>
+<tr>
+<td>update</td>
+<td>DML</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>DML</td>
+</tr>
+<tr>
+<td>create</td>
+<td>DDL</td>
+</tr>
+<tr>
+<td>alter</td>
+<td>DDL</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>DDL</td>
+</tr>
+<tr>
+<td>grant</td>
+<td>DCL</td>
+</tr>
+<tr>
+<td>revoke</td>
+<td>DCL</td>
+</tr>
+</table>
+<p><a name="awk"></a></p>
+<h1 id="toc100"><span><a href="#top">Awk</a></span></h1>
+<p><a href="http://www.manpagez.com/man/1/awk/">awk - pattern-directed scanning and processing language</a><br />
+<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html">POSIX specification for awk</a><br />
+<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/join.html">POSIX specification for join</a><br />
+<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/sort.html">POSIX specification for sort</a></p>
+<p>Awk has been included on all Unix systems since 7th Edition Unix in 1979. It provides a concise language for performing transformations on files. An entire program can be provided to the awk interpreter as the first argument on the command line. Because awk string literals use double quotes, single quotes are usually used to quote the awk program for the benefit of the shell. Here&#x27;s an example which prints the default shell used by root:</p>
+<div class="code">
+<pre>
+<code>awk &#x27;BEGIN{FS=&quot;:&quot;} $1==&quot;root&quot; {print $7}&#x27; /etc/passwd</code>
+</pre></div>
+<p>An awk script is sequence of pattern-action pairs. Awk will iterate through the lines of standard input or the lines of the specified input files, testing each pattern against the line and executing the corresponding action if the pattern matches.</p>
+<p>Patterns are usually slash delimited regular expressions, e.g. /lorem/, and logical expressions built up from them using the logical operators &amp;&amp;, <span style="white-space: pre-wrap;">||</span>, and !. If an action is provided without an accompanying pattern, the action is executed once for every line of input. The keywords <tt>BEGIN</tt> and <tt>END</tt> are special patterns which cause the following action to be executed once at the start and end of execution, respectively.</p>
+<p><a name="pig"></a></p>
+<h1 id="toc101"><span><a href="#top">Pig</a></span></h1>
+<p><a href="http://pig.apache.org/docs">Apache Pig docs</a><br />
+<a href="http://www.docjar.com/jar_detail/piggybank.jar.html">piggybank.jar</a><br />
+<a href="http://aws.amazon.com/code/Elastic-MapReduce/2730">piggybank-0.3-amzn.jar</a></p>
+<p>Pig is language for specifying Hadoop map reduce jobs. Pig scripts are shorter than equivalent Java source code, especially if joins are required.</p>
+<p>There are products such as Hive which can convert an SQL statement to a map reduce job, but Pig has an advantage over Hive in that it can handle a greater variety of data formats in the input files.</p>
+<p>Although Pig is intended to be used with a Hadoop grid, Hadoop is not required to run a Pig job. Running a Pig job locally is a convenient way to test a Pig job before running it on a grid.</p>
+<p>In addition to some numeric and string data types, Pig provides three compound data types: <em>bag</em>, <em>tuples</em>, and <em>map</em>. A bag is an array of tuples. It is equivalent to a database table; it is the database type which Pig uses to hold data which it reads in from files.</p>
+<p>Pig has a limited type of variable called an <em>alias</em>. The only data type which can be stored in an alias is a bag. When a bag is stored in an alias it is called a <em>relation</em> or an <em>outer bag</em>. A bag can also be stored in the field of a tuple, in which case it is called an <em>inner bag</em>.</p>
+<p><strong>pig relational operators:</strong></p>
+<p>Pig provides the following 15 operators for manipulating relations:</p>
+<table class="wiki-content-table">
+<tr>
+<th>relational operator</th>
+<th>input relations</th>
+<th>output relations</th>
+<th>output rows</th>
+</tr>
+<tr>
+<td>CROSS</td>
+<td>2+</td>
+<td>1</td>
+<td>N<sub>1</sub> x N<sub>2</sub> x ...</td>
+</tr>
+<tr>
+<td>DISTINCT</td>
+<td>1</td>
+<td>1</td>
+<td>N <span style="color: gray"><em>or fewer</em></span></td>
+</tr>
+<tr>
+<td>FILTER</td>
+<td>1</td>
+<td>1</td>
+<td>N <span style="color: gray"><em>or fewer</em></span></td>
+</tr>
+<tr>
+<td>FOREACH</td>
+<td>1</td>
+<td>1</td>
+<td>N</td>
+</tr>
+<tr>
+<td>GROUP</td>
+<td>1+</td>
+<td>1</td>
+<td><span style="color: gray"><em>number of groups</em></span></td>
+</tr>
+<tr>
+<td>JOIN</td>
+<td>2+</td>
+<td>1</td>
+<td><span style="color: gray"><em>bounded by</em> N<sub>1</sub> x N<sub>2</sub> x ...</span></td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td>1</td>
+<td>1</td>
+<td>min(N, <span style="color: gray"><em>limit argument</em></span>)</td>
+</tr>
+<tr>
+<td>LOAD</td>
+<td>0</td>
+<td>1</td>
+<td><span style="color: gray"><em>lines in file</em></span></td>
+</tr>
+<tr>
+<td>MAPREDUCE</td>
+<td>0</td>
+<td>1</td>
+<td><span style="color: gray"><em>depends on mapreduce job</em></span></td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>1</td>
+<td>1</td>
+<td>N</td>
+</tr>
+<tr>
+<td>SAMPLE</td>
+<td>1</td>
+<td>1</td>
+<td>N * <span style="color: gray"><em>fraction argument</em></span></td>
+</tr>
+<tr>
+<td>SPLIT</td>
+<td>1</td>
+<td>n</td>
+<td><span style="color: gray"><em>can exceed</em> N <em>if split conditions overlap</em></span></td>
+</tr>
+<tr>
+<td>STORE</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>STREAM</td>
+<td>1</td>
+<td>1</td>
+<td><span style="color: gray"><em>depends on external script</em></span></td>
+</tr>
+<tr>
+<td>UNION</td>
+<td>2+</td>
+<td>1</td>
+<td>N<sub>1</sub> + N<sub>2</sub> + ... + N<sub>n</sub></td>
+</tr>
+</table>
+<p>Most of the above operators create a new relation from existing relations. Exceptions are LOAD and MAPREDUCE which create relations from external files, STORE which writes a relation to a file, and SPLIT which can create more than one relation.</p>
+<p><strong>piggybank UDFs:</strong></p>
+<p>It is easy to write user defined functions (UDFs) in Java and make them available to pig. <tt>piggybank.jar</tt> and <tt>piggybank-0.3-amzn.jar</tt> are two publicly available libraries of UDFs.</p>
+<p>If the Piggybank jar is in the home directory when the Pig script is run, the functions can be made available with the following code at the top of the Pig script:</p>
+<div class="code">
+<pre>
+<code>REGISTER /PATH/TO/piggybank.jar;
+REGISTER /PATH/TO/piggybank-0.3-amzn.jar;
+
+DEFINE DATE_TIME    org.apache.pig.piggybank.evaluation.datetime.DATE_TIME();
+DEFINE EXTRACT org.apache.pig.piggybank.evaluation.string.EXTRACT();
+DEFINE FORMAT org.apache.pig.piggybank.evaluation.string.FORMAT();
+DEFINE FORMAT_DT org.apache.pig.piggybank.evaluation.datetime.FORMAT_DT();
+DEFINE REPLACE org.apache.pig.piggybank.evaluation.string.REPLACE();</code>
+</pre></div>
+ 
+          </div>
+        </div>
+      </div>
+      <div id="license-area" class="license-area">
+        <a href="https://github.com/clarkgrubb/hyperpolyglot/issues">issue tracker</a> |
+        content of this page licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        creative commons attribution-sharealike 3.0</a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17129977-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

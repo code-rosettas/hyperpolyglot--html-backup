@@ -1,0 +1,3958 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<link rel="icon" type="image/gif" href="/favicon.gif"/>
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+<title>Lorem Ipsum</title>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css" id="internal-style">
+@import url(hyperpolyglot.css);
+</style>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="en"/>
+</head>
+
+<body>
+<div id="container-wrap-wrap">
+  <div id="container-wrap">
+    <div id="container">
+      <div id="header">
+        <h1><a href="/"><span>Hyperpolyglot</span></a></h1>
+      </div>
+      <div id="content-wrap">
+        <div id="main-content">
+          <div id="page-title">Lorem Ipsum</div>
+          <div id="page-content">
+
+<p><a name="top"></a><em>a side-by-side reference sheet</em></p>
+<p><strong>sheet one:</strong> <a href="#grammar-invocation">grammar and invocation</a> | <a href="#var-expr">variables and expressions</a> | <a href="#arithmetic-logic">arithmetic and logic</a> | <a href="#strings">strings</a> | <a href="#regexes">regexes</a> | <a href="#dates-time">dates and time</a> | <a href="#tuples">tuples</a> | <a href="#arrays">arrays</a> | <a href="#arithmetic-sequences">arithmetic sequences</a> | <a href="#two-d-arrays">2d arrays</a> | <a href="#three-d-arrays">3d arrays</a> | <a href="#dictionaries">dictionaries</a> | <a href="#functions">functions</a> | <a href="#execution-control">execution control</a> | <a href="#file-handle">file handles</a> | <a href="#directories">directories</a> | <a href="#processes-environment">processes and environment</a> | <a href="#libraries-namespaces">libraries and namespaces</a> | <a href="#reflection">reflection</a> | <a href="#debugging">debugging</a></p>
+<p><strong><a href="/numerical-analysis2">sheet two</a>:</strong> <a href="/numerical-analysis2#tables">tables</a> | <a href="/numerical-analysis2#import-export">import and export</a> | <a href="/numerical-analysis2#relational-algebra">relational algebra</a> | <a href="/numerical-analysis2#aggregation">aggregation</a></p>
+<p><a href="/numerical-analysis2#vectors">vectors</a> | <a href="/numerical-analysis2#matrices">matrices</a> | <a href="/numerical-analysis2#sparse-matrices">sparse matrices</a> | <a href="/numerical-analysis2#optimization">optimization</a> | <a href="/numerical-analysis2#polynomials">polynomials</a> | <a href="/numerical-analysis2#descriptive-statistics">descriptive statistics</a> | <a href="/numerical-analysis2#distributions">distributions</a> | <a href="/numerical-analysis2#linear-regression">linear regression</a> | <a href="/numerical-analysis2#statistical-tests">statistical tests</a> | <a href="/numerical-analysis2#time-series">time series</a> | <a href="/numerical-analysis2#fast-fourier-transform">fast fourier transform</a> | <a href="/numerical-analysis2#clustering">clustering</a> | <a href="/numerical-analysis2#images">images</a> | <a href="/numerical-analysis2#sound">sound</a></p>
+<p><a href="/numerical-analysis2#bar-charts">bar charts</a> | <a href="/numerical-analysis2#scatter-plots">scatter plots</a> | <a href="/numerical-analysis2#line-charts">line charts</a> | <a href="/numerical-analysis2#surface-charts">surface charts</a> | <a href="/numerical-analysis2#chart-options">chart options</a></p>
+<table class="wiki-content-table">
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="version-used"></a><a href="#version-used-note">version used</a></td>
+<td><span style="color: gray"><em>MATLAB 8.3</em></span><br />
+<br />
+<span style="color: gray"><em>Octave 3.8</em></span></td>
+<td><span style="color: gray"><em>3.1</em></span></td>
+<td><span style="color: gray"><em>Python 2.7</em></span><br />
+<span style="color: gray"><em>NumPy 1.7</em></span><br />
+<span style="color: gray"><em>SciPy 0.13</em></span><br />
+<span style="color: gray"><em>Pandas 0.12</em></span><br />
+<span style="color: gray"><em>Matplotlib 1.3</em></span></td>
+<td><span style="color: gray"><em>0.4</em></span></td>
+</tr>
+<tr>
+<td><a name="show-version"></a><a href="#show-version-note">show version</a></td>
+<td>$ matlab -nojvm -nodisplay -r &#x27;exit&#x27;<br />
+<br />
+$ octave <span style="white-space: pre-wrap;">--version</span></td>
+<td>$ R <span style="white-space: pre-wrap;">--version</span></td>
+<td>sys.version<br />
+np.<span style="white-space: pre-wrap;">__version__</span><br />
+sp.<span style="white-space: pre-wrap;">__version__</span><br />
+mpl.<span style="white-space: pre-wrap;">__version__</span></td>
+<td>$ julia <span style="white-space: pre-wrap;">--</span>version</td>
+</tr>
+<tr>
+<td><a name="implicit-prologue"></a><a href="#implicit-prologue-note">implicit prologue</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>install.packages(&#x27;ggplot2&#x27;)<br />
+library(&#x27;ggplot2&#x27;)</td>
+<td>import sys, os, re, math<br />
+import numpy as np<br />
+import scipy as sp<br />
+import scipy.stats as stats<br />
+import pandas as pd<br />
+import matplotlib as mpl<br />
+import matplotlib.pyplot as plt</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="grammar-invocation"></a><a href="#grammar-invocation-note">grammar and invocation</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="interpreter"></a><a href="#interpreter-note">interpreter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ cat <span style="white-space: pre-wrap;">&gt;&gt;</span>foo.m<br />
+1 + 1<br />
+exit<br />
+<br />
+$ matlab -nojvm -nodisplay -r &quot;run(&#x27;foo.m&#x27;)&quot;<br />
+<br />
+$ octave foo.m</td>
+<td>$ cat <span style="white-space: pre-wrap;">&gt;&gt;</span>foo.r<br />
+1 + 1<br />
+<br />
+$ Rscript foo.r<br />
+<br />
+$ R -f foo.r</td>
+<td>$ cat <span style="white-space: pre-wrap;">&gt;&gt;</span>foo.py<br />
+print(1 + 1)<br />
+<br />
+$ python foo.py</td>
+<td>$ cat <span style="white-space: pre-wrap;">&gt;&gt;</span>foo.jl<br />
+println(1 + 1)<br />
+<br />
+$ julia foo.jl</td>
+</tr>
+<tr>
+<td><a name="repl"></a><a href="#repl-note">repl</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ matlab -nojvm -nodisplay<br />
+<br />
+$ octave</td>
+<td>$ R</td>
+<td>$ python</td>
+<td>$ julia</td>
+</tr>
+<tr>
+<td><a name="cmd-line-program"></a><a href="#cmd-line-program-note">command line program</a></td>
+<td>$ matlab -nojvm -nodisplay -r &#x27;disp(1 + 1); exit&#x27;<br />
+<br />
+$ octave <span style="white-space: pre-wrap;">--</span>silent <span style="white-space: pre-wrap;">--</span>eval &#x27;1 + 1&#x27;</td>
+<td>$ Rscript -e &#x27;print(&quot;hi&quot;)&#x27;</td>
+<td>python -c &#x27;print(&quot;hi&quot;)&#x27;</td>
+<td>$ julia -e &#x27;println(&quot;hi&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="block-delimiters"></a><a href="#block-delimiters-note">block delimiters</a></td>
+<td>function end<br />
+if elseif else end<br />
+while end<br />
+for end</td>
+<td>{ }</td>
+<td><span style="color: gray"><em>offside rule</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="stmt-separator"></a><a href="#stmt-separator-note">statement separator</a></td>
+<td>; <span style="color: gray"><em>or newline</em></span><br />
+<br />
+<span style="color: gray">//Newlines not separators after three dots:// <span style="white-space: pre-wrap;">...</span></span><br />
+<br />
+<span style="color: gray"><em>Output is suppressed when lines end with a semicolon.</em></span></td>
+<td>; <span style="color: gray"><em>or sometimes newline</em></span><br />
+<br />
+<span style="color: gray"><em>Newlines not separators inside (), [], {}, &#x27;&#x27;, &quot;&quot;, or after binary operator.</em></span></td>
+<td><span style="color: gray"><em>newline or ;<br />
+<br />
+Newlines not separators inside (), [], {}, triple quote literals, or after backslash: \</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="eol-comment"></a><a href="#eol-comment-note">end-of-line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>1 + 1 <span style="color: gray">% addition</span></td>
+<td>1 + 1 <span style="color: gray"># addition</span></td>
+<td>1 + 1 <span style="color: gray"># addition</span></td>
+<td>1 + 1 <span style="color: gray"># addition</span></td>
+</tr>
+<tr>
+<th colspan="5"><a name="var-expr"></a><a href="#var-expr-note">variables and expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="assignment"></a><a href="#assignment-note">assignment</a></td>
+<td>i = 3</td>
+<td>i = 3<br />
+i &lt;- 3<br />
+3 -&gt; i<br />
+assign(&quot;i&quot;, 3)</td>
+<td>i = 3</td>
+<td>i = 3</td>
+</tr>
+<tr>
+<td><a name="parallel-assignment"></a><a href="#parallel-assignment-note">parallel assignment</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="swap"></a><a href="#swap-note">swap</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="compound-assignment"></a><a href="#compound-assignment-note">compound assignment</a><br />
+<span style="color: gray"><em>arithmetic, string, logical</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"># do not return values:</span><br />
++= -= *= /= <span style="white-space: pre-wrap;">//</span>= %= <span style="white-space: pre-wrap;">**</span>=<br />
++= *=<br />
+&amp;= |= ^=</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="null"></a><a href="#null-note">null</a></td>
+<td><span style="color: gray">% Only used in place of numeric values:</span><br />
+NaN</td>
+<td>NA NULL</td>
+<td>None np.nan<br />
+<br />
+<span style="color: gray"># None cannot be stored in a numpy array;<br />
+# np.nan can if dtype is float64.</span></td>
+<td><span style="color: gray"># Only used in place of float values:</span><br />
+NaN</td>
+</tr>
+<tr>
+<td><a name="null-test"></a><a href="#null-test-note">null test</a></td>
+<td>isnan(v)<br />
+<br />
+<span style="color: gray">% true for &#x27;&#x27;, []:</span><br />
+isempty(v)</td>
+<td>is.na(v)<br />
+is.null(v)</td>
+<td>v == None<br />
+v is None<br />
+<br />
+np.isnan(np.nan)<br />
+<span style="color: gray"># np.nan == np.nan is False</span></td>
+<td>isnan(v)</td>
+</tr>
+<tr>
+<td><a name="cond-expr"></a><a href="#cond-expr-note">conditional expression</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>(if (x &gt; 0) x else -x)<br />
+ifelse(x &gt; 0, x, -x)</td>
+<td>x if x &gt; 0 else -x</td>
+<td>x &gt; 0 ? x : -x</td>
+</tr>
+<tr>
+<th colspan="5"><a name="arithmetic-logic"></a><a href="#arithmetic-logic-note">arithmetic and logic</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="boolean-type"></a><a href="#boolean-type-note">boolean type</a></td>
+<td> </td>
+<td> </td>
+<td><span style="color: gray"># Python:</span><br />
+bool<br />
+<br />
+<span style="color: gray"># NumPy:</span><br />
+bool_</td>
+<td>Bool</td>
+</tr>
+<tr>
+<td><a name="true-false"></a><a href="#true-false-note">true and false</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>1 0 true false</td>
+<td>TRUE FALSE T F</td>
+<td>True False</td>
+<td>true false</td>
+</tr>
+<tr>
+<td><a name="falsehoods"></a><a href="#falsehoods-note">falsehoods</a></td>
+<td>false 0 0.0<br />
+<span style="color: gray"><em>matrices evaluate to false unless nonempty and all entries evaluate to true</em></span></td>
+<td>FALSE F 0 0.0<br />
+<span style="color: gray"><em>matrices evaluate to value of first entry; string in boolean context causes error</em></span></td>
+<td>False None 0 0.0 &#x27;&#x27; [] {}</td>
+<td>false</td>
+</tr>
+<tr>
+<td><a name="logical-op"></a><a href="#logical-op-note">logical operators</a></td>
+<td>~true | (true &amp; false)<br />
+<br />
+<span style="color: gray">% short-circuit operators:</span><br />
+&amp;&amp; @</td>
+<td>@</td>
+<td>!TRUE | (TRUE &amp; FALSE)<br />
+<span style="color: gray"><em>short-circuit operators:</em></span><br />
+&amp;&amp; @</td>
+<td>@<br />
+<br />
+##gray|&amp; //and// | //can operate on and return vectors, but// <span style="white-space: pre-wrap;">&amp;&amp;</span> //and// @</td>
+<td>@@ <em>return scalars</em>##</td>
+<td>and or not</td>
+<td>@@&amp;&amp; </td>
+<td> !@</td>
+</tr>
+<tr>
+<td><a name="relational-op"></a><a href="#relational-op-note">relational operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>== ~= &gt; &lt; &gt;= &lt;=</td>
+<td>== != &gt; &lt; &gt;= &lt;=</td>
+<td>== != &gt; &lt; &gt;= &lt;=</td>
+<td>== != &gt; &lt; &gt;= &lt;=</td>
+</tr>
+<tr>
+<td><a name="int-type"></a><a href="#int-type-note">integer type</a></td>
+<td> </td>
+<td> </td>
+<td><span style="color: gray"># Python:</span><br />
+int<br />
+<br />
+<span style="color: gray"># NumPy:</span><br />
+int8 int16 int32 int64</td>
+<td>Int8 Int16 Int32 Int64 Int128<br />
+<br />
+Int <span style="color: gray"><em>is either 32 or 64 bits, depending on</em></span> WORD_SIZE</td>
+</tr>
+<tr>
+<td><a name="unsigned-type"></a><a href="#unsigned-type-note">unsigned type</a></td>
+<td> </td>
+<td> </td>
+<td>uint8 uint16 uint32 uint64</td>
+<td>UInt8 UInt16 UInt32 UInt64 UInt128<br />
+<br />
+UInt <span style="color: gray"><em>is either 32 or 64 bits, depending on</em></span> WORD_SIZE</td>
+</tr>
+<tr>
+<td><a name="float-type"></a><a href="#float-type-note">float type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+<td><span style="color: gray"># Python:</span><br />
+float<br />
+<br />
+<span style="color: gray"># NumPy:</span><br />
+float16 float32 float64</td>
+<td>Float16 Float32 Float64</td>
+</tr>
+<tr>
+<td><a name="arith-op"></a><a href="#arith-op-note">arithmetic operators</a><br />
+<span style="color: gray"><em>add, sub, mult, div, quot, rem</em></span></td>
+<td>+ - * / <span style="color: gray"><em>none</em></span> mod(<span style="color: gray"><em>n</em></span>, <span style="color: gray"><em>divisor</em></span>)</td>
+<td>+ - * / %/% %%</td>
+<td>+ - * / // %</td>
+<td>+ - * / div(<span style="color: gray"><em>n</em></span>, <span style="color: gray"><em>divisor</em></span>) rem(<span style="color: gray"><em>n</em></span>, <span style="color: gray"><em>divisor</em></span>)<br />
+<br />
+<span style="color: gray"># always non-negative:</span><br />
+mod(<span style="color: gray"><em>n</em></span>, <span style="color: gray"><em>divisor</em></span>)</td>
+</tr>
+<tr>
+<td><a name="int-div"></a><a href="#int-div-note">integer division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>fix(13 / 5)</td>
+<td>13 %/% 5<br />
+as.integer(13 / 5)</td>
+<td>13 // 5</td>
+<td>div(13, 5)</td>
+</tr>
+<tr>
+<td><a name="int-div-zero"></a><a href="#int-div-zero-note">integer division by zero</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Inf NaN <span style="color: gray"><em>or</em></span> -Inf</td>
+<td><span style="color: gray"><em>result of converting Inf or NaN to an integer with as.integer:</em></span><br />
+NA</td>
+<td><span style="color: gray"><em>raises</em> ZeroDivisionError</span></td>
+<td><span style="color: gray"><em>raises</em> DivideError</span></td>
+</tr>
+<tr>
+<td><a name="float-div"></a><a href="#float-div-note">float division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>13 / 5</td>
+<td>13 / 5</td>
+<td>float(13) / 5</td>
+<td>13 / 5<br />
+5 \ 13</td>
+</tr>
+<tr>
+<td><a name="float-div-zero"></a><a href="#float-div-zero-note">float division by zero</a><br />
+<span style="color: gray"><em>dividend is positive, zero, negative</em></span></td>
+<td><span style="color: gray"><em>these values are literals:</em></span><br />
+Inf<br />
+NaN<br />
+-Inf</td>
+<td><span style="color: gray"><em>these values are literals:</em></span><br />
+Inf<br />
+NaN<br />
+-Inf</td>
+<td><span style="color: gray"><em>raises</em> ZeroDivisionError</span></td>
+<td><span style="color: gray"><em>these values are literals:</em></span><br />
+Inf<br />
+NaN<br />
+-Inf</td>
+</tr>
+<tr>
+<td><a name="power"></a><a href="#power-note">power</a></td>
+<td>2 ^ 16</td>
+<td>2 ^ 16<br />
+2 ** 16</td>
+<td>2 <span style="white-space: pre-wrap;">**</span> 16</td>
+<td>2 ^ 16</td>
+</tr>
+<tr>
+<td><a name="sqrt"></a><a href="#sqrt-note">sqrt</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>sqrt(2)</td>
+<td>sqrt(2)</td>
+<td>math.sqrt(2)</td>
+<td>sqrt(2)</td>
+</tr>
+<tr>
+<td><a name="sqrt-negative-one"></a><a href="#sqrt-negative-one-note">sqrt -1</a></td>
+<td><span style="color: gray">% returns 0 + 1i:</span><br />
+sqrt(-1)</td>
+<td><span style="color: gray"># returns NaN:</span><br />
+sqrt(-1)<br />
+<br />
+<span style="color: gray"># returns 0+1i:</span><br />
+sqrt(-1+0i)</td>
+<td><span style="color: gray"># raises ValueError:</span><br />
+math.sqrt(-1)<br />
+<br />
+<span style="color: gray"># returns 1.41421j:</span><br />
+import cmath<br />
+cmath.sqrt(-1)</td>
+<td><span style="color: gray"># raises DomainError:</span><br />
+sqrt(-1)<br />
+<br />
+<span style="color: gray"># returns 0.0 + 1.0im:</span><br />
+sqrt(-1 + 0im)</td>
+</tr>
+<tr>
+<td><a name="transcendental-func"></a><a href="#transcendental-func-note">transcendental functions</a></td>
+<td>exp log sin cos tan asin acos atan atan2</td>
+<td>exp log sin cos tan asin acos atan atan2</td>
+<td>math.exp math.log math.sin math.cos math.tan math.asin math.acos math.atan math.atan2</td>
+<td>exp log sin cos tan asin acos atan atan2</td>
+</tr>
+<tr>
+<td><a name="transcendental-const"></a><a href="#transcendental-const-note">transcendental constants</a></td>
+<td>pi e</td>
+<td>pi exp(1)</td>
+<td>math.pi math.e</td>
+<td>pi e</td>
+</tr>
+<tr>
+<td><a name="float-truncation"></a><a href="#float-truncation-note">float truncation</a><br />
+<span style="color: gray"><em>round towards zero, to nearest integer, down, up</em></span></td>
+<td>fix(x)<br />
+round(x)<br />
+floor(x)<br />
+ceil(x)</td>
+<td>as.integer(x)<br />
+round(x)<br />
+floor(x)<br />
+ceiling(x)</td>
+<td>int(x)<br />
+int(round(x))<br />
+math.floor(x)<br />
+math.ceil(x)</td>
+<td>Int(trunc(x))<br />
+Int(round(x))<br />
+Int(floor(x))<br />
+Int(ceil(x))<br />
+<br />
+<span style="color: gray"># trunc() and other functions return floats.<br />
+# Int() raises InexactError if float argument has<br />
+# nonzero fractional portion.</span></td>
+</tr>
+<tr>
+<td><a name="absolute-val"></a><a href="#absolute-val-note">absolute value</a><br />
+<span style="color: gray"><em>and signum</em></span></td>
+<td>abs sign</td>
+<td>abs sign</td>
+<td>abs(-3.7)<br />
+math.copysign(1, -3.7)</td>
+<td>abs(-3.7)<br />
+sign(-3.7)</td>
+</tr>
+<tr>
+<td><a name="int-overflow"></a><a href="#int-overflow-note">integer overflow</a></td>
+<td><span style="color: gray"><em>becomes float; largest representable integer in the variable</em> intmax</span></td>
+<td><span style="color: gray"><em>becomes float; largest representable integer in the variable</em> .Machine$integer.max</span></td>
+<td><span style="color: gray"><em>becomes arbitrary length integer of type</em> long</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="float-overflow"></a><a href="#float-overflow-note">float overflow</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Inf</td>
+<td>Inf</td>
+<td><span style="color: gray"><em>raises</em> OverflowError</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="float-limits"></a><a href="#float-limits-note">float limits</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>eps<br />
+realmax<br />
+realmin</td>
+<td>.Machine$double.eps<br />
+.Machine$double.xmax<br />
+.Machine$double.xmin</td>
+<td>np.finfo(np.float64).eps<br />
+np.finfo(np.float64).max<br />
+np.finfo(np.float64).min</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="rational-construction"></a><a href="#rational-construction-note">rational construction</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>22 <span style="white-space: pre-wrap;">//</span> 7</td>
+</tr>
+<tr>
+<td><a name="rational-decomposition"></a><a href="#rational-decomposition-note">rational decomposition</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>num(22 <span style="white-space: pre-wrap;">//</span> 7)<br />
+den(22 <span style="white-space: pre-wrap;">//</span> 7)</td>
+</tr>
+<tr>
+<td><a name="complex-types"></a><a href="#complex-types-note">complex types</a></td>
+<td> </td>
+<td> </td>
+<td>complex64 complex128</td>
+<td>Complex32 Complex64 Complex128</td>
+</tr>
+<tr>
+<td><a name="complex-construction"></a><a href="#complex-construction-note">complex construction</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>1 + 3i</td>
+<td>1 + 3i</td>
+<td>1 + 3j</td>
+<td>1 + 3im<br />
+complex(1, 3)</td>
+</tr>
+<tr>
+<td><a name="complex-decomposition"></a><a href="#complex-decomposition-note">complex decomposition</a></td>
+<td>real imag<br />
+abs arg<br />
+conj</td>
+<td>Re Im<br />
+abs Arg<br />
+Conj</td>
+<td>import cmath<br />
+<br />
+z.real<br />
+z.imag<br />
+cmath.polar(z)[1]</td>
+<td>real(1 + 3im)<br />
+imag(1 + 3im)<br />
+abs(1 + 3im)<br />
+angle(1 + 3im)<br />
+conj(1 + 3im)</td>
+</tr>
+<tr>
+<td><a name="random-num"></a><a href="#random-num-note">random number</a><br />
+<span style="color: gray"><em>uniform integer, uniform float</em></span></td>
+<td>floor(100 * rand)<br />
+rand</td>
+<td>floor(100 * runif(1))<br />
+runif(1)</td>
+<td>np.random.randint(0, 100)<br />
+np.random.rand()</td>
+<td>rand(1:100)<br />
+rand()</td>
+</tr>
+<tr>
+<td><a name="random-seed"></a><a href="#random-seed-note">random seed</a><br />
+<span style="color: gray"><em>set, get, and restore</em></span></td>
+<td>rand(&#x27;state&#x27;, 17)<br />
+sd = rand(&#x27;state&#x27;)<br />
+rand(&#x27;state&#x27;, sd)</td>
+<td>set.seed(17)<br />
+sd = .Random.seed<br />
+<span style="color: gray"><em>none</em></span></td>
+<td>np.random.seed(17)<br />
+sd = np.random.get_state()<br />
+np.random.set_state(sd)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="bit-op"></a><a href="#bit-op-note">bit operators</a></td>
+<td>bitshift(100, 3)<br />
+bitshift(100, -3)<br />
+bitand(1, 2)<br />
+bitor(1, 2)<br />
+bitxor(1, 2)<br />
+<span style="color: gray">% MATLAB:</span><br />
+bitcmp(1, &#x27;uint16&#x27;)<br />
+<span style="color: gray">% Octave:</span><br />
+bitcmp(1, 16)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>100 <span style="white-space: pre-wrap;">&lt;&lt;</span> 3<br />
+100 <span style="white-space: pre-wrap;">&gt;&gt;</span> 3<br />
+1 &amp; 2<br />
+1 | 2<br />
+1 ^ 2<br />
+~1</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="binary-octal-hex-literals"></a><a href="#binary-octal-hex-literals-note">binary, octal, and hex literals</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>0b101010<br />
+0o52<br />
+0x2a</td>
+</tr>
+<tr>
+<td><a name="radix"></a><a href="#radix-note">radix</a><br />
+<span style="color: gray"><em>convert integer to and from string with radix</em></span></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>base(7, 42)<br />
+parse(Int, &quot;60&quot;, 7)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="strings"></a><a href="#strings-note">strings</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="str-literal"></a><a href="#str-literal-note">literal</a></td>
+<td> &#x27;don&#x27;&#x27;t say &quot;no&quot;&#x27;<br />
+<br />
+<span style="color: gray">% Octave only:</span><br />
+&quot;don&#x27;t say \&quot;no\&quot;&quot;</td>
+<td>&quot;don&#x27;t say \&quot;no\&quot;&quot;<br />
+&#x27;don\&#x27;t say &quot;no&quot;&#x27;</td>
+<td>&#x27;don\&#x27;t say &quot;no&quot;&#x27;<br />
+&quot;don&#x27;t say \&quot;no\&quot;&quot;<br />
+r&quot;don&#x27;t &quot; r&#x27;say &quot;no&quot;&#x27;</td>
+<td>&quot;don&#x27;t say \&quot;no\&quot;&quot;</td>
+</tr>
+<tr>
+<td><a name="str-newline"></a><a href="#str-newline-note">newline in literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>no</em></span></td>
+<td><span style="color: gray"><em>yes</em></span></td>
+<td><span style="color: gray"><em>no</em></span></td>
+<td><span style="color: gray"><em>yes</em></span></td>
+</tr>
+<tr>
+<td><a name="str-esc"></a><a href="#str-esc-note">literal escapes</a></td>
+<td><span style="color: gray">% Octave double quote only:</span><br />
+\\ \&quot; \&#x27; \0 \a \b \f \n \r \t \v</td>
+<td>\\ \&quot; \&#x27; \a \b \f \n \r \t \v \<span style="color: gray"><em>ooo</em></span></td>
+<td><span style="color: gray"># single and double quoted:</span><br />
+\<span style="color: gray"><em>newline</em></span> \\ \&#x27; \&quot; \a \b \f \n \r \t \v \<span style="color: gray"><em>ooo</em></span> \x<span style="color: gray"><em>hh</em></span></td>
+<td>\\ \&quot; \&#x27; \a \b \f \n \t \r \v<br />
+\<span style="color: gray"><em>ooo</em></span> \x<span style="color: gray"><em>hh</em></span> \u<span style="color: gray"><em>hhhh</em></span> \U<span style="color: gray"><em>hhhhhhhh</em></span></td>
+</tr>
+<tr>
+<td><a name="var-interpolation"></a><a href="#var-interpolation-note">variable interpolation</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>count = 3<br />
+item = &quot;ball&quot;<br />
+println(&quot;$count $(item)s&quot;)</td>
+</tr>
+<tr>
+<td><a name="expr-interpolation"></a><a href="#expr-interpolation-note">expression interpolation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>&quot;1 + 1 = $(1 + 1)&quot;</td>
+</tr>
+<tr>
+<td><a name="str-concat"></a><a href="#str-concat-note">concatenate</a></td>
+<td>strcat(&#x27;one &#x27;, &#x27;two &#x27;, &#x27;three&#x27;)</td>
+<td>paste(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, sep=&quot; &quot;)</td>
+<td>&#x27;one &#x27; + &#x27;two &#x27; + &#x27;three&#x27;<br />
+<span style="color: gray"><em>literals, but not variables, can be concatenated with juxtaposition:</em></span><br />
+&#x27;one &#x27; &quot;two &quot; &#x27;three&#x27;</td>
+<td>&quot;one &quot; * &quot;two &quot; * &quot;three&quot;<br />
+<br />
+string(&quot;one &quot;, &quot;two &quot;, &quot;three&quot;)</td>
+</tr>
+<tr>
+<td><a name="str-replicate"></a><a href="#str-replicate-note">replicate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>hbar = repmat(&#x27;-&#x27;, 1, 80)</td>
+<td>hbar = paste(rep(&#x27;-&#x27;, 80), collapse=&#x27;&#x27;)</td>
+<td>hbar = &#x27;-&#x27; * 80</td>
+<td>hbar = &quot;-&quot; ^ 80<br />
+<br />
+hbar = repeat(&quot;-&quot;, 80)</td>
+</tr>
+<tr>
+<td><a name="index-substr"></a><a href="#index-substr-note">index of substring</a></td>
+<td><span style="color: gray">% returns array of one-indexed<br />
+% locations </span><br />
+strfind(&#x27;hello&#x27;, &#x27;el&#x27;)</td>
+<td><span style="color: gray"><em>counts from one, returns<br />
+-1 if not found</em></span><br />
+regexpr(&quot;el&quot;, &quot;hello&quot;)</td>
+<td><span style="color: gray"># Counts from zero; raises ValueError if not found:</span><br />
+&#x27;hello&#x27;.index(&#x27;el&#x27;)</td>
+<td><span style="color: gray"># returns UnitRange:</span><br />
+search(&quot;hello&quot;, &quot;el&quot;)</td>
+</tr>
+<tr>
+<td><a name="extract-substr"></a><a href="#extract-substr-note">extract substring</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>s = &#x27;hello&#x27;<br />
+<span style="color: gray">% syntax error: &#x27;hello&#x27;(1:4)</span><br />
+s(1:4)</td>
+<td>substr(&quot;hello&quot;, 1, 4)</td>
+<td>&#x27;hello&#x27;[0:4]</td>
+<td>&quot;hello&quot;[1:4]</td>
+</tr>
+<tr>
+<td><a name="split"></a><a href="#split-note">split</a></td>
+<td> <span style="color: gray">% returns cell array:</span><br />
+strsplit(&#x27;foo,bar,baz&#x27;, &#x27;,&#x27;)</td>
+<td>strsplit(&#x27;foo,bar,baz&#x27;, &#x27;,&#x27;)</td>
+<td>&#x27;foo,bar,baz&#x27;.split(&#x27;,&#x27;)</td>
+<td>split(&quot;foo,bar,baz&quot;, &quot;,&quot;)</td>
+</tr>
+<tr>
+<td><a name="join"></a><a href="#join-note">join</a></td>
+<td><span style="color: gray">% takes cell array as arg:</span><br />
+strjoin({&#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27;}, &#x27;,&#x27;)</td>
+<td>paste(&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;, sep=&quot;,&quot;)<br />
+paste(c(&#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27;),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>collapse=&#x27;,&#x27;)</td>
+<td>&#x27;,&#x27;.join([&#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27;])</td>
+<td>join([&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;], &quot;,&quot;)</td>
+</tr>
+<tr>
+<td><a name="trim"></a><a href="#trim-note">trim</a><br />
+<span style="color: gray"><em>both sides, left, right</em></span></td>
+<td>strtrim(&#x27; foo &#x27;)<br />
+<span style="color: gray"><em>none</em></span><br />
+deblank(&#x27;foo &#x27;)</td>
+<td>gsub(&quot;(^[\n\t ]+|[\n\t ]+$)&quot;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;&quot;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot; foo &quot;)<br />
+sub(&quot;^[\n\t ]+&quot;, &quot;&quot;, &quot; foo&quot;)<br />
+sub(&quot;[\n\t ]+$&quot;, &quot;&quot;, &quot;foo &quot;)</td>
+<td>&#x27; foo &#x27;.strip()<br />
+&#x27; foo&#x27;.lstrip()<br />
+&#x27;foo &#x27;.rstrip()</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="pad"></a><a href="#pad-note">pad</a><br />
+<span style="color: gray"><em>on right, on left, centered</em></span></td>
+<td>s = repmat(&#x27; &#x27;, 1, 10)<br />
+s(1:5) = &#x27;lorem&#x27;<br />
+strjust(s, &#x27;left&#x27;)<br />
+strjust(s, &#x27;right&#x27;)<br />
+strjust(s, &#x27;center&#x27;)</td>
+<td>sprintf(&quot;%-10s&quot;, &quot;lorem&quot;)<br />
+sprintf(&quot;%10s&quot;, &quot;lorem&quot;)<br />
+<span style="color: gray"><em>none</em></span></td>
+<td>&#x27;lorem&#x27;.ljust(10)<br />
+&#x27;lorem&#x27;.rjust(10)<br />
+&#x27;lorem&#x27;.center(10)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="num-to-str"></a><a href="#num-to-str-note">number to string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>strcat(&#x27;value: &#x27;, num2str(8))</td>
+<td>paste(&quot;value: &quot;, toString(&quot;8&quot;))</td>
+<td>&#x27;value: &#x27; + str(8)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="str-to-num"></a><a href="#str-to-num-note">string to number</a></td>
+<td>7 + str2num(&#x27;12&#x27;)<br />
+73.9 + str2num(&#x27;.037&#x27;)</td>
+<td>7 + as.integer(&quot;12&quot;)<br />
+73.9 + as.double(&quot;.037&quot;)</td>
+<td>7 + int(&#x27;12&#x27;)<br />
+73.9 + float(&#x27;.037&#x27;)</td>
+<td>7 + parse(Int, &quot;12&quot;)<br />
+73.9 + parse(Float64, &quot;.037&quot;)</td>
+</tr>
+<tr>
+<td><a name="case-manipulation"></a><a href="#case-manipulation-note">translate case</a></td>
+<td>lower(&#x27;FOO&#x27;)<br />
+upper(&#x27;foo&#x27;)</td>
+<td>tolower(&quot;FOO&quot;)<br />
+toupper(&quot;foo&quot;)</td>
+<td>&#x27;foo&#x27;.upper()<br />
+&#x27;FOO&#x27;.lower()</td>
+<td>uppercase(&quot;foo&quot;)<br />
+lowercase(&quot;FOO&quot;)</td>
+</tr>
+<tr>
+<td><a name="sprintf"></a><a href="#sprintf-note">sprintf</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>sprintf(&#x27;%s: %.3f %d&#x27;, &#x27;foo&#x27;, 2.2, 7)</td>
+<td>sprintf(&quot;%s: %.3f %d&quot;, &quot;foo&quot;, 2.2, 7)</td>
+<td>&#x27;%s: %.3f %d&#x27; % (&#x27;foo&#x27;, 2.2, 7)</td>
+<td>@sprintf(&quot;%s: %.2f %d&quot;, &quot;foo&quot;, 2.2, 7)</td>
+</tr>
+<tr>
+<td><a name="str-len"></a><a href="#str-len-note">length</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(&#x27;hello&#x27;)</td>
+<td>nchar(&quot;hello&quot;)</td>
+<td>len(&#x27;hello&#x27;)</td>
+<td>length(&quot;hello&quot;)<br />
+<br />
+<span style="color: gray"># index of first byte of last char:</span><br />
+endof(&quot;hello&quot;)</td>
+</tr>
+<tr>
+<td><a name="char-access"></a><a href="#char-access-note">character access</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>s = &#x27;hello&#x27;<br />
+<span style="color: gray">% syntax error: &#x27;hello&#x27;(1)</span><br />
+s(1)</td>
+<td>substr(&quot;hello&quot;, 1, 1)</td>
+<td>&#x27;hello&#x27;[0]</td>
+<td>&quot;hello&quot;[1]<br />
+<br />
+<span style="color: gray"># index must be byte-index of the first byte of a<br />
+# character. Raises BoundsErrror if no such byte,<br />
+# and UnicodeError if byte not first in char.</span></td>
+</tr>
+<tr>
+<td><a name="chr-ord"></a><a href="#chr-ord-note">chr and ord</a></td>
+<td>char(65)<br />
+double(&#x27;A&#x27;)</td>
+<td>intToUtf8(65)<br />
+utf8ToInt(&quot;A&quot;)</td>
+<td>chr(65)<br />
+ord(&#x27;A&#x27;)</td>
+<td>Char(65)<br />
+Int(&#x27;A&#x27;)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="regexes"></a><a href="#regexes-note">regular expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="char-class-abbrevs"></a><a href="#char-class-abbrevs-note">character class abbreviations</a></td>
+<td>. \d \D \s \S \w \W<br />
+<br />
+<span style="color: gray">% also C-string style backslash escapes:</span><br />
+\a \b \f \n \r \t \v</td>
+<td><span style="color: gray"># escape backslash in strings by doubling:</span><br />
+. \d \D \s \S \w \W</td>
+<td>. \d \D \s \S \w \W</td>
+<td>. \d \D \h \H \s \S \v \V \w \W</td>
+</tr>
+<tr>
+<td><a name="regex-anchors"></a><a href="#regex-anchors-note">anchors</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>^ $ \&lt; \</td>
+<td><span style="color: gray"># escape backslash in strings by doubling:</span><br />
+^ $ \&lt; \&gt; \b \B</td>
+<td>^ $ \A \b \B \Z</td>
+<td>^ $ \A \b \B \z \Z</td>
+</tr>
+<tr>
+<td><a name="regex-match"></a><a href="#regex-match-note">match test</a></td>
+<td>regexp(&#x27;hello&#x27;, &#x27;^[a-z]+$&#x27;)<br />
+regexp(&#x27;hello&#x27;, &#x27;^\S+$&#x27;)</td>
+<td>regexpr(&quot;^[a-z]+$&quot;, &quot;hello&quot;) &gt; 0<br />
+regexpr(&#x27;^\\S+$&#x27;, &quot;hello&quot;) &gt; 0</td>
+<td>re.search(r&#x27;^[a-z]+$&#x27;, &#x27;hello&#x27;)<br />
+re.search(r&#x27;^\S+$&#x27;, &#x27;hello&#x27;)</td>
+<td>ismatch(r&quot;^[a-z]+$&quot;, &quot;hello&quot;)</td>
+</tr>
+<tr>
+<td><a name="case-insensitive-regex-match"></a><a href="#case-insensitive-regex-match-note">case insensitive match test</a></td>
+<td>regexpi(&#x27;Lorem Ipsum&#x27;, &#x27;lorem&#x27;)</td>
+<td>regexpr(&#x27;(?i)lorem&#x27;, &quot;Lorem Ipsum&quot;) &gt; 0</td>
+<td>re.search(r&#x27;lorem&#x27;, &#x27;Lorem Ipsum&#x27;, re.I)</td>
+<td>ismatch(r&quot;lorem&quot;i, &quot;Lorem Ipsum&quot;)</td>
+</tr>
+<tr>
+<td><a name="regex-modifiers"></a><a href="#regex-modifiers-note">modifiers</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>(?i) (?m) (?s) (?x)</td>
+<td>re.I re.M re.S re.X</td>
+<td>i m s x</td>
+</tr>
+<tr>
+<td><a name="regex-subst"></a><a href="#regex-subst-note">substitution</a><br />
+<span style="color: gray"><em>first match, all matches</em></span></td>
+<td>s = &#x27;do re mi mi mi&#x27;<br />
+regexprep(s, &#x27;ma&#x27;, &#x27;once&#x27;)<br />
+regexprep(s, &#x27;mi&#x27;, &#x27;ma&#x27;)</td>
+<td>sub(&#x27;mi&#x27;, &#x27;ma&#x27;, &#x27;do re mi mi mi&#x27;)<br />
+gsub(&#x27;mi&#x27;, &#x27;ma&#x27;, &#x27;do re mi mi mi&#x27;)</td>
+<td>rx = re.compile(r&#x27;mi&#x27;)<br />
+s = rx.sub(&#x27;ma&#x27;, &#x27;do re mi mi mi&#x27;, 1)<br />
+s2 = rx.sub(&#x27;ma&#x27;, &#x27;do re mi mi mi&#x27;)</td>
+<td>replace(&quot;do re mi mi mi&quot;, r&quot;mi&quot;, s&quot;ma&quot;, 1)<br />
+replace(&quot;do re mi mi mi&quot;, r&quot;mi&quot;, s&quot;ma&quot;)</td>
+</tr>
+<tr>
+<td><a name="regex-backreference"></a><a href="#regex-backreference-note">backreference in match and substitution</a></td>
+<td>regexp(&#x27;do do&#x27;, &#x27;(\w+) \1&#x27;)<br />
+regexprep(&#x27;do re&#x27;, &#x27;(\w+) (\w+)&#x27;, &#x27;$2 $1&#x27;)</td>
+<td>regexpr(&#x27;(\\w+) \\1&#x27;, &#x27;do do&#x27;) &gt; 0<br />
+sub(&#x27;(\\w+) (\\w+)&#x27;, &#x27;\\2 \\1&#x27;, &#x27;do re&#x27;)</td>
+<td><span style="color: gray"><em>none</em></span><br />
+<br />
+rx = re.compile(r&#x27;(\w+) (\w+)&#x27;)<br />
+rx.sub(r&#x27;\2 \1&#x27;, &#x27;do re&#x27;)</td>
+<td>ismatch(r&quot;(\w+) \1&quot;, &quot;do do&quot;)</td>
+</tr>
+<tr>
+<td><a name="group-capture"></a><a href="#group-capture-note">group capture</a></td>
+<td> </td>
+<td> </td>
+<td>rx = &#x27;(\d{4})-(\d{2})-(\d{2})&#x27;<br />
+m = re.search(rx, &#x27;2010-06-03&#x27;)<br />
+yr, mo, dy = m.groups()</td>
+<td>rx = r&quot;(\d{4})-(\d{2})-(\d{2})&quot;<br />
+m = match(rx, &quot;2010-06-03&quot;)<br />
+yr, mn, dy = m.captures</td>
+</tr>
+<tr>
+<th colspan="5"><a name="dates-time"></a><a href="#dates-time-note">dates and time</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="current-date-time"></a><a href="#current-date-time-note">current date/time</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>t = now</td>
+<td>t = as.POSIXlt(Sys.time())</td>
+<td>import datetime<br />
+<br />
+t = datetime.datetime.now()</td>
+<td>t = now()</td>
+</tr>
+<tr>
+<td><a name="date-time-type"></a><a href="#date-time-type-note">date/time type</a></td>
+<td><span style="color: gray"><em>floating point number representing days since year 0 in the Gregorian calendar</em></span></td>
+<td>POSIXlt</td>
+<td>datettime</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td><a name="date-time-diff-type"></a><a href="#date-time-diff-type-note">date/time difference type</a></td>
+<td><span style="color: gray"><em>floating point number representing days</em></span></td>
+<td><span style="color: gray"><em>a</em> difftime <em>object which behaves like a floating point number representing seconds</em></span></td>
+<td><span style="color: gray">timedelta, <em>which can be converted to float value in seconds via</em> total_seconds() <em>method</em></span></td>
+<td>Base.Dates.Millisecond</td>
+</tr>
+<tr>
+<td><a name="date-parts"></a><a href="#date-parts-note">get date parts</a></td>
+<td>dv = datevec(t)<br />
+dv(1)<br />
+dv(2)<br />
+dv(3)<br />
+<span style="color: gray">% syntax error: datevec(t)(1)</span></td>
+<td>t$year + 1900<br />
+t$mon + 1<br />
+t$mday</td>
+<td>t.year<br />
+t.month<br />
+t.day</td>
+<td>Dates.year(t)<br />
+Dates.month(t)<br />
+Dates.day(t)</td>
+</tr>
+<tr>
+<td><a name="time-parts"></a><a href="#time-parts-note">get time parts</a></td>
+<td>dv = datevec(t)<br />
+dv(4)<br />
+dv(5)<br />
+dv(6)</td>
+<td>t$hour<br />
+t$min<br />
+t$sec</td>
+<td>t.hour<br />
+t.minute<br />
+t.second</td>
+<td>Dates.hour(t)<br />
+Dates.minute(t)<br />
+Dates.second(t)</td>
+</tr>
+<tr>
+<td><a name="build-date-time"></a><a href="#build-date-time-note">build date/time from parts</a></td>
+<td>t = datenum([2011 9 20 23 1 2])</td>
+<td>t = as.POSIXlt(Sys.time())<br />
+t$year = 2011 - 1900<br />
+t$mon = 9 - 1<br />
+t$mday = 20<br />
+t$hour = 23<br />
+t$min = 1<br />
+t$sec = 2</td>
+<td>import datetime<br />
+<br />
+t = datetime.datetime(2011, 9, 20, 23, 1, 2)</td>
+<td>t = DateTime(2011, 9, 20, 23, 1, 2)</td>
+</tr>
+<tr>
+<td><a name="date-to-str"></a><a href="#date-to-str-note">convert to string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>datestr(t)</td>
+<td>print(t)</td>
+<td>str(t)</td>
+<td>&quot;$t&quot;</td>
+</tr>
+<tr>
+<td><a name="strptime"></a><a href="#strptime-note">parse datetime</a></td>
+<td>s = &#x27;2011-09-20 23:01:02&#x27;<br />
+fmt = &#x27;yyyy-mm-dd HH:MM:SS&#x27;<br />
+t = datenum(s, fmt)</td>
+<td>t = strptime(&#x27;2011-09-20 23:01:02&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&#x27;%Y-%m-%d %H:%M:%S&#x27;)</td>
+<td>import datetime<br />
+<br />
+s = &#x27;2011-05-03 10:00:00&#x27;<br />
+fmt = &#x27;%Y-%m-%d %H:%M:%S&#x27;<br />
+t = datetime.datetime.strptime(s, fmt)</td>
+<td>fmt = &quot;yyyy-mm-dd HH:MM:SS&quot;<br />
+t = DateTime(&quot;2011-05-03 10:00:00&quot;, fmt)<br />
+<br />
+<span style="color: gray"># fmt string can be compiled:</span><br />
+df = Dates.DateFormat(fmt)<br />
+t2 = DateTime(&quot;2011-05-03 10:00:00&quot;, df)</td>
+</tr>
+<tr>
+<td><a name="strftime"></a><a href="#strftime-note">format datetime</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>datestr(t, &#x27;yyyy-mm-dd HH:MM:SS&#x27;)</td>
+<td>format(t, format=&#x27;%Y-%m-%d %H:%M:%S&#x27;)</td>
+<td>t.strftime(&#x27;%Y-%m-%d %H:%M:%S&#x27;)</td>
+<td>Dates.format(t, &quot;yyyy-mm-dd HH:MM:SS&quot;)</td>
+</tr>
+<tr>
+<td><a name="sleep"></a><a href="#sleep-note">sleep</a></td>
+<td>pause(0.5)</td>
+<td>Sys.sleep(0.5)</td>
+<td>import time<br />
+<br />
+time.sleep(0.5)</td>
+<td>sleep(0.5)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="tuples"></a><a href="#tuples-note">tuples</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="tuple-type"></a><a href="#tuple-type-note">type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>cell</td>
+<td>list</td>
+<td>tuple</td>
+<td>Tuple{<span style="color: gray">T[, <span style="white-space: pre-wrap;">...</span>]</span>}</td>
+</tr>
+<tr>
+<td><a name="tuple-literal"></a><a href="#tuple-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>tup = {1.7, &#x27;hello&#x27;, [1 2 3]}</td>
+<td>tup = list(1.7, &quot;hello&quot;, c(1, 2, 3))</td>
+<td>tup = (1.7, &quot;hello&quot;, [1,2,3])</td>
+<td>tup = (1.7, &quot;foo&quot;, [1, 2, 3])</td>
+</tr>
+<tr>
+<td><a name="tuple-access"></a><a href="#tuple-access-note">lookup element</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray">% indices start at one:</span> <br />
+tup{1}</td>
+<td><span style="color: gray"># indices start at one:</span> <br />
+tup[[1]]</td>
+<td><span style="color: gray"># indices start at zero:</span> <br />
+tup[0]</td>
+<td><span style="color: gray"># indices start at one:</span><br />
+tup[1]</td>
+</tr>
+<tr>
+<td><a name="tuple-update"></a><a href="#tuple-update-note">update element</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>tup{1} = 2.7</td>
+<td>tup[[1]] = 2.7</td>
+<td><span style="color: gray"><em>tuples are immutable</em></span></td>
+<td><span style="color: gray"><em>tuples are immutable</em></span></td>
+</tr>
+<tr>
+<td><a name="tuple-len"></a><a href="#tuple-len-note">length</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(tup)</td>
+<td>length(tup)</td>
+<td>len(tup)</td>
+<td>length(tup)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="arrays"></a><a href="#arrays-note">arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="array-elem-type"></a><a href="#array-elem-type-note">element type</a></td>
+<td><span style="color: gray"><em>always numeric</em></span></td>
+<td><span style="color: gray"># &quot;numeric&quot;:</span><br />
+class(c(1, 2, 3))<br />
+<br />
+<span style="color: gray"># arrays can also have &quot;boolean&quot; or &quot;string&quot; elements</span></td>
+<td><span style="color: gray"># values can have different types:</span><br />
+[type(x) for x in a]</td>
+<td>a = [1, 2, 3]<br />
+<br />
+<span style="color: gray"># Array{Int64, 2}:</span><br />
+typeof(a)<br />
+<span style="color: gray"># Int64:</span><br />
+typeof(a[1])</td>
+</tr>
+<tr>
+<td><a name="array-literal"></a><a href="#array-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = [1, 2, 3, 4]<br />
+<br />
+<span style="color: gray">% commas are optional:</span><br />
+a = [1 2 3 4]</td>
+<td><span style="color: gray"># use c() constructor:</span><br />
+a = c(1, 2, 3, 4)</td>
+<td>a = [1, 2, 3, 4]</td>
+<td>a = [1, 2, 3, 4]</td>
+</tr>
+<tr>
+<td><a name="array-size"></a><a href="#array-size-note">size</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(a)</td>
+<td>length(a)</td>
+<td>len(a)</td>
+<td>length(a)</td>
+</tr>
+<tr>
+<td><a name="array-empty-test"></a><a href="#array-empty-test-note">empty test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(a) == 0<br />
+<br />
+<span style="color: gray">% An array used in a conditional test is<br />
+% false unless nonempty and all entries evaluate<br />
+% as true.</span></td>
+<td>length(a) == 0</td>
+<td>not a</td>
+<td>isempty(a)</td>
+</tr>
+<tr>
+<td><a name="array-lookup"></a><a href="#array-lookup-note">lookup</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray">% Indices start at one:</span><br />
+a(1)</td>
+<td><span style="color: gray"># Indices start at one:</span><br />
+a[1]</td>
+<td><span style="color: gray"># Indices start at zero:</span><br />
+a[0]</td>
+<td><span style="color: gray"># Indices start at one:</span><br />
+a[1]</td>
+</tr>
+<tr>
+<td><a name="array-update"></a><a href="#array-update-note">update</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a(1) = -1</td>
+<td>a[1] = -1</td>
+<td>a[0] = -1</td>
+<td>a[1] = -1</td>
+</tr>
+<tr>
+<td><a name="array-out-of-bounds"></a><a href="#array-out-of-bounds-note">out-of-bounds behavior</a></td>
+<td>a = []<br />
+<br />
+<span style="color: gray">% error:</span><br />
+a(1)<br />
+<br />
+<span style="color: gray">% increases array size to 10;<br />
+% zero-fills slots 1 through 9:</span><br />
+a(10) = 10</td>
+<td>a = c()<br />
+<span style="color: gray"># evaluates as NA:</span><br />
+a[10]<br />
+<span style="color: gray"># increases array size to 10:</span><br />
+a[10] = &quot;lorem&quot;</td>
+<td>a = []<br />
+<span style="color: gray"># raises IndexError:</span><br />
+a[10]<br />
+<span style="color: gray"># raises IndexError:</span><br />
+a[10] = &#x27;lorem&#x27;</td>
+<td>a = []<br />
+<br />
+<span style="color: gray"># raises BoundsError:</span><br />
+a[10]<br />
+<span style="color: gray"># raises BoundsError:</span><br />
+a[10] = &quot;lorem&quot;</td>
+</tr>
+<tr>
+<td><a name="array-element-index"></a><a href="#array-element-index-note">index of element</a></td>
+<td>a = [7 8 9 10 8]<br />
+<br />
+<span style="color: gray">% returns [2 5]:</span><br />
+find(a == 8)<br />
+<br />
+<span style="color: gray">% returns 2:</span><br />
+find(a == 8, 1, &#x27;first&#x27;)</td>
+<td>a = c(&#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;, &#x27;w&#x27;, &#x27;y&#x27;)<br />
+<br />
+<span style="color: gray"># c(2, 5):</span><br />
+which(a == &#x27;y&#x27;)</td>
+<td>a = ['x', &#x27;y&#x27;, &#x27;z&#x27;, &#x27;w&#x27;, &#x27;y&#x27;]<br />
+<br />
+a.index(&#x27;y&#x27;)<span style="white-space: pre-wrap;">&nbsp;&nbsp;&nbsp;</span><span style="color: gray"># 1</span><br />
+a.rindex(&#x27;y&#x27;)<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># 4</span></td>
+<td>a = ["x", &quot;y&quot;, &quot;z&quot;, &quot;w&quot;, &quot;y&quot;]<br />
+<br />
+<span style="color: gray"># 2:</span><br />
+findfirst(a, &quot;y&quot;)<br />
+<span style="color: gray"># 5:</span><br />
+julia&gt; findlast(a, &quot;y&quot;)</td>
+</tr>
+<tr>
+<td><a name="array-slice"></a><a href="#array-slice-note">slice</a><br />
+<span style="color: gray"><em>by endpoints</em></span></td>
+<td>a = ['a' &#x27;b&#x27; &#x27;c&#x27; &#x27;d&#x27; &#x27;e&#x27;]<br />
+<br />
+<span style="color: gray">% ['c' &#x27;d&#x27;]:</span><br />
+a(3:4)</td>
+<td>a = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)<br />
+<br />
+<span style="color: gray"># c(&quot;c&quot;, &quot;d&quot;):</span><br />
+a[seq(3, 4)]</td>
+<td>a = ['a', &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;]<br />
+<br />
+<span style="color: gray"># ['c', &#x27;d&#x27;]:</span><br />
+a[2:4]</td>
+<td>a = ["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]<br />
+<br />
+<span style="color: gray"># ["c", &quot;d&quot;]:</span><br />
+a[3:4]</td>
+</tr>
+<tr>
+<td><a name="array-slice-to-end"></a><a href="#array-slice-to-end-note">slice to end</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = ['a' &#x27;b&#x27; &#x27;c&#x27; &#x27;d&#x27; &#x27;e&#x27;]<br />
+<br />
+<span style="color: gray">% ['c' &#x27;d&#x27; &#x27;e&#x27;]:</span><br />
+a(3:end)</td>
+<td>a = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)<br />
+<br />
+<span style="color: gray"># both return c(&quot;c&quot;, &quot;d&quot;, &quot;e&quot;):</span><br />
+tail(a, n=length(a) - 2)<br />
+a[-1:-2]</td>
+<td>a = ['a', &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;]<br />
+<br />
+<span style="color: gray"># ['c', &#x27;d&#x27;, &#x27;e&#x27;]:</span><br />
+a[2:]</td>
+<td>a = ["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]<br />
+<br />
+<span style="color: gray"># ["c", &quot;d&quot;, &quot;e&quot;]:</span><br />
+a[3:end]</td>
+</tr>
+<tr>
+<td><a name="int-array-as-index"></a><a href="#int-array-as-index">integer array as index</a></td>
+<td>[7 8 9]([1 3 3])</td>
+<td>c(7, 8, 9)[c(1, 3, 3)]</td>
+<td>np.array([7, 8, 9])[[0, 2, 2]]</td>
+<td><span style="color: gray"># [7, 9, 9]:</span><br />
+[7, 8, 9][[1, 3, 3]]</td>
+</tr>
+<tr>
+<td><a name="logical-array-as-index"></a><a href="#logical-array-as-index">logical array as index</a></td>
+<td>[7 8 9]([true false true])</td>
+<td>c(7, 8, 9)[c(T, F, T)]</td>
+<td>np.array([7, 8, 9])[[True, False, True]]</td>
+<td><span style="color: gray"># [7, 9]:</span><br />
+[7, 8, 9][[true, false, true]]</td>
+</tr>
+<tr>
+<td><a name="array-concatenation"></a><a href="#array-concatenation-note">concatenate</a></td>
+<td>a = [1 2 3]<br />
+a2 = [a [4 5 6]]<br />
+a = [a [4 5 6]]<br />
+<span style="color: gray">% or:</span><br />
+a = horzcat(a, a2)</td>
+<td>a = c(1, 2, 3)<br />
+a2 = append(a, c(4, 5, 6))<br />
+a = append(a, c(4, 5, 6))</td>
+<td>a = [1, 2, 3]<br />
+a2 = a + [4, 5, 6]<br />
+a.extend([4, 5, 6])</td>
+<td>a = [1, 2, 3]<br />
+a2 = vcat(a, [4, 5, 6])<br />
+a = vcat(a, [4, 5, 6])</td>
+</tr>
+<tr>
+<td><a name="array-replication"></a><a href="#array-replication-note">replicate</a></td>
+<td>a = repmat(NA, 1, 10)</td>
+<td>a = rep(NA, 10)<br />
+<br />
+<span style="color: gray"># 30 a&#x27;s, 50 b&#x27;s, and 90 c&#x27;s:</span><br />
+rep(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;), c(30, 50, 90))</td>
+<td>a = [None] * 10<br />
+a = [None for i in range(0, 10)]</td>
+<td>fill(NaN, 10)</td>
+</tr>
+<tr>
+<td><a name="array-copy"></a><a href="#array-copy-note">copy</a><br />
+<span style="color: gray"><em>address copy, shallow copy, deep copy</em></span></td>
+<td><span style="color: gray"><em>There is no address copy. Because arrays cannot be nested, there is no distinction between shallow copy and deep copy. Assignment and passing an array to a function can be regarded as performing a shallow or deep copy, though MATLAB does not allocate memory for a 2nd array until one of the arrays is modified.</em></span></td>
+<td><span style="color: gray"><em>Arrays in R behave like arrays in MATLAB.</em></span></td>
+<td>import copy<br />
+<br />
+a = [1, 2, [3, 4]]<br />
+<br />
+a2 = a<br />
+a3 = list(a)<br />
+a4 = copy.deepcopy(a)</td>
+<td>a = Any[1, 2, [3, 4]]<br />
+<br />
+a2 = a<br />
+a3 = copy(a)<br />
+a4 = deepcopy(a)</td>
+</tr>
+<tr>
+<td><a name="array-iteration"></a><a href="#array-iteration-note">iteration</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = [9 7 3]<br />
+for i = 1:numel(a)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x = a(i)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(x)<br />
+end</td>
+<td>for (x in c(9, 7, 3)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(x)<br />
+}</td>
+<td>for i in [9, 7, 3]:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i)</td>
+<td>for i = [9, 7, 3]<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(i)<br />
+end</td>
+</tr>
+<tr>
+<td><a name="indexed-array-iteration"></a><a href="#indexed-array-iteration-note">indexed iteration</a></td>
+<td> </td>
+<td>for (i in seq_along(a)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>cat(sprintf(&quot;%s at index %d\n&quot;, i, a[i]))<br />
+}</td>
+<td>a = ['do', &#x27;re&#x27;, &#x27;mi&#x27;, &#x27;fa&#x27;]<br />
+for i, s in enumerate(a):<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;%s at index %d&#x27; % (s, i))</td>
+<td>a = ["do", &quot;re&quot;, &quot;mi&quot;, &quot;fa&quot;]<br />
+for (i, s) in enumerate(a)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(i, &quot; &quot;, s)<br />
+end</td>
+</tr>
+<tr>
+<td><a name="array-reverse"></a><a href="#array-reverse-note">reverse</a></td>
+<td>a = [1 2 3]<br />
+a2 = fliplr(a)<br />
+a = fliplr(a)</td>
+<td>a = c(1, 2, 3)<br />
+a2 = rev(a)<br />
+a = rev(a)</td>
+<td>a = [1, 2, 3]<br />
+a2 = a[::-1]<br />
+a.reverse()</td>
+<td>a = [1, 2, 3]<br />
+a2 = reverse(a)<br />
+reverse!(a)</td>
+</tr>
+<tr>
+<td><a name="array-sort"></a><a href="#array-sort-note">sort</a></td>
+<td>a = [3 1 4 2]<br />
+a = sort(a)</td>
+<td>a = c(&#x27;b&#x27;, &#x27;A&#x27;, &#x27;a&#x27;, &#x27;B&#x27;)<br />
+a2 = sort(a)<br />
+a = sort(a)</td>
+<td>a = ['b', &#x27;A&#x27;, &#x27;a&#x27;, &#x27;B&#x27;]<br />
+sorted(a)<br />
+a.sort()<br />
+a.sort(key=str.lower)</td>
+<td>a = [3, 1, 4, 2]<br />
+a2 = sort(a)<br />
+sort!(a)</td>
+</tr>
+<tr>
+<td><a name="array-dedupe"></a><a href="#array-dedupe-note">dedupe</a></td>
+<td>a = [1 2 2 3]<br />
+a2 = unique(a)</td>
+<td>a = c(1, 2, 2, 3)<br />
+a2 = unique(a)</td>
+<td>a = [1, 2, 2, 3]<br />
+a2 = list(set(a)))</td>
+<td>a = unique([1, 2, 2, 3])</td>
+</tr>
+<tr>
+<td><a name="membership"></a><a href="#membership-note">membership</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>ismember(7, a)</td>
+<td>7 %in% a<br />
+is.element(7, a)</td>
+<td>7 in a</td>
+<td>7 in a<br />
+7 ∈ a<br />
+a ∋ 7</td>
+</tr>
+<tr>
+<td><a name="intersection"></a><a href="#intersection-note">intersection</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>intersect([1 2], [2 3 4])</td>
+<td>intersect(c(1, 2), c(2, 3, 4))</td>
+<td>{1, 2} &amp; {2, 3, 4}</td>
+<td>intersection([1, 2], [2, 3, 4])<br />
+∩([1, 2], [2, 3, 4])</td>
+</tr>
+<tr>
+<td><a name="union"></a><a href="#union-note">union</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>union([1 2], [2 3 4])</td>
+<td>union(c(1, 2), c(2, 3, 4))</td>
+<td>{1, 2} | {2, 3, 4}</td>
+<td>union([1, 2], [2, 3, 4])<br />
+∪([1, 2], [2, 3, 4])|</td>
+</tr>
+<tr>
+<td><a name="set-diff"></a><a href="#set-diff-note">relative complement, symmetric difference</a></td>
+<td>setdiff([1 2 3], [2])<br />
+<br />
+a1 = [1 2]<br />
+a2 = [2 3 4]<br />
+union(setdiff(a1, a2), setdiff(a2, a1))</td>
+<td>setdiff(c(1, 2, 3), c(2))<br />
+<br />
+union(setdiff(c(1, 2), c(2, 3, 4)),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>setdiff(c(2, 3, 4), c(1, 2)))</td>
+<td>{1, 2, 3} - {2}<br />
+<br />
+{1, 2} ^ {2, 3, 4}</td>
+<td>setdiff([1, 2, 3], [2])<br />
+symdiff([1, 2], [2, 3, 4])</td>
+</tr>
+<tr>
+<td><a name="map"></a><a href="#map-note">map</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>arrayfun( @(x) x*x, [1 2 3])</td>
+<td>sapply(c(1,2,3), function (x) { x * x})</td>
+<td>map(lambda x: x * x, [1, 2, 3])<br />
+<span style="color: gray"># or use list comprehension:</span><br />
+[x * x for x in [1, 2, 3]]</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="filter"></a><a href="#filter-note">filter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = [1 2 3]<br />
+a(a &gt; 2)</td>
+<td>a = c(1, 2, 3)<br />
+a[a &gt; 2]<br />
+<br />
+Filter(function(x) { x &gt; 2}, a)</td>
+<td>filter(lambda x: x &gt; 1, [1, 2, 3])<br />
+<span style="color: gray"># or use list comprehension:</span><br />
+[x for x in [1, 2, 3] if x &gt; 1]</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="reduce"></a><a href="#reduce-note">reduce</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>Reduce(function(x, y) { x + y }, c(1, 2, 3), 0)</td>
+<td>reduce(lambda x, y: x + y, [1 ,2, 3], 0)</td>
+<td>reduce(+, [1, 2, 3])<br />
+foldl(-, 0, [1, 2, 3])<br />
+foldr(-, 0, [1, 2, 3])</td>
+</tr>
+<tr>
+<td><a name="universal-existential-test"></a><a href="#universal-existential-test-note">universal  and existential tests</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>all(mod([1 2 3 4], 2) == 0)<br />
+any(mod([1 2 3 4]) == 0)</td>
+<td>all(c(1, 2, 3, 4) %% 2 == 0)<br />
+any(c(1, 2, 3, 4) %% 2 == 0)</td>
+<td>all(i % 2 == 0 for i in [1, 2, 3, 4])<br />
+any(i % 2 == 0 for i in [1, 2, 3, 4])</td>
+<td>all([x % 2 == 0 for x in [1, 2, 3, 4]])<br />
+any([x % 2 == 0 for x in [1, 2, 3, 4]])</td>
+</tr>
+<tr>
+<td><a name="shuffle-sample"></a><a href="#shuffle-sample-note">shuffle and sample</a></td>
+<td> </td>
+<td>a = c(1, 1, 2, 3, 9, 28)<br />
+sample(a, 3)<br />
+a[sample.int(length(a))]</td>
+<td>from random import shuffle, sample<br />
+<br />
+a = [1, 2, 3, 4]<br />
+shuffle(a)<br />
+sample(a, 2)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="zip"></a><a href="#zip-note">zip</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none; MATLAB arrays can&#x27;t be nested</em></span></td>
+<td><span style="color: gray"># R arrays can&#x27;t be nested.<br />
+# One approximation of zip is a 2d array:</span><br />
+a = rbind(c(1, 2, 3), c(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;))<br />
+<br />
+<span style="color: gray"># To prevent data type coercion, use a data frame:</span><br />
+df = data.frame(numbers=c(1, 2, 3),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>letters=c(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;))</td>
+<td><span style="color: gray"># array of 3 pairs:</span><br />
+a = zip([1, 2, 3], ['a', &#x27;b&#x27;, &#x27;c&#x27;])</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="arithmetic-sequences"></a><a href="#arithmetic-sequences-note">arithmetic sequences</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="arith-seq-diff-one"></a><a href="#arith-seq-diff-one-note">unit difference</a></td>
+<td>1:100</td>
+<td><span style="color: gray"># type integer:</span><br />
+1:100<br />
+seq(1, 100)<br />
+<br />
+<span style="color: gray"># type double:</span><br />
+seq(1, 100, 1)</td>
+<td>range(1, 101)</td>
+<td>1:100</td>
+</tr>
+<tr>
+<td><a name="arith-seq-diff-ten"></a><a href="#arith-seq-diff-ten-note">difference of 10</a></td>
+<td>0:10:100</td>
+<td><span style="color: gray"># type double:</span><br />
+seq(0, 100, 10)</td>
+<td>range(0, 101, 10)</td>
+<td>0:10:100</td>
+</tr>
+<tr>
+<td><a name="arith-seq-diff-tenth"></a><a href="#arith-seq-diff-tenth-note">difference of 0.1</a></td>
+<td>0:0.1:10</td>
+<td>seq(0, 10, 0.1)</td>
+<td>[0.1 * x for x in range(0, 101)]<br />
+<br />
+<span style="color: gray"># 3rd arg is length of sequence, not step size:</span><br />
+sp.linspace(0, 10, 100)</td>
+<td>0:0.1:10</td>
+</tr>
+<tr>
+<td><a name="arith-seq-computed-diff"></a><a href="#arith-seq-computed-diff-note">computed difference</a></td>
+<td><span style="color: gray">% 100 evenly spaced values:</span><br />
+linspace(3.7, 19.4, 100)<br />
+<br />
+<span style="color: gray">% 100 is default num. of elements:</span><br />
+linspace(3.7, 19.4)</td>
+<td> </td>
+<td>numpy.linspace(3.7, 19.4, 100) </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="iter-over-arith-seq"></a><a href="#iter-over-arith-seq-note">iterate</a></td>
+<td> </td>
+<td> </td>
+<td><span style="color: gray"># range replaces xrange in Python 3:</span><br />
+n = 0;<br />
+for i in xrange(1, 1000001):<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n += i</td>
+<td>n = 0<br />
+for i in 1:1000000<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n += i<br />
+end</td>
+</tr>
+<tr>
+<td><a name="arith-seq-to-array"></a><a href="#arith-seq-to-array-note">to array</a></td>
+<td> </td>
+<td> </td>
+<td>a = range(1, 11)<br />
+<span style="color: gray"># Python 3:</span><br />
+a = list(range(1, 11))</td>
+<td>a = Array(1:10)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="two-d-arrays"></a><a href="#two-d-arrays-note">two dimensional arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="array-2d-elem-type"></a><a href="#array-2d-elem-type-note">element type</a></td>
+<td><span style="color: gray"><em>always numeric</em></span></td>
+<td>A = array(c(1, 2, 3, 4), dim=c(2, 2))<br />
+<br />
+<span style="color: gray"># &quot;array&quot;:</span><br />
+class(A)<br />
+<br />
+<span style="color: gray"># &quot;boolean&quot;, &quot;numeric&quot;, or &quot;string&quot;:</span><br />
+class(c(A))</td>
+<td>np.array([[1, 2], [3, 4]]).dtype<br />
+<br />
+<span style="color: gray"># possible values: np.bool, np.int64,<br />
+# np.float64, np.complex128, <span style="white-space: pre-wrap;">...</span></span></td>
+<td>A = [1 2; 3 4]<br />
+<br />
+eltype(A)</td>
+</tr>
+<tr>
+<td><a name="array-2d-literal"></a><a href="#array-2d-literal-note">literal</a></td>
+<td>[1, 2; 3, 4]<br />
+<br />
+<span style="color: gray">% commas optional; newlines can replace semicolons::</span><br />
+[1 2<br />
+<span style="white-space: pre-wrap;">&nbsp;</span>3 4]</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>[1 2; 3 4]<br />
+<br />
+<span style="color: gray"># A 1-d array created with commas is a<br />
+# n×1 array. If commas are used in a literal,<br />
+# then semicolons and spaces as delimiters.</span><br />
+<br />
+[1 2<br />
+<span style="white-space: pre-wrap;">&nbsp;</span>3 4]</td>
+</tr>
+<tr>
+<td><a name="array-2d-construct-seq"></a><a href="#array-2d-construct-seq-note">construct from sequence</a></td>
+<td>reshape([1 2 3 4], 2, 2)</td>
+<td>array(c(1, 2, 3, 4), dim=c(2, 2))</td>
+<td>A = np.array([1, 2, 3, 4]).reshape(2, 2)<br />
+<br />
+<span style="color: gray"># convert to nested Python lists:</span><br />
+A.tolist()</td>
+<td>reshape([1, 2, 3, 4], 2, 2)</td>
+</tr>
+<tr>
+<td><a name="array-2d-construct-rows"></a><a href="#array-2d-construct-rows-note">construct from rows</a></td>
+<td>row1 = [1 2 3]<br />
+row2 = [4 5 6]<br />
+<br />
+A = [row1; row2]</td>
+<td>rbind(c(1, 2, 3), c(4, 5, 6))</td>
+<td>row1 = np.array([1, 2, 3])<br />
+row2 = np.array([4, 5, 6])<br />
+<br />
+np.vstack((row1, row2))<br />
+<br />
+np.array([[1, 2], [3, 4]])</td>
+<td>vcat([1 2 3], [4 5 6])<br />
+<br />
+row1 = [1 2 3]<br />
+row2 = [4 5 6]<br />
+[row1; row2]</td>
+</tr>
+<tr>
+<td><a name="array-2d-construct-columns"></a><a href="#array-2d-construct-columns-note">construct from columns</a></td>
+<td>col1 = [1; 4]<br />
+col2 = [2; 5]<br />
+col3 = [3; 6]<br />
+<br />
+<span style="color: gray">% commas are optional:</span><br />
+A = [col1, col2, col3]</td>
+<td>cbind(c(1, 4), c(2, 5), c(3, 6))</td>
+<td>cols = (<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>np.array([1, 4]),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>np.array([2, 5]),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>np.array([3, 6])<br />
+)<br />
+np.vstack(cols).transpose()</td>
+<td>hcat([1, 4], [2, 5], [3, 6])<br />
+<br />
+col1 = [1, 4]<br />
+col2 = [2, 5]<br />
+col3 = [3, 6]<br />
+[col1 col2 col3]</td>
+</tr>
+<tr>
+<td><a name="array-2d-construct-subarrays"></a><a href="#array-2d-construct-subarrays-note">construct from subarrays</a></td>
+<td>A = [1 3; 2 4]<br />
+<br />
+A4_by_2 = [A; A]<br />
+A2_by_4 = [A A]</td>
+<td>A = matrix(c(1, 2, 3, 4), nrow=2)<br />
+A4_by_2 = rbind(A, A)<br />
+A2_by_4 = cbind(A, A)</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+A2_by_4 = np.hstack([A, A])<br />
+A4_by_2 = np.vstack([A, A])</td>
+<td>A = [1 2; 3 4]<br />
+A4_by_2 = [A; A]<br />
+A2_by_4 = [A A ]</td>
+</tr>
+<tr>
+<td><a name="array-2d-cast"></a><a href="#array-2d-cast-note">cast element type</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="array-2d-size"></a><a href="#array-2d-size-note">size</a><br />
+<span style="color: gray"><em>number of elements, number of dimensions, dimension lengths</em></span></td>
+<td>numel(A)<br />
+ndims(A)<br />
+size(A)<br />
+<br />
+## gray|% length of 1st dimension (i.e. # of rows):##<br />
+size(A, 1)<br />
+<br />
+<span style="color: gray">% length of longest dimension:</span><br />
+length(A)</td>
+<td>length(A)<br />
+length(dim(A))<br />
+dim(A)</td>
+<td>A.size<br />
+A.ndim<br />
+A.shape<br />
+<br />
+<span style="color: gray"># number of rows:</span><br />
+len(A)</td>
+<td>length(A)<br />
+ndims(A)<br />
+size(A)</td>
+</tr>
+<tr>
+<td><a name="array-2d-lookup"></a><a href="#array-2d-lookup-note">lookup</a></td>
+<td><span style="color: gray">% indices start at one:</span><br />
+[1 2; 3 4](1, 1)</td>
+<td><span style="color: gray"># indices start at one:</span><br />
+A = array(c(1, 2, 3, 4), dim=c(2, 2)<br />
+<br />
+A[1, 1]</td>
+<td><span style="color: gray"># indices start at zero:</span><br />
+A = np.array([[1, 2], [3, 4]])<br />
+<br />
+A[0][0] <span style="color: gray"><em>or</em></span><br />
+A[0, 0]</td>
+<td><span style="color: gray"># indices start at one:</span><br />
+A[1, 1]</td>
+</tr>
+<tr>
+<td><a name="array-2d-1d-lookup"></a><a href="#array-2d-1d-lookup-note">1d lookup</a></td>
+<td>A = [2 4; 6 8]<br />
+<span style="color: gray">% returns 8:</span><br />
+A(4)<br />
+<br />
+<span style="color: gray">% convert to column vector of length 4:</span><br />
+A2 = A(:)</td>
+<td>A = array(c(2, 4, 6, 8), dim=c(2, 2))<br />
+<br />
+<span style="color: gray"># returns 8:</span><br />
+A[4]</td>
+<td>A = np.array([[2, 4], [6, 8]])<br />
+<br />
+<span style="color: gray"># returns np.array([6, 8]):</span><br />
+A[1]<br />
+<br />
+<span style="color: gray"># returns 8:</span><br />
+A.flat[3]</td>
+<td>A = [2 4; 6 8]<br />
+<br />
+<span style="color: gray"># returns 8:</span><br />
+A[4]</td>
+</tr>
+<tr>
+<td><a name="array-2d-slice"></a><a href="#array-2d-slice-note">lookup row or column</a></td>
+<td>A = [1 2 3; 4 5 6; 7 8 9]<br />
+<br />
+<span style="color: gray">% 2nd row:</span><br />
+A(2, :)<br />
+<br />
+<span style="color: gray">% 2nd column:</span><br />
+A(:, 2)</td>
+<td>A = t(array(1:9, dim=c(3, 3)))<br />
+<br />
+<span style="color: gray"># 2nd row:</span><br />
+A[2, ]<br />
+<br />
+<span style="color: gray"># 2nd column:</span><br />
+A[, 2]</td>
+<td>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br />
+<br />
+<span style="color: gray"># 2nd row:</span><br />
+A[1, :]<br />
+<br />
+<span style="color: gray"># 2nd column:</span><br />
+A[:, 1]</td>
+<td> A = [1 2 3; 4 5 6; 7 8 9]<br />
+<br />
+<span style="color: gray"># 2nd row:</span><br />
+A[2, :]<br />
+<br />
+<span style="color: gray"># 2nd column:</span><br />
+A[:, 2]</td>
+</tr>
+<tr>
+<td><a name="array-2d-update"></a><a href="#array-2d-update-note">update</a></td>
+<td>A = [2 4; 6 8]<br />
+A(1, 1) = 3</td>
+<td>A = array(c(2, 4, 6, 8), dim=c(2, 2))<br />
+A[1, 1] = 3</td>
+<td>A = np.array([[2, 4], [6, 8]])<br />
+A[0, 0] = 3</td>
+<td>A = [2 4; 6 8]<br />
+A[1, 1] = 3</td>
+</tr>
+<tr>
+<td><a name="array-2d-update-row-col"></a><a href="#array-2d-update-row-col-note">update row or column</a></td>
+<td>A = [1 2; 3 4]<br />
+<br />
+<span style="color: gray">% [2 1; 3 4]:</span><br />
+A(1, :) = [2 1]<br />
+<br />
+<span style="color: gray">% [3 1; 2 4]:</span><br />
+A(:, 1) = [3 2] </td>
+<td>A = t(array(1:4, dim=c(2, 2)))<br />
+<br />
+A[1, ] = c(2, 1)<br />
+A[, 1] = c(3, 2)</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+<br />
+A[0, :] = [2, 1]<br />
+<span style="color: gray"># or</span><br />
+A[0] = [2, 1]<br />
+<br />
+A[:, 0] = [3, 2]</td>
+<td>A = [1 2; 3 4]<br />
+<br />
+A[1, :] = [2 1]<br />
+A[:, 1] = [3; 2]</td>
+</tr>
+<tr>
+<td><a name="array-2d-update-subarray"></a><a href="#array-2d-update-subarray-note">update subarray</a></td>
+<td>A = ones(3, 3)<br />
+A(1:2, 1:2) = 2 * ones(2, 2)<br />
+<span style="color: gray">% or just:</span><br />
+A(1:2, 1:2) = 2</td>
+<td>A = array(1, dim=c(3, 3))<br />
+A[1:2, 1:2] = array(2, dim=c(2, 2))<br />
+<span style="color: gray"># or just:</span><br />
+A[1:2, 1:2] = 2</td>
+<td>A = np.ones([3, 3])<br />
+A[0:2, 0:2] = 2 * np.ones([2, 2])</td>
+<td>A = ones(3, 3)<br />
+A[1:2, 1:2] = 2 * ones(2, 2)</td>
+</tr>
+<tr>
+<td><a name="array-2d-out-of-bounds"></a><a href="#array-2d-out-of-bounds-note">out-of-bounds behavior</a></td>
+<td>A = [2 4; 6 8]<br />
+<br />
+<span style="color: gray">% error:</span><br />
+x = A(3, 1)<br />
+<br />
+<span style="color: gray">% becomes 3x2 array with zero at (3, 2):</span><br />
+A(3, 1) = 9</td>
+<td><span style="color: gray"><em>Lookups and updates both cause subscript out of bounds error.</em></span></td>
+<td><span style="color: gray"><em>Lookups and updates both raise an</em> IndexError <em>exception.</em></span></td>
+<td><span style="color: gray">BoundsError</span></td>
+</tr>
+<tr>
+<td><a name="array-2d-slice-subarray"></a><a href="#array-2d-slice-subarray-note">slice subarray</a></td>
+<td>A = reshape(1:16, 4, 4)&#x27;<br />
+<br />
+<span style="color: gray">% top left 2x2 subarray:</span><br />
+A(1:2, 1:2)<br />
+<br />
+<span style="color: gray">% bottom right 2x2 subarray:</span><br />
+A(end-1:end, end-1:end)<br />
+<br />
+<span style="color: gray">% 2x2 array containing corners:</span><br />
+A([1 4], [1 4])<br />
+A([1 end], [1 end])</td>
+<td>A = t(array(1:16, dim=c(4, 4)))<br />
+<br />
+<span style="color: gray"># top left 2x2 subarray:</span><br />
+A[1:2, 1:2]<br />
+<br />
+<span style="color: gray"># bottom right 2x2 subarray:</span><br />
+A[-1:-2, -1:-2]<br />
+<br />
+<span style="color: gray"># 2x2 array containing corners:</span><br />
+A[c(1, 4), c(1, 4)]</td>
+<td>A = np.array(range(1, 17)).reshape(4, 4)<br />
+<br />
+<span style="color: gray"># top left 2x2 subarray:</span><br />
+A[0:2, 0:2]<br />
+<br />
+<span style="color: gray"># bottom right 2x2 subarray:</span><br />
+A[2:, 2:]</td>
+<td>A = reshape(1:16, 4, 4)<br />
+<br />
+A[1:2, 1:2]<br />
+<br />
+A[3:4, 3:4]</td>
+</tr>
+<tr>
+<td><a name="array-2d-transpose"></a><a href="#array-2d-transpose-note">transpose</a></td>
+<td>A = [1 2; 3 4]<br />
+<br />
+transpose(A)</td>
+<td>A = array(c(1, 2, 3, 4), dim=c(2, 2))<br />
+t(A)</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+A.transpose()<br />
+A.T</td>
+<td>A = [1 2; 3 4]<br />
+<br />
+transpose(A)</td>
+</tr>
+<tr>
+<td><a name="array-2d-flip"></a><a href="#array-2d-flip-note">flip</a></td>
+<td><span style="color: gray">% [ 2 1; 4 3]:</span><br />
+fliplr([1 2; 3 4])<br />
+<br />
+<span style="color: gray">% [3 4; 1 2]:</span><br />
+flipud([1 2; 3 4])</td>
+<td><span style="color: gray"># install.packages(&#x27;pracma&#x27;):</span><br />
+require(pracma)<br />
+<br />
+A = t(array(1:4, dim=c(2, 2)))<br />
+<br />
+fliplr(A)<br />
+flipud(A)</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+<br />
+np.fliplr(A)<br />
+np.flipud(A)</td>
+<td><span style="color: gray"># [2 1; 4 3]:</span><br />
+flipdim([1 2; 3 4], 2)<br />
+<br />
+<span style="color: gray"># [3 4; 1 2]:</span><br />
+flipdim([1 2; 3 4], 1)</td>
+</tr>
+<tr>
+<td><a name="array-2d-circular-shift"></a><a href="#array-2d-circular-shift-note">circular shift</a><br />
+<br />
+<span style="color: gray"><em>along columns, along rows</em></span></td>
+<td>A = [1 2; 3, 4]<br />
+<br />
+<span style="color: gray">% [3 4; 1 2]:</span><br />
+circshift(A, 1)<br />
+<br />
+<span style="color: gray">% [2 1; 4 3]:</span><br />
+circshift(A, 1, 2)<br />
+<br />
+<span style="color: gray">% The 2nd argument can be any integer; negative values shift<br />
+% in the opposite direction.</span></td>
+<td><span style="color: gray"># install.packages(&#x27;pracma&#x27;):</span><br />
+require(pracma)<br />
+<br />
+A = t(array(1:4, dim=c(2, 2)))<br />
+<br />
+circshift(A, c(1, 0))<br />
+circshift(A, c(0, 1))</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+<br />
+np.roll(A, 1, axis=0)<br />
+np.roll(A, 1, axis=1)</td>
+<td>circshift([1 2; 3 4], [1, 0])<br />
+circshift([1 2; 3 4], [0, 1])</td>
+</tr>
+<tr>
+<td><a name="array-2d-rotate"></a><a href="#array-2d-rotate-note">rotate</a><br />
+<span style="color: gray"><em>clockwise, counter-clockwise</em></span></td>
+<td>A = [1 2; 3 4]<br />
+<br />
+<span style="color: gray">% [3 1; 4 2]:</span><br />
+rot90(A, -1)<br />
+<br />
+<span style="color: gray">% [2 4; 1 3]:</span><br />
+rot90(A)<br />
+<br />
+<span style="color: gray">% set 2nd arg to 2 for 180 degree rotation</span></td>
+<td><span style="color: gray"># install.packages(&#x27;pracma&#x27;):</span><br />
+require(pracma)<br />
+<br />
+A = t(array(1:4, dim=c(2, 2)))<br />
+<br />
+rot90(A)<br />
+rot90(A, -1)<br />
+rot90(A, 2)</td>
+<td>A = np.array([[1, 2], [3, 4]])<br />
+<br />
+np.rot90(A)<br />
+np.rot90(A, -1)<br />
+np.rot90(A, 2)</td>
+<td>A = [1 2; 3 4]<br />
+<br />
+rotr90(A)<br />
+rotl90(A)<br />
+rotr90(A, 2)</td>
+</tr>
+<tr>
+<td><a name="array-2d-reduce"></a><a href="#array-2d-reduce-note">reduce</a><br />
+<span style="color: gray"><em>rows, columns</em></span></td>
+<td>M = [1 2; 3 4]<br />
+<br />
+<span style="color: gray">% sum each row:</span><br />
+cellfun(@sum, num2cell(M, 2))<br />
+<br />
+<span style="color: gray">% sum each column:</span><br />
+cellfun(@sum, num2cell(M, 1))<br />
+<br />
+<span style="color: gray">% sum(M, 2) and sum(M, 1) also sum rows and columns</span></td>
+<td>M = matrix(c(1, 2, 3, 4), nrow=2)<br />
+<br />
+<span style="color: gray"># sum each row:</span><br />
+apply(M, 1, sum)<br />
+<br />
+<span style="color: gray"># sum each column:</span><br />
+apply(M, 2, sum)</td>
+<td>M = np.array([[1, 2], [3, 4]])<br />
+<br />
+np.add.reduce(A, 1)<br />
+<br />
+np.add.reduce(A, 0)<br />
+<br />
+<span style="color: gray"># np.add is a built-in universal function. All universal functions have a reduce method.</span><br />
+<br />
+<span style="color: gray"># np.sum(A, 1,) and np.sum(A, 0) also sum rows and columns</span></td>
+<td>A = [1 2; 3 4]<br />
+<br />
+<span style="color: gray">[3; 7]:</span><br />
+reducedim(+, A, [2], 0)<br />
+<br />
+<span style="color: gray">[4 6]:</span><br />
+reducedim(+, A, [1], 0)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="three-d-arrays"></a><a href="#three-d-arrays-note">three dimensional arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="array-3d-construct-seq"></a><a href="#array-3d-construct-seq-note">construct from sequence</a></td>
+<td>reshape([1 2 3 4 5 6 7 8], 2, 2, 2)</td>
+<td>array(seq(1, 8), dim=c(2, 2, 2))</td>
+<td>np.array(range(1, 9)).reshape(2, 2, 2)</td>
+<td>reshape(1:8, 2, 2, 2)</td>
+</tr>
+<tr>
+<td><a name="array-3d-construct-nested-seq"></a><a href="#array-3d-construct-nested-seq-note">construct from nested sequences</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="array-3d-construct-2d-arrays"></a><a href="#array-3d-construct-2d-arrays-note">construct 3d array from 2d arrays</a></td>
+<td>A = [1, 2; 3, 4]<br />
+A(:,:,2) = [5, 6; 7, 8]</td>
+<td> </td>
+<td> </td>
+<td>A = Array{Float64}(2, 2, 2)<br />
+A[:, :, 1] = [1 2; 3 4]<br />
+A[:, :, 2] = [5 6; 7 8]</td>
+</tr>
+<tr>
+<td><a name="array-3d-permute-axes"></a><a href="#array-3d-permute-axes-note">permute axes</a></td>
+<td>A = reshape([1 2 3 4 5 6 7 8], 2, 2, 2)<br />
+<br />
+<span style="color: gray">% swap 2nd and 3rd axes:</span><br />
+permute(A, [1 3 2])</td>
+<td>A = array(1:8, dim=c(2, 2, 2))<br />
+<br />
+<span style="color: gray"># swap 2nd and 3rd axes:</span><br />
+aperm(A, perm=c(1, 3, 2))</td>
+<td>A = np.array(range(1, 9)).reshape(2, 2, 2)<br />
+<br />
+<span style="color: gray"># swap 2nd and 3rd axes:</span><br />
+A.transpose((0, 2, 1))</td>
+<td>A = reshape(1:8, 2, 2, 2)<br />
+<br />
+<span style="color: gray"># swap 2nd and 3rd axes:</span><br />
+reshape(A, [1, 3, 2])</td>
+</tr>
+<tr>
+<td><a name="array-3d-flip"></a><a href="#array-3d-flip-note">flip</a></td>
+<td>A = reshape([1 2 3 4 5 6 7 8], 2, 2, 2) <br />
+<br />
+flipdim(A, 3)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>A = reshape(1:8, 2, 2, 2)<br />
+<br />
+flipdim(A, 3)</td>
+</tr>
+<tr>
+<td><a name="array-3d-circular-shift"></a><a href="#array-3d-circular-shift-note">circular shift</a></td>
+<td>A = reshape([1 2 3 4 5 6 7 8], 2, 2, 2)<br />
+<br />
+<span style="color: gray">% 3rd arg specifies axis:</span><br />
+circshift(A, 1, 3)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>A = np.array(range(1, 9)).reshape(2, 2, 2)<br />
+<br />
+np.roll(A, 1, axis=2)</td>
+<td>A = reshape(1:8, 2, 2, 2)<br />
+<br />
+circshift(A, [0, 0, 1])</td>
+</tr>
+<tr>
+<th colspan="5"><a name="dictionaries"></a><a href="#dictionaries-note">dictionaries</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="dict-literal"></a><a href="#dict-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray">% no literal; use constructor:</span><br />
+d = struct(&#x27;n&#x27;, 10, &#x27;avg&#x27;, 3.7, &#x27;sd&#x27;, 0.4)<br />
+<br />
+<span style="color: gray">% or build from two cell arrays:</span><br />
+d = cell2struct({10 3.7 0.4}, {&#x27;n&#x27; &#x27;avg&#x27; &#x27;sd&#x27;}, 2)</td>
+<td><span style="color: gray"># keys are &#x27;n&#x27;, &#x27;avg&#x27;, and &#x27;sd&#x27;:</span><br />
+d = list(n=10, avg=3.7, sd=0.4)<br />
+<br />
+<span style="color: gray"># keys are 1, 2, and 3:</span><br />
+d2 = list(&#x27;do&#x27;, &#x27;re&#x27;, &#x27;mi&#x27;)</td>
+<td>d = {&#x27;n&#x27;: 10, &#x27;avg&#x27;: 3.7, &#x27;sd&#x27;: 0.4}</td>
+<td>d = Dict(&quot;n&quot;=&gt;10.0, &quot;avg&quot;=&gt;3.7, &quot;sd&quot;=&gt;0.4)</td>
+</tr>
+<tr>
+<td><a name="dict-size"></a><a href="#dict-size-note">size</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>length(fieldnames(d))</td>
+<td>length(d)</td>
+<td>len(d)</td>
+<td>length(d)</td>
+</tr>
+<tr>
+<td><a name="dict-lookup"></a><a href="#dict-lookup-note">lookup</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d.n<br />
+getfield(d, &#x27;n&#x27;)</td>
+<td>d[['n']]<br />
+<br />
+<span style="color: gray"># if &#x27;n&#x27; is a key:</span><br />
+d$n</td>
+<td>d[&#x27;n&#x27;]</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-update"></a><a href="#dict-update-note">update</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d.var = d.sd<span style="white-space: pre-wrap;">**2</span></td>
+<td>d$var = d$sd<span style="white-space: pre-wrap;">**</span>2</td>
+<td>d[&#x27;var&#x27;] = d[&#x27;sd&#x27;]<span style="white-space: pre-wrap;">**</span>2</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-missing-key"></a><a href="#dict-missing-key-note">missing key behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td>NULL</td>
+<td><span style="color: gray"><em>raises</em> KeyError</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-is-key-present"></a><a href="#dict-is-key-present-note">is key present</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>isfield(d, &#x27;var&#x27;)</td>
+<td>is.null(d$var)</td>
+<td>&#x27;var&#x27; in d</td>
+<td>haskey(d, &quot;var&quot;)</td>
+</tr>
+<tr>
+<td><a name="dict-delete"></a><a href="#dict-delete-note">delete</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d = rmfield(d, &#x27;sd&#x27;)</td>
+<td>d$sd = NULL</td>
+<td>del(d[&#x27;sd&#x27;])</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-iterate"></a><a href="#dict-iterate-note">iterate</a></td>
+<td>for i = 1:numel(fieldnames(d))<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>k = fieldnames(d){i}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>v = d.(k)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><em>code</em></span><br />
+end</td>
+<td>for (k in names(d)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>v = d[[k]]<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><em>code</em></span><br />
+}</td>
+<td>for k, v in d.iteritems():<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><em>code</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-keys-values-arrays"></a><a href="#dict-keys-values-arrays-note">keys and values as arrays</a></td>
+<td><span style="color: gray">% these return cell arrays:</span><br />
+fieldnames(d)<br />
+struct2cell(d)</td>
+<td>names(d)<br />
+unlist(d, use.names=F)</td>
+<td>d.keys()<br />
+d.values()</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-merge"></a><a href="#dict-merge-note">merge</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>d1 = list(a=1, b=2)<br />
+d2 = list(b=3, c=4)<br />
+<span style="color: gray"># values of first dictionary take precedence:</span><br />
+d3 = c(d1, d2)</td>
+<td>d1 = {&#x27;a&#x27;:1, &#x27;b&#x27;:2}<br />
+d2 = {&#x27;b&#x27;:3, &#x27;c&#x27;:4}<br />
+d1.update(d2)</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="functions"></a><a href="#functions-note">functions</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="def-func"></a><a href="#def-func-note">define function</a></td>
+<td>function add(x, y)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x + y<br />
+end</td>
+<td>add = function(x, y) {x + y}</td>
+<td> </td>
+<td>function add(x,y)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x + y<br />
+end<br />
+<br />
+<span style="color: gray"># optional syntax when body is an expression:</span><br />
+add(x, y) = x + y</td>
+</tr>
+<tr>
+<td><a name="invoke-func"></a><a href="#invoke-func-note">invoke function</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>add(3, 7)</td>
+<td>add(3, 7)</td>
+<td> </td>
+<td>add(3, 7)</td>
+</tr>
+<tr>
+<td><a name="nested-func"></a><a href="#nested-func-note">nested function</a></td>
+<td>function ret1 = add3(x, y, z)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function ret2 = add2(x, y)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ret2 = x + y;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>end<br />
+<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ret1 = add2(x, y) + z;<br />
+end</td>
+<td>add3 = function(x, y, z) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>add2 = function(x, y) { x + y }<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>add2(x, y) + z<br />
+}</td>
+<td> </td>
+<td>function add3(x, y, z)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function add2(x2, y2)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x2 + y2<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>end<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>add2(x, y) + z<br />
+end</td>
+</tr>
+<tr>
+<td><a name="missing-arg"></a><a href="#missing-arg-note">missing argument behavior</a></td>
+<td><span style="color: gray"><em>raises error if code with the parameter that is missing an argument is executed</em></span></td>
+<td><span style="color: gray"><em>raises error</em></span></td>
+<td> </td>
+<td><span style="color: gray"><em>raises</em> MethodError</span></td>
+</tr>
+<tr>
+<td><a name="extra-arg"></a><a href="#extra-arg-note">extra argument behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>ignored</em></span></td>
+<td><span style="color: gray"><em>raises error</em></span></td>
+<td> </td>
+<td><span style="color: gray"><em>raises</em> MethodError</span></td>
+</tr>
+<tr>
+<td><a name="default-arg"></a><a href="#default-arg-note">default argument</a></td>
+<td>function mylog(x, base=10)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>log(x) / log(base)<br />
+end</td>
+<td>mylog = function(x,base=10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>log(x) / log(base)<br />
+}</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="variadic-func"></a><a href="#variadic-func-note">variadic function</a></td>
+<td>function s = add(varargin)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if nargin == 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>s = 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>else<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>r = add(varargin{2:nargin})<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>s = varargin{1} + r<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>end<br />
+end</td>
+<td>add = function (<span style="white-space: pre-wrap;">...</span>) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>a = list(<span style="white-space: pre-wrap;">...</span>)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (length(a) == 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return(0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>s = 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>for(i in 1:length(a)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>s = s + a[[i]]<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return(s)<br />
+}</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="retval"></a><a href="#retval-note">return value</a></td>
+<td>function ret = add(x, y)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ret = x + y;<br />
+end<br />
+<br />
+<span style="color: gray">% If a return variable is declared, the<br />
+% value assigned to it is returned. Otherwise<br />
+% the value of the last statement will be<br />
+% used if it does not end with a semicolon.</span></td>
+<td><span style="color: gray">return <em>argument or last expression evaluated.</em> NULL <em>if</em> return <em>called without an argument.</em></span></td>
+<td> </td>
+<td><span style="color: gray">return <em>argument or last expression evaluated.</em> Void <em>if</em> return <em>called without an argument.</em></span></td>
+</tr>
+<tr>
+<td><a name="multiple-retval"></a><a href="#multiple-retval-note">multiple return values</a></td>
+<td>function [x, y] = first_two(a)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x = a(1);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>y = a(2);<br />
+end<br />
+<br />
+<span style="color: gray">% sets first to 7; second to 8:</span><br />
+[first, second] = first_two([7 8 9])</td>
+<td> </td>
+<td> </td>
+<td>function first_two(a)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>a[1], a[2]<br />
+end<br />
+<br />
+x, y = first_two([1, 2, 3])</td>
+</tr>
+<tr>
+<td><a name="anonymous-func-literal"></a><a href="#anonymous-func-literal-note">anonymous function literal</a></td>
+<td><span style="color: gray">% body must be an expression:</span><br />
+@(x, y) x + y</td>
+<td>function(x, y) {x + y}</td>
+<td> </td>
+<td>add = (x, y) -&gt; x + y<br />
+<br />
+add = function(x, y)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>x + y<br />
+end</td>
+</tr>
+<tr>
+<td><a name="invoke-anonymous-func"></a><a href="#invoke-anonymous-func-note">invoke anonymous function</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>add(1, 2)</td>
+</tr>
+<tr>
+<td><a name="closure"></a><a href="#closure-note">closure</a></td>
+<td> </td>
+<td>make_counter = function() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i = 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i <span style="white-space: pre-wrap;">&lt;&lt;</span>- i + 1<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="func-as-val"></a><a href="#func-as-val-note">function as value</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>@add</td>
+<td>add</td>
+<td> </td>
+<td>add</td>
+</tr>
+<tr>
+<td><a name="overload-operator"></a><a href="#overload-operator-note">overload operator</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="call-op-like-func"></a><a href="#call-op-like-func-note">call operator like function</a></td>
+<td> </td>
+<td><span style="white-space: pre-wrap;">`+`</span>(3, 7)</td>
+<td> </td>
+<td>+(3, 7)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="execution-control"></a><a href="#execution-control-note">execution control</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="if"></a><a href="#if-note">if</a></td>
+<td>if (x &gt; 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(&#x27;positive&#x27;)<br />
+elseif (x &lt; 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(&#x27;negative&#x27;)<br />
+else<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(&#x27;zero&#x27;)<br />
+end</td>
+<td>if (x &gt; 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;positive&#x27;)<br />
+} else if (x &lt; 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;negative&#x27;)<br />
+} else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;zero&#x27;)<br />
+}</td>
+<td>if x &gt; 0:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;positive&#x27;)<br />
+elif x &lt; 0:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;negative&#x27;)<br />
+else:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;zero&#x27;)</td>
+<td>if x &gt; 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(&quot;positive&quot;)<br />
+elseif x &lt; 0<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(&quot;negative&quot;)<br />
+else<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(&quot;zero&quot;)<br />
+end</td>
+</tr>
+<tr>
+<td><a name="while"></a><a href="#while-note">while</a></td>
+<td>i = 0<br />
+while (i &lt; 10)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i = i + 1<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(i)<br />
+end</td>
+<td>while (i &lt; 10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i = i + 1<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i)<br />
+}</td>
+<td>while i &lt; 10:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i += 1<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i)</td>
+<td>i = 0<br />
+while i &lt; 10<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i += 1<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(i)<br />
+end</td>
+</tr>
+<tr>
+<td><a name="for"></a><a href="#for-note">for</a></td>
+<td>for i = 1:10<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(i)<br />
+end</td>
+<td>for (i in 1:10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i)<br />
+}</td>
+<td>for i in range(1,11):<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i)</td>
+<td>for i = 1:10<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>println(i)<br />
+end</td>
+</tr>
+<tr>
+<td><a name="break-continue"></a><a href="#break-continue-note">break/continue</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>break continue</td>
+<td>break next</td>
+<td>break continue</td>
+<td>break continue</td>
+</tr>
+<tr>
+<td><a name="raise-exc"></a><a href="#raise-exc-note">raise exception</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>error(&#x27;%s&#x27;, &#x27;failed&#x27;)</td>
+<td>stop(&#x27;failed&#x27;)</td>
+<td>raise Exception(&#x27;failed&#x27;)</td>
+<td>throw(&quot;failed&quot;)</td>
+</tr>
+<tr>
+<td><a name="handle-exc"></a><a href="#handle-exc-note">handle exception</a></td>
+<td>try<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error(&#x27;failed&#x27;)<br />
+catch err<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>disp(err)<br />
+end</td>
+<td>tryCatch(<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>stop(&#x27;failed&#x27;),<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error=function(e) print(message(e)))</td>
+<td>try:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>raise Exception(&#x27;failed&#x27;)<br />
+except Exception as e:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(e)</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="file-handle"></a><a href="#file-handle-note">file handles</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="std-file-handles"></a><a href="#std-file-handles-note">standard file handles</a></td>
+<td>0 1 2<br />
+<br />
+<span style="color: gray">% Octave has predefined variables<br />
+% containing the above descriptors:</span><br />
+stdin stdout stderr</td>
+<td>stdin() stdout() stderr()</td>
+<td>sys.stdin sys.stdout sys.stderr</td>
+<td>STDIN STDOUT STDERR</td>
+</tr>
+<tr>
+<td><a name="read-line-stdin"></a><a href="#read-line-stdin-note">read line from stdin</a></td>
+<td>line = input(&#x27;&#x27;, &#x27;s&#x27;)</td>
+<td>line = readLines(n=1)</td>
+<td>line = sys.stdin.readline()</td>
+<td>line = readline()</td>
+</tr>
+<tr>
+<td><a name="write-line-stdout"></a><a href="#write-line-stdout-note">write line to stdout</a></td>
+<td>fprintf(1, &#x27;hello\n&#x27;)</td>
+<td>cat(&quot;hello\n&quot;)<br />
+<br />
+writeLines(&quot;hello&quot;)</td>
+<td>print(&#x27;hello&#x27;)</td>
+<td>println(&quot;hello&quot;)</td>
+</tr>
+<tr>
+<td><a name="printf"></a><a href="#printf-note">write formatted string to stdout</a></td>
+<td>fprintf(1, &#x27;%.2f\n&#x27;, pi)</td>
+<td>cat(sprintf(&quot;%.2f\n&quot;, pi))</td>
+<td>import math<br />
+<br />
+print(&#x27;%.2f&#x27; % math.pi)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="open-file"></a><a href="#open-file-note">open file for reading</a></td>
+<td>f = fopen(&#x27;/etc/hosts&#x27;)<br />
+if (f == -1)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error(&#x27;failed to open file&#x27;)<br />
+end</td>
+<td>f = file(&quot;/etc/hosts&quot;, &quot;r&quot;)</td>
+<td>f = open(&#x27;/etc/hosts&#x27;)</td>
+<td>f = open(&quot;/etc/hosts&quot;)</td>
+</tr>
+<tr>
+<td><a name="open-file-write"></a><a href="#open-file-write-note">open file for writing</a></td>
+<td>if ((f = fopen(&#x27;/tmp/test&#x27;, &#x27;w&#x27;) == -1)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error(&#x27;failed to open file&#x27;)<br />
+endif</td>
+<td>f = file(&quot;/tmp/test&quot;, &quot;w&quot;)</td>
+<td>f = open(&#x27;/tmp/test&#x27;, &#x27;w&#x27;)</td>
+<td>f = open(&quot;/etc/hosts&quot;, &quot;w&quot;)</td>
+</tr>
+<tr>
+<td><a name="open-file-append"></a><a href="#open-file-append-note">open file for appending</a></td>
+<td>if ((f = fopen(&#x27;/tmp/err.log&#x27;, &#x27;a&#x27;) == -1)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error(&#x27;failed to open file&#x27;)<br />
+endif</td>
+<td>f = file(&quot;/tmp/err.log&quot;, &quot;a&quot;)</td>
+<td>f = open(&#x27;/tmp/err.log&#x27;, &#x27;a&#x27;)</td>
+<td>f = open(&quot;/tmp/err.log&quot;, &quot;a&quot;)</td>
+</tr>
+<tr>
+<td><a name="close-file"></a><a href="#close-file-note">close file</a></td>
+<td>fclose(f)</td>
+<td>close(f)</td>
+<td>f.close()</td>
+<td>close(f)</td>
+</tr>
+<tr>
+<td><a name="io-err"></a><a href="#io-err-note">i/o errors</a></td>
+<td><span style="color: gray">fopen <em>returns -1;</em> fclose <em>throws an error</em></span></td>
+<td> </td>
+<td><span style="color: gray"><em>raise</em> IOError <em>exception</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="read-line"></a><a href="#read-line-note">read line</a></td>
+<td>line = fgets(f)</td>
+<td>line = readLines(f, n=1)</td>
+<td>line = f.readline()</td>
+<td>line = readline(f)</td>
+</tr>
+<tr>
+<td><a name="file-iterate"></a><a href="#file-iterate-note">iterate over file by line</a></td>
+<td>while(!feof(f))<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>line = fgets(f)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>puts(line)<br />
+endwhile</td>
+<td> </td>
+<td>for line in f:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(line)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="read-file-array"></a><a href="#read-file-array-note">read file into array of strings</a></td>
+<td> </td>
+<td>lines = readLines(f)</td>
+<td>lines = f.readlines()</td>
+<td>lines = readlines(f)</td>
+</tr>
+<tr>
+<td><a name="write-str"></a><a href="#write-str-note">write string</a></td>
+<td>fputs(f, &#x27;lorem ipsum&#x27;)</td>
+<td>cat(&quot;lorem ipsum&quot;, file=f)</td>
+<td>f.write(&#x27;lorem ipsum&#x27;)</td>
+<td>write(f, &quot;lorem ipsum&quot;)</td>
+</tr>
+<tr>
+<td><a name="write-line"></a><a href="#write-line-note">write line</a></td>
+<td>fputs(f, &#x27;lorem ipsum\n&#x27;)</td>
+<td>writeLines(&quot;lorem ipsum&quot;, con=f)</td>
+<td>f.write(&#x27;lorem ipsum\n&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="flush"></a><a href="#flush-note">flush file handle</a></td>
+<td>fflush(f)</td>
+<td>flush(f)</td>
+<td>f.flush()</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="seek"></a><a href="#seek-note">file handle position</a><br />
+<span style="color: gray"><em>get, set</em></span></td>
+<td>ftell(f)<br />
+<br />
+<span style="color: gray">% 3rd arg can be SEEK_CUR or SEEK_END</span><br />
+fseek(f, 0, SEEK_SET)</td>
+<td>seek(f)<br />
+<br />
+<span style="color: gray"># sets seek point to 12 bytes after start;<br />
+# origin can also be &quot;current&quot; or &quot;end&quot;</span><br />
+seek(f, where=0, origin=&quot;start&quot;)</td>
+<td>f.tell()<br />
+<br />
+f.seek(0)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="redirect-stdout-to-file"></a><a href="#redirect-stdout-to-file-note">redirect stdout to file</a></td>
+<td> </td>
+<td>sink(&quot;foo.txt&quot;)</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>write variables to file</td>
+<td>A = [1 2; 3 4]<br />
+B = [4 3; 2 1]<br />
+<br />
+save(&#x27;data.mdata&#x27;, &#x27;A&#x27;, &#x27;B&#x27;)</td>
+<td>A = matrix(c(1, 3, 2, 4), nrow=2)<br />
+B = matrix(c(4, 2, 3, 1), nrow=2)<br />
+<br />
+save(A, B, file=&#x27;data.rdata&#x27;)</td>
+<td>A = np.matrix([[1, 2], [3, 4]])<br />
+B = np.matrix([[4, 3], [2, 1]])<br />
+<br />
+<span style="color: gray"># Data must be of type np.array;</span><br />
+<span style="color: gray"># file will have .npz suffix:</span><br />
+np.savez(&#x27;data&#x27;, A=A, B=B)</td>
+<td> </td>
+</tr>
+<tr>
+<td>read variables from file</td>
+<td><span style="color: gray">% puts A and B in scope:</span><br />
+load(&#x27;data.mdata&#x27;)<br />
+<br />
+<span style="color: gray">% puts just A in scope:</span><br />
+load(&#x27;data.mdata&#x27;, &#x27;A&#x27;)</td>
+<td><span style="color: gray"># puts A and B in scope:</span><br />
+load(&#x27;data.rdata&#x27;)</td>
+<td>data = np.load(&#x27;data.npz&#x27;)<br />
+A = data[&#x27;A&#x27;]<br />
+B = data[&#x27;B&#x27;]</td>
+<td> </td>
+</tr>
+<tr>
+<td>write all variables in scope to file</td>
+<td>save(&#x27;data.txt&#x27;)</td>
+<td>save.image(&#x27;data.txt&#x27;)</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="directories"></a><a href="#directories-note">directories</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="working-dir"></a><a href="#working-dir-note">working directory</a><br />
+<span style="color: gray"><em>get, set</em></span></td>
+<td>pwd<br />
+<br />
+cd(&#x27;/tmp&#x27;)</td>
+<td>getwd()<br />
+<br />
+setwd(&quot;/tmp&quot;)</td>
+<td>os.path.abspath(&#x27;.&#x27;)<br />
+<br />
+os.chdir(&#x27;/tmp&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="build-pathname"></a><a href="#build-pathname-note">build pathname</a></td>
+<td>fullfile(&#x27;/etc&#x27;, &#x27;hosts&#x27;)</td>
+<td>file.path(&quot;/etc&quot;, &quot;hosts&quot;)</td>
+<td>os.path.join(&#x27;/etc&#x27;, &#x27;hosts&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dirname-basename"></a><a href="#dirname-basename-note">dirname and basename</a></td>
+<td>[dir, base] = fileparts(&#x27;/etc/hosts&#x27;)</td>
+<td>dirname(&quot;/etc/hosts&quot;)<br />
+basename(&quot;/etc/hosts&quot;)</td>
+<td>os.path.dirname(&#x27;/etc/hosts&#x27;)<br />
+os.path.basename(&#x27;/etc/hosts&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="absolute-pathname"></a><a href="#absolute-pathname-note">absolute pathname</a></td>
+<td> </td>
+<td>normalizePath(&quot;..&quot;)</td>
+<td>os.path.abspath(&#x27;..&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="iterate-dir"></a><a href="#iterate-dir-note">iterate over directory by file</a></td>
+<td><span style="color: gray">% lists /etc:</span><br />
+ls(&#x27;/etc&#x27;)<br />
+<br />
+<span style="color: gray">% lists working directory:</span><br />
+ls()</td>
+<td><span style="color: gray"># list.files() defaults to working directory</span><br />
+for (path in list.files(&#x27;/etc&#x27;)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(path)<br />
+}</td>
+<td>for filename in os.listdir(&#x27;/etc&#x27;):<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(filename)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="glob-paths"></a><a href="#glob-paths-note">glob paths</a></td>
+<td>glob(&#x27;/etc/*&#x27;)</td>
+<td>Sys.glob(&#x27;/etc/*&#x27;)</td>
+<td>import glob<br />
+<br />
+glob.glob(&#x27;/etc/*&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="processes-environment"></a><a href="#processes-environment-note">processes and environment</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="cmd-line-arg"></a><a href="#cmd-line-arg-note">command line arguments</a></td>
+<td><span style="color: gray">% does not include interpreter name:</span><br />
+argv()</td>
+<td><span style="color: gray"># first arg is name of interpreter:</span><br />
+commandArgs()<br />
+<br />
+<span style="color: gray"># arguments after <span style="white-space: pre-wrap;">--</span>args only:</span><br />
+commandArgs(TRUE)</td>
+<td>sys.argv</td>
+<td>ARGS</td>
+</tr>
+<tr>
+<td><a name="env-var"></a><a href="#env-var-note">environment variable</a><br />
+<span style="color: gray"><em>get, set</em></span></td>
+<td>getenv(&#x27;HOME&#x27;)<br />
+<br />
+setenv(&#x27;PATH&#x27;, &#x27;/bin&#x27;)</td>
+<td>Sys.getenv(&quot;HOME&quot;)<br />
+<br />
+Sys.setenv(PATH=&quot;/bin&quot;)</td>
+<td>os.getenv(&#x27;HOME&#x27;)<br />
+<br />
+os.environ[&#x27;PATH&#x27;] = &#x27;/bin&#x27;</td>
+<td>ENV[&quot;HOME&quot;]<br />
+<br />
+ENV[&quot;PATH&quot;] = &quot;/bin&quot;</td>
+</tr>
+<tr>
+<td><a name="exit"></a><a href="#exit-note">exit</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>exit(0)</td>
+<td>quit(save=&quot;no&quot;, status=0)</td>
+<td>sys.exit(0)</td>
+<td>exit(0)</td>
+</tr>
+<tr>
+<td><a name="external-cmd"></a><a href="#external-cmd-note">external command</a></td>
+<td>if (shell_cmd(&#x27;ls -l /tmp&#x27;))<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>error(&#x27;ls failed&#x27;)<br />
+endif</td>
+<td>if (system(&quot;ls -l /tmp&quot;)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>stop(&quot;ls failed&quot;)<br />
+}</td>
+<td>if os.system(&#x27;ls -l /tmp&#x27;):<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>raise Exception(&#x27;ls failed&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="cmd-subst"></a><a href="#cmd-subst-note">command substitution</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>s = readall(`ls`)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="libraries-namespaces"></a><a href="#libraries-namespaces-note">libraries and namespaces</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="load-lib"></a><a href="#load-lib-note">load library</a></td>
+<td><span style="color: gray"><em>When a function is invoked, MATLAB searches the library path for a file with the same name and a</em> .m <em>suffix. Other functions defined in the file are not visible outside the file.</em></span></td>
+<td><span style="color: gray"># quoting the name of the package is optional:</span><br />
+require(&quot;foo&quot;)<br />
+<span style="color: gray"># or: </span><br />
+library(&quot;foo&quot;)<br />
+<br />
+<span style="color: gray"># if the package does not exist, require returns false, and library raises an error.</span></td>
+<td>import foo</td>
+<td>include(&quot;foo.jl&quot;)</td>
+</tr>
+<tr>
+<td><a name="list-lib"></a><a href="#list-lib-note">list loaded libraries</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>search()</td>
+<td>dir()</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="lib-path"></a><a href="#lib-path-note">library search path</a></td>
+<td>path()<br />
+addath(&#x27;~/foo&#x27;)<br />
+rmpath(&#x27;~/foo&#x27;)</td>
+<td>.libPaths()</td>
+<td>sys.path</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="source-file"></a><a href="#source-file-note">source file</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>run(&#x27;foo.m&#x27;)</td>
+<td>source(&quot;foo.r&quot;)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="install-pkg"></a><a href="#install-pkg-note">install package</a></td>
+<td><span style="color: gray">% Octave: how to install package<br />
+% downloaded from Octave-Forge: </span><br />
+pkg install foo-1.0.0.tar.gz </td>
+<td>install.packages(&quot;ggplot2&quot;)</td>
+<td>$ pip install scipy</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="load-pkg"></a><a href="#load-pkg-note">load package library</a></td>
+<td><span style="color: gray">% Octave:</span><br />
+pkg load foo</td>
+<td>require(&quot;foo&quot;)<br />
+<span style="color: gray"># or:</span><br />
+library(&quot;foo&quot;)</td>
+<td>import foo</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="list-pkg"></a><a href="#list-pkg-note">list installed packages</a></td>
+<td><span style="color: gray">% Octave:</span><br />
+pkg list</td>
+<td>library()<br />
+installed.packages()</td>
+<td>$ pip freeze</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="5"><a name="reflection"></a><a href="#reflection-note">reflection</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="data-type"></a><a href="#data-type-note">data type</a></td>
+<td>class(x)</td>
+<td>class(x)<br />
+<span style="color: gray"># often more informative:</span><br />
+str(x)</td>
+<td>type(x)</td>
+<td>typeof(x)</td>
+</tr>
+<tr>
+<td><a name="attr"></a><a href="#attr-note">attributes</a></td>
+<td><span style="color: gray">% if x holds an object:</span><br />
+x</td>
+<td>attributes(x)</td>
+<td>[m for m in dir(x)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if not callable(getattr(o,m))]</td>
+<td>fieldnames(x)</td>
+</tr>
+<tr>
+<td><a name="methods"></a><a href="#method-note">methods</a></td>
+<td><span style="color: gray">% if x holds an object:</span><br />
+methods(x)</td>
+<td><span style="color: gray"><em>none; objects are implemented by functions which dispatch based on type of first arg</em></span></td>
+<td>[m for m in dir(x)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if callable(getattr(o,m))]</td>
+<td>methods(x)</td>
+</tr>
+<tr>
+<td><a name="var-in-scope"></a><a href="#var-in-scope-note">variables in scope</a></td>
+<td>who()<br />
+<br />
+<span style="color: gray">% with size and type:</span><br />
+whos()</td>
+<td>objects()<br />
+ls()<br />
+<br />
+<span style="color: gray"># with type and description:</span><br />
+ls.str()</td>
+<td>dir()</td>
+<td>whos()</td>
+</tr>
+<tr>
+<td><a name="undef-var"></a><a href="#undef-var-note">undefine variable</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>clear(&#x27;x&#x27;)</td>
+<td>rm(v)</td>
+<td>del(x)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="undef-all-var"></a><a href="#undef-all-var-note">undefine all variables</a></td>
+<td>clear -a</td>
+<td>rm(list=objects())</td>
+<td> </td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="eval"></a><a href="#eval-note">eval</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>eval(&#x27;1 + 1&#x27;)</td>
+<td>eval(parse(text=&#x27;1 + 1&#x27;))</td>
+<td>eval(&#x27;1 + 1&#x27;)</td>
+<td>eval(parse(&quot;1 + 1&quot;))</td>
+</tr>
+<tr>
+<td><a name="func-doc"></a><a href="#func-doc-note">function documentation</a></td>
+<td>help tan</td>
+<td>help(tan)<br />
+?tan</td>
+<td>math.tan.<span style="white-space: pre-wrap;">__doc__</span></td>
+<td>?tan</td>
+</tr>
+<tr>
+<td><a name="ls-lib"></a><a href="#ls-lib-note">list library functions</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>ls(&quot;package:moments&quot;)</td>
+<td>dir(stats)</td>
+<td>whos(Base)</td>
+</tr>
+<tr>
+<td><a name="grep-doc"></a><a href="#grep-doc-note">search documentation</a></td>
+<td>docsearch tan</td>
+<td>??tan</td>
+<td>$ pydoc -k tan</td>
+<td>apropos(&quot;tan&quot;)</td>
+</tr>
+<tr>
+<th colspan="5"><a name="debugging"></a><a href="#debugging-note">debugging</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#matlab">matlab</a></th>
+<th><a href="#r">r</a></th>
+<th><a href="#numpy">numpy</a></th>
+<th><a href="#julia">julia</a></th>
+</tr>
+<tr>
+<td><a name="benchmark-code"></a><a href="#benchmark-code-note">benchmark code</a></td>
+<td>tic<br />
+n = 0<br />
+for i = 1:1000*1000<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n = n + 1;<br />
+end<br />
+toc</td>
+<td> </td>
+<td>import timeit<br />
+<br />
+timeit.timeit(&#x27;i += 1&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&#x27;i = 0&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>number=1000000)</td>
+<td> </td>
+</tr>
+<tr>
+<th></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">__________________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">__________________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">__________________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">__________________________________________________</span></span></th>
+</tr>
+</table>
+<p><a href="/numerical-analysis2#tables">tables</a> | <a href="/numerical-analysis2#import-export">import and export</a> | <a href="/numerical-analysis2#relational-algebra">relational algebra</a> | <a href="/numerical-analysis2#aggregation">aggregation</a></p>
+<p><a href="/numerical-analysis2#vectors">vectors</a> | <a href="/numerical-analysis2#matrices">matrices</a> | <a href="/numerical-analysis2#sparse-matrices">sparse matrices</a> | <a href="/numerical-analysis2#optimization">optimization</a> | <a href="/numerical-analysis2#polynomials">polynomials</a> | <a href="/numerical-analysis2#descriptive-statistics">descriptive statistics</a> | <a href="/numerical-analysis2#distributions">distributions</a> | <a href="/numerical-analysis2#linear-regression">linear regression</a> | <a href="/numerical-analysis2#statistical-tests">statistical tests</a> | <a href="/numerical-analysis2#time-series">time series</a> | <a href="/numerical-analysis2#fast-fourier-transform">fast fourier transform</a> | <a href="/numerical-analysis2#clustering">clustering</a> | <a href="/numerical-analysis2#images">images</a> | <a href="/numerical-analysis2#sound">sound</a></p>
+<p><a href="/numerical-analysis2#univariate-charts">univariate charts</a> | <a href="/numerical-analysis2#bivariate-charts">bivariate charts</a> | <a href="/numerical-analysis2#multivariate-charts">multivariate charts</a></p>
+<p><a name="general-note"></a></p>
+<h1 id="toc0"><span><a href="#top">General</a></span></h1>
+<p><a name="version-used-note"></a></p>
+<h2 id="toc1"><span><a href="#version-used">version used</a></span></h2>
+<p>The version of software used to check the examples in the reference sheet.</p>
+<p><a name="show-version-note"></a></p>
+<h2 id="toc2"><span><a href="#show-version">show version</a></span></h2>
+<p>How to determine the version of an installation.</p>
+<p><a name="implicit-prologue-note"></a></p>
+<h2 id="toc3"><span><a href="#implicit-prologue">implicit prologue</a></span></h2>
+<p>Code which examples in the sheet assume to have already been executed.</p>
+<p><strong>r:</strong></p>
+<p>The <tt>ggplot2</tt> library must be installed and loaded to use the plotting functions <tt>qplot</tt> and <tt>ggplot</tt>.</p>
+<p><a name="grammar-invocation-note"></a></p>
+<h1 id="toc4"><span><a href="#grammar-invocation">Grammar and Invocation</a></span></h1>
+<p><a name="interpreter-note"></a></p>
+<h2 id="toc5"><span><a href="#interpreter">interpreter</a></span></h2>
+<p>How to invoke the interpreter on a script.</p>
+<p><a name="repl-note"></a></p>
+<h2 id="toc6"><span><a href="#repl">repl</a></span></h2>
+<p>How to launch a command line read-eval-print loop for the language.</p>
+<p><strong>r:</strong></p>
+<p>R installations come with a GUI REPL.</p>
+<p>The shell <tt>zsh</tt> has a built-in command <tt>r</tt> which re-runs the last command. Shell built-ins take precedence over external commands, but one can invoke the R REPL with:</p>
+<div class="code">
+<pre>
+<code>$ command r</code>
+</pre></div>
+<p><a name="cmd-line-program-note"></a></p>
+<h2 id="toc7"><span><a href="#cmd-line-program">command line program</a></span></h2>
+<p>How to pass the code to be executed to the interpreter as a command line argument.</p>
+<p><a name="env-var-note"></a></p>
+<h2 id="toc8"><span><a href="#env-var">environment variables</a></span></h2>
+<p>How to get and set an environment variable.</p>
+<p><a name="block-delimiters-note"></a></p>
+<h2 id="toc9"><span><a href="#block-delimiters">block delimiters</a></span></h2>
+<p>Punctuation or keywords which define blocks.</p>
+<p><strong>matlab:</strong></p>
+<p>The list of keywords which define blocks is not exhaustive. Blocks are also defined by</p>
+<ul>
+<li><em>switch</em>, <em>case</em>, <em>otherwise</em>, <em>endswitch</em></li>
+<li><em>unwind_protect</em>, <em>unwind_protect_cleanup</em>, <em>end_unwind_protect</em></li>
+<li><em>try</em>, <em>catch</em>, <em>end_try_catch</em></li>
+</ul>
+<p><a name="stmt-separator-note"></a></p>
+<h2 id="toc10"><span><a href="#stmt-separator">statement separator</a></span></h2>
+<p>How statements are separated.</p>
+<p><strong>matlab:</strong></p>
+<p>Semicolons are used at the end of lines to suppress output. Output echoes the assignment performed by a statement; if the statement is not an assignment the value of the statement is assigned to the special variable <tt>ans</tt>.</p>
+<p>In Octave, but not MATLAB, newlines are not separators when preceded by a backslash.</p>
+<p><a name="eol-comment-note"></a></p>
+<h2 id="toc11"><span><a href="#eol-comment">end-of-line comment</a></span></h2>
+<p>Character used to start a comment that goes to the end of the line.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, also supports shell-style comments which start with <tt>#</tt>.</p>
+<p><a name="var-expr-note"></a></p>
+<h1 id="toc12"><span><a href="#var-expr">Variables and Expressions</a></span></h1>
+<p><a name="assignment-note"></a></p>
+<h2 id="toc13"><span><a href="#assignment">assignment</a></span></h2>
+<p><strong>r:</strong></p>
+<p>Traditionally &lt;- was used in R for assignment. Using an = for assignment was introduced in version 1.4.0 sometime before 2002. -&gt; can also be used for assignment:</p>
+<div class="code">
+<pre>
+<code>3 -&gt; x</code>
+</pre></div>
+<p><a name="compound-assignment-note"></a></p>
+<h2 id="toc14"><span><a href="#compound-assignment">compound assignment</a></span></h2>
+<p>The compound assignment operators.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, has compound assignment operators for arithmetic and bit operations:</p>
+<div class="code">
+<pre>
+<code>+= -= *= /=  **=  ^=
+&amp;= |=</code>
+</pre></div>
+<p>Octave, but not MATLAB, also has the C-stye increment and decrement operators {{++}} and {{<span style="white-space: pre-wrap;">--</span>, which can be used in prefix and postfix position.</p>
+<p><a name="incr-decr-note"></a></p>
+<h2 id="toc15"><span><a href="#incr-decr">increment and decrement operator</a></span></h2>
+<p>The operator for incrementing the value in a variable; the operator for decrementing the value in a variable.</p>
+<p><a name="null-note"></a></p>
+<h2 id="toc16"><span><a href="#null">null</a></span></h2>
+<p><strong>matlab:</strong></p>
+<p><tt>NaN</tt> can be used for missing numerical values. Using a comparison operator on it always returns false, including <tt>NaN == NaN</tt>. Using a logical operator on <tt>NaN</tt> raises an error.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, provides <tt>NA</tt> which is a synonym of <tt>NaN</tt>.</p>
+<p><strong>r:</strong></p>
+<p>Relational operators return <tt>NA</tt> when one of the arguments is <tt>NA</tt>. In particular <tt>NA == NA</tt> is <tt>NA</tt>. When acting on values that might be <tt>NA</tt>, the logical operators observe the rules of <a href="http://en.wikipedia.org/wiki/Ternary_logic">ternary logic</a>, treating <tt>NA</tt> is the unknown value.</p>
+<p><a name="null-test-note"></a></p>
+<h2 id="toc17"><span><a href="#null-test">null test</a></span></h2>
+<p>How to test if a value is null.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, has <tt>isna</tt> and <tt>isnull</tt>, which are synonyms of <tt>isnan</tt> and <tt>isempty</tt>.</p>
+<p><a name="cond-expr-note"></a></p>
+<h2 id="toc18"><span><a href="#cond-expr">conditional expression</a></span></h2>
+<p>A conditional expression.</p>
+<p><a name="arithmetic-logic-note"></a></p>
+<h1 id="toc19"><span><a href="#arithmetic-logic">Arithmetic and Logic</a></span></h1>
+<p><a name="true-false-note"></a></p>
+<h2 id="toc20"><span><a href="#true-false">true and false</a></span></h2>
+<p>The boolean literals.</p>
+<p><strong>matlab:</strong></p>
+<p><em>true</em> and <em>false</em> are functions which return matrices of ones and zeros of type <em>logical</em>. If no arguments are specified they return single entry matrices. If one argument is provided, a square matrix is returned. If two arguments are provided, they are the row and column dimensions.</p>
+<p><a name="falsehoods-note"></a></p>
+<h2 id="toc21"><span><a href="#falsehoods">falsehoods</a></span></h2>
+<p>Values which evaluate to false in a conditional test.</p>
+<p><strong>matlab:</strong></p>
+<p>When used in a conditional, matrices evaluate to false unless they are nonempty and all their entries evaluate to true. Because strings are matrices of characters, an empty string (&#x27;&#x27; or &quot;&quot;) will evaluate to false. Most other strings will evaluate to true, but it is possible to create a nonempty string which evaluates to false by inserting a null character; e.g. &quot;false\000&quot;.</p>
+<p><strong>r:</strong></p>
+<p>When used in a conditional, a vector evaluates to the boolean value of its first entry. Using a vector with more than one entry in a conditional results in a warning message. Using an empty vector in a conditional, <em>c()</em> or <em>NULL</em>, raises an error.</p>
+<p><a name="logical-op-note"></a></p>
+<h2 id="toc22"><span><a href="#logical-op">logical operators</a></span></h2>
+<p>The boolean operators.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, also uses the exclamation point &#x27;!&#x27; for negation.</p>
+<p><a name="relational-op-note"></a></p>
+<h2 id="toc23"><span><a href="#relational-op">relational operators</a></span></h2>
+<p>The relational operators.</p>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, also uses <tt>!=</tt> for an inequality test.</p>
+<p><a name="arith-op-note"></a></p>
+<h2 id="toc24"><span><a href="#arith-op">arithmetic operators</a></span></h2>
+<p>The arithmetic operators: addition, subtraction, multiplication, division, quotient, remainder.</p>
+<p><strong>matlab:</strong></p>
+<p><em>mod</em> is a function and not an infix operator. <em>mod</em> returns a positive value if the first argument is positive, whereas <em>rem</em> returns a negative value.</p>
+<p><a name="int-div-note"></a></p>
+<h2 id="toc25"><span><a href="#int-div">integer division</a></span></h2>
+<p>How to compute the quotient of two integers.</p>
+<p><a name="int-div-zero-note"></a></p>
+<h2 id="toc26"><span><a href="#int-div-zero">integer division by zero</a></span></h2>
+<p>What happens when an integer is divided by zero.</p>
+<p><a name="float-div-note"></a></p>
+<h2 id="toc27"><span><a href="#float-div">float division</a></span></h2>
+<p>How to perform float division, even if the arguments are integers.</p>
+<p><a name="float-div-zero-note"></a></p>
+<h2 id="toc28"><span><a href="#float-div-zero">float division by zero</a></span></h2>
+<p>What happens when a float is divided by zero.</p>
+<p><a name="power-note"></a></p>
+<h2 id="toc29"><span><a href="#power">power</a></span></h2>
+<p><strong>octave:</strong></p>
+<p>Octave, but not MATLAB, supports {{<span style="white-space: pre-wrap;">**</span> as a synonym of <tt>^</tt>.</p>
+<p><a name="sqrt-note"></a></p>
+<h2 id="toc30"><span><a href="#sqrt">sqrt</a></span></h2>
+<p>The square root function.</p>
+<p><a name="sqrt-negative-one-note"></a></p>
+<h2 id="toc31"><span><a href="#sqrt-negative-one">sqrt(-1)</a></span></h2>
+<p>The result of taking the square root of a negative number.</p>
+<p><a name="transcendental-func-note"></a></p>
+<h2 id="toc32"><span><a href="#transcendental-func">transcendental functions</a></span></h2>
+<p>The standard transcendental functions.</p>
+<p><a name="transcendental-const-note"></a></p>
+<h2 id="toc33"><span><a href="#transcendental-const">transcendental constants</a></span></h2>
+<p>Constants for <em>pi</em> and <em>e</em>.</p>
+<p><a name="float-truncation-note"></a></p>
+<h2 id="toc34"><span><a href="#float-truncation">float truncation</a></span></h2>
+<p>Ways of converting a float to a nearby integer.</p>
+<p><a name="absolute-val-note"></a></p>
+<h2 id="toc35"><span><a href="#absolute-val">absolute value</a></span></h2>
+<p>The absolute value and signum of a number.</p>
+<p><a name="int-overflow-note"></a></p>
+<h2 id="toc36"><span><a href="#int-overflow">integer overflow</a></span></h2>
+<p>What happens when an expression evaluates to an integer which is too big to be represented.</p>
+<p><a name="float-overflow-note"></a></p>
+<h2 id="toc37"><span><a href="#float-overflow">float overflow</a></span></h2>
+<p>What happens when an expression evaluates to a float which is too big to be represented.</p>
+<p><a name="float-limits-note"></a></p>
+<h2 id="toc38"><span><a href="#float-limits">float limits</a></span></h2>
+<p>The <a href="http://en.wikipedia.org/wiki/Machine_epsilon">machine epsilon</a>; the largest representable float and the smallest (i.e. closest to negative infinity) representable float.</p>
+<p><a name="complex-construction-note"></a></p>
+<h2 id="toc39"><span><a href="#complex-construction">complex construction</a></span></h2>
+<p>Literals for complex numbers.</p>
+<p><a name="complex-decomposition-note"></a></p>
+<h2 id="toc40"><span><a href="#complex-decomposition">complex decomposition</a></span></h2>
+<p>How to decompose a complex number into its real and imaginary parts; how to decompose a complex number into its absolute value and argument; how to get the complex conjugate.</p>
+<p><a name="random-num-note"></a></p>
+<h2 id="toc41"><span><a href="#random-num">random number</a></span></h2>
+<p>How to generate a random integer from a uniform distribution; how to generate a random float from a uniform distribution.</p>
+<p><a name="random-seed-note"></a></p>
+<h2 id="toc42"><span><a href="#random-seed">random seed</a></span></h2>
+<p>How to set, get, and restore the seed used by the random number generator.</p>
+<p><strong>matlab:</strong></p>
+<p>At startup the random number generator is seeded using operating system entropy.</p>
+<p><strong>r:</strong></p>
+<p>At startup the random number generator is seeded using the current time.</p>
+<p><strong>numpy:</strong></p>
+<p>On Unix the random number generator is seeded at startup from /dev/random.</p>
+<p><a name="bit-op-note"></a></p>
+<h2 id="toc43"><span><a href="#bit-op">bit operators</a></span></h2>
+<p>The bit operators left shift, right shift, and, or , xor, and negation.</p>
+<p><strong>matlab/octave:</strong></p>
+<p><tt>bitshift</tt> takes a second argument which is positive for left shift and negative for right shift.</p>
+<p><tt>bitcmp</tt> takes a second argument which is the size in bits of the integer being operated on. Octave is not compatible with MATLAB in how the integer size is indicated.</p>
+<p><strong>r:</strong></p>
+<p>There is a library on CRAN called <tt>bitops</tt> which provides bit operators.</p>
+<p><a name="strings-note"></a></p>
+<h1 id="toc44"><span><a href="#strings">Strings</a></span></h1>
+<p><a name="str-literal-note"></a></p>
+<h2 id="toc45"><span><a href="#str-literal">literal</a></span></h2>
+<p>The syntax for a string literal.</p>
+<p><a name="str-newline-note"></a></p>
+<h2 id="toc46"><span><a href="#str-newline">newline in literal</a></span></h2>
+<p>Can a newline be included in a string literal? Equivalently, can a string literal span more than one line of source code?</p>
+<p><strong>octave:</strong></p>
+<p>Double quote strings are Octave specific.</p>
+<p>A newline can be inserted into a double quote string using the backslash escape <tt>\n</tt>.</p>
+<p>A double quote string can be continued on the next line by ending the line with a backslash. No newline is inserted into the string.</p>
+<p><a name="str-esc-note"></a></p>
+<h2 id="toc47"><span><a href="#str-esc">literal escapes</a></span></h2>
+<p>Escape sequences for including special characters in string literals.</p>
+<p><strong>matlab:</strong></p>
+<p>C-style backslash escapes are not recognized by string literals, but they are recognized by the IO system; the string &#x27;foo\n&#x27; contains 5 characters, but emits 4 characters when written to standard output.</p>
+<p><a name="str-concat-note"></a></p>
+<h2 id="toc48"><span><a href="#str-concat">concatenate</a></span></h2>
+<p>How to concatenate strings.</p>
+<p><a name="str-replicate-note"></a></p>
+<h2 id="toc49"><span><a href="#str-replicate">replicate</a></span></h2>
+<p>How to create a string which consists of a character of substring repeated a fixed number of times.</p>
+<p><a name="index-substr-note"></a></p>
+<h2 id="toc50"><span><a href="#index-substr">index of substring</a></span></h2>
+<p>How to get the index of first occurrence of a substring.</p>
+<p><a name="extract-substr-note"></a></p>
+<h2 id="toc51"><span><a href="#extract-substr">extract substring</a></span></h2>
+<p>How to get the substring at a given index.</p>
+<p><strong>octave:</strong></p>
+<p>Octave supports indexing string literals directly: <tt>&#x27;hello&#x27;(1:4)</tt>.</p>
+<p><a name="split-note"></a></p>
+<h2 id="toc52"><span><a href="#split">split</a></span></h2>
+<p>How to split a string into an array of substrings. In the original string the substrings must be separated by a character, string, or regex pattern which will not appear in the array of substrings.</p>
+<p>The split operation can be used to extract the fields from a field delimited record of data.</p>
+<p><strong>matlab:</strong></p>
+<p>Cell arrays, which are essentially <a href="#tuples">tuples</a>, are used to store variable-length strings.</p>
+<p>A two dimensional array of characters can be used to store strings of the same length, one per row. Regular arrays cannot otherwise be used to store strings.</p>
+<p><a name="join-note"></a></p>
+<h2 id="toc53"><span><a href="#join">join</a></span></h2>
+<p>How to join an array of substrings into single string. The substrings can be separated by a specified character or string.</p>
+<p>Joining is the inverse of splitting.</p>
+<p><a name="trim-note"></a></p>
+<h2 id="toc54"><span><a href="#trim">trim</a></span></h2>
+<p>How to remove whitespace from the beginning and the end of a string.</p>
+<p>Trimming is often performed on user provided input.</p>
+<p><a name="pad-note"></a></p>
+<h2 id="toc55"><span><a href="#pad">pad</a></span></h2>
+<p>How to pad the edge of a string with spaces so that it is a prescribed length.</p>
+<p><a name="num-to-str-note"></a></p>
+<h2 id="toc56"><span><a href="#num-to-str">number to string</a></span></h2>
+<p>How to convert a number to a string.</p>
+<p><a name="str-to-num-note"></a></p>
+<h2 id="toc57"><span><a href="#str-to-num">string to number</a></span></h2>
+<p>How to convert a string to number.</p>
+<p><a name="case-manipulation-note"></a></p>
+<h2 id="toc58"><span><a href="#case-manipulation">translate case</a></span></h2>
+<p>How to put a string into all caps. How to put a string into all lower case letters.</p>
+<p><a name="sprintf-note"></a></p>
+<h2 id="toc59"><span><a href="#sprintf">sprintf</a></span></h2>
+<p>How to create a string using a printf style format.</p>
+<p><a name="str-len-note"></a></p>
+<h2 id="toc60"><span><a href="#str-len">length</a></span></h2>
+<p>How to get the number of characters in a string.</p>
+<p><a name="char-access-note"></a></p>
+<h2 id="toc61"><span><a href="#char-access">character access</a></span></h2>
+<p>How to get the character in a string at a given index.</p>
+<p><strong>octave:</strong></p>
+<p>Octave supports indexing string literals directly: <tt>&#x27;hello&#x27;(1)</tt>.</p>
+<p><a name="chr-ord-note"></a></p>
+<h2 id="toc62"><span><a href="#chr-ord">chr and ord</a></span></h2>
+<p>How to convert an ASCII code to a character; how to convert a character to its ASCII code.</p>
+<p><a name="regexes-note"></a></p>
+<h1 id="toc63"><span><a href="#regexes">Regular Expressions</a></span></h1>
+<p><a name="char-class-abbrevs-note"></a></p>
+<h2 id="toc64"><span><a href="#char-class-abbrevs">character class abbreviations</a></span></h2>
+<p>The supported character class abbreviations.</p>
+<p>A character class is a set of one or more characters. In regular expressions, an arbitrary character class can be specified by listing the characters inside square brackets. If the first character is a circumflex <tt>^</tt>, the character class is all characters not in the list. A hyphen <tt>-</tt> can be used to list a range of characters.</p>
+<p><strong>matlab:</strong></p>
+<p>The C-style backslash escapes, which can be regarded as character classes which match a single character, are a feature of the regular expression engine and not string literals like in other languages.</p>
+<p><a name="regex-anchors-note"></a></p>
+<h2 id="toc65"><span><a href="#regex-anchors">anchors</a></span></h2>
+<p>The supported anchors.</p>
+<p>The {{\&lt;}} and {{\&gt; anchors match the start and end of a word respectively.</p>
+<p><a name="regex-match-note"></a></p>
+<h2 id="toc66"><span><a href="#regex-match">match test</a></span></h2>
+<p>How to test whether a string matches a regular expression.</p>
+<p><a name="case-insensitive-regex-match-note"></a></p>
+<h2 id="toc67"><span><a href="#case-insensitive-regex-match">case insensitive match test</a></span></h2>
+<p>How to perform a case insensitive match test.</p>
+<p><a name="regex-subst-note"></a></p>
+<h2 id="toc68"><span><a href="#regex-subst">substitution</a></span></h2>
+<p>How to replace all substring which match a pattern with a specified string; how to replace the first substring which matches a pattern with a specified string.</p>
+<p><a name="regex-backreference-note"></a></p>
+<h2 id="toc69"><span><a href="#regex-backreference">backreference in match and substitution</a></span></h2>
+<p>How to use backreferences in a regex; how to use backreferences in the replacement string of substitution.</p>
+<p><a name="dates-time-note"></a></p>
+<h1 id="toc70"><span><a href="#dates-time">Date and Time</a></span></h1>
+<p><a name="current-date-time-note"></a></p>
+<h2 id="toc71"><span><a href="#current-date-time">current date/time</a></span></h2>
+<p>How to get the current date and time.</p>
+<p><strong>r:</strong></p>
+<p><tt>Sys.time()</tt> returns a value of type <tt>POSIXct</tt>.</p>
+<p><a name="date-time-type-note"></a></p>
+<h2 id="toc72"><span><a href="#date-time-type">date/time type</a></span></h2>
+<p>The data type used to hold a combined date and time value.</p>
+<p><strong>matlab:</strong></p>
+<p>The Gregorian calendar was introduced in 1582. The Proleptic Gregorian Calendar is sometimes used for earlier dates, but in the Proleptic Gregorian Calendar the year 1 CE is preceded by the year 1 BCE. The MATLAB epoch thus starts at the beginning of the year 1 BCE, but uses a zero to refer to this year.</p>
+<p><a name="date-time-diff-type-note"></a></p>
+<h2 id="toc73"><span><a href="#date-time-diff-type">date/time difference type</a></span></h2>
+<p>The data type used to hold the difference between two date/time types.</p>
+<p><a name="date-parts-note"></a></p>
+<h2 id="toc74"><span><a href="#date-parts">get date parts</a></span></h2>
+<p>How to get the year, the month as an integer from 1 through 12, and the day of the month from a date/time value.</p>
+<p><strong>octave:</strong></p>
+<p>In Octave, but not MATLAB, one can use index notation on the return value of a function:</p>
+<div class="code">
+<pre>
+<code>t = now
+datevec(t)(1)</code>
+</pre></div>
+<p><a name="time-parts-note"></a></p>
+<h2 id="toc75"><span><a href="#time-parts">get time parts</a></span></h2>
+<p>How to get the hour as an integer from 0 through 23, the minute, and the second from a date/time value.</p>
+<p><a name="build-date-time-note"></a></p>
+<h2 id="toc76"><span><a href="#build-date-time">build date/time from parts</a></span></h2>
+<p>How to build a date/time value from the year, month, day, hour, minute, and second as integers.</p>
+<p><a name="date-to-str-note"></a></p>
+<h2 id="toc77"><span><a href="#date-to-str">convert to string</a></span></h2>
+<p>How to convert a date value to a string using the default format for the locale.</p>
+<p><a name="strptime-note"></a></p>
+<h2 id="toc78"><span><a href="#strptime">parse datetime</a></span></h2>
+<p>How to parse a date/time value from a string in the manner of strptime from the C standard library.</p>
+<p><a name="strftime-note"></a></p>
+<h2 id="toc79"><span><a href="#strftime">format datetime</a></span></h2>
+<p>How to write a date/time value to a string in the manner of strftime from the C standard library.</p>
+<p><a name="tuples-note"></a></p>
+<h1 id="toc80"><span><a href="#tuples">Tuples</a></span></h1>
+<p><a name="tuple-type-note"></a></p>
+<h2 id="toc81"><span><a href="#tuple-type">type</a></span></h2>
+<p>The name of the data type which implements tuples.</p>
+<p><a name="tuple-literal-note"></a></p>
+<h2 id="toc82"><span><a href="#tuple-literal">literal</a></span></h2>
+<p>How to create a tuple, which we define as a fixed length, inhomogeneous list.</p>
+<p><a name="tuple-access-note"></a></p>
+<h2 id="toc83"><span><a href="#tuple-access">lookup element</a></span></h2>
+<p>How to access an element of a tuple.</p>
+<p><a name="tuple-update-note"></a></p>
+<h2 id="toc84"><span><a href="#tuple-update">update element</a></span></h2>
+<p>How to change one of a tuple&#x27;s elements.</p>
+<p><a name="tuple-len-note"></a></p>
+<h2 id="toc85"><span><a href="#tuple-len">length</a></span></h2>
+<p>How to get the number of elements in a tuple.</p>
+<p><a name="arrays-note"></a></p>
+<h1 id="toc86"><span><a href="#arrays">Arrays</a></span></h1>
+<p>This section covers one-dimensional arrays which map integers to values.</p>
+<p><a href="#multidimensional-arrays">Multidimensional arrays</a> are a generalization which map tuples of integers to values.</p>
+<p><a href="#vectors">Vectors</a> and <a href="#matrices">matrices</a> are one-dimensional and two-dimensional arrays respectively containing numeric values. They support additional operations including the dot product, matrix multiplication, and norms.</p>
+<p>Here are the data types covered in each section:</p>
+<table class="wiki-content-table">
+<tr>
+<th>section</th>
+<th>matlab</th>
+<th>r</th>
+<th>numpy</th>
+<th>julia</th>
+</tr>
+<tr>
+<td><a href="#arrays">arrays</a></td>
+<td>matrix (ndims = 1)</td>
+<td>vector</td>
+<td>list</td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#multidimensional-arrays">multidimensional arrays</a></td>
+<td>matrix</td>
+<td>array</td>
+<td>np.array</td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#vectors">vectors</a></td>
+<td>matrix (ndims = 1)</td>
+<td>vector</td>
+<td>np.array (ndim = 1)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#matrices">matrices</a></td>
+<td>matrix (ndims = 2)</td>
+<td>matrix</td>
+<td>np.matrix</td>
+<td> </td>
+</tr>
+</table>
+<p><a name="array-elem-type-note"></a></p>
+<h2 id="toc87"><span><a href="#array-elem-type">element type</a></span></h2>
+<p>How to get the type of the elements of an array.</p>
+<p><a name="permitted-array-elem-types-note"></a></p>
+<h2 id="toc88"><span><a href="#permitted-array-elem-types">permitted element types</a></span></h2>
+<p>Permitted data types for array elements.</p>
+<p><strong>matlab:</strong></p>
+<p>Arrays in Octave can only contain numeric elements.</p>
+<p>Array literals can have a nested structure, but Octave will flatten them. The following literals create the same array:</p>
+<div class="code">
+<pre>
+<code>[ 1 2 3 [ 4 5 6] ]
+[ 1 2 3 4 5 6 ]</code>
+</pre></div>
+<p>Logical values can be put into an array because <em>true</em> and <em>false</em> are synonyms for 1 and 0. Thus the following literals create the same arrays:</p>
+<div class="code">
+<pre>
+<code>[ true false false ]
+[ 1 0 0 ]</code>
+</pre></div>
+<p>If a string is encountered in an array literal, the string is treated as an array of ASCII values and it is concatenated with other ASCII values to produce as string. The following literals all create the same string:</p>
+<div class="code">
+<pre>
+<code>[ &#x27;foo&#x27;, 98, 97, 114]
+[ &#x27;foo&#x27;, &#x27;bar&#x27; ]
+&#x27;foobar&#x27;</code>
+</pre></div>
+<p>If the other numeric values in an array literal that includes a string are not integer values that fit into a ASCII byte, then they are converted to byte sized values.</p>
+<p><strong>r:</strong></p>
+<p>Array literals can have a nested structure, but R will flatten them. The following literals produce the same array of 6 elements:</p>
+<div class="code">
+<pre>
+<code>c(1,2,3,c(4,5,6))
+c(1,2,3,4,5,6)</code>
+</pre></div>
+<p>If an array literal contains a mixture of booleans and numbers, then the boolean literals will be converted to 1 (for TRUE and T) and 0 (for FALSE and F).</p>
+<p>If an array literal contains strings and either booleans or numbers, then the booleans and numbers will be converted to their string representations. For the booleans the string representations are &quot;TRUE&#x27;&quot; and &quot;FALSE&quot;.</p>
+<p><a name="array-literal-note"></a></p>
+<h2 id="toc89"><span><a href="#array-literal">literal</a></span></h2>
+<p>The syntax, if any, for an array literal.</p>
+<p><strong>matlab:</strong></p>
+<p>The array literal</p>
+<div class="code">
+<pre>
+<code>[1,&#x27;foo&#x27;,3]</code>
+</pre></div>
+<p>will create an array with 5 elements of class <em>char</em>.</p>
+<p><strong>r:</strong></p>
+<p>The array literal</p>
+<div class="code">
+<pre>
+<code>c(1,&#x27;foo&#x27;,3)</code>
+</pre></div>
+<p>will create an array of 3 elements of class <em>character</em>, which is the R string type.</p>
+<p><a name="array-size-note"></a></p>
+<h2 id="toc90"><span><a href="#array-size">size</a></span></h2>
+<p>How to get the number of values in an array.</p>
+<p><a name="array-empty-test-note"></a></p>
+<h2 id="toc91"><span><a href="#array-empty-test">empty test</a></span></h2>
+<p><a name="array-lookup-note"></a></p>
+<h2 id="toc92"><span><a href="#array-lookup">lookup</a></span></h2>
+<p><a name="array-update-note"></a></p>
+<h2 id="toc93"><span><a href="#array-update">update</a></span></h2>
+<p><a name="array-out-of-bounds-note"></a></p>
+<h2 id="toc94"><span><a href="#array-out-of-bounds">out-of-bounds behavior</a></span></h2>
+<p><a name="array-element-index-note"></a></p>
+<h2 id="toc95"><span><a href="#array-element-index">index of element</a></span></h2>
+<p><a name="array-slice-note"></a></p>
+<h2 id="toc96"><span><a href="#array-slice">slice</a></span></h2>
+<p><a name="array-slice-to-end-note"></a></p>
+<h2 id="toc97"><span><a href="#array-slice-to-end">slice to end</a></span></h2>
+<p><a name="array-concatenation-note"></a></p>
+<h2 id="toc98"><span><a href="#array-concatenation">concatenate</a></span></h2>
+<p><a name="array-replication-note"></a></p>
+<h2 id="toc99"><span><a href="#array-replication">replicate</a></span></h2>
+<p><a name="array-copy-note"></a></p>
+<h2 id="toc100"><span><a href="#array-copy">copy</a></span></h2>
+<p>How to make an address copy, a shallow copy, and a deep copy of an array.</p>
+<p>After an address copy is made, modifications to the copy also modify the original array.</p>
+<p>After a shallow copy is made, the addition, removal, or replacement of elements in the copy does not modify of the original array. However, if elements in the copy are modified, those elements are also modified in the original array.</p>
+<p>A deep copy is a recursive copy. The original array is copied and a deep copy is performed on all elements of the array. No change to the contents of the copy will modify the contents of the original array.</p>
+<p><a name="arithmetic-sequences-note"></a></p>
+<h1 id="toc101"><span><a href="#arithmetic-sequences">Arithmetic Sequences</a></span></h1>
+<p>An arithmetic sequence is a sequence of numeric values in which consecutive terms have a constant difference.</p>
+<p><a name="arith-seq-diff-one-note"></a></p>
+<h2 id="toc102"><span><a href="#arith-seq-diff-one">unit difference</a></span></h2>
+<p>An arithmetic sequence with a difference of 1.</p>
+<p><a name="arith-seq-diff-ten-note"></a></p>
+<h2 id="toc103"><span><a href="#arith-seq-diff-ten">difference of 10</a></span></h2>
+<p>An arithmetic sequence with a difference of 10.</p>
+<p><a name="arith-seq-diff-tenth-note"></a></p>
+<h2 id="toc104"><span><a href="#arith-seq-diff-tenth">difference of 0.1</a></span></h2>
+<p>An arithmetic sequence with a difference of 0.1.</p>
+<p><a name="arith-seq-computed-diff-note"></a></p>
+<h2 id="toc105"><span><a href="#arith-seq-computed-diff">computed difference</a></span></h2>
+<p>An arithmetic sequence where the difference is computed using the start and end values and the number of elements.</p>
+<p><a name="iter-over-arith-seq-note"></a></p>
+<h2 id="toc106"><span><a href="#iter-over-arith-seq">iterate</a></span></h2>
+<p>How to iterate over an arithmetic sequence.</p>
+<p><a name="arith-seq-to-array-note"></a></p>
+<h2 id="toc107"><span><a href="#arith-seq-to-array">to array</a></span></h2>
+<p>How to convert an arithmetic sequence to an array.</p>
+<p><a name="two-d-arrays-note"></a><br />
+<a name="three-d-arrays-note"></a></p>
+<h1 id="toc108"><span><a href="#two-d-arrays">Multidimensional Arrays</a></span></h1>
+<p>Multidimensional arrays are a generalization of arrays which map tuples of integers to values. All tuples in the domain of a multidimensional array have the same length; this length is the dimension of the array.</p>
+<p>The multidimensional arrays described in this sheet are homogeneous, meaning that the values are all of the same type. This restriction allows the implementation to store the values of the multidimensional array in a contiguous region of memory without the use of references or points.</p>
+<p>Multidimensional arrays should be contrasted with nested arrays. When arrays are nested, the innermost nested arrays contain the values and the other arrays contain references to arrays. The syntax for looking up a value is usually different:</p>
+<div class="code">
+<pre>
+<code># nested:
+a[1][2]
+
+# multidimensional:
+a[1, 2]</code>
+</pre></div>
+<p><a name="multidimensional-array-elem-type-note"></a></p>
+<h2 id="toc109"><span><a href="#multidimensional-array-elem-type">element type</a></span></h2>
+<p>How to get the type of the values stored in a multidimensional array.</p>
+<p><strong>r:</strong></p>
+<p><a name="1d-array-literal-note"></a></p>
+<h2 id="toc110"><span><a href="#1d-array-literal">literal—1d</a></span></h2>
+<p><a name="2d-array-literal-note"></a></p>
+<h2 id="toc111"><span><a href="#2d-array-literal">literal—2d</a></span></h2>
+<p><a name="2d-construct-seq-note"></a></p>
+<h2 id="toc112"><span><a href="#2d-construct-seq">construct from sequence—2d</a></span></h2>
+<p><a name="3d-construct-seq-note"></a></p>
+<h2 id="toc113"><span><a href="#3d-construct-seq">construct from sequence—3d</a></span></h2>
+<p><a name="2d-construct-nested-seq-note"></a></p>
+<h2 id="toc114"><span><a href="#2d-construct-nested-seq">construct from nested sequences—2d</a></span></h2>
+<p><a name="3d-construct-nested-seq-note"></a></p>
+<h2 id="toc115"><span><a href="#3d-construct-nested-seq">construct from nested sequences—3d</a></span></h2>
+<p><a name="2d-construct-rows-note"></a></p>
+<h2 id="toc116"><span><a href="#2d-construct-rows">construct from rows—2d</a></span></h2>
+<p><a name="2d-construct-columns-note"></a></p>
+<h2 id="toc117"><span><a href="#2d-construct-columns">construct from columns—2d</a></span></h2>
+<p><a name="2d-construct-subarrays-note"></a></p>
+<h2 id="toc118"><span><a href="#2d-construct-subarrays">construct from subarrays—2d</a></span></h2>
+<p><a name="3d-construct-2d-arrays-note"></a></p>
+<h2 id="toc119"><span><a href="#3d-construct-2d-arrays">construct 3d array from 2d arrays</a></span></h2>
+<p><a name="multidimensional-array-size-note"></a></p>
+<h2 id="toc120"><span><a href="#multidimensional-array-size">size</a></span></h2>
+<p><a name="1d-lookup-note"></a></p>
+<h2 id="toc121"><span><a href="#1d-lookup">lookup—1d</a></span></h2>
+<p><a name="2d-lookup-note"></a></p>
+<h2 id="toc122"><span><a href="#2d-lookup">lookup—2d</a></span></h2>
+<p><a name="1d-lookup-2d-array-note"></a></p>
+<h2 id="toc123"><span><a href="#1d-lookup-2d-array">1d lookup on 2d array</a></span></h2>
+<p><a name="2d-update-note"></a></p>
+<h2 id="toc124"><span><a href="#2d-update">update—2d</a></span></h2>
+<p><a name="multidimensional-array-out-of-bounds-note"></a></p>
+<h2 id="toc125"><span><a href="#multidimensional-array-out-of-bounds">out-of-bounds behavior</a></span></h2>
+<p><a name="multidimensional-array-slice-note"></a></p>
+<h2 id="toc126"><span><a href="#multidimensional-array-slice">slice</a></span></h2>
+<p><a name="multidimensional-array-slice-to-end-note"></a></p>
+<h2 id="toc127"><span><a href="#multidimensional-array-slice-to-end">slice to end</a></span></h2>
+<p><a name="multidimensional-array-slice-subarray-note"></a></p>
+<h2 id="toc128"><span><a href="#multidimensional-array-slice-subarray">slice subarray</a></span></h2>
+<p><a name="multidimensional-array-transpose-note"></a></p>
+<h2 id="toc129"><span><a href="#multidimensional-array-transpose">transpose</a></span></h2>
+<p><a name="multidimensional-array-permute-axes-note"></a></p>
+<h2 id="toc130"><span><a href="#multidimensional-array-permute-axes">permute axes</a></span></h2>
+<p><a name="2d-flip-note"></a></p>
+<h2 id="toc131"><span><a href="#2d-flip">flip—2d</a></span></h2>
+<p><a name="3d-flip-note"></a></p>
+<h2 id="toc132"><span><a href="#3d-flip">flip—3d</a></span></h2>
+<h2 id="toc133"><span>circular shift—2d</span></h2>
+<h2 id="toc134"><span>rotate—2d</span></h2>
+<h2 id="toc135"><span>apply function element-wise</span></h2>
+<h2 id="toc136"><span>apply function to linear subarrays</span></h2>
+<p><a name="dictionaries-note"></a></p>
+<h1 id="toc137"><span><a href="#dictionaries">Dictionaries</a></span></h1>
+<p><a name="dict-literal-note"></a></p>
+<h2 id="toc138"><span><a href="#dict-literal">literal</a></span></h2>
+<p>The syntax for a dictionary literal.</p>
+<p><a name="dict-size-note"></a></p>
+<h2 id="toc139"><span><a href="#dict-size">size</a></span></h2>
+<p>How to get the number of keys in a dictionary.</p>
+<p><a name="dict-lookup-note"></a></p>
+<h2 id="toc140"><span><a href="#dict-lookup">lookup</a></span></h2>
+<p>How to use a key to lookup a value in a dictionary.</p>
+<p><a name="dict-update-note"></a></p>
+<h2 id="toc141"><span><a href="#dict-update">update</a></span></h2>
+<p>How to add or key-value pair or change the value for an existing key.</p>
+<p><a name="dict-missing-key-note"></a></p>
+<h2 id="toc142"><span><a href="#dict-missing-key">missing key behavior</a></span></h2>
+<p>What happens when looking up a key that isn&#x27;t in the dictionary.</p>
+<p><a name="dict-delete-note"></a></p>
+<h2 id="toc143"><span><a href="#dict-delete">delete</a></span></h2>
+<p>How to delete a key-value pair from a dictionary.</p>
+<p><a name="dict-iterate-note"></a></p>
+<h2 id="toc144"><span><a href="#dict-iterate">iterate</a></span></h2>
+<p>How to iterate over the key-value pairs.</p>
+<p><a name="dict-keys-values-arrays-note"></a></p>
+<h2 id="toc145"><span><a href="#dict-keys-values-arrays">keys and values as arrays</a></span></h2>
+<p>How to get an array containing the keys; how to get an array containing the values.</p>
+<p><a name="dict-merge-note"></a></p>
+<h2 id="toc146"><span><a href="#dict-merge">merge</a></span></h2>
+<p>How to merge two dictionaries.</p>
+<p><a name="functions-note"></a></p>
+<h1 id="toc147"><span><a href="#functions">Functions</a></span></h1>
+<p><a name="def-func-note"></a></p>
+<h2 id="toc148"><span><a href="#def-func">define function</a></span></h2>
+<p>How to define a function.</p>
+<p><a name="invoke-func-note"></a></p>
+<h2 id="toc149"><span><a href="#invoke-func">invoke function</a></span></h2>
+<p>How to invoke a function.</p>
+<p><a name="nested-func-note"></a></p>
+<h2 id="toc150"><span><a href="#nested-func">nested function</a></span></h2>
+<p><a name="missing-arg-note"></a></p>
+<h2 id="toc151"><span><a href="#missing-arg">missing argument behavior</a></span></h2>
+<p>What happens when a function is invoked with too few arguments.</p>
+<p><a name="extra-arg-note"></a></p>
+<h2 id="toc152"><span><a href="#extra-arg">extra argument behavior</a></span></h2>
+<p>What happens when a function is invoked with too many arguments.</p>
+<p><a name="default-arg-note"></a></p>
+<h2 id="toc153"><span><a href="#default-arg">default argument</a></span></h2>
+<p>How to assign a default argument to a parameter.</p>
+<p><a name="variadic-func-note"></a></p>
+<h2 id="toc154"><span><a href="#variadic-func">variadic function</a></span></h2>
+<p>How to define a function which accepts a variable number of arguments.</p>
+<p><a name="retval-note"></a></p>
+<h2 id="toc155"><span><a href="#retval">return value</a></span></h2>
+<p>How the return value of a function is determined.</p>
+<p><a name="multiple-retval-note"></a></p>
+<h2 id="toc156"><span><a href="#multiple-retval">multiple return values</a></span></h2>
+<p>How to return multiple values from a function.</p>
+<p><a name="anonymous-func-literal-note"></a></p>
+<h2 id="toc157"><span><a href="#anonymous-func-literal">anonymous function literal</a></span></h2>
+<p>The syntax for an anonymous function.</p>
+<p><a name="invoke-anonymous-func-note"></a></p>
+<h2 id="toc158"><span><a href="#invoke-anonymous-func">invoke anonymous function</a></span></h2>
+<p><a name="closure-note"></a></p>
+<h2 id="toc159"><span><a href="#closure">closure</a></span></h2>
+<p><a name="func-as-value-note"></a></p>
+<h2 id="toc160"><span><a href="#func-as-value">function as value</a></span></h2>
+<p>How to store a function in a variable.</p>
+<p><a name="execution-control-note"></a></p>
+<h1 id="toc161"><span><a href="#execution-control">Execution Control</a></span></h1>
+<p><a name="if-note"></a></p>
+<h2 id="toc162"><span><a href="#if">if</a></span></h2>
+<p>How to write a branch statement.</p>
+<p><a name="while-note"></a></p>
+<h2 id="toc163"><span><a href="#while">while</a></span></h2>
+<p>How to write a conditional loop.</p>
+<p><a name="for-note"></a></p>
+<h2 id="toc164"><span><a href="#for">for</a></span></h2>
+<p>How to write a C-style for statement.</p>
+<p><a name="break-continue-note"></a></p>
+<h2 id="toc165"><span><a href="#break-continue">break/continue</a></span></h2>
+<p>How to break out of a loop. How to jump to the next iteration of a loop.</p>
+<p><a name="raise-exc-note"></a></p>
+<h2 id="toc166"><span><a href="#raise-exc">raise exception</a></span></h2>
+<p>How to raise an exception.</p>
+<p><a name="handle-exc-note"></a></p>
+<h2 id="toc167"><span><a href="#handle-exc">handle exception</a></span></h2>
+<p>How to handle an exception.</p>
+<p><a name="file-handle-note"></a></p>
+<h1 id="toc168"><span><a href="#file-handle">File Handles</a></span></h1>
+<p><a name="std-file-handles-note"></a></p>
+<h2 id="toc169"><span><a href="#std-file-handles">standard file handles</a></span></h2>
+<p>Standard input, standard output, and standard error.</p>
+<p><a name="read-line-stdin-note"></a></p>
+<h2 id="toc170"><span><a href="#read-line-stdin">read line from stdin</a></span></h2>
+<p><a name="write-line-stdout-note"></a></p>
+<h2 id="toc171"><span><a href="#write-line-stdout">write line to stdout</a></span></h2>
+<p>How to write a line to stdout.</p>
+<p><strong>matlab:</strong></p>
+<p>The backslash escape sequence <tt>\n</tt> is stored as two characters in the string and interpreted as a newline by the IO system.</p>
+<p><a name="printf-note"></a></p>
+<h2 id="toc172"><span><a href="#printf">write formatted string to stdout</a></span></h2>
+<p><a name="open-file-note"></a></p>
+<h2 id="toc173"><span><a href="#open-file">open file for reading</a></span></h2>
+<p><a name="open-file-write-note"></a></p>
+<h2 id="toc174"><span><a href="#open-file-write">open file for writing</a></span></h2>
+<p><a name="open-file-append-note"></a></p>
+<h2 id="toc175"><span><a href="#open-file-append">open file for appending</a></span></h2>
+<p><a name="close-file-note"></a></p>
+<h2 id="toc176"><span><a href="#close-file">close file</a></span></h2>
+<p><a name="io-err-note"></a></p>
+<h2 id="toc177"><span><a href="#io-err">i/o errors</a></span></h2>
+<p><a name="read-line-note"></a></p>
+<h2 id="toc178"><span><a href="#read-line">read line</a></span></h2>
+<p><a name="file-iterate-note"></a></p>
+<h2 id="toc179"><span><a href="#file-iterate">iterate over file by line</a></span></h2>
+<p><a name="read-file-array-note"></a></p>
+<h2 id="toc180"><span><a href="#read-file-array">read file into array of strings</a></span></h2>
+<p><a name="write-str-note"></a></p>
+<h2 id="toc181"><span><a href="#write-str">write string</a></span></h2>
+<p><a name="write-line-note"></a></p>
+<h2 id="toc182"><span><a href="#write-line">write line</a></span></h2>
+<p><a name="flush-note"></a></p>
+<h2 id="toc183"><span><a href="#flush">flush file handle</a></span></h2>
+<p><a name="seek-note"></a></p>
+<h2 id="toc184"><span><a href="#seek">file handle position</a></span></h2>
+<p><a name="redirect-stdout-to-file-note"></a></p>
+<h2 id="toc185"><span><a href="#redirect-stdout-to-file">redirect stdout to file</a></span></h2>
+<p><a name="directories-note"></a></p>
+<h1 id="toc186"><span><a href="#directories">Directories</a></span></h1>
+<p><a name="working-dir-note"></a></p>
+<h2 id="toc187"><span><a href="#working-dir">working directory</a></span></h2>
+<p>How to get and set the working directory.</p>
+<p><a name="processes-environment-note"></a></p>
+<h1 id="toc188"><span><a href="#processes-environment">Processes and Environment</a></span></h1>
+<p><a name="cmd-line-arg-note"></a></p>
+<h2 id="toc189"><span><a href="#cmd-line-arg">command line arguments</a></span></h2>
+<p>How to get the command line arguments.</p>
+<p><a name="env-var-note"></a></p>
+<h2 id="toc190"><span><a href="#env-var">environment variables</a></span></h2>
+<p>How to get and set and environment variable.</p>
+<p><a name="libraries-namespaces-note"></a></p>
+<h1 id="toc191"><span><a href="#libraries-namespaces">Libraries and Namespaces</a></span></h1>
+<p><a name="load-lib-note"></a></p>
+<h2 id="toc192"><span><a href="#load-lib">load library</a></span></h2>
+<p>How to load a library.</p>
+<p><a name="list-lib-note"></a></p>
+<h2 id="toc193"><span><a href="#list-lib">list loaded libraries</a></span></h2>
+<p>Show the list of libraries which have been loaded.</p>
+<p><a name="lib-path-note"></a></p>
+<h2 id="toc194"><span><a href="#lib-path">library search path</a></span></h2>
+<p>The list of directories the interpreter will search looking for a library to load.</p>
+<p><a name="source-file-note"></a></p>
+<h2 id="toc195"><span><a href="#source-file">source file</a></span></h2>
+<p>How to source a file.</p>
+<p><strong>r:</strong></p>
+<p>When sourcing a file, the suffix if any must be specified, unlike when loading library. Also, a library may contain a shared object, but a sourced file must consist of just R source code.</p>
+<p><a name="install-pkg-note"></a></p>
+<h2 id="toc196"><span><a href="#install-pkg">install package</a></span></h2>
+<p>How to install a package.</p>
+<p><a name="list-pkg-note"></a></p>
+<h2 id="toc197"><span><a href="#list-pkg">list installed packages</a></span></h2>
+<p>How to list the packages which have been installed.</p>
+<p><a name="reflection-note"></a></p>
+<h1 id="toc198"><span><a href="#reflection">Reflection</a></span></h1>
+<p><a name="data-type-note"></a></p>
+<h2 id="toc199"><span><a href="#data-type">data type</a></span></h2>
+<p>How to get the data type of a value.</p>
+<p><strong>r:</strong></p>
+<p>For vectors <tt>class</tt> returns the <em>mode</em> of the vector which is the type of data contained in it. The possible modes are</p>
+<ul>
+<li>numeric</li>
+<li>complex</li>
+<li>logical</li>
+<li>character</li>
+<li>raw</li>
+</ul>
+<p>Some of the more common class types for non-vector entities are:</p>
+<ul>
+<li>matrix</li>
+<li>array</li>
+<li>list</li>
+<li>factor</li>
+<li>data.frame</li>
+</ul>
+<p><a name="attr-note"></a></p>
+<h2 id="toc200"><span><a href="#attr">attributes</a></span></h2>
+<p>How to get the attributes for an object.</p>
+<p><strong>r:</strong></p>
+<p>Arrays and vectors do not have attributes.</p>
+<p><a name="method-note"></a></p>
+<h2 id="toc201"><span><a href="#methods">methods</a></span></h2>
+<p>How to get the methods for an object.</p>
+<p><a name="var-in-scope-note"></a></p>
+<h2 id="toc202"><span><a href="#var-in-scope">variables in scope</a></span></h2>
+<p>How to list the variables in scope.</p>
+<p><a name="undef-var-note"></a></p>
+<h2 id="toc203"><span><a href="#undef-var">undefine variable</a></span></h2>
+<p>How to undefine a variable.</p>
+<p><a name="undef-all-var-note"></a></p>
+<h2 id="toc204"><span><a href="#undef-all-var">undefine all variables</a></span></h2>
+<p>How to undefine all variables.</p>
+<p><a name="eval-note"></a></p>
+<h2 id="toc205"><span><a href="#eval">eval</a></span></h2>
+<p>How to interpret a string as source code and execute it.</p>
+<p><a name="func-doc-note"></a></p>
+<h2 id="toc206"><span><a href="#func-doc">function documentation</a></span></h2>
+<p>How to get the documentation for a function.</p>
+<p><a name="ls-lib-note"></a></p>
+<h2 id="toc207"><span><a href="#ls-lib">list library functions</a></span></h2>
+<p>How to list the functions and other definitions in a library.</p>
+<p><a name="grep-doc-note"></a></p>
+<h2 id="toc208"><span><a href="#grep-doc">search documentation</a></span></h2>
+<p>How to search the documentation by keyword.</p>
+<p><a name="debugging-note"></a></p>
+<h1 id="toc209"><span><a href="#debugging">Debugging</a></span></h1>
+<p><a name="benchmark-code-note"></a></p>
+<h2 id="toc210"><span><a href="#benchmark-code">benchmark code</a></span></h2>
+<p>How to benchmark code.</p>
+<p><a name="matlab"></a></p>
+<h1 id="toc211"><span><a href="#top">MATLAB</a></span></h1>
+<p><a href="http://www.gnu.org/software/octave/doc/interpreter/">Octave Manual</a><br />
+<a href="http://www.mathworks.com/help/techdoc/">MATLAB Documentation</a><br />
+<a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB">Differences between Octave and MATLAB</a><br />
+<a href="http://octave.sourceforge.net/packages.php">Octave-Forge Packages</a></p>
+<p>The basic data type of MATLAB is a matrix of floats. There is no distinction between a scalar and a 1x1 matrix, and functions that work on scalars typically work on matrices as well by performing the scalar function on each entry in the matrix and returning the results in a matrix with the same dimensions. Operators such as the logical operators (&#x27;&amp;&#x27; &#x27;|&#x27; &#x27;!&#x27;), relational operators (&#x27;==&#x27;, &#x27;!=&#x27;, &#x27;&lt;&#x27;, &#x27;&gt;&#x27;), and arithmetic operators (&#x27;+&#x27;, &#x27;-&#x27;) all work this way. However the multiplication &#x27;*&#x27; and division &#x27;/&#x27; operators perform matrix multiplication and matrix division, respectively. The <tt>.*</tt> and <tt>./</tt> operators are available if entry-wise multiplication or division is desired.</p>
+<p>Floats are by default double precision; single precision can be specified with the <em>single</em> constructor. MATLAB has convenient matrix literal notation: commas or spaces can be used to separate row entries, and semicolons or newlines can be used to separate rows.</p>
+<p>Arrays and vectors are implemented as single-row (<tt>1xn</tt>) matrices. As a result an <em>n</em>-element vector must be transposed before it can be multiplied on the right of a <tt>mxn</tt> matrix.</p>
+<p>Numeric literals that lack a decimal point such as <em>17</em> and <em>-34</em> create floats, in contrast to most other programming languages. To create an integer, an integer constructor which specifies the size such as <em>int8</em> and <em>uint16</em> must be used. Matrices of integers are supported, but the entries in a given matrix must all have the same numeric type.</p>
+<p>Strings are implemented as single-row (<tt>1xn</tt>) matrices of characters. Matrices cannot contain strings. If a string is put in matrix literal, each character in the string becomes an entry in the resulting matrix. This is consistent with how matrices are treated if they are nested inside another matrix. The following literals all yield the same string or <tt>1xn</tt> matrix of characters:</p>
+<div class="code">
+<pre>
+<code>&#x27;foo&#x27;
+[ &#x27;f&#x27; &#x27;o&#x27; &#x27;o&#x27; ]
+[ &#x27;foo&#x27; ]
+[ [ &#x27;f&#x27; &#x27;o&#x27; &#x27;o&#x27; ] ]</code>
+</pre></div>
+<p><em>true</em> and <em>false</em> are functions which return matrices of ones and zeros. The ones and zeros have type <em>logical</em> instead of <em>double</em>, which is created by the literals 1 and 0. Other than having a different class, the 0 and 1 of type <em>logical</em> behave the same as the 0 and 1 of type <em>double</em>.</p>
+<p>MATLAB has a tuple type (in MATLAB terminology, a cell array) which can be used to hold multiple strings. It can also hold values with different types.</p>
+<p><a name="r"></a></p>
+<h1 id="toc212"><span><a href="#top">R</a></span></h1>
+<p><a href="http://cran.r-project.org/doc/manuals/R-intro.html">An Introduction to R</a><br />
+<a href="http://adv-r.had.co.nz/">Advanced R Programming</a><br />
+<a href="http://cran.r-project.org/">The Comprehensive R Archive Network</a></p>
+<p>The primitive data types of R are vectors of floats, vectors of strings, and vectors of booleans. There is no distinction between a scalar and a vector with one entry in it. Functions and operators which accept a scalar argument will typically accept a vector argument, returning a vector of the same size with the scalar operation performed on each the entries of the original vector.</p>
+<p>The scalars in a vector must all be of the same type, but R also provides a <em>list</em> data type which can be used as a tuple (entries accessed by index), record (entries accessed by name), or even as a dictionary.</p>
+<p>In addition R provides a <em>data frame</em> type which is a list (in R terminology) of vectors all of the same length. Data frames are equivalent to the data sets of other statistical analysis packages.</p>
+<p><a name="numpy"></a></p>
+<h1 id="toc213"><span><a href="#top">NumPy</a></span></h1>
+<p><a href="http://docs.scipy.org/doc/">NumPy and SciPy Documentation</a><br />
+<a href="http://matplotlib.sourceforge.net/">matplotlib intro</a><br />
+<a href="http://www.scipy.org/NumPy_for_Matlab_Users">NumPy for Matlab Users</a><br />
+<a href="http://pandas.pydata.org/pandas-docs/stable/">Pandas Documentation</a><br />
+<a href="http://pandas.pydata.org/pandas-docs/dev/genindex.html">Pandas Method/Attribute Index</a></p>
+<p>NumPy is a Python library which provides a data type called <tt>array</tt>. It differs from the Python <tt>list</tt> data type in the following ways:</p>
+<ul>
+<li>N-dimensional. Although the <tt>list</tt> type can be nested to hold higher dimension data, the <tt>array</tt> can hold higher dimension data in a space efficient manner without using indirection.</li>
+<li>homogeneous. The elements of an <tt>array</tt> are restricted to be of a specified type. The NumPy library introduces new primitive types not available in vanilla Python. However, the element type of an array can be <tt>object</tt> which permits storing anything in the array.</li>
+</ul>
+<p>In the reference sheet the <a href="#array">array section</a> covers the vanilla Python <tt>list</tt> and the <a href="#multidimensional-array">multidimensional array section</a> covers the NumPy <tt>array</tt>.</p>
+<p><em>List the NumPy primitive types</em></p>
+<p>SciPy, Matplotlib, and Pandas are libraries which depend on Numpy.</p>
+<p><a name="julia"></a></p>
+<h1 id="toc214"><span><a href="#top">Julia</a></span></h1>
+<p><a href="http://julialang.org/">http://julialang.org/</a></p>
+ 
+          </div>
+        </div>
+      </div>
+      <div id="license-area" class="license-area">
+        <a href="https://github.com/clarkgrubb/hyperpolyglot/issues">issue tracker</a> |
+        content of this page licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        creative commons attribution-sharealike 3.0</a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17129977-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

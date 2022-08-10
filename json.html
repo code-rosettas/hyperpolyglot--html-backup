@@ -1,0 +1,724 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<link rel="icon" type="image/gif" href="/favicon.gif"/>
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+<title>Lorem Ipsum</title>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css" id="internal-style">
+@import url(hyperpolyglot.css);
+</style>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="en"/>
+</head>
+
+<body>
+<div id="container-wrap-wrap">
+  <div id="container-wrap">
+    <div id="container">
+      <div id="header">
+        <h1><a href="/"><span>Hyperpolyglot</span></a></h1>
+      </div>
+      <div id="content-wrap">
+        <div id="main-content">
+          <div id="page-title">Lorem Ipsum</div>
+          <div id="page-content">
+
+<p><a name="top"></a><a href="#grammar-invocation">grammar and invocation</a> | <a href="#var-expr">variables and expressions</a> | <a href="#arith-logic">arithmetic and logic</a> | <a href="#strings">strings</a> | <a href="#regex">regular expressions</a> | <a href="#dates-time">dates and time</a> | <a href="#arrays">arrays</a> | <a href="#dictionaries">dictionaries</a> | <a href="#functions">functions</a> | <a href="#exec-control">execution control</a> | <a href="#exceptions">exceptions</a> | <a href="#streams">streams</a> | <a href="#file-fmt">file formats</a> | <a href="#processes-env">processes and environment</a> | <a href="#lib-namespaces">libraries and namespaces</a> | <a href="#reflection">reflection</a></p>
+<table class="wiki-content-table">
+<tr>
+<th colspan="2"><a name="version"></a>version</th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#jq">jq</a></th>
+</tr>
+<tr>
+<td><a name="version-used"></a><a href="#version-used-note">version used</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>1.5</em></span></td>
+</tr>
+<tr>
+<td><a name="show-version"></a><a href="#show-version-note">show version</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ jq <span style="white-space: pre-wrap;">--</span>version</td>
+</tr>
+<tr>
+<th colspan="2"><a name="grammar-invocation"></a>grammar and execution</th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#jq">jq</a></th>
+</tr>
+<tr>
+<td><a name="interpreter"></a><a href="#interpreter-note">interpreter</a></td>
+<td>$ cat &gt; hello.jq<br />
+&quot;Hello, World!&quot;<br />
+<br />
+<span style="color: gray"># -n: use single &quot;null&quot; as input<br />
+# -r: write string content instead of quoted string literal to stdout</span><br />
+$ jq -nr -f hello.jq<br />
+Hello, World!</td>
+</tr>
+<tr>
+<td><a name="cmd-line-program"></a><a href="#cmd-line-program-note">command line program</a></td>
+<td>$ echo &#x27;1 2 3&#x27; | jq &#x27;. * .&#x27;<br />
+<br />
+<span style="color: gray"># no stdin:</span><br />
+$ jq -n &#x27;1 + 1&#x27; </td>
+</tr>
+<tr>
+<td><a name="stmt-separator"></a><a href="#stmt-separator-note">statement separator</a></td>
+<td><span style="color: gray">A program consists of filter expressions separated by commas and pipes: , |<br />
+<br />
+A filter expressions acts on its input and produces output.<br />
+<br />
+The pipe separator makes the output of the left expression the input of the right expression.<br />
+<br />
+The comma separator, which concatenates the output of two filters, has higher precedence than the pipe separator.<br />
+<br />
+A function definition, include statement, or import statement is terminated by a semicolon: ;</span></td>
+</tr>
+<tr>
+<td><a name="block-delimiters"></a><a href="#block-delimiters-note">block delimiters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"># Use parens to change precedence:</span><br />
+$ jq -n &#x27;2, (3 | . * .)&#x27;<br />
+$ jq -n &#x27;2, 3 | . * .&#x27;</td>
+</tr>
+<tr>
+<td><a name="eol-comment"></a><a href="#eol-comment-note">end of line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"># comment</span></td>
+</tr>
+<tr>
+<th colspan="2"><a name="var-expr"></a>variables and expressions</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="assignment"></a><a href="#assignment-note">assignment</a></td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;length as $x | map(. * $x)&#x27;<br />
+<br />
+<span style="color: gray">&quot;length as $x&quot; assigns the value 3 to $x.<br />
+<br />
+The following filter receives the same input the assignment filter got.</span></td>
+</tr>
+<tr>
+<td><a name="compound-assignment"></a><a href="#compound-assignment-note">compound assignment</a></td>
+<td><span style="white-space: pre-wrap;">|=&#32;+=&#32;-=&#32;*=&#32;/=&#32;%=&#32;//=</span><br />
+<br />
+<span style="color: gray">Compound operators are used with arrays and dictionaries. A copy of the array or dictionary is returned, with fields specified on the LHS replaced by new values. If the compound assignment expression is &quot;LHS OP= RHS&quot;, then the new value is &quot;LHS OP RHS&quot;.</span><br />
+<br />
+<span style="color: gray"># {&quot;t&quot;: 2, &quot;f&quot;: 0}:</span><br />
+$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.t += 1&#x27;<br />
+<br />
+<span style="color: gray">More than one field can be updated.<br />
+<br />
+# {&quot;t&quot;: 2, &quot;f&quot;: 1}:</span><br />
+$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.[] += 1&#x27;</td>
+</tr>
+<tr>
+<td><a name="null"></a><a href="#null-note">null</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>null</td>
+</tr>
+<tr>
+<td><a name="null-test"></a><a href="#null-test-note">null test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;{&quot;name&quot;: &quot;Ed&quot;}&#x27; | jq &#x27;.age == null&#x27;</td>
+</tr>
+<tr>
+<td><a name="coalesce"></a><a href="#coalesce-note">coalesce</a></td>
+<td><span style="color: gray"># also replaces false:</span><br />
+$ echo &#x27;{}&#x27; | jq &#x27;.age // 0&#x27;</td>
+</tr>
+<tr>
+<td><a name="conditional-expr"></a><a href="#conditional-expr-note">conditional expression</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;-3&#x27; | jq &#x27;if . &lt; 0 then -. else . end&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="arith-logic"></a>arithmetic and logic</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="true-false"></a><a href="#true-false-note">true and false</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>true false</td>
+</tr>
+<tr>
+<td><a name="falsehoods"></a><a href="#falsehoods-note">falsehoods</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>null false</td>
+</tr>
+<tr>
+<td><a name="logical-op"></a><a href="#logical-op-note">logical operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>and or not</td>
+</tr>
+<tr>
+<td><a name="relational-op"></a><a href="#relational-op-note">relational operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="white-space: pre-wrap;">==</span> != &lt; &gt; &lt;= &gt;=</td>
+</tr>
+<tr>
+<td><a name="min-max"></a><a href="#min-max-note">min and max</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;min&#x27;<br />
+$ echo &#x27;[1,2,3]&#x27; | jq &#x27;max&#x27;</td>
+</tr>
+<tr>
+<td><a name="arith-op"></a><a href="#arith-op-note">arithmetic operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>+ - * / %</td>
+</tr>
+<tr>
+<td><a name="int-division"></a><a href="#int-division-note">integer division</a></td>
+<td><span style="color: gray"># floor is new in 1.4:</span><br />
+$ jq -n &#x27;-13 / 5 | floor&#x27;</td>
+</tr>
+<tr>
+<td><a name="division-by-zero"></a><a href="#division-by-zero-note">division by zero</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+</tr>
+<tr>
+<td><a name="sqrt"></a><a href="#sqrt-note">sqrt</a></td>
+<td><span style="color: gray"># new in 1.4:</span><br />
+$ jq -n &#x27;2 | sqrt&#x27;</td>
+</tr>
+<tr>
+<td><a name="sqrt-negative-one"></a><a href="#sqrt-negative-one-note">sqrt -1</a></td>
+<td><span style="color: gray"># null:</span><br />
+$ jq -n &#x27;-1 | sqrt&#x27;</td>
+</tr>
+<tr>
+<td><a name="transcendental-func"></a><a href="#transcendental-func-note">transcendental functions</a></td>
+<td><span style="color: gray"># new in 1.5:</span><br />
+exp log<br />
+sin cos tan<br />
+asin acos atan</td>
+</tr>
+<tr>
+<td><a name="float-trunc"></a><a href="#float-trunc-note">float truncation</a></td>
+<td><span style="color: gray"># floor is new in 1.4:</span><br />
+$ jq &#x27;1.1 | floor&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="strings"></a>strings</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="str-literal"></a><a href="#str-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;lorem ipsum&quot;</td>
+</tr>
+<tr>
+<td><a name="newline-in-literal"></a><a href="#new-line-in-literal-note">newline in literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>not allowed; use</em> \n <em>escape sequence</em></span></td>
+</tr>
+<tr>
+<td><a name="str-esc"></a><a href="#str-esc-note">string escapes</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>\\ \&quot; \/ \b \f \n \r \r \t \u<span style="color: gray"><em>hhhh</em></span></td>
+</tr>
+<tr>
+<td><a name="var-interpolation"></a><a href="#var-interpolation-note">variable interpolation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;{&quot;foo&quot;: 1, &quot;bar&quot;: 2}&#x27; | jq &#x27;&quot;\(.foo):\(.bar)&quot;&#x27;</td>
+</tr>
+<tr>
+<td><a name="concat"></a><a href="#concat-note">concatenate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;foo&quot; + &quot;bar&quot;</td>
+</tr>
+<tr>
+<td><a name="translate-case"></a><a href="#translate-case-note">translate case</a></td>
+<td>$ echo &#x27;&quot;foo&quot;&#x27; | jq &#x27;ascii_upcase<br />
+$ echo &#x27;&quot;FOO&quot;&#x27; | jq &#x27;ascii_downcase&#x27;</td>
+</tr>
+<tr>
+<td><a name="num-to-str"></a><a href="#num-to-str-note">number to string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;7&#x27; | jq &#x27;tostring&#x27;</td>
+</tr>
+<tr>
+<td><a name="str-to-num"></a><a href="#str-to-num-note">string to number</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;&quot;7&quot;&#x27; | jq &#x27;tonumber&#x27;</td>
+</tr>
+<tr>
+<td><a name="str-join"></a><a href="#str-join-note">string join</a></td>
+<td><span style="color: gray"># join is new in 1.4:</span><br />
+$ echo &#x27;[&quot;do&quot;, &quot;re&quot;, &quot;mi&quot;]&#x27; | jq &#x27;join(&quot; &quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="split"></a><a href="#split-note">split</a></td>
+<td><span style="color: gray"># split is new in 1.4:</span><br />
+$ echo &#x27;&quot;do re mi&quot;&#x27; | jq &#x27;split(&quot; &quot;)&#x27;<br />
+<br />
+<span style="color: gray"># remove two empty strings:</span><br />
+$ echo &#x27;&quot; do re mi&quot;&#x27; | jq &#x27;split(&quot; &quot;) | map(select(length &gt; 0))&#x27;</td>
+</tr>
+<tr>
+<td><a name="prefix-suffix-test"></a><a href="#prefix-suffix-test-note">prefix and suffix test</a></td>
+<td>$ echo &#x27;&quot;foobar&quot;&#x27; | jq &#x27;startswith(&quot;foo&quot;)&#x27;<br />
+$ echo &#x27;&quot;foobar&quot;&#x27; | jq &#x27;endswith(&quot;bar&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="str-len"></a><a href="#str-len-note">string length</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ jq -R &#x27;length&#x27; /etc/hosts</td>
+</tr>
+<tr>
+<td><a name="index-substr"></a><a href="#index-substr-note">index of substring</a><br />
+<br />
+<span style="color: gray"><em>first, last</em></span></td>
+<td><span style="color: gray"># 3:</span><br />
+$ echo &#x27;&quot;do re re&quot;&#x27; | jq &#x27;index(&quot;re&quot;)&#x27;<br />
+<br />
+<span style="color: gray"># 6:</span><br />
+$ echo &#x27;&quot;do re re&quot;&#x27; | jq &#x27;rindex(&quot;re&quot;)&#x27;<br />
+<br />
+<span style="color: gray"># null:</span><br />
+$ echo &#x27;&quot;do re re&quot;&#x27; | jq &#x27;rindex(&quot;mi&quot;)&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="regex"></a>regular expressions</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="regex-literal"></a><a href="#regex-literal-note">literal</a></td>
+<td><span style="color: gray"># regexes are new in 1.5:</span><br />
+&quot;lorem|ipsum&quot;</td>
+</tr>
+<tr>
+<td><a name="char-class-abbrev"></a><a href="#char-class-abbrev-note">character class abbrevations</a></td>
+<td><span style="color: gray"><em>but backslashes must be doubled inside double quotes:</em></span><br />
+. \d \D \h \H \s \S \w \W</td>
+</tr>
+<tr>
+<td><a name="anchors"></a><a href="#anchors-note">anchors</a></td>
+<td><span style="color: gray"><em>but backslashes must be doubled inside double quotes:</em></span><br />
+^ $ \A \b \B \z \Z</td>
+</tr>
+<tr>
+<td><a name="match-test"></a><a href="#match-test-note">match test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo $&#x27;&quot;It\&#x27;s 1999!&quot;&#x27; | jq &#x27;. | test(&quot;1999&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="case-insensitive-match-test"></a><a href="#case-insensitive-match-test-note">case insensitive match test</a></td>
+<td>$ echo $&#x27;&quot;FOO BAR&quot;&#x27; | jq &#x27;test(&quot;foo&quot;; &quot;i&quot;)&#x27;<br />
+$ echo $&#x27;&quot;FOO BAR&quot;&#x27; | jq &#x27;test([&quot;foo&quot;, &quot;i&quot;])&#x27;<br />
+$ echo $&#x27;&quot;FOO BAR&quot;&#x27; | jq &#x27;test(&quot;(?i)foo&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="subst"></a><a href="#subst-note">substitution</a><br />
+<br />
+<span style="color: gray"><em>first occurrence, all occurrences</em></span></td>
+<td>$ echo &#x27;&quot;do re mi mi mi&quot;&#x27; | jq &#x27;sub(&quot;mi&quot;; &quot;ma&quot;)&#x27;<br />
+$ echo &#x27;&quot;do re mi mi mi&quot;&#x27; | jq &#x27;gsub(&quot;mi&quot;; &quot;ma&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="named-group-capture"></a><a href="#named-group-capture-note">named group capture</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ echo &#x27;&quot;foo.txt&quot;&#x27; | jq &#x27;capture(&quot;^(?&lt;root&gt;.*)\\.(?&lt;suffix&gt;.*)$&quot;) | .root&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="dates-time"></a>dates and time</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="current-datetime"></a><a href="#current-datetime-note">current datetime</a></td>
+<td><span style="color: gray"># date/time functions are new in 1.5</span><br />
+<br />
+<span style="color: gray"># array of broken-down datetime values:</span><br />
+$ jq -n &#x27;now | gmtime&#x27; <br />
+<br />
+<span style="color: gray"># ISO 8601 format:</span><br />
+$ jq -n &#x27;now | gmtime | todate&#x27;</td>
+</tr>
+<tr>
+<td><a name="current-unix-epoch"></a><a href="#current-unix-epoch-note">current unix epoch</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ jq -n &#x27;now&#x27;</td>
+</tr>
+<tr>
+<td><a name="broken-down-datetime-to-unix-epoch"></a><a href="#broken-down-datetime-to-unix-epoch-note">broken-down datetime to unix epoch</a></td>
+<td>$ echo &#x27;[2016,11,15,11,30,0,4,349]&#x27; | jq &#x27;mktime&#x27;</td>
+</tr>
+<tr>
+<td><a name="unix-epoch-to-broken-down-datetime"></a><a href="#unix-epoch-to-broken-down-datetime-note">unix epoch to broken-down datetime</a></td>
+<td>$ echo 1481801400 | jq &#x27;gmtime&#x27;</td>
+</tr>
+<tr>
+<td><a name="fmt-datetime"></a><a href="#fmt-datetime-note">format datetime</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ jq -n &#x27;now | gmtime | strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)&#x27;</td>
+</tr>
+<tr>
+<td><a name="parse-datetime"></a><a href="#parse-datetime-note">parse datetime</a></td>
+<td><span style="color: gray"># parses to array of broken-down datetime values:</span><br />
+$ echo &#x27;&quot;2016-12-15 11:30:00&quot;&#x27; | jq &#x27;strptime(&quot;%Y-%m-%d %H:%M:%S&quot;)&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="arrays"></a>arrays</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>lookup</td>
+<td><span style="color: gray"># 6:</span><br />
+$ echo &#x27;[6, 7, 8, 9&#x27;] | jq &#x27;.[0]&#x27;</td>
+</tr>
+<tr>
+<td>not-an-array behavior</td>
+<td><span style="color: gray"># error:</span><br />
+$ echo 1 | jq &#x27;.[0]&#x27;<br />
+<br />
+<span style="color: gray"># no error and no output:</span><br />
+$ echo 1 | jq &#x27;.[0]?&#x27;</td>
+</tr>
+<tr>
+<td>length</td>
+<td>$ echo &#x27;[6, 7, 8, 9&#x27;] | jq &#x27;length&#x27;</td>
+</tr>
+<tr>
+<td>slice</td>
+<td><span style="color: gray"># [7, 8]:</span><br />
+$ echo &#x27;[6,7,8,9]&#x27; | jq &#x27;.[1:3]&#x27;</td>
+</tr>
+<tr>
+<td>slice from beginning</td>
+<td>$ jq -c &#x27;.[:2]&#x27;</td>
+</tr>
+<tr>
+<td>slice to end</td>
+<td><span style="color: gray"><em>from element 3 on:</em></span><br />
+$ jq -c &#x27;.[2:]&#x27;<br />
+<br />
+<span style="color: gray"><em>last two elements:</em></span><br />
+$ jq -c &#x27;.[-2:]&#x27;</td>
+</tr>
+<tr>
+<td>indices</td>
+<td>$ jq -c &#x27;keys&#x27;</td>
+</tr>
+<tr>
+<td>reverse</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;reverse&#x27;</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>$ echo &#x27;[3,1,4,2]&#x27; | jq &#x27;sort&#x27; </td>
+</tr>
+<tr>
+<td>dedupe</td>
+<td>$ echo &#x27;[1,1,2,3]&#x27; | jq &#x27;unique&#x27;</td>
+</tr>
+<tr>
+<td>subset test</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;contains([1])&#x27;<br />
+$ echo &#x27;[1]&#x27; | jq &#x27;inside([1,2,3])&#x27; </td>
+</tr>
+<tr>
+<td>map</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;.[] | . * .&#x27;<br />
+$ echo &#x27;[1,2,3]&#x27; | jq &#x27;map(. * .)&#x27;</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;map(select(. &gt; 2))&#x27;</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>$ echo &#x27;[1,2,3,4]&#x27;| jq &#x27;reduce .[] as $item (0; .+$item)&#x27;</td>
+</tr>
+<tr>
+<td>universal and existential test</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;all(. &gt; 2)&#x27;<br />
+$ echo &#x27;[1,2,3]&#x27; | jq &#x27;any(. &gt; 2)&#x27;</td>
+</tr>
+<tr>
+<td>flatten<br />
+<span style="color: gray"><em>one level, completely</em></span></td>
+<td><span style="color: gray"># flatten is new in 1.5:</span><br />
+$ echo &#x27;[1,[2,[3]]]&#x27; | jq -c &#x27;flatten(1)&#x27;<br />
+$ echo &#x27;[1,[2,[3]]]&#x27; | jq -c &#x27;flatten&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="dictionaries"></a>dictionaries</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>literal</td>
+<td>{&quot;t&quot;: 1, &quot;f&quot;: 0}</td>
+</tr>
+<tr>
+<td>size</td>
+<td>$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;length&#x27;</td>
+</tr>
+<tr>
+<td>lookup</td>
+<td>$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.t&#x27;<br />
+$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.[&quot;t&quot;]&#x27;</td>
+</tr>
+<tr>
+<td>update</td>
+<td>$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.f = -1&#x27;</td>
+</tr>
+<tr>
+<td>is key present</td>
+<td>$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;has(&quot;t&quot;)&#x27;<br />
+$ echo &#x27;&quot;t&quot;&#x27; | jq &#x27;in({&quot;t&quot;: 1, &quot;f&quot;: 0})&#x27;</td>
+</tr>
+<tr>
+<td>missing key behavior</td>
+<td><span style="color: gray"># null:</span><br />
+$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;.m&#x27; </td>
+</tr>
+<tr>
+<td>not a dictionary behavior</td>
+<td><span style="color: gray"># error:</span><br />
+$ echo 1 | jq &#x27;.foo&#x27;<br />
+<br />
+<span style="color: gray"># no error and no output:</span><br />
+$ echo 1 | jq &#x27;.foo?&#x27;</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>$ echo &#x27;{&quot;t&quot;: 1, &quot;f&quot;: 0}&#x27; | jq &#x27;del(.t)&#x27;</td>
+</tr>
+<tr>
+<td>keys and values as arrays</td>
+<td>$ echo &#x27;{&quot;do&quot;: 1, &quot;re&quot;: 2}&#x27; | jq &#x27;keys&#x27;<br />
+$ echo &#x27;{&quot;do&quot;: 1, &quot;re&quot;: 2}&#x27; | jq &#x27;to_entries | map(.value)&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="functions"></a>functions</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>define</td>
+<td>$ echo &#x27;1 2 3 4&#x27; | jq &#x27;def double: 2 * .;&#x27;</td>
+</tr>
+<tr>
+<td>call</td>
+<td>$ echo &#x27;1 2 3 4&#x27; | jq &#x27;def double: 2 * .; double&#x27;</td>
+</tr>
+<tr>
+<td>function with argument</td>
+<td>$ echo &#x27;1 2 3 4&#x27; | jq &#x27;def multiply($x): . * $x; multiply(7)&#x27;<br />
+<br />
+<span style="color: gray"># without $, argument is treated as a filter:</span><br />
+echo &#x27;1 2 3 4&#x27; | jq &#x27;def apply(f): f; apply(. * 7)&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="exec-control"></a>execution control</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>if</td>
+<td>$ echo &#x27;-3&#x27; | jq &#x27;if . &lt; 0 then -. else . end&#x27;</td>
+</tr>
+<tr>
+<td>while</td>
+<td>$ jq -n &#x27;1 | while(. &lt; 10; . + 1)&#x27; </td>
+</tr>
+<tr>
+<td>break</td>
+<td>$ jq -n &#x27;1 | label $out | while(true; if . &gt; 10 then break $out else. + 1 end)&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="exceptions"></a>exceptions</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>raise exception</td>
+<td>$ jq -n &#x27;error(&quot;bam!&quot;)&#x27;</td>
+</tr>
+<tr>
+<td>handle exception</td>
+<td><span style="color: gray"># set output to null:</span><br />
+$ jq -n &#x27;try error(&quot;bam!&quot;) catch null&#x27;<br />
+<br />
+<span style="color: gray"># two ways to handle with no output:</span><br />
+$ jq -n &#x27;try error(&quot;bam!&quot;) catch empty&#x27;<br />
+$ jq -n &#x27;error(&quot;bam!&quot;)?&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="streams"></a>streams</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>write to stderr</td>
+<td><span style="color: gray"># input to debug is also passed on to subsequent filters:</span><br />
+$ jq -n &#x27;&quot;foo&quot; | debug&#x27;</td>
+</tr>
+<tr>
+<td>read input as array of strings</td>
+<td>$ jq -R &#x27;length&#x27; /etc/hosts</td>
+</tr>
+<tr>
+<td>array to stream</td>
+<td>$ echo &#x27;[1,2,3]&#x27; | jq &#x27;.[]&#x27;</td>
+</tr>
+<tr>
+<td>stream to array</td>
+<td>$ echo &#x27;1 2 3&#x27; | jq -s &#x27;.&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="file-fmt"></a>file formats</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<th colspan="2"><a name="processes-env"></a>processes and environment</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>environment variable</td>
+<td>$ jq -n &#x27;env.HOME&#x27; <br />
+$ jq -n &#x27;env[&quot;HOME&quot;]&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="lib-namespaces"></a>libraries and namespaces</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td>load library</td>
+<td>$ cat &gt; multiples.jq <br />
+def double: 2 * .;<br />
+def triple: 3 * .;<br />
+def quadruple; 4 * .;<br />
+<br />
+$ echo 3 | jq &#x27;include &quot;multiples&quot;; double&#x27;</td>
+</tr>
+<tr>
+<td>library path command line option</td>
+<td>$ mkdir ~/.jq<br />
+$ cat &gt; ~/.jq/multiples.jq<br />
+def double: 2 * .;<br />
+def triple: 3 * .;<br />
+def quadruple; 4 * .;<br />
+<br />
+$ echo 3 | jq -L ~/.jq &#x27;include &quot;multiples&quot;; double&#x27;</td>
+</tr>
+<tr>
+<td>load definitions in namespace</td>
+<td>$ cat &gt; multiples.jq <br />
+def double: 2 * .;<br />
+def triple: 3 * .;<br />
+def quadruple; 4 * .;<br />
+<br />
+$ echo 3 | jq &#x27;import &quot;multiples&quot; as mult; mult::double&#x27;</td>
+</tr>
+<tr>
+<th colspan="2"><a name="reflection"></a>reflection</th>
+</tr>
+<tr>
+<th></th>
+<th>jq</th>
+</tr>
+<tr>
+<td><a name="inspect-type"></a><a href="#inspect-type-note">inspect type</a></td>
+<td>$ echo &#x27;{&quot;foo&quot;: 1}&#x27; | jq &#x27;.foo | type&#x27;</td>
+</tr>
+<tr>
+<td><a name="basic-types"></a><a href="#basic-types-note">basic types</a></td>
+<td>&quot;number&quot;<br />
+&quot;boolean&quot;<br />
+&quot;array&quot;<br />
+&quot;object&quot;<br />
+&quot;null&quot;<br />
+&quot;string&quot;</td>
+</tr>
+<tr>
+<th></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">___________________________________________________________________</span></span></th>
+</tr>
+</table>
+<p><a name="jq"></a></p>
+<h1 id="toc0"><span>Jq</span></h1>
+<p><a href="http://manpages.ubuntu.com/manpages/xenial/man1/jq.1.html">jq man page</a></p>
+ 
+          </div>
+        </div>
+      </div>
+      <div id="license-area" class="license-area">
+        <a href="https://github.com/clarkgrubb/hyperpolyglot/issues">issue tracker</a> |
+        content of this page licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        creative commons attribution-sharealike 3.0</a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17129977-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

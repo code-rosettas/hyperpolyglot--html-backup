@@ -1,0 +1,1310 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<link rel="icon" type="image/gif" href="/favicon.gif"/>
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+<title>Lorem Ipsum</title>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css" id="internal-style">
+@import url(hyperpolyglot.css);
+</style>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="en"/>
+</head>
+
+<body>
+<div id="container-wrap-wrap">
+  <div id="container-wrap">
+    <div id="container">
+      <div id="header">
+        <h1><a href="/"><span>Hyperpolyglot</span></a></h1>
+      </div>
+      <div id="content-wrap">
+        <div id="main-content">
+          <div id="page-title">Lorem Ipsum</div>
+          <div id="page-content">
+
+<table class="wiki-content-table">
+<tr>
+<th></th>
+<th><a href="#gnuplot">gnuplot</a></th>
+<th><a href="#glpk">glpk</a></th>
+</tr>
+<tr>
+<td><a name="version-used"></a><a href="#version-used-note">version used</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>5.0</em></span></td>
+<td><span style="color: gray"><em>4.52</em></span></td>
+</tr>
+<tr>
+<td><a name="show-version"></a><a href="#show-version-note">show version</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ gnuplot <span style="white-space: pre-wrap;">--</span>version</td>
+<td>$ glpsol <span style="white-space: pre-wrap;">--</span>version</td>
+</tr>
+<tr>
+<th colspan="3"><a name="grammar-invocation"></a><a href="#grammar-invocation-note">grammar and invocation</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="interpreter"></a><a href="#interpreter-note">interpreter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ cat hello.gnuplot<br />
+print &quot;Hello, World!&quot;<br />
+<br />
+$ gnuplot hello.gnuplot<br />
+Hello, World!</td>
+<td>$ cat hello.model<br />
+printf &quot;Hello, World!\n&quot;;<br />
+end;<br />
+<br />
+$ glpsol -m hello.model<br />
+Hello, World!</td>
+</tr>
+<tr>
+<td><a name="repl"></a><a href="#repl-note">repl</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ gnuplot</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="compiler"></a><a href="#compiler-note">compiler</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="cmd-line-program"></a><a href="#cmd-line-program-note">command line program</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ gnuplot -e &#x27;print 1 + 1;&#x27;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="block-delimiters"></a><a href="#block-delimiters-note">block delimiters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>{ }</td>
+<td>{ }<br />
+<br />
+<span style="color: gray"><em>Curly braces are used to delimit the block of statements in the body of a</em> for <em>statement.</em></span><br />
+<br />
+<span style="color: gray"><em>Curly braces are also used in indexing expressions and set literals.</em></span></td>
+</tr>
+<tr>
+<td><a name="stmt-separator"></a><a href="#stmt-separator-note">statement separator</a></td>
+<td><span style="color: gray"><em>newline or</em></span> ;<br />
+<br />
+<span style="color: gray"><em>A newline preceded by a backslash is ignored.</em></span></td>
+<td>;</td>
+</tr>
+<tr>
+<td><a name="eol-comment"></a><a href="#eol-comment-note">end-of-line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td># <span style="color: gray"><em>comment</em></span></td>
+<td># <span style="color: gray"><em>comment</em></span></td>
+</tr>
+<tr>
+<td><a name="multiple-line-comment"></a><a href="#multiple-line-comment-note">multiple line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>/* <span style="color: gray"><em>comment line</em></span><br />
+<span style="color: gray"><em>another comment</em></span> */</td>
+</tr>
+<tr>
+<th colspan="3"><a name="var-expr"></a><a href="#var-expr-note">variables and expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="assignment"></a><a href="#assignment-note">assignment</a></td>
+<td>x = 3.14</td>
+<td><span style="color: gray"># parameters are write once:</span><br />
+param pi := 3.14;</td>
+</tr>
+<tr>
+<td><a name="null"></a><a href="#null-note">null</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="null-test"></a><a href="#null-test-note">null test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="undef-var"></a><a href="#undef-var-note">undefined variable access</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>causes error</em></span></td>
+<td><span style="color: gray"><em>causes error</em></span></td>
+</tr>
+<tr>
+<td><a name="undef-var-test"></a><a href="#undef-var-test-note">undefined variable test</a></td>
+<td>exists(&quot;x&quot;)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="rm-var-binding"></a><a href="#rm-var-binding-note">remove variable binding</a></td>
+<td>undefine x</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="cond-expr"></a><a href="#cond-expr-note">conditional expression</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>x &gt; 0 : x : -x</td>
+<td>if x &gt; 0 then x else -x</td>
+</tr>
+<tr>
+<th colspan="3"><a name="arithmetic-logic"></a><a href="#arithmetic-logic-note">arithmetic and logic</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="true-false"></a><a href="#true-false-note">true and false</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>1 0</td>
+<td>1 0<br />
+<br />
+<span style="color: gray"><em>The boolean values are distinct from the integers 1 and 0. When displayed by</em> printf &#x27;%s&#x27; <em>they render as</em> T <em>and</em> F. <em>There are no boolean literals, however.</em></span></td>
+</tr>
+<tr>
+<td><a name="falsehoods"></a><a href="#falsehoods-note">falsehoods</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>0<br />
+<br />
+<span style="color: gray">0.0 <em>is true</em></span></td>
+<td>0 0.0</td>
+</tr>
+<tr>
+<td><a name="logical-op"></a><a href="#logical-op-note">logical operators</a></td>
+<td>@@&amp;&amp; </td>
+<td> !@</td>
+<td>and or not<br />
+<br />
+@@&amp;&amp; </td>
+<td> !@</td>
+</tr>
+<tr>
+<td><a name="relational-op"></a><a href="#relational-op-note">relational operators</a></td>
+<td>== != &lt; &gt; &lt;= &gt;=<br />
+<br />
+<span style="color: gray"># string comparision:</span><br />
+eq ne</td>
+<td><span style="white-space: pre-wrap;">=</span> &lt;&gt; &lt; &gt; &lt;= &gt;=<br />
+<br />
+== <span style="color: gray">//and//</span> != <span style="color: gray">//are synonyms of//</span> = <span style="color: gray">//and//</span> &lt;&gt; </td>
+</tr>
+<tr>
+<td><a name="arith-op"></a><a href="#arith-op-note">arithmetic operators</a> <br />
+<br />
+<span style="color: gray"><em>addition, subtraction, multiplication, division, modulus</em></span></td>
+<td>+ - * / %</td>
+<td>+ - * / mod</td>
+</tr>
+<tr>
+<td><a name="int-div"></a><a href="#int-div-note">integer division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>int(x) / int(y)</td>
+<td>x div y</td>
+</tr>
+<tr>
+<td><a name="int-div-zero"></a><a href="#int-div-zero-note">integer division by zero</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+</tr>
+<tr>
+<td><a name="float-div"></a><a href="#float-div-note">float division</a></td>
+<td>(1.0 * x) / y</td>
+<td>7 / 3</td>
+</tr>
+<tr>
+<td><a name="float-div-zero"></a><a href="#float-div-zero-note">float division by zero</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+</tr>
+<tr>
+<td><a name="power"></a><a href="#power-note">power</a></td>
+<td>2 ** 32</td>
+<td>2 ^ 32<br />
+2 ** 32</td>
+</tr>
+<tr>
+<td><a name="sqrt"></a><a href="#sqrt-note">sqrt</a></td>
+<td>sqrt(2)</td>
+<td>sqrt(2)</td>
+</tr>
+<tr>
+<td><a name="sqrt-negative-one"></a><a href="#sqrt-negative-one-note">sqrt -1</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"># evaluates to {0.0, 1.0}:</span><br />
+sqrt(-1) </td>
+<td><span style="color: gray"># error:</span><br />
+sqrt(-1)</td>
+</tr>
+<tr>
+<td><a name="transcendental-func"></a><a href="#transcendental-func-note">transcendental functions</a></td>
+<td>exp() log log10()<br />
+sin() cos() tan()<br />
+asin() acos() atan()<br />
+atan2()</td>
+<td>exp() log() log10()<br />
+sin() cos() <span style="color: gray"><em>none</em></span><br />
+<span style="color: gray"><em>none</em></span> <span style="color: gray"><em>none</em></span> atan()<br />
+atan(<span style="color: gray"><em>y</em></span>, <span style="color: gray"><em>x</em></span>)</td>
+</tr>
+<tr>
+<td><a name="transcendental-const"></a><a href="#transcendental-const-note">transcendental constants</a><br />
+<span style="color: gray"><em>e and pi</em></span></td>
+<td>exp(1)<br />
+pi</td>
+<td>exp(1)<br />
+4 * atan(1)</td>
+</tr>
+<tr>
+<td><a name="float-truncation"></a><a href="#float-truncation-note">float truncation</a><br />
+<span style="color: gray"><em>round towards zero, round to nearest integer, round down, round up</em></span></td>
+<td>int(x)<br />
+<span style="color: gray"><em>??</em></span><br />
+floor(x)<br />
+ceil(x)</td>
+<td>trunc(x)<br />
+round(x)<br />
+floor(x)<br />
+ceil(x)<br />
+<br />
+<span style="color: gray"># truncate/round to 2 decimal places:</span><br />
+trunc(x, 2)<br />
+round(x, 2)</td>
+</tr>
+<tr>
+<td><a name="absolute-val"></a><a href="#absolute-val-note">absolute value</a><br />
+<span style="color: gray"><em>and signum</em></span></td>
+<td>abs(x)<br />
+sgn(x)</td>
+<td>abs(x)<br />
+<span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="int-overflow"></a><a href="#int-overflow-note">integer overflow</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>32 bit signed integers are used. Operations which overflow return a float.</em></span> </td>
+<td><span style="color: gray"><em>conversion to float</em></span></td>
+</tr>
+<tr>
+<td><a name="float-overflow"></a><a href="#float-overflow-note">float overflow</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>64 bit double precision floats are used. Operations which overflow raise an error.</em></span></td>
+<td><span style="color: gray"><em>error</em></span></td>
+</tr>
+<tr>
+<td><a name="complex-construction"></a><a href="#complex-construction-note">complex construction</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>z = {1.0, 2.0}</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="complex-decomposition"></a><a href="#complex-decomposition-note">complex decomposition</a><br />
+<span style="color: gray"><em>real and imaginary part, argument and modulus, conjugate</em></span></td>
+<td>real(z)<br />
+imag(z)<br />
+arg(z)<br />
+abs(z)<br />
+<span style="color: gray"><em>??</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="random-num"></a><a href="#random-num-note">random number</a><br />
+<span style="color: gray"><em>uniform integer, uniform float, standard normal</em></span></td>
+<td>floor(rand(0) * 100)<br />
+rand(0)<br />
+<span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"># Irand224() generates integer in [0, 2^24):</span><br />
+Irand224() mod 100<br />
+Uniform01()<br />
+Normal01()</td>
+</tr>
+<tr>
+<td><a name="random-seed"></a><a href="#random-seed-note">random seed</a></td>
+<td>_ = rand(17)</td>
+<td>$ glpsol <span style="white-space: pre-wrap;">--</span>seed 17 -m foo.model</td>
+</tr>
+<tr>
+<td><a name="bit-op"></a><a href="#bit-op-note">bit operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="white-space: pre-wrap;">&lt;&lt;&#32;&gt;&gt;&#32;&amp;&#32;|&#32;^&#32;~</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="binary-octal-hex-literals"></a><a href="#binary-octal-hex-literals-note">binary, octal, and hex literals</a></td>
+<td><span style="color: gray"><em>none</em></span><br />
+052<br />
+0x2a</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="strings"></a><a href="#strings-note">strings</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a href="#string-literals">string literals</a></td>
+<td>&quot;don&#x27;t say \&quot;no\&quot;&quot;<br />
+&#x27;don&#x27;&#x27;t say &quot;no&quot;&#x27;</td>
+<td>&quot;don&#x27;t say &quot;&quot;no&quot;&quot;&quot;<br />
+&#x27;don&#x27;&#x27;t say &quot;no&quot;&#x27;<br />
+<br />
+<span style="color: gray"><em>Quotes can be omitted in the data section when the contents of the string are alphanumeric or match the character class</em> [-+_.]</span></td>
+</tr>
+<tr>
+<td><a href="#string-newline">newline in literal</a></td>
+<td><span style="color: gray"><em>no</em></span></td>
+<td><span style="color: gray"><em>no</em></span></td>
+</tr>
+<tr>
+<td><a href="#string-escapes">string literal escapes</a></td>
+<td><span style="color: gray"># in double quotes:</span><br />
+\n \r \t \<span style="color: gray"><em>o</em></span> \<span style="color: gray"><em>oo</em></span> \<span style="color: gray"><em>ooo</em></span></td>
+<td><span style="color: gray"># in printf format:</span><br />
+\n \t</td>
+</tr>
+<tr>
+<td><a href="#string-length">length</a></td>
+<td>strlen(&quot;lorem ipsum&quot;)</td>
+<td>length(&quot;lorem ipsum&quot;)</td>
+</tr>
+<tr>
+<td><a href="#string-concatenate">concatenate</a></td>
+<td>&quot;lorem &quot; . &quot;ipsum&quot;</td>
+<td>&quot;lorem &quot; &amp; &quot;ipsum&quot;</td>
+</tr>
+<tr>
+<td><a href="#index-substring">index of substring</a></td>
+<td><span style="color: gray"># indices start at 1;<br />
+# returns 0 if not found:</span><br />
+# strstrt(&quot;foo bar&quot;, &quot;bar&quot;, </td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#extract-substring">extract substring</a></td>
+<td>substr(&quot;foo bar&quot;, 5, 8)</td>
+<td>substr(&quot;foo bar&quot;, 5, 3)</td>
+</tr>
+<tr>
+<td><a name="fmt-str"></a><a href="#fmt-str-note">format string</a></td>
+<td>sprintf(&quot;%d %.2f %s&quot;, 7, 3.1415, &quot;foo&quot;)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="num-to-str"></a><a href="#num-to-str-note">number to string</a></td>
+<td>&quot;foo&quot; . 4</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="str-to-num"></a><a href="#str-to-num-note">string to number</a></td>
+<td>&quot;4&quot; + 7<br />
+<br />
+<span style="color: gray"># causes error:</span><br />
+&quot;foo&quot; + 7</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="dates-time"></a><a href="#dates-time-note">dates and time</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="current-time-unix-epoch"></a><a href="#current-time-unix-epoch-note">current time as unix epoch</a></td>
+<td><span style="color: gray"># seconds since Jan 1, 2000</span><br />
+<span style="color: gray"># add 946684800.0 to get unix epoch:</span><br />
+now = time(0)<br />
+<br />
+<span style="color: gray"># as float:</span><br />
+real_now = time(0.0)</td>
+<td>gmtime()</td>
+</tr>
+<tr>
+<td><a name="fmt-time"></a><a href="#fmt-time-note">format time</a></td>
+<td>strftime(&#x27;%Y-%m-%d %H:%M:%S&#x27;, now)</td>
+<td>time2str(gmtime(), &#x27;%Y-%m-%d %H:%M:%S&#x27;)</td>
+</tr>
+<tr>
+<td><a name="parse-time"></a><a href="#parse-time-note">parse time</a></td>
+<td>s = &quot;2014-11-30 03:53:59&quot;<br />
+t = strptime(&#x27;%Y-%m-%d %H:%M:%S&#x27;, s)</td>
+<td>str2time(&quot;2014-12-01 19:38:09&quot;, &quot;%Y-%m-%d %H:%M:%S&quot;)</td>
+</tr>
+<tr>
+<td><a name="sleep"></a><a href="#sleep-note">sleep</a></td>
+<td>pause 10<br />
+<br />
+<span style="color: gray"># with message:</span><br />
+pause 10 &#x27;sleeping 10s<span style="white-space: pre-wrap;">...</span>&#x27;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="multidimensional-arrays"></a><a href="#multidimensional-arrays-note">multidimensional arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td>2d literal</td>
+<td><span style="color: gray"><em>in separate file; one line for each data point; whitespace delimited:</em></span><br />
+<br />
+$ cat data.txt<br />
+7 8<br />
+9 10<br />
+11 12</td>
+<td><span style="color: gray"># declare in model section:</span><br />
+param a {1..2, 1..2};<br />
+<br />
+<span style="color: gray"># define in data section:</span><br />
+param a: 1<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>2 :=<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>1<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>7<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>8<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>2<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>9 10;</td>
+</tr>
+<tr>
+<td>3d literal</td>
+<td><span style="color: gray"><em>in separate file; one line for each data point:</em></span><br />
+<br />
+$ cat data.txt<br />
+# city data:<br />
+&quot;Los Angeles&quot; 3 7<br />
+&quot;New York&quot; 8 4<br />
+&quot;San Francisco&quot; 12 1<br />
+<br />
+<span style="color: gray"><em>comment lines are ignored; data which contains whitespace must be quoted</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="sets"></a><a href="#sets-note">sets</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td>literal</td>
+<td> </td>
+<td>set digits := {1, 2, 3, 4, 5};</td>
+</tr>
+<tr>
+<td>set from arithmetic sequence<br />
+<br />
+<span style="color: gray"><em>unit difference, non-unit difference</em></span></td>
+<td> </td>
+<td>set digits := {1 .. 5};<br />
+<br />
+set leap_years := {2000 .. 2096 by 4};</td>
+</tr>
+<tr>
+<td>membership</td>
+<td> </td>
+<td>set s := {1, 2, 3};<br />
+set str := if 4 in s then &#x27;yes&#x27; else &#x27;no&#x27;;</td>
+</tr>
+<tr>
+<td>intersection</td>
+<td> </td>
+<td>set s1 := {1, 2, 3};<br />
+set s2 := {2, 3, 4, 5};<br />
+<br />
+set s3 := s1 inter s2;</td>
+</tr>
+<tr>
+<td>union</td>
+<td> </td>
+<td>set s3 := s1 union s2;</td>
+</tr>
+<tr>
+<td>relative complement, symmetric difference</td>
+<td> </td>
+<td>set s3 := s1 diff s2;<br />
+set s4 := s1 symdiff s2;</td>
+</tr>
+<tr>
+<td>cartesian product</td>
+<td> </td>
+<td><span style="color: gray"># 12 pairs:</span><br />
+set s3 := s1 cross s2;</td>
+</tr>
+<tr>
+<td>map</td>
+<td> </td>
+<td>set s := 1 .. 10;<br />
+set squares := setof {i in s} i * i;</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td> </td>
+<td>set s := 1 .. 10;<br />
+<br />
+param n1 := min {i in s} i;<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># 1</span><br />
+param n2 := max {i in s} i;<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># 10</span><br />
+param n3 := sum {i in s} i;<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># 55</span><br />
+param n4 := prod {i in s} i;<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># 10!</span><br />
+<br />
+<span style="color: gray"># sum of squares:</span><br />
+param n5 := sum {i in s} i * i;</td>
+</tr>
+<tr>
+<td>universal test</td>
+<td> </td>
+<td>set str1 := if (forall {i in s} i &gt; 5) then &#x27;yes&#x27; else &#x27;no&#x27;;</td>
+</tr>
+<tr>
+<td>existential test</td>
+<td> </td>
+<td>set str2 = if (exists {i in s} i &gt; 5) then &#x27;yes&#x27; else &#x27;no&#x27;;</td>
+</tr>
+<tr>
+<th colspan="3"><a name="functions"></a><a href="#functions-note">functions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a href="#function-definition">define function</a></td>
+<td><span style="color: gray"># body of function must be an expression:</span><br />
+add(x, y) = x + y</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#function-invocation">invoke function</a></td>
+<td>add(3, 7)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#list-functions">list functions</a></td>
+<td>show functions</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="missing-arg"></a><a href="#missing-arg-note">missing argument behavior</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="extra-arg"></a><a href="#extra-arg-note">extra argument behavior</a></td>
+<td><span style="color: gray"><em>error</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#return-value">return value</a></td>
+<td><span style="color: gray"><em>value of the expression which is the function body</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="execution-control"></a><a href="#execution-control-note">execution control</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a href="#if">if</a></td>
+<td>if (x &gt; 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print &quot;positive&quot;<br />
+}<br />
+else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (x &lt; 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print &quot;negative&quot;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print &quot;zero&quot;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#while">while</a></td>
+<td>i = 0<br />
+<br />
+while (i &lt; 10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print i<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i = i + 1<br />
+}</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a href="#for">for</a></td>
+<td>do for [i = 1:10] {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print i<br />
+}</td>
+<td>for {i in {1..10<br />
+{<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>printf &quot;%d\n&quot;, i;<br />
+}</td>
+</tr>
+<tr>
+<td>break continue</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>raise exception</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="file-handles"></a><a href="#file-handles-note">file handles</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td>write line to stdout</td>
+<td>print &quot;Hello, World!&quot;</td>
+<td>printf &quot;Hello, World!\n&quot;;</td>
+</tr>
+<tr>
+<td>write formatted string to stdout</td>
+<td> </td>
+<td>printf &quot;%d %.2f %s&quot;, 7, 3.1415, &#x27;foo&#x27;;</td>
+</tr>
+<tr>
+<td>write to file</td>
+<td> </td>
+<td><span style="color: gray"># overwrites contents of /tmp/foo.txt:</span><br />
+printf &quot;lorem ispum&quot; &gt; &quot;/tmp/foo.txt&quot;;</td>
+</tr>
+<tr>
+<td>append to file</td>
+<td> </td>
+<td>printf &quot;dolor sit amet&quot; <span style="white-space: pre-wrap;">&gt;&gt;</span> &quot;/tmp/foo.txt&quot;;</td>
+</tr>
+<tr>
+<td>pretty print</td>
+<td> </td>
+<td>set s := {1, 2, 3, 4, 5};<br />
+param x := 3;<br />
+param str symbolic := &#x27;lorem ispum&#x27;;<br />
+<br />
+display &quot;set: &quot;, s,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;param: &quot;, x,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;string: &quot;, str;</td>
+</tr>
+<tr>
+<th colspan="3"><a name="directories"></a><a href="#directories-note">directories</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td>working directory</td>
+<td><span style="color: gray"># writes working dir to stdout:</span><br />
+pwd<br />
+<br />
+cd &quot;/tmp&quot;</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="libraries-namespaces"></a><a href="#libraries-namespaces-note">libraries and namespaces</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a href="#load">load</a></td>
+<td>$ cat foo.gnuplot<br />
+print &quot;loaded!&quot;<br />
+<br />
+$ cat main.gnuplot<br />
+load &#x27;foo.gnuplot&#x27;<br />
+<br />
+$ gnuplot main.gnuplot<br />
+loaded!</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="processes-environment"></a><a href="#processes-environment-note">processes and environment</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="cmd-line-arg"></a><a href="#cmd-line-arg-note">command line arguments</a></td>
+<td>$ cat test.gnuplot<br />
+print foo<br />
+print bar<br />
+<br />
+$ gnuplot -e &#x27;foo=3; bar=4&#x27; test.gnuplot</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="exit"></a><a href="#exit-note">exit</a></td>
+<td><span style="color: gray"># no way to set exit status:</span><br />
+exit<br />
+<br />
+<span style="color: gray"># or:</span><br />
+quit</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="cmd-subst"></a><a href="#cmd-subst-note">command substitution</a></td>
+<td>ls_output = system(&quot;ls&quot;)</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<th colspan="3"><a name="optimization"></a><a href="#optimization-note">optimization</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="linear-min"></a><a href="#linear-min-note">linear minimization</a></td>
+<td> </td>
+<td>var x1;<br />
+var x2;<br />
+var x3;<br />
+<br />
+minimize obj: x1 + x2 + x3;<br />
+<br />
+c1: x1 + x2 &gt;= 1;<br />
+c2: x2 + x3 &gt;= 1;<br />
+c3: x1 + x3 &gt;= 1;<br />
+<br />
+solve;<br />
+display obj, x1, x2, x3;<br />
+end;</td>
+</tr>
+<tr>
+<td><a name="decision-var-array"></a><a href="#decision-vary-array-note">decision variable array</a></td>
+<td> </td>
+<td>set I := {1 .. 3};<br />
+var x{I};<br />
+<br />
+minimize obj: sum{i in I} x[i];<br />
+<br />
+c1: x[1] + x[2] &gt;= 1;<br />
+c2: x[2] + x[3] &gt;= 1;<br />
+c3: x[1] + x[3] &gt;= 1;<br />
+<br />
+solve;<br />
+display obj, x;<br />
+end;</td>
+</tr>
+<tr>
+<td><a name="linear-max"></a><a href="#linear-max-note">linear maximization</a></td>
+<td> </td>
+<td>set I := {1 .. 3};<br />
+var x{I};<br />
+<br />
+maximize obj: sum{i in I} x[i];<br />
+<br />
+c1: x[1] + x[2] &lt;= 1;<br />
+c2: x[2] + x[3] &lt;= 1;<br />
+c3: x[1] + x[3] &lt;= 1;<br />
+<br />
+solve;<br />
+display obj, x;<br />
+end;</td>
+</tr>
+<tr>
+<td><a name="var-declaration-constraint"></a><a href="#var-declaration-constraint-note">constraint in variable declaration</a></td>
+<td> </td>
+<td>set I := {1 .. 3};<br />
+var x{I} &gt;= 0;<br />
+<br />
+minimize obj: sum{i in I} x[i];<br />
+<br />
+c1: -x[1] + x[2] &gt;= 1;<br />
+c2: x[2] + x[3] &gt;= 1;<br />
+c3: -x[1] + x[3] &gt;= 1;<br />
+<br />
+solve;<br />
+display obj, x;<br />
+end;</td>
+</tr>
+<tr>
+<td><a name="opt-unbounded-behavior"></a><a href="#opt-unbounded-behavior-note">unbounded behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td><span style="color: gray"># Stops execution after solve statement with &quot;LP HAS UNBOUNDED PRIMAL SOLUTION&quot; message.</span></td>
+</tr>
+<tr>
+<td><a name="opt-infeasible-behavior"></a><a href="#opt-infeasible-behavior-note">infeasible behavior</a></td>
+<td> </td>
+<td><span style="color: gray"># Stops execution after solve statement with &quot;LP HAS NO PRIMAL FEASIBLE SOLUTION&quot; message.</span></td>
+</tr>
+<tr>
+<td><a name="int-decision-var"></a><a href="#int-decision-var-note">integer decision variable</a></td>
+<td> </td>
+<td>set I := {1 .. 3};<br />
+var x{I} integer;<br />
+<br />
+minimize obj: sum{i in I} x[i];<br />
+<br />
+c1: x[1] + x[2] &gt;= 1;<br />
+c2: x[2] + x[3] &gt;= 1;<br />
+c3: x[1] + x[3] &gt;= 1;<br />
+<br />
+solve;<br />
+display obj, x;<br />
+end;</td>
+</tr>
+<tr>
+<td><a name="int-binary-var"></a><a href="#int-binary-var-note">binary decision variable</a></td>
+<td> </td>
+<td>set I := {1 .. 3};<br />
+var x{I} binary;<br />
+<br />
+minimize obj: sum{i in I} x[i];<br />
+<br />
+c1: x[1] + x[2] &gt;= 1;<br />
+c2: x[2] + x[3] &gt;= 1;<br />
+c3: x[1] + x[3] &gt;= 1;<br />
+<br />
+solve;<br />
+display obj, x;<br />
+end;</td>
+</tr>
+<tr>
+<th colspan="3"><a name="linear-regression"></a><a href="#linear-regression-note">linear regression</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<th colspan="3"><a name="bar-charts"></a><a href="#bar-charts-note">bar charts</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="vertical-bar-chart"></a><img src="http://cdn.hyperpolyglot.org/images/vertical-bar-chart.jpg" alt="http://cdn.hyperpolyglot.org/images/vertical-bar-chart.jpg" class="image" /><br />
+<a href="#vertical-bar-chart-note">vertical bar chart</a></td>
+<td><span style="color: gray"># echo $&#x27;7\n3\n8\n5\n5&#x27; &gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;barchart.png&quot;<br />
+set boxwidth 0.9<br />
+set style fill solid 1.0<br />
+plot [0:6] [0:9] &quot;data.txt&quot; \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>using 0:1 notitle with boxes</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="horizontal-bar-chart"></a><img src="http://cdn.hyperpolyglot.org/images/horizontal-bar-chart.jpg" alt="http://cdn.hyperpolyglot.org/images/horizontal-bar-chart.jpg" class="image" /><br />
+<a href="#horizontal-bar-chart-note">horizontal bar chart</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="stacked-bar-chart"></a><img src="http://cdn.hyperpolyglot.org/images/stacked-bar-chart.jpg" alt="http://cdn.hyperpolyglot.org/images/stacked-bar-chart.jpg" class="image" /><br />
+<a href="#stacked-bar-chart-note">stacked bar chart</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="grouped-bar-chart"></a><img src="http://cdn.hyperpolyglot.org/images/grouped-bar-chart.jpg" alt="http://cdn.hyperpolyglot.org/images/grouped-bar-chart.jpg" class="image" /><br />
+<a href="#grouped-bar-chart-note">grouped bar chart</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="pie-chart"></a><img src="http://cdn.hyperpolyglot.org/images/pie-chart.jpg" alt="http://cdn.hyperpolyglot.org/images/pie-chart.jpg" class="image" /><br />
+<a href="#pie-chart-note">pie chart</a></td>
+<td><span style="color: gray"><em>see note</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="histogram"></a><img src="http://cdn.hyperpolyglot.org/images/histogram.jpg" alt="http://cdn.hyperpolyglot.org/images/histogram.jpg" class="image" /><br />
+<a href="#histogram-note">histogram</a></td>
+<td><span style="color: gray"># awk &#x27;{ print length($0)}&#x27; /usr/share/dict/words &gt; hist.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;histogram.png&quot;<br />
+binwidth=1<br />
+bin(x,width)=width*floor(x/width)<br />
+unset key<br />
+plot &quot;hist.txt&quot; \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>using (bin($1,binwidth)):(1.0) \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>smooth freq with boxes</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="box-plot"></a><img src="http://cdn.hyperpolyglot.org/images/box-plot.jpg" alt="http://cdn.hyperpolyglot.org/images/box-plot.jpg" class="image" /><br />
+<a href="#box-plot">box plot</a></td>
+<td><span style="color: gray"># seq 100 | awk &#x27;{print rand() ** 3}&#x27; &gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;boxplot.png&quot;<br />
+set style boxplot outliers pointtype 7<br />
+set style data boxplot<br />
+set boxwidth 0.2<br />
+plot [0.5:1.5] [0.0:1.1] &quot;data.txt&quot; \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>using (1.0):1:(0.3) notitle</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="scatter-plots"></a><a href="#scatter-plots-note">scatter plots</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="scatter-plot"></a><img src="http://cdn.hyperpolyglot.org/images/scatter-plot.jpg" alt="http://cdn.hyperpolyglot.org/images/scatter-plot.jpg" class="image" /><br />
+<a href="#scatter-plot-note">scatter plot</a></td>
+<td><span style="color: gray"># seq 50 | awk &#x27;{x=rand(); print x,x+rand()}&#x27; &gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;scatter.png&quot;<br />
+unset key<br />
+plot &quot;data.txt&quot;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#bubble-chart">bubble chart</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#3d-scatter-plot">3d scatter plot</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="linear-regression-line"></a><img src="http://cdn.hyperpolyglot.org/images/linear-regression-line.jpg" alt="http://cdn.hyperpolyglot.org/images/linear-regression-line.jpg" class="image" /><br />
+<a href="#linear-regression-line">linear regression line</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="q-q-plot"></a><img src="http://cdn.hyperpolyglot.org/images/q-q-plot.jpg" alt="http://cdn.hyperpolyglot.org/images/q-q-plot.jpg" class="image" /><br />
+<a href="#q-q-plot-note">quantile-quantile plot</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="line-surface-charts"></a><a href="#line-surface-charts-note">line and surface charts</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a name="polygonal-line-plot"></a><img src="http://cdn.hyperpolyglot.org/images/polygonal-line-plot.jpg" alt="http://cdn.hyperpolyglot.org/images/polygonal-line-plot.jpg" class="image" /><br />
+<a href="#polygonal-line-plot-note">polygonal line plot</a></td>
+<td><span style="color: gray"># seq 1 20 | awk &#x27;{print rand() + rand() + rand()}&#x27; &gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;polygonal.png&quot;<br />
+unset key<br />
+plot &quot;data.txt&quot; using 0:1 with lines</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="additional-line"></a><img src="http://cdn.hyperpolyglot.org/images/additional-line.jpg" alt="http://cdn.hyperpolyglot.org/images/additional-line.jpg" class="image" /><br />
+<a href="#additional-line-note">additional line</a></td>
+<td><span style="color: gray"># seq 1 20 | awk &#x27;{print rand() + rand(), rand() + rand()}&#x27; \<br />
+#<span style="white-space: pre-wrap;">&nbsp;&nbsp;&nbsp;</span>&gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;two-lines.png&quot;<br />
+unset key<br />
+plot &quot;data.txt&quot; using 0:1 with lines, \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;data.txt&quot; using 0:2 with lines</td>
+<td> </td>
+</tr>
+<tr>
+<td>line types</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="cubic-spline"></a><img src="http://cdn.hyperpolyglot.org/images/cubic-spline.jpg" alt="http://cdn.hyperpolyglot.org/images/cubic-spline.jpg" class="image" /><br />
+<a href="#cubic-spline-note">cubic spline</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="function-plot"></a><img src="http://cdn.hyperpolyglot.org/images/function-plot.jpg" alt="http://cdn.hyperpolyglot.org/images/function-plot.jpg" class="image" /><br />
+<a href="#function-plot-note">function plot</a></td>
+<td>set terminal png size 400,300<br />
+set output &#x27;sin.png&#x27;<br />
+unset key<br />
+plot [-4:4] sin(x)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="area-chart"></a><img src="http://cdn.hyperpolyglot.org/images/area-chart.jpg" width="75px" alt="http://cdn.hyperpolyglot.org/images/area-chart.jpg" class="image" /><br />
+<a href="#area-chart-note">area chart</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#surface-plot">surface plot</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>contour plot</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="chart-options"></a><a href="#chart-options-note">chart-options</a></th>
+</tr>
+<tr>
+<th></th>
+<th>gnuplot</th>
+<th>glpk</th>
+</tr>
+<tr>
+<td><a href="#univariate-title">set chart title</a></td>
+<td>set title &quot;a plot&quot;<br />
+plot &quot;data.txt&quot;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#axis-label">axis label</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>axis limits</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="#logarithmic-y-axis">logarithmic y-axis</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>legend</td>
+<td><span style="color: gray"># seq 1 20 | awk &#x27;{print rand() + rand(), rand() + rand()}&#x27; \<br />
+#<span style="white-space: pre-wrap;">&nbsp;&nbsp;&nbsp;</span>&gt; data.txt</span><br />
+<br />
+set terminal png size 400,300<br />
+set output &quot;legend.png&quot;<br />
+plot &quot;data.txt&quot; using 0:1 with lines title &quot;first&quot;, \<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&quot;data.txt&quot; using 0:2 with lines title &quot;second&quot;</td>
+<td> </td>
+</tr>
+<tr>
+<td>legend options</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>colors</td>
+<td><span style="color: gray"># use a string to specify a color:</span><br />
+set terminal png background &quot;black&quot;<br />
+set terminal png background &quot;#000000&quot;<br />
+<br />
+<span style="color: gray"># list recognized color names:</span><br />
+show colors</td>
+<td> </td>
+</tr>
+<tr>
+<th></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">___________________________________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">___________________________________________________________________</span></span></th>
+</tr>
+</table>
+<p><a name="general-note"></a></p>
+<h1 id="toc0"><span><a href="#general">General</a></span></h1>
+<p><a name="version-used-note"></a></p>
+<h2 id="toc1"><span><a href="#version-used">version used</a></span></h2>
+<p>The version used to test examples in this sheet.</p>
+<p><a name="show-version-note"></a></p>
+<h2 id="toc2"><span><a href="#show-version">show version</a></span></h2>
+<p>How to determine the version.</p>
+<p><a name="grammar-invocation-note"></a></p>
+<h1 id="toc3"><span><a href="#grammar-invocation">Grammar and Invocation</a></span></h1>
+<p><a name="interpreter-note"></a></p>
+<h2 id="toc4"><span><a href="#interpreter">interpreter</a></span></h2>
+<p>How to execute a script.</p>
+<p><strong>pari/gp</strong></p>
+<p>The shebang style notation doesn&#x27;t work because GP doesn&#x27;t recognize the hash tag # as the start of a comment.</p>
+<p>The <tt>-q</tt> option suppresses the GP startup message.</p>
+<p>After the script finishes it will drop the user into the REPL unless there is a quit statement in the script:</p>
+<div class="code">
+<pre>
+<code>print(&quot;Hello, World!&quot;)
+
+quit</code>
+</pre></div>
+<p><a name="var-expr-note"></a></p>
+<h1 id="toc5"><span><a href="#var-expr">Variables and Expressions</a></span></h1>
+<p><a name="arithmetic-logic-note"></a></p>
+<h1 id="toc6"><span><a href="#arithmetic-logic">Arithmetic and Logic</a></span></h1>
+<p><a name="strings-note"></a></p>
+<h1 id="toc7"><span><a href="#strings">Strings</a></span></h1>
+<p><a name="dates-time-note"></a></p>
+<h1 id="toc8"><span><a href="#dates-time">Dates and Time</a></span></h1>
+<p><a name="multidimensional-arrays-note"></a></p>
+<h1 id="toc9"><span><a href="#multidimensional-arrays">Multidimensional Arrays</a></span></h1>
+<p><a name="sets-note"></a></p>
+<h1 id="toc10"><span><a href="#sets">Sets</a></span></h1>
+<p><a name="functions-note"></a></p>
+<h1 id="toc11"><span><a href="#functions">Functions</a></span></h1>
+<p><a name="execution-control-note"></a></p>
+<h1 id="toc12"><span><a href="#execution-control">Execution Control</a></span></h1>
+<p><a name="file-handles-note"></a></p>
+<h1 id="toc13"><span><a href="#file-handles">File Handles</a></span></h1>
+<p><a name="directories-note"></a></p>
+<h1 id="toc14"><span><a href="#directories">Directories</a></span></h1>
+<p><a name="libraries-namespaces-note"></a></p>
+<h1 id="toc15"><span><a href="#libraries-namespaces">Libraries and Namespaces</a></span></h1>
+<p><a name="processes-environment-note"></a></p>
+<h1 id="toc16"><span><a href="#processes-environment">Processes and Environment</a></span></h1>
+<p><a name="optimization-note"></a></p>
+<h1 id="toc17"><span><a href="#optimization">Optimization</a></span></h1>
+<p><a name="linear-regression-note"></a></p>
+<h1 id="toc18"><span><a href="#linear-regression">Linear Regression</a></span></h1>
+<p><a name="bar-charts-note"></a></p>
+<h1 id="toc19"><span><a href="#bar-charts">Bar Charts</a></span></h1>
+<p><a name="pie-chart-note"></a></p>
+<h2 id="toc20"><span><a href="#pie-chart">pie chart</a></span></h2>
+<p><strong>gnuplot:</strong></p>
+<div class="code">
+<pre>
+<code>set terminal png size 400,400
+set output &quot;piechart.png&quot;
+set style fill solid 1.0 border -1
+
+tot = 7 + 3 + 8 + 5 + 5
+angle1 = 7.0 / tot * 360
+angle2 = (7.0 + 3) / tot * 360
+angle3 = (7.0 + 3 + 8) / tot * 360
+angle4 = (7.0 + 3 + 8 + 5) / tot * 360
+
+set object 1 circle at screen 0.5,0.5 size \
+  screen 0.45 arc [0:angle1] fillcolor rgb &quot;#FF0000&quot; front
+set object 2 circle at screen 0.5,0.5 size \
+  screen 0.45 arc [angle1:angle2] fillcolor rgb &quot;yellow&quot; front
+set object 3 circle at screen 0.5,0.5 size \
+  screen 0.45 arc [angle2:angle3] fillcolor rgb &quot;orange&quot; front
+set object 4 circle at screen 0.5,0.5 size \
+  screen 0.45 arc [angle3:angle4] fillcolor rgb &quot;green&quot; front
+set object 5 circle at screen 0.5,0.5 size \
+  screen 0.45 arc [angle4:360] fillcolor rgb &quot;blue&quot; front
+
+unset border
+unset tics
+unset key
+plot x with lines lc rgb &quot;#ffffff&quot;</code>
+</pre></div>
+<p><a name="scatter-plots-note"></a></p>
+<h1 id="toc21"><span><a href="#scatter-plots">Scatter Plots</a></span></h1>
+<p><a name="line-surface-charts-note"></a></p>
+<h1 id="toc22"><span><a href="#line-surface-charts">Line and Surface Charts</a></span></h1>
+<p><a name="chart-options-note"></a></p>
+<h1 id="toc23"><span><a href="#chart-options">Chart Options</a></span></h1>
+<p><a name="gnuplot"></a></p>
+<h1 id="toc24"><span><a href="#top">Gnuplot</a></span></h1>
+<p><a href="http://gnuplot.info/docs_5.0/gnuplot.pdf">gnuplot 5.0</a> (pdf)</p>
+<p>Gnuplot provides two plotting commands, <tt>plot</tt> for 2-dimensional plots and <tt>splot</tt> for 3-dimensional plots.</p>
+<p><tt>plot</tt> and <tt>splot</tt> can be used to plot data (1) generated by a function, (2) in a file, or (3) defined in the program using a named data block. The syntax for a named data block is similar to a shell script here document.</p>
+<p>When the data to be plotted is in a file, <tt>plot</tt> or <tt>splot</tt> read the file directly. There is no way to read the data into a variable which can be manipulated by the program.</p>
+<p>Data in a file must be in a tabular format. By default, whitespace is the column separator, but it can be changed to tabs, commas, or a set of characters specified with a string.</p>
+<div class="code">
+<pre>
+<code>set datafile separator &quot;\t&quot;</code>
+</pre></div>
+<p>Headers and comments are permitted in the data file. By default, comments begin with a number sign <tt>#</tt>.</p>
+<p>The type of plot created by <tt>plot</tt> or <tt>splot</tt> can be selected using the <em>set style</em> command. It can also be selected using a <em>with</em> clause in the <tt>plot</tt> or <tt>splot</tt> command. The default style is <em>points</em>. Here are some of the available styles:</p>
+<table class="wiki-content-table">
+<tr>
+<td>dots</td>
+<td>scatterplot with single pixel points</td>
+</tr>
+<tr>
+<td>lines</td>
+<td> </td>
+</tr>
+<tr>
+<td>points</td>
+<td> </td>
+</tr>
+</table>
+<p><em>set and options</em></p>
+<p><a name="glpk"></a></p>
+<h1 id="toc25"><span><a href="#top">GLPK</a></span></h1>
+<p><a href="http://www.cs.unb.ca/~bremner/docs/glpk/gmpl.pdf">Modeling Language GNU MathProg</a> (pdf)</p>
+<p>GLPK is a C library for solving linear programming problems, including mixed integer linear programming problems A command line interface called <tt>glpsol</tt> is also provided.</p>
+<p>GLPK allows the problems to be specified in several formats, but we describe the MathProg or GMPL format, which is a subset of AMPL implemented by GLPK.</p>
+<p>Input data is declared with the <tt>param</tt> statement, and values to be found by the solver are declared with the <tt>var</tt> statmement. Both parameters and variables can be scalars or multi-dimensional arrays. The types can be float, integer, binary, or string.</p>
+<p><em>sets</em></p>
+<p><em>constraints and objective functions</em></p>
+<p><em>data section; can everything be defined in model? data section or -d flag; what happens when data section misses parameters; data section limitations: parameters and sets, with just literals for values</em></p>
+ 
+          </div>
+        </div>
+      </div>
+      <div id="license-area" class="license-area">
+        <a href="https://github.com/clarkgrubb/hyperpolyglot/issues">issue tracker</a> |
+        content of this page licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        creative commons attribution-sharealike 3.0</a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17129977-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

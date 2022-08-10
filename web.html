@@ -1,0 +1,3024 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<link rel="icon" type="image/gif" href="/favicon.gif"/>
+<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+<title>Lorem Ipsum</title>
+
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css" id="internal-style">
+@import url(hyperpolyglot.css);
+</style>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="en"/>
+</head>
+
+<body>
+<div id="container-wrap-wrap">
+  <div id="container-wrap">
+    <div id="container">
+      <div id="header">
+        <h1><a href="/"><span>Hyperpolyglot</span></a></h1>
+      </div>
+      <div id="content-wrap">
+        <div id="main-content">
+          <div id="page-title">Lorem Ipsum</div>
+          <div id="page-content">
+
+<p><a href="#version">version</a> | <a href="#grammar-execution">grammar and execution</a> | <a href="#var-expr">variables and expressions</a> | <a href="#arithmetic-logic">arithmetic and logic</a> | <a href="#strings">strings</a> | <a href="#regexes">regexes</a> | <a href="#dates-time">dates and time</a> | <a href="#arrays">arrays</a> | <a href="#dictionaries">dictionaries</a> | <a href="#functions">functions</a> | <a href="#execution-control">execution control</a> | <a href="#exceptions">exceptions</a> | <a href="#streams">streams</a> | <a href="#files">files</a> | <a href="#file-fmt">file formats</a> | <a href="#directories">directories </a> | <a href="#processes-environment">processes and environment</a> | <a href="#libraries-namespaces">libraries and namespaces</a> | <a href="#user-defined-types">user-defined types</a> | <a href="#generic-types">generic types</a> | <a href="#objects">objects</a> | <a href="#inheritance-polymorphism">inheritance and polymorphism</a> | <a href="#reflection">reflection</a> | <a href="#net-web">net and web</a> | <a href="#debugging-profiling">debugging and profiling</a></p>
+<table class="wiki-content-table">
+<tr>
+<th colspan="3"><a name="version"></a><a href="#version-note">version</a></th>
+</tr>
+<tr>
+<th></th>
+<th><a href="#typescript">typescript</a></th>
+<th><a href="#dart">dart</a></th>
+</tr>
+<tr>
+<td><a name="version-used"></a><a href="#version-used-note">version used</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>1.5</em></span></td>
+<td><span style="color: gray"><em>1.10</em></span></td>
+</tr>
+<tr>
+<td><a name="version"></a><a href="#version-note">show version</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>$ tsc <span style="white-space: pre-wrap;">--</span>version</td>
+<td>$ dart <span style="white-space: pre-wrap;">--</span>version</td>
+</tr>
+<tr>
+<th colspan="3"><a name="grammar-execution"></a><a href="#grammar-execution-note">grammar and execution</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="hello-world"></a><a href="#hello-world-note">hello world</a></td>
+<td>$ cat hello.ts<br />
+console.log(&quot;Hello, World!&quot;);<br />
+<br />
+$ tsc hello.ts <br />
+<br />
+$ node hello.js<br />
+Hello, World!</td>
+<td>$ cat hello.dart<br />
+void main() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;Hello, World!&#x27;);<br />
+}<br />
+<br />
+$ dart hello.dart<br />
+Hello, World!<br />
+<br />
+$ dart2js hello.dart<br />
+<br />
+$ node out.js<br />
+Hello, World!</td>
+</tr>
+<tr>
+<td><a name="file-suffixes"></a><a href="#file-suffixes-note">file suffixes</a><br />
+<span style="color: gray"><em>source, header, object file</em></span></td>
+<td>.ts .d.ts .js</td>
+<td>.dart <span style="color: gray"><em>none</em></span> .js</td>
+</tr>
+<tr>
+<td><a name="interpreter"></a><a href="#interpreter-note">interpreter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>$ dart foo.dart</td>
+</tr>
+<tr>
+<td><a name="block-delimiters"></a><a href="#block-delimiters-note">block delimiters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>{}</td>
+<td>{ <span style="color: gray"><em>...</em></span> }</td>
+</tr>
+<tr>
+<td><a name="statement-separator"></a><a href="#statement-separator-note">statement separator</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>; or newline<br />
+<br />
+newline not separator inside (), [], {}, &quot;&quot;, &#x27;&#x27;, or after binary operator<br />
+<br />
+newline sometimes not separator when following line would not parse as a valid statement</em></span></td>
+<td>;</td>
+</tr>
+<tr>
+<td><a name="eol-comment"></a><a href="#eol-comment-note">end-of-line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> comment</span></td>
+<td><span style="white-space: pre-wrap;">//</span> <span style="color: gray"><em>comment</em></span></td>
+</tr>
+<tr>
+<td><a name="multiple-line-comment"></a><a href="#multiple-line-comment-note">multiple line comment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray">/* line<br />
+another line */</span></td>
+<td>/* <span style="color: gray"><em>comment line</em></span><br />
+<span style="color: gray"><em>another line</em></span> /* <span style="color: gray"><em>nested comment</em></span> */ */</td>
+</tr>
+<tr>
+<th colspan="3"><a name="var-expr"></a><a href="#var-expr-note">variables and expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="local-var"></a><a href="#local-var-note">local variable</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var x: number = 1;<br />
+var y: number = 2, z: number = 3;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> type is inferred:</span><br />
+var x = 1;<br />
+var y = 2, z = 3;</td>
+<td>int i;<br />
+int j = 3, k = 4;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> type is inferred:</span><br />
+var x = 1;<br />
+var y = 2, z = 3;</td>
+</tr>
+<tr>
+<td><a name="local-scope-regions"></a><a href="#local-scope-regions-note">regions which define lexical scope</a></td>
+<td><span style="color: gray"><em>top level:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>html page<br />
+<br />
+nestable:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function</em></span></td>
+<td><span style="color: gray"><em>top level:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>file<br />
+<br />
+nestable:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>block</em></span></td>
+</tr>
+<tr>
+<td><a name="global-var"></a><a href="#global-var-note">global variable</a></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> no globals in TypeScript; if global is defined<br />
+<span style="white-space: pre-wrap;">//</span> in JavaScript it can be declared. <br />
+<span style="white-space: pre-wrap;">//</span> Run time ReferenceError if not found:</span><br />
+declare var g;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="uninitialized-var"></a><a href="#uninitialized-var-note">uninitialized variable</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>set to</em> undefined</span></td>
+<td><span style="color: gray"><em>set to</em> null</span></td>
+</tr>
+<tr>
+<td><a name="immutable-var"></a><a href="#immutable-var-note">immutable variable</a></td>
+<td> </td>
+<td>import &#x27;dart:math&#x27;;<br />
+<br />
+final x = (new Random()).nextDouble();</td>
+</tr>
+<tr>
+<td><a name="const"></a><a href="#const-note">constant</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>const double pi = 3.14;</td>
+</tr>
+<tr>
+<td><a name="assignment"></a><a href="#assignment-note">assignment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>x = 1;</td>
+<td>i = 3;</td>
+</tr>
+<tr>
+<td><a name="parallel-assignment"></a><a href="#parallel-assignment-note">parallel assignment</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="swap"></a><a href="#swap-note">swap</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var tmp = x;<br />
+x = y;<br />
+y = tmp;</td>
+<td>int x = 1, y = 2, tmp;<br />
+<br />
+tmp = x;<br />
+x = y;<br />
+y = tmp;</td>
+</tr>
+<tr>
+<td><a name="compound-assignment"></a><a href="#compound-assignment-note">compound assignment</a><br />
+<span style="color: gray"><em>arithmetic, string, logical, bit</em></span></td>
+<td>+= -= *= /= <span style="color: gray"><em>none</em></span> %=<br />
++=<br />
+<span style="color: gray"><em>none</em></span><br />
+<span style="white-space: pre-wrap;">&lt;&lt;=&#32;&gt;&gt;=&#32;</span>&amp;= |= ^=</td>
+<td><span style="color: gray"><em>arithmetic:</em></span><br />
++= -= *= /= ~/= %=<br />
+<br />
+<span style="color: gray"><em>string:</em></span><br />
++= *=<br />
+<br />
+<span style="color: gray"><em>bit:</em></span><br />
+<span style="white-space: pre-wrap;">&lt;&lt;=&#32;&gt;&gt;=&#32;&amp;=&#32;^=&#32;|=</span></td>
+</tr>
+<tr>
+<td><a name="incr-decr"></a><a href="#incr-decr-note">increment and decrement</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var x = 1;<br />
+var y = ++x;<br />
+var z = <span style="white-space: pre-wrap;">--</span>y;</td>
+<td><span style="color: gray"><em>premodifiers:</em></span><br />
+++i <span style="white-space: pre-wrap;">--</span>i<br />
+<br />
+<span style="color: gray"><em>postmodifiers:</em></span><br />
+i++ i<span style="white-space: pre-wrap;">--</span></td>
+</tr>
+<tr>
+<td><a name="null"></a><a href="#null-note">null</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td><a name="null-test"></a><a href="#null-test-note">null test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>v === null</td>
+<td>x == null</td>
+</tr>
+<tr>
+<td><a name="option-type"></a><a href="#option-type-note">option type</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="undef-var"></a><a href="#undef-var-note">undefined variable</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>undefined</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="conditional-expr"></a><a href="#conditional-expr-note">conditional expression</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>x &gt; 0 ? x : -x</td>
+<td>x &gt; 0 ? x : -x</td>
+</tr>
+<tr>
+<th colspan="3"><a name="arithmetic-logic"></a><a href="#arithmetic-logic-note">arithmetic and logic</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="boolean-type"></a><a href="#boolean-type-note">boolean type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var x: boolean = true;</td>
+<td>bool</td>
+</tr>
+<tr>
+<td><a name="true-false"></a><a href="#true-false-note">true and false</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>true false</td>
+<td>true false</td>
+</tr>
+<tr>
+<td><a name="falsehoods"></a><a href="#falsehoods-note">falsehoods</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>false null undefined &quot;&quot; 0 NaN</td>
+<td><span style="color: gray"><em>everything except for the boolean</em></span> true</td>
+</tr>
+<tr>
+<td><a name="logical-op"></a><a href="#logical-op-note">logical operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>@@&amp;&amp; </td>
+<td>@@ !</td>
+<td>&amp;&amp; @</td>
+<td>@@ !</td>
+</tr>
+<tr>
+<td><a name="relational-op"></a><a href="#relational-op-note">relational operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="white-space: pre-wrap;">===</span> !== &lt; &gt; &gt;= &lt;=<br />
+<br />
+<span style="color: gray"><em>perform type coercion:</em></span><br />
+<span style="white-space: pre-wrap;">==</span> !=</td>
+<td>== != &lt; &gt; &lt;= &gt;=</td>
+</tr>
+<tr>
+<td><a name="min-max"></a><a href="#min-max-note">min and max</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Math.min(1, 2, 3)<br />
+Math.max(1, 2, 3)<br />
+<br />
+Math.min.apply(Math, [1, 2, 3])<br />
+Math.max.apply(Math, [1, 2, 3])</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="int-type"></a><a href="#int-type-note">integer type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none; use</em> number</span></td>
+<td>int</td>
+</tr>
+<tr>
+<td><a name="float-type"></a><a href="#float-type-note">float type</a></td>
+<td>var x: number = 3.14;</td>
+<td>double</td>
+</tr>
+<tr>
+<td><a name="arith-op"></a><a href="#arith-op-note">arithmetic operators</a><br />
+<span style="color: gray"><em>addition, subtraction, multiplication, float division, quotient, remainder</em></span></td>
+<td>+ - * / <span style="color: gray"><em>none</em></span> %</td>
+<td><span style="white-space: pre-wrap;">+</span> - * / %</td>
+</tr>
+<tr>
+<td><a name="int-div"></a><a href="#int-div-note">integer division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Math.floor(x / y)</td>
+<td>3 ~/ 7</td>
+</tr>
+<tr>
+<td><a name="int-div-zero"></a><a href="#int-div-zero-note">integer division by zero</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>returns assignable value Infinity, NaN, or -Infinity depending upon whether dividend is positive, zero, or negative.<br />
+<br />
+There are literals for Infinity and NaN.</em></span></td>
+<td>IntegerDivisionByZeroException</td>
+</tr>
+<tr>
+<td><a name="float-div"></a><a href="#float-div-note">float division</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>13 / 5</td>
+<td>3 / 7</td>
+</tr>
+<tr>
+<td><a name="float-div-zero"></a><a href="#float-div-zero-note">float division by zero</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>same behavior as for integers</em></span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> not literals:</span><br />
+Infinity, NaN, <span style="color: gray"><em>or</em></span> -Infinity</td>
+</tr>
+<tr>
+<td><a name="power"></a><a href="#power-note">power</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Math.pow(2, 32)</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+math.pow(2.0, 3.0)</td>
+</tr>
+<tr>
+<td><a name="sqrt"></a><a href="#sqrt-note">sqrt</a></td>
+<td>Math.sqrt(2)</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+math.sqrt(2)</td>
+</tr>
+<tr>
+<td><a name="sqrt-negative-one"></a><a href="#sqrt-negative-one-note">sqrt -1</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>NaN</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> NaN:</span><br />
+math.sqrt(-1)</td>
+</tr>
+<tr>
+<td><a name="transcendental-func"></a><a href="#transcendental-func-note">transcendental functions</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Math.exp Math.log Math.sin Math.cos Math.tan Math.asin Math.acos Math.atan Math.atan2</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+math.log <span style="color: gray"><em>none</em></span> <span style="color: gray"><em>none</em></span><br />
+math.sin math.cos math.tan<br />
+math.asin math.acos math.atan<br />
+math.atan2</td>
+</tr>
+<tr>
+<td><a name="transcendental-const"></a><a href="#transcendental-const-note">transcendental constants</a><br />
+<span style="color: gray"><em>π and e</em></span></td>
+<td>Math.PI<br />
+Math.E</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+math.PI<br />
+math.E</td>
+</tr>
+<tr>
+<td><a name="float-truncation"></a><a href="#float-truncation-note">float truncation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span><br />
+Math.round(3.1)<br />
+Math.floor(3.1)<br />
+Math.ceil(3.1)</td>
+<td>3.14.truncate()<br />
+3.14.round()<br />
+3.14.floor()<br />
+3.14.ceil()<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> (-3.14).floor() is -4 but -3.14.floor() is -3.</span></td>
+</tr>
+<tr>
+<td><a name="abs-val"></a><a href="#abs-val-note">absolute value</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Math.abs(-3)</td>
+<td>(-7.77).abs()</td>
+</tr>
+<tr>
+<td><a name="int-overflow"></a><a href="#int-overflow-note">integer overflow</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>all numbers are floats</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="float-overflow"></a><a href="#float-overflow-note">float overflow</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Infinity</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="random-num"></a><a href="#random-num-note">random number</a><br />
+<span style="color: gray"><em>uniform integer, uniform float, normal float</em></span></td>
+<td>Math.floor(Math.random() * 100)<br />
+Math.random()<br />
+<span style="color: gray"><em>none</em></span></td>
+<td>import &#x27;dart:math&#x27;;<br />
+<br />
+var rnd = new Random();<br />
+int n = rnd.nextInt(100);<br />
+int x = rnd.nextDouble();</td>
+</tr>
+<tr>
+<td><a name="random-seed"></a><a href="#random-seed-note">random seed</a><br />
+<span style="color: gray"><em>set, get, restore</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>import &#x27;dart:math&#x27;;<br />
+<br />
+var rnd = new Random(17);</td>
+</tr>
+<tr>
+<td><a name="bit-op"></a><a href="#bit-op-note">bit operators</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="white-space: pre-wrap;"><<&#32;>>&#32;&&#32;|&#32;^&#32;~</span></td>
+<td><span style="white-space: pre-wrap;">&#32;&lt;&lt;&#32;&gt;&gt;&#32;&amp;&#32;|&#32;^&#32;~&#32;</span></td>
+</tr>
+<tr>
+<td><a name="binary-octal-hex-literals"></a><a href="#binary-octal-hex-literals-note">binary, octal, and hex literals</a></td>
+<td><span style="color: gray"><em>none</em></span><br />
+052 <span style="color: gray"><span style="white-space: pre-wrap;">//</span> deprecated</span><br />
+0x2a</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="radix"></a><a href="#radix-note">radix</a><br />
+<span style="color: gray"><em>convert integer to and from string with radix</em></span></td>
+<td>(42).toString(7)<br />
+<span style="color: gray"><em>??</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="strings"></a><a href="#strings-note">strings</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="str-type"></a><a href="#str-type-note">string type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var s: string = &quot;lorem ipsum&quot;;</td>
+<td>String</td>
+</tr>
+<tr>
+<td><a name="str-literal"></a><a href="#str-literal-note">string literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;don&#x27;t say \&quot;no\&quot;&quot;<br />
+&#x27;don\&#x27;t say &quot;no&quot;&#x27;</td>
+<td>var s = &#x27;don\&#x27;t say &quot;no&quot;&#x27;;<br />
+var s2 = &quot;don&#x27;t say \&quot;no\&quot;&quot;;<br />
+var s3 = &#x27;&#x27;&#x27;don&#x27;t say &quot;no&quot;&#x27;<br />
+var s4 = &quot;&quot;&quot;don&#x27;t say &quot;no\&quot;&quot;&quot;&quot;<br />
+<br />
+<span style="color: gray"><em>raw string literals:</em></span> r&#x27;foo&#x27; r&quot;foo&quot;</td>
+</tr>
+<tr>
+<td><a name="newline-in-str-literal"></a><a href="#newline-in-str-literal-note">newline in literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>yes</em></span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> triple quote literals only:</span><br />
+var s = &#x27;&#x27;&#x27;first line<br />
+second line&#x27;&#x27;&#x27;;<br />
+<br />
+var s2 = &quot;&quot;&quot;first line<br />
+second line&quot;&quot;&quot;</td>
+</tr>
+<tr>
+<td><a name="str-literal-esc"></a><a href="#str-literal-esc-note">literal escapes</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>single and double quotes:</em></span><br />
+\b \f \n \r \t \v \uhhhh \xhh \&quot; \&#x27; \\</td>
+<td>\b \f \n \r \t \v \&quot; \&#x27; \$ \\<br />
+\x<span style="color: gray"><em>hh</em></span> \u<span style="color: gray"><em>hhhh</em></span> \u{<span style="color: gray"><em>h...</em></span>}</td>
+</tr>
+<tr>
+<td><a name="here-doc"></a><a href="#here-doc-note">here document</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="var-interpolation"></a><a href="#var-interpolation-note">variable interpolation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> None; use string concatenation.<br />
+<span style="white-space: pre-wrap;">//</span> Both of these expressions are &#x27;11&#x27;:</span><br />
+1 + &quot;1&quot;<br />
+&quot;1&quot; + 1</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="expr-interpolation"></a><a href="#expr-interpolation-note">expression interpolation</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>var count = 3;<br />
+var item = &quot;BALL&quot;;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> 3 balls</span><br />
+print(&#x27;$count ${item.toLowerCase()}s&#x27;);</td>
+</tr>
+<tr>
+<td><a name="format-str"></a><a href="#format-str-note">format string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> None; use string concatenation.<br />
+<span style="white-space: pre-wrap;">//</span> Evaluates to &quot;12.35&quot;:</span><br />
+12.3456.toFixed(2)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="mutable-str"></a><a href="#mutable-str-note">are strings mutable?</a></td>
+<td><span style="color: gray"><em>no</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="compare-str"></a><a href="#compare-str-note">compare strings</a></td>
+<td>&quot;hello&quot; === &quot;world&quot;<br />
+&quot;hello&quot; &lt; &quot;world&quot;</td>
+<td>&quot;hello&quot; == &quot;world&quot;<br />
+&quot;hello&quot;.compareTo(&quot;world&quot;) &lt; 0</td>
+</tr>
+<tr>
+<td><a name="copy-str"></a><a href="#copy-str-note">copy string</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="str-concat"></a><a href="#str-concat-note">concatenate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>s = &quot;Hello, &quot; + &quot;World!&quot;;</td>
+<td>&quot;hello&quot; + &quot; world&quot;</td>
+</tr>
+<tr>
+<td><a name="str-replicate"></a><a href="#str-replicate-note">replicate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var hbar = Array(80).join(&quot;-&quot;);</td>
+<td>var hbar = &quot;-&quot; * 80;</td>
+</tr>
+<tr>
+<td><a name="translate-case"></a><a href="#translate-case-note">translate case</a><br />
+<span style="color: gray"><em>to upper, to lower</em></span></td>
+<td>&quot;lorem&quot;.toUpperCase()<br />
+&quot;LOREM&quot;.toLowerCase()</td>
+<td>&quot;hello&quot;.toUpperCase()<br />
+&quot;HELLO&quot;.toLowerCase()</td>
+</tr>
+<tr>
+<td><a name="capitalize"></a><a href="#capitalize-note">capitalize</a><br />
+<span style="color: gray"><em>string, words</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="trim"></a><a href="#trim-note">trim</a><br />
+<span style="color: gray"><em>both sides, left, right</em></span></td>
+<td>&quot; lorem &quot;.trim()<br />
+<span style="color: gray"># some browsers:</span><br />
+&quot; lorem&quot;.trimLeft()<br />
+&quot;lorem &quot;.trimRight()</td>
+<td>&quot; lorem &quot;.trim()<br />
+&quot; lorem &quot;.trimLeft()<br />
+&quot; lorem &quot;.trimRight()</td>
+</tr>
+<tr>
+<td><a name="pad"></a><a href="#pad-note">pad</a><br />
+<span style="color: gray"><em>on right, on left, centered</em></span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>&quot;lorem&quot;.padRight(10, &quot; &quot;)<br />
+&quot;lorem&quot;.padLeft(10, &quot; &quot;)</td>
+</tr>
+<tr>
+<td><a name="num-to-str"></a><a href="#num-to-str-note">number to string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;value: &quot; + 8</td>
+<td>3.14.toString()<br />
+7.toString()</td>
+</tr>
+<tr>
+<td><a name="str-to-num"></a><a href="#str-to-num-note">string to number</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>7 + parseInt(&quot;12&quot;, 10)<br />
+73.9 + parseFloat(&quot;.037&quot;)<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> 12:</span><br />
+parseInt(&quot;12A&quot;)<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> NaN:</span><br />
+parseInt(&quot;A&quot;)</td>
+<td>var n = int.parse(&quot;17&quot;);<br />
+var x = double.parse(&quot;3.14&quot;);</td>
+</tr>
+<tr>
+<td><a name="str-join"></a><a href="#str-join-note">string join</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>["do", &quot;re&quot;, &quot;mi&quot;].join(&quot; &quot;)</td>
+<td>['foo', &#x27;bar&#x27;, &#x27;baz&#x27;].join(&#x27; &#x27;)</td>
+</tr>
+<tr>
+<td><a name="split"></a><a href="#split-note">split</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> [ &quot;do&quot;, &quot;re&quot;, &quot;&quot;, &quot;mi&quot;, &quot;&quot; ]:</span><br />
+&quot;do re<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>mi &quot;.split(&quot; &quot;)<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> [ &quot;do&quot;, &quot;re&quot;, &quot;mi&quot;, &quot;&quot; ]:</span><br />
+&quot;do re<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>mi &quot;.split(/\s+/)</td>
+<td>var a = &quot;foo bar bar&quot;.split(&#x27; &#x27;);</td>
+</tr>
+<tr>
+<td><a name="split-in-two"></a><a href="#split-in-two-note">split in two</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="split-keep-delimiters"></a><a href="#split-keep-delimiters-note">split and keep delimiters</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="prefix-suffix-test"></a><a href="#prefix-suffix-test-note">prefix and suffix test</a></td>
+<td>&quot;foobar&quot;.startsWith(&quot;foo&quot;)<br />
+&quot;foobar&quot;.endsWith(&quot;bar&quot;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="str-len"></a><a href="#str-len-note">length</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;lorem&quot;.length</td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> number of 16 bit runes:</span><br />
+&quot;hello&quot;.length</td>
+</tr>
+<tr>
+<td><a name="index-substr"></a><a href="#index-substr-note">index of substring</a><br />
+<span style="color: gray"><em>first, last</em></span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> returns -1 if not found:</span><br />
+&quot;lorem ipsum&quot;.indexOf(&quot;ipsum&quot;)</td>
+<td>&quot;hello&quot;.indexOf(&quot;ll&quot;)</td>
+</tr>
+<tr>
+<td><a name="extract-substr"></a><a href="#extract-substr-note">extract substring</a><br />
+<span style="color: gray"><em>by start and length, by start and end, by successive starts</em></span></td>
+<td>&quot;lorem ipsum&quot;.substr(6, 5)<br />
+&quot;lorem ipsum&quot;.substring(6, 11)</td>
+<td>&quot;hello&quot;.substring(2, 4)</td>
+</tr>
+<tr>
+<td><a name="char-type"></a><a href="#char-type-note">character type</a></td>
+<td> </td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> 16 bits:</span><br />
+rune</td>
+</tr>
+<tr>
+<td><a name="lookup-char"></a><a href="#lookup-char-note">character lookup</a></td>
+<td>&quot;lorem ipsum&quot;[6]</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="chr-ord"></a><a href="#chr-ord-note">chr and ord</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>String.fromCharCode(65)<br />
+&quot;A&quot;.charCodeAt(0)</td>
+<td>new String.fromCharCodes([65])<br />
+&quot;A&quot;.codeUnitAt(0)<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> for Unicode points above U+FFFF codeUnitAt will<br />
+<span style="white-space: pre-wrap;">//</span> return part of a surrogate pair</span></td>
+</tr>
+<tr>
+<td><a name="str-to-char-array"></a><a href="#str-to-char-array-note">to array of characters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>&quot;abcd&quot;.split(&quot;&quot;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="translate-char"></a><a href="#translate-char-note">translate characters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="delete-char"></a><a href="#delete-char-note">delete characters</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="squeeze-char"></a><a href="#squeeze-char-note">squeeze characters</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="regexes"></a><a href="#regexes-note">regular expressions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="regex-literal"></a><a href="#regex-literal-note">literal, custom delimited literal</a></td>
+<td>/lorem|ipsum/</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="regex-metachar"></a><a href="#regex-metachar-note">metacharacters</a></td>
+<td> </td>
+<td>. [ ] \ ( ) * + ? { } | ^ $<br />
+<br />
+<span style="color: gray"><em>use raw string (i.e. with r prefix) literals to avoid having to escape backslashes.</em></span></td>
+</tr>
+<tr>
+<td><a name="char-class-abbrev"></a><a href="#char-class-abbrev-note">character class abbreviations</a></td>
+<td>. \d \D \s \S \w \W</td>
+<td>. \d \D \s \S \w \W</td>
+</tr>
+<tr>
+<td><a name="regex-anchors"></a><a href="#regex-anchors-note">anchors</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>^ $ \b \B</td>
+<td>^ $ \b \B</td>
+</tr>
+<tr>
+<td><a name="regex-test"></a><a href="#regex-test-note">match test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>if (s.match(/1999/)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;party!&quot;);<br />
+}</td>
+<td> RegExp rx = new RegExp(r&quot;1999&quot;);<br />
+String s = &quot;It&#x27;s 1999&quot;;<br />
+<br />
+if (rx.hasMatch(s)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;Party!&quot;);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="case-insensitive-regex"></a><a href="#case-insensitive-regex-note">case insensitive match test</a></td>
+<td>&quot;Lorem&quot;.match(/lorem/i)</td>
+<td>RegExp rx = new RegExp(r&quot;lorem&quot;, caseSensitive: false);<br />
+String s = &quot;Lorem Ipsum&quot;;<br />
+<br />
+if (rx.hasMatch(s)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;case insensitive match&quot;);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="regex-modifiers"></a><a href="#regex-modifiers-note">modifiers</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>g i m</td>
+<td><span style="color: gray">RegExp <em>constructor takes two optional boolean named parameters:</em></span><br />
+<br />
+multiLine<br />
+caseSensitive</td>
+</tr>
+<tr>
+<td><a name="subst"></a><a href="#subst-note">substitution</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>s = &quot;do re mi mi mi&quot;;<br />
+s.replace(/mi/g, &quot;ma&quot;);</td>
+<td>RegExp re = new RegExp(r&#x27;mi&#x27;);<br />
+print(&quot;do re mi mi mi&quot;.replaceAll(re, &quot;ma&quot;));</td>
+</tr>
+<tr>
+<td><a name="match-prematch-postmatch"></a><a href="#match-prematch-postmatch-note">match, prematch, postmatch</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: per">m</span> = /\d{4}/.exec(s);<br />
+if (m) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>match = m[0];<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"># no prematch or postmatch</span><br />
+}</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="group-capture"></a><a href="#group-capture-note">group capture</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>rx = /^(\d{4})-(\d{2})-(\d{2})$/;<br />
+m = rx.exec(&#x27;2009-06-03&#x27;);<br />
+yr = m[1];<br />
+mo = m[2];<br />
+dy = m[3];</td>
+<td>RegExp rx = new RegExp(r&#x27;(\d{4})-(\d{2})-(\d{2})&#x27;);<br />
+var md = rx.firstMatch(&quot;2010-06-03&quot;);<br />
+<br />
+if (md != null) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>var yyyy = md.group(1);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>var mm = md.group(2);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>var dd = md.group(3);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;year: $yyyy month: $mm day: $dd&quot;);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="named-group-capture"></a><a href="#named-group-capture-note">named group capture</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="scan"></a><a href="#scan-note">scan</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var a = &quot;dolor sit amet&quot;.match(/\w+/g);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="backreference"></a><a href="#backreference-note">backreference in match and substitution</a></td>
+<td>/(\w+) \1/.exec(&quot;do do&quot;)<br />
+<br />
+&quot;do re&quot;.replace(/(\w+) (\w+)/, &#x27;$2 $1&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="recursive-regex"></a><a href="#recursive-regex-note">recursive regex</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="dates-time"></a><a href="#dates-time-note">dates and time</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="broken-down-datetime-type"></a><a href="#broken-down-datetime-type-note">broken-down datetime type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: green">Date</span></td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td><a name="current-datetime"></a><a href="#current-datetime-note">current datetime</a></td>
+<td><span style="color: purple">var</span> <span style="color: peru">t</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>();</td>
+<td>var dt = new DateTime.now();</td>
+</tr>
+<tr>
+<td><a name="current-unix-epoch"></a><a href="#current-unix-epoch-note">current unix epoch</a></td>
+<td>(<span style="color: purple">new</span> <span style="color: green">Date</span>()).getTime() / 1000</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="broken-down-datetime-to-unix-epoch"></a><a href="#broken-down-datetime-to-unix-epoch-note">broken-down datetime to unix epoch</a></td>
+<td>Math.round(t.getTime() / 1000)</td>
+<td>dt.millisecondsSinceEpoch ~/ 1000</td>
+</tr>
+<tr>
+<td><a name="unix-epoch-to-broken-down-datetime"></a><a href="#unix-epoch-to-broken-down-datetime-note">unix epoch to broken-down datetime</a></td>
+<td><span style="color: purple">var</span> <span style="color: peru">epoch</span> = 1315716177;<br />
+<span style="color: purple">var</span> <span style="color: peru">t2</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>(epoch * 1000);</td>
+<td>int t = 1422021432;<br />
+<br />
+var dt = new DateTime.fromMillisecondsSinceEpoch(t * 1000);</td>
+</tr>
+<tr>
+<td><a name="fmt-datetime"></a><a href="#fmt-datetime-note">format datetime</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-datetime"></a><a href="#parse-datetime-note">parse datetime</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-datetime-without-fmt"></a><a href="#parse-datetime-without-fmt-note">parse datetime w/o format</a></td>
+<td><span style="color: purple">var</span> <span style="color: peru">t</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>(<span style="color: maroon">&quot;July 7, 1999&quot;</span>);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="date-parts"></a><a href="#date-parts-note">date parts</a></td>
+<td>t.getFullYear()<br />
+t.getMonth() + 1<br />
+t.getDate() <span style="color: gray"># getDay() is day of week</span></td>
+<td>int yr = dt.year;<br />
+int mo = dt.month;<br />
+int dy = dt.day;</td>
+</tr>
+<tr>
+<td><a name="time-parts"></a><a href="#time-parts-note">time parts</a></td>
+<td>t.getHours()<br />
+t.getMinutes()<br />
+t.getSeconds()</td>
+<td>int hr = dt.hour;<br />
+int mi = dt.minute;<br />
+int ss = dt.second;</td>
+</tr>
+<tr>
+<td><a name="build-datetime"></a><a href="#build-datetime-note">build broken-down datetime</a></td>
+<td><span style="color: purple">var</span> <span style="color: peru">yr</span> = 1999;<br />
+<span style="color: purple">var</span> <span style="color: peru">mo</span> = 9;<br />
+<span style="color: purple">var</span> <span style="color: peru">dy</span> = 10;<br />
+<span style="color: purple">var</span> <span style="color: peru">hr</span> = 23;<br />
+<span style="color: purple">var</span> <span style="color: peru">mi</span> = 30;<br />
+<span style="color: purple">var</span> <span style="color: peru">ss</span> = 0;<br />
+<span style="color: purple">var</span> <span style="color: peru">t</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>(yr, mo - 1, dy, hr, mi, ss);</td>
+<td>var dt = new DateTime(1999, 9, 10, 23, 30, 0);<br />
+<br />
+var dt_utc = new DateTime.utc(1999, 9, 10, 23, 30, 0);</td>
+</tr>
+<tr>
+<td><a name="datetime-subtraction"></a><a href="#datetime-subtraction-note">datetime subtraction</a></td>
+<td><span style="color: gray">number <em>containing time difference in milliseconds</em></span></td>
+<td>Duration delta = dt.difference(dt2);</td>
+</tr>
+<tr>
+<td><a name="add-duration"></a><a href="#add-duration-note">add duration</a></td>
+<td><span style="color: purple">var</span> <span style="color: peru">t1</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>();<br />
+<span style="color: purple">var</span> <span style="color: peru">delta</span> = (10 * 60 + 3) * 1000;<br />
+<span style="color: purple">var</span> <span style="color: peru">t2</span> = <span style="color: purple">new</span> <span style="color: green">Date</span>(t1.getTime() + delta);</td>
+<td>Duration delta1 = const Duration(seconds: 1000);<br />
+Duration delta2 = const Duration(hours: 1000);<br />
+Duration delta3 = const Duration(days: 1000);<br />
+<br />
+var dt2 = dt.add(delta1);<br />
+var dt3 = dt.subtract(delta3);</td>
+</tr>
+<tr>
+<td><a name="local-tmz-determination"></a><a href="#local-tmz-determination-note">local time zone determination</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="tmz-info"></a><a href="#tmz-info-note">time zone info</a><br />
+<br />
+<span style="color: gray"><em>name and UTC offset</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="daylight-savings-test"></a><a href="#daylight-savings-test-note">daylight savings test</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="microseconds"></a><a href="#microseconds-note">microseconds</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="sleep"></a><a href="#sleep-note">sleep</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="arrays"></a><a href="#arrays-note">arrays</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="array-literal"></a><a href="#array-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var a = [1, 2, 3, 4];<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> two ways to declare type:</span><br />
+var a: number[] = [1, 2, 3, 4];<br />
+var a: Array&lt;number&gt; = [1, 2, 3, 4];</td>
+<td>var a = [1, 2, 3, 4];</td>
+</tr>
+<tr>
+<td><a name="array-size"></a><a href="#array-size-note">size</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a.length</td>
+<td>a.length</td>
+</tr>
+<tr>
+<td><a name="array-empty"></a><a href="#array-empty-note">empty test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> TypeError if a is null or undefined:</span><br />
+a.length === 0</td>
+<td>a.isEmpty</td>
+</tr>
+<tr>
+<td><a name="array-lookup"></a><a href="#array-lookup-note">lookup</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a[0]</td>
+<td>a[0]</td>
+</tr>
+<tr>
+<td><a name="array-update"></a><a href="#array-update-note">update</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a[0] = &quot;lorem&quot;</td>
+<td>a[0] = &quot;lorem&quot;;</td>
+</tr>
+<tr>
+<td><a name="array-out-of-bounds"></a><a href="#array-out-of-bounds-note">out-of-bounds behavior</a></td>
+<td><span style="color: gray"><em>returns</em> undefined</span></td>
+<td><span style="color: gray"><em>lookups and updates raise</em> RangeError</span></td>
+</tr>
+<tr>
+<td><a name="array-element-index"></a><a href="#array-element-index-note">element index</a><br />
+<br />
+<span style="color: gray"><em>first and last occurrence</em></span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> returns -1 if not found:</span><br />
+[6, 7, 7, 8].indexOf(7)<br />
+[6, 7, 7, 8].lastIndexOf(7)</td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> returns -1 if not found:</span><br />
+[6, 7, 7, 8].indexOf(7)<br />
+[6, 7, 7, 8].lastIndexOf(7)</td>
+</tr>
+<tr>
+<td><a name="array-slice"></a><a href="#array-slice-note">slice</a><br />
+<span style="color: gray"><em>by endpoints, by length</em></span><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> select 3rd and 4th elements:</span><br />
+["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;].slice(2, 4)<br />
+<span style="color: gray"><em>none</em></span></td>
+<td>var a = ["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;];<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> ["c", &quot;d&quot;]:</span><br />
+List a2 = a.getRange(2, 4);</td>
+</tr>
+<tr>
+<td><a name="array-slice-to-end"></a><a href="#array-slice-to-end-note">slice to end</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;].slice(1)</td>
+<td>["a", &quot;b&quot;, &quot;c&quot;, &quot;d&quot;].skip(1)</td>
+</tr>
+<tr>
+<td><a name="array-back"></a><a href="#array-back-note">manipulate back</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = [6, 7, 8];<br />
+a.push(9);<br />
+i = a.pop();</td>
+<td>a.add(4);<br />
+var v = a.removeLast();</td>
+</tr>
+<tr>
+<td><a name="array-front"></a><a href="#array-front-note">manipulate front</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a = [6, 7, 8];<br />
+a.unshift(5);<br />
+i = a.shift();</td>
+<td>var a = [6, 7, 8];<br />
+a.insertAt(0, 5);<br />
+var i = a.removeAt(0);</td>
+</tr>
+<tr>
+<td><a name="array-concatenation"></a><a href="#array-concatenation-note">concatenate</a></td>
+<td>a = [1, 2, 3].concat([4, 5, 6]);</td>
+<td>var a = [1, 2, 3];<br />
+a.addAll([4, 5, 6]);</td>
+</tr>
+<tr>
+<td><a name="replicate-array"></a><a href="#replicate-array-note">replicate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>var a = new List.filled(10, 0);</td>
+</tr>
+<tr>
+<td><a name="array-copy"></a><a href="#array-copy-note">copy</a><br />
+<span style="color: gray"><em>address copy, shallow copy, deep copy</em></span></td>
+<td>a = [1, 2, [3, 4]];<br />
+a2 = a;<br />
+a3 = a.slice(0);<br />
+a4 = JSON.parse(JSON.stringify(a));</td>
+<td>var a = ["a", &quot;b&quot;];<br />
+<br />
+List a2 = new List&lt;String&gt;.from(a);</td>
+</tr>
+<tr>
+<td><a name="array-as-func-arg"></a><a href="#array-as-func-arg-note">array as function argument</a></td>
+<td><span style="color: gray"><em>parameter contains address copy</em></span></td>
+<td><span style="color: gray"><em>parameter contains address copy</em></span></td>
+</tr>
+<tr>
+<td><a name="iterate-over-array"></a><a href="#iterate-over-array-note">iterate over elements</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>[1, 2, 3].forEach(function(n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(n);<br />
+});</td>
+<td>for (var i in [1, 2, 3]) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(i);<br />
+}<br />
+<br />
+[1, 2, 3].forEach((i) =&gt; print(i));</td>
+</tr>
+<tr>
+<td><a name="indexed-array-iteration"></a><a href="#indexed-array-iteration-note">iterate over indices and elements</a></td>
+<td>var len = a.length;<br />
+for (var i = 0; i &lt; len; i++ ) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(a[i]);<br />
+}</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="range-array"></a><a href="#range-array-note">instantiate range as array</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="array-reverse"></a><a href="#array-reverse-note">reverse</a><br />
+<span style="color: gray"><em>non-destructive, in-place</em></span></td>
+<td>var a = [1, 2, 3];<br />
+a.reverse();</td>
+<td>var a = ["a", &quot;b&quot;, &quot;c&quot;];<br />
+<br />
+List a2 = new List&lt;String&gt;.from(a.reversed);</td>
+</tr>
+<tr>
+<td><a name="array-sort"></a><a href="#array-sort-note">sort</a><br />
+<span style="color: gray"><em>non-destructive,<br />
+in-place,<br />
+custom comparision</em></span></td>
+<td>var a = [3, 1, 4, 2];<br />
+a.sort();</td>
+<td>var a = [3, 1, 4, 2];<br />
+a.sort();</td>
+</tr>
+<tr>
+<td><a name="array-dedupe"></a><a href="#array-dedupe-note">dedupe</a><br />
+<span style="color: gray"><em>non-destructive, in-place</em></span></td>
+<td> </td>
+<td>var a = [1, 2, 2, 3];<br />
+var set = new Set.from(a);<br />
+var a2 = new List.from(set);</td>
+</tr>
+<tr>
+<td><a name="membership"></a><a href="#membership-note">membership</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>[1, 2, 3].contains(7)</td>
+</tr>
+<tr>
+<td><a name="intersection"></a><a href="#intersection-note">intersection</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>var set1 = new Set.from([1, 2]);<br />
+var set2 = new Set.from([2, 3, 4]);<br />
+<br />
+set1.intersection(set2);</td>
+</tr>
+<tr>
+<td><a name="union"></a><a href="#union-note">union</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>var set1 = new Set.from([1, 2]);<br />
+var set2 = new Set.from([2, 3, 4]);<br />
+<br />
+set1.union(set2);</td>
+</tr>
+<tr>
+<td><a name="set-diff"></a><a href="#set-diff-note">relative complement</a></td>
+<td> </td>
+<td>var set1 = new Set.from([1, 2]);<br />
+var set2 = new Set.from([2, 3, 4]);<br />
+<br />
+set1.difference(set2);</td>
+</tr>
+<tr>
+<td><a name="map"></a><a href="#map-note">map</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> callback gets 3 args:<br />
+<span style="white-space: pre-wrap;">//</span> value, index, array</span><br />
+a.map(function(x) { return x * x })</td>
+<td>var a = [1, 2, 3];<br />
+<br />
+var a2 = new List.from(a.map((n) =&gt; n * n));</td>
+</tr>
+<tr>
+<td><a name="filter"></a><a href="#filter-note">filter</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a.filter(function(x) { return x &gt; 1 }) </td>
+<td>var a = [1, 2, 3];<br />
+<br />
+var a2 = new List.from(a.where((n) =&gt; n &gt; 1));</td>
+</tr>
+<tr>
+<td><a name="reduce"></a><a href="#reduce-note">reduce</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>a.reduce(function(m, o) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return m + o;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}, 0)</td>
+<td>var a = [1, 2, 3];<br />
+<br />
+var sum = a.reduce((v, e) =&gt; v + e);</td>
+</tr>
+<tr>
+<td><a name="universal-existential-test"></a><a href="#universal-existential-test-note">universal  and existential tests</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var a = [1, 2, 3, 4];<br />
+var even = function(x) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x % 2 == 0;<br />
+};<br />
+<br />
+a.every(even)<br />
+a.some(even)</td>
+<td>[1, 2, 3, 4].every((x) =&gt; x % 2 == 0)<br />
+[1, 2, 3, 4].any((x) =&gt; x % 2 == 0)</td>
+</tr>
+<tr>
+<td><a name="shuffle-sample"></a><a href="#shuffle-sample-note">shuffle and sample</a></td>
+<td> </td>
+<td>var a = [1, 2, 3, 4];<br />
+a.shuffle();<br />
+var samp = a.take(2);</td>
+</tr>
+<tr>
+<td><a name="flatten"></a><a href="#flatten-note">flatten</a><br />
+<span style="color: gray"><em>one level, completely</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="zip"></a><a href="#zip-note">zip</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="dictionaries"></a><a href="#dictionaries-note">dictionaries</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="dict-literal"></a><a href="#dict-literal-note">literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d = {&quot;t&quot;: 1, &quot;f&quot;: 0};<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> keys do not need to be quoted if they<br />
+<span style="white-space: pre-wrap;">//</span> are a legal JavaScript variable name<br />
+<span style="white-space: pre-wrap;">//</span>and not a reserved word</span><br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> declare type:</span><br />
+var d: {[idx: string]: number} = {t: 1, f: 0}</td>
+<td>var d = {&quot;t&quot;: 1, &quot;f&quot;: 0};</td>
+</tr>
+<tr>
+<td><a name="dict-size"></a><a href="#dict-size-note">size</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var size = 0;<br />
+for (var k in d) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (d.hasOwnProperty(k)) size++;<br />
+}</td>
+<td>d.length</td>
+</tr>
+<tr>
+<td><a name="dict-lookup"></a><a href="#dict-lookup-note">lookup</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d.hasOwnProperty(&quot;t&quot;) ? d[&quot;t&quot;] : undefined<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> if type of d not declared:</span><br />
+d.hasOwnProperty(&quot;t&quot;) ? d.t : undefined</td>
+<td>d[&quot;t&quot;]</td>
+</tr>
+<tr>
+<td><a name="dict-update"></a><a href="#dict-update-note">update</a></td>
+<td>d[&quot;t&quot;] = 2;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> if type of d not declared:</span><br />
+d.t = 2;</td>
+<td>d[&quot;t&quot;] = 2;</td>
+</tr>
+<tr>
+<td><a name="dict-missing-key"></a><a href="#dict-missing-key-note">missing key behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var d = {};<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> sets s to undefined:</span><br />
+var s = d[&quot;lorem&quot;];<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> adds key/value pair:</span><br />
+d[&quot;lorem&quot;] = &quot;ipsum&quot;; </td>
+<td><span style="color: gray"><em>returns</em></span> null</td>
+</tr>
+<tr>
+<td><a name="dict-key-check"></a><a href="#dict-key-check-note">is key present</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>d.hasOwnProperty(&quot;t&quot;);</td>
+<td>d.containsKey(&quot;y&quot;)</td>
+</tr>
+<tr>
+<td><a name="dict-delete"></a><a href="#dict-delete-note">delete</a></td>
+<td>delete d[&quot;t&quot;];<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> if type of d not declared:</span><br />
+delete d.t;</td>
+<td>d.remove(&quot;f&quot;);</td>
+</tr>
+<tr>
+<td><a name="dict-assoc-array"></a><a href="#dict-assoc-array-note">from array of pairs, from even length array</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-merge"></a><a href="#dict-merge-note">merge</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-invert"></a><a href="#dict-invert-note">invert</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-iter"></a><a href="#dict-iter-note">iterate</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>for (var k in d) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (d.hasOwnProperty(k)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><span style="white-space: pre-wrap;">//</span> use k or d[k]</span><br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>d.forEach((k, v) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(k);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(v);<br />
+});</td>
+</tr>
+<tr>
+<td><a name="dict-key-val"></a><a href="#dict-key-val-note">keys and values as arrays</a></td>
+<td> </td>
+<td>List keys = d.keys;<br />
+List vals = d.values;</td>
+</tr>
+<tr>
+<td><a name="dict-sort-values"></a><a href="#dict-sort-values-note">sort by values</a></td>
+<td>function cmp2(a, b) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (a[1] &lt; b[1]) { return -1; }<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (a[1] &gt; b[1]) { return 1; }<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return 0;<br />
+}<br />
+<br />
+for (p in _.pairs(d).sort(cmp2)) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(p[0] + &quot;: &quot; + p[1]);<br />
+}</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dict-default-val"></a><a href="#dict-default-val-note">default value, computed value</a></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="functions"></a><a href="#functions-note">functions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="def-func"></a><a href="#def-func-note">define</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>function add(x: number, y: number): number {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x + y;<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> parameter and return types optional:</span><br />
+function add(x, y) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x + y;<br />
+}</td>
+<td>num add(num n, num m) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return n + m;<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> parameter and return types optional:</span><br />
+add(n, m) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return n + m;<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> expression body shorthand:</span><br />
+num add(num n, num m) =&gt; n + m;</td>
+</tr>
+<tr>
+<td><a name="invoke-func"></a><a href="#invoke-func-note">invoke</a></td>
+<td>add(1, 2)</td>
+<td>add(1, 2)</td>
+</tr>
+<tr>
+<td><a name="overload-func"></a><a href="#overload-func-note">overload</a></td>
+<td>function to_number(x: string): number;<br />
+function to_number(x: number): number;<br />
+function to_number(x): number {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (typeof(x) == &quot;string&quot;) { return parseFloat(x); }<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (typeof(x) == &quot;number&quot;) { return x; }<br />
+}</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="missing-arg"></a><a href="#missing-arg-note">missing argument behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> compilation error unless arg declared optional.</span><br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> how to declare arg optional:</span><br />
+function safe_length(s?: string): number {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return s === undefined ? -1 : s.length;<br />
+}</td>
+<td><span style="color: gray"><em>compilation error</em></span></td>
+</tr>
+<tr>
+<td><a name="extra-arg"></a><a href="#extra-arg-note">extra argument behavior</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>compilation error</em></span></td>
+<td><span style="color: gray"><em>compilation error</em></span></td>
+</tr>
+<tr>
+<td><a name="default-arg"></a><a href="#default-arg-note">default argument</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>function my_log(x: number, base: number = 10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return Math.log(x) / Math.log(base);<br />
+}</td>
+<td>import &#x27;dart:math&#x27; as math;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> named params can have defaults:</span><br />
+num my_log(num expt, {num base: 10}) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return math.log(expt) / math.log(base);<br />
+} <br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> positional params can be optional:</span><br />
+num my_log(num expt, [num base]) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (base == null) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return math.log(expt) / math.log(10);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return math.log(expt) / math.log(base);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="variadic-func"></a><a href="#variadic-func-note">variadic function</a></td>
+<td>function ends(s: string, ...rest: string[]): void {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>console.log(s);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (rest.length)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>console.log(rest[rest.length - 1]);<br />
+}</td>
+<td><span style="color: gray"><em>none</em></span></td>
+</tr>
+<tr>
+<td><a name="named-param"></a><a href="#named-param-note">named parameters</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td>num divide({num dividend, num divisor}) {<br />
+return dividend / divisor;<br />
+}<br />
+<br />
+divide(divisor: 3, dividend: 9);</td>
+</tr>
+<tr>
+<td><a name="retval"></a><a href="#retval-note">return value</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>return <span style="color: gray"><em>arg or</em></span> undefined. <span style="color: gray"><em>If invoked with</em></span> new <span style="color: gray"><em>and return value not an object, returns</em></span> this</td>
+<td><span style="color: gray">return <em>arg or</em> null</span></td>
+</tr>
+<tr>
+<td><a name="anonymous-func-literal"></a><a href="#anonymous-func-literal-note">anonymous function literal</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var sqr: (x: number) =&gt; number = function(x) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x * x;<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> lambda syntax does not bind &quot;this&quot;<br />
+<span style="white-space: pre-wrap;">//</span> to global object:</span><br />
+var sqr2: (x: number) =&gt; number = (x) =&gt; {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return x * x;<br />
+}</td>
+<td>Function sqr = (num x) =&gt; x * x;</td>
+</tr>
+<tr>
+<td><a name="invoke-anonymous-func"></a><a href="#invoke-anonymous-func-note">invoke anonymous function</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>sqr(2)</td>
+<td>((num x) =&gt; x * x)(5)</td>
+</tr>
+<tr>
+<td><a name="func-as-val"></a><a href="#func-as-val-note">function as value</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var func = add;</td>
+<td>apply(Function fn, arg) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>fn(arg);<br />
+}<br />
+<br />
+apply(print, &quot;lorem ipsum&quot;);</td>
+</tr>
+<tr>
+<td><a name="func-with-state"></a><a href="#func-with-state-note">function with state</a></td>
+<td> </td>
+<td><span style="color: gray"><em>Use a variable defined outside the function; the scope of the variable is the containing file.</em></span></td>
+</tr>
+<tr>
+<td><a name="closure"></a><a href="#closure-note">closure</a></td>
+<td>function make_counter(): () =&gt; number {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>var i = 0;<br />
+<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return function() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i += 1;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return i;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>Function make_counter() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>num i = 0;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return () =&gt; ++i;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="generator"></a><a href="#generator-note">generator</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="execution-control"></a><a href="#execution-control-note">execution control</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="if"></a><a href="#if-note">if</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>if (0 == n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;no hits&quot;);<br />
+} else if (1 == n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;1 hit&quot;);<br />
+} else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(n + &quot; hits&quot;);<br />
+}</td>
+<td>int signum;<br />
+<br />
+if (i &gt; 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>signum = 1;<br />
+} else if (i == 0) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>signum = 0;<br />
+} else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>signum = -1;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="switch"></a><a href="#switch-note">switch</a></td>
+<td>switch (n) {<br />
+case 0:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;no hits\n&quot;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>break;<br />
+case 1:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;one hit\n&quot;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>break;<br />
+default:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(n + &quot; hits\n&quot;);<br />
+}</td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> switch expression can be integer or string</span><br />
+<br />
+switch (i) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>case 0:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>case 1:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;i is boolean&quot;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>break;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>default:<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;i is not boolean&quot;);<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> Falling through not permitted; exception if last<br />
+<span style="white-space: pre-wrap;">//</span> statement not break, continue, throw, or return.</span></td>
+</tr>
+<tr>
+<td><a name="while"></a><a href="#while-note">while</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>while (i &lt; 100) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>i += 1;<br />
+}</td>
+<td>int i = 0;<br />
+<br />
+while (i &lt; 10) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>++i;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="for"></a><a href="#for-note">for</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>for (var i = 0; i &lt; 10; i++) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(i);<br />
+}</td>
+<td>int n, i;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> Initialization and afterthought must be single<br />
+<span style="white-space: pre-wrap;">//</span> statements; there is no comma operator.</span><br />
+n = 1;<br />
+for (i = 1; i &lt;= 10; ++i) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n *= i;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="break"></a><a href="#break-note">break</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>break</td>
+<td>break</td>
+</tr>
+<tr>
+<td><a name="continue"></a><a href="#continue-note">continue</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>continue</td>
+<td>continue</td>
+</tr>
+<tr>
+<td><a name="for-local-scope"></a><a href="#for-local-scope-note">for with local scope</a></td>
+<td> </td>
+<td>int n = 1;<br />
+<br />
+for (int i = 1; i &lt;= 10; ++i) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n *= i;<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> is no longer in scope</span></td>
+</tr>
+<tr>
+<td><a name="infinite-loop"></a><a href="#infinite-loop-note">infinite loop</a></td>
+<td> </td>
+<td>for (;;) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><span style="white-space: pre-wrap;">//</span> code</span><br />
+}<br />
+<br />
+while (1) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="color: gray"><span style="white-space: pre-wrap;">//</span> code</span><br />
+}</td>
+</tr>
+<tr>
+<td><a name="break-from-nested-loops"></a><a href="#break-from-nested-loops-note">break from nested loops</a></td>
+<td> </td>
+<td>int a, b, c;<br />
+<br />
+outer:<br />
+for (a = 1; ; ++a) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>for (b = 1; b &lt; a; ++b) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>c = (math.sqrt(a * a + b * b)).truncate();<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (c * c == a * a + b * b) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>break outer;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="single-stmt-branch-loop"></a><a href="#single-stmt-branch-loop-note">single statement branches and loops</a></td>
+<td> </td>
+<td>while (n % 17 == 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>++n;<br />
+<br />
+if (n &lt; 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;negative&quot;);</td>
+</tr>
+<tr>
+<td><a name="dangling-else"></a><a href="#dangling-else-note">dangling else</a></td>
+<td> </td>
+<td>int a = 1, b = -3, c;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> indentation shows how ambiguity is resolved</span><br />
+if (a &gt; 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (b &gt; 0)<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>c = 1;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>else<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>c = 2;</td>
+</tr>
+<tr>
+<th colspan="3"><a name="exceptions"></a><a href="#exceptions-note">exceptions</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="base-exc"></a><a href="#base-exc-note">base exception</a></td>
+<td><span style="color: gray"><em>Any value can be thrown.</em></span></td>
+<td>Exception<br />
+Error<br />
+<br />
+<span style="color: gray"><em>Any non-null value can be thrown.</em></span></td>
+</tr>
+<tr>
+<td><a name="predefined-exc"></a><a href="#predefined-exc-note">predefined exceptions</a></td>
+<td>Error<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>EvalError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>RangeError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ReferenceError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>SyntaxError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>TypeError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>URIError</td>
+<td>Error<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>AbstractClassInstantiationError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ArgumentError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>RangeError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>IndexError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>AssertionError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>TypeError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>CastError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>ConcurrentModificationError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>CyclicInitializationError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>FallThroughError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>JsonUnsupportedObjectError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>NoSuchMethodError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>NullThrownError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>OutOfMemoryError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>RangeError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>StackOverflowError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>StateError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>UnimplementedError<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>UnsupportedError<br />
+<br />
+<span style="color: gray"><em>intended to be caught:</em></span><br />
+Exception<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>FormatException<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>IntegerDivisionByZeroException</td>
+</tr>
+<tr>
+<td><a name="raise-exc"></a><a href="#raise-exc-note">raise exception</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>throw new Error(&quot;bad arg&quot;);</td>
+<td>throw new Exception(&quot;bad arg&quot;);</td>
+</tr>
+<tr>
+<td><a name="catch-all-handler"></a><a href="#catch-all-handler-note">catch-all handler</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>risky();<br />
+}<br />
+catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;risky failed&quot;);<br />
+}</td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>risky();<br />
+}<br />
+catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;risky failed&quot;);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="re-raise-exc"></a><a href="#re-raise-exc-note">re-raise exception</a></td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw new Error(&quot;bam!&quot;);<br />
+}<br />
+catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(&quot;re-raising<span style="white-space: pre-wrap;">...</span>&quot;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw e;<br />
+}</td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw new Exception(&quot;bam!&quot;);<br />
+}<br />
+catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;re-raising...&quot;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>rethrow;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="def-exc"></a><a href="#def-exc-note">define exception</a></td>
+<td>function Bam(msg) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.message = msg;<br />
+}<br />
+<br />
+Bam.prototype = new Error;</td>
+<td>class Bam implements Exception {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>String msg;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Bam(this.msg);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="handle-exc"></a><a href="#handle-exc-note">handle exception</a></td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw new Bam(&quot;bam!&quot;);<br />
+}<br />
+catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (e instanceof Bam) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alert(e.message);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw e;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>throw new Bam(&quot;bam!&quot;);<br />
+}<br />
+on Bam catch (e) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(e.msg);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="finally-block"></a><a href="#finally-block-note">finally block</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>acquire_resource();<br />
+try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>risky();<br />
+}<br />
+finally {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>release_resource();<br />
+}</td>
+<td>acquire_resource();<br />
+try {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>risky();<br />
+}<br />
+finally {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>release_resource();<br />
+}</td>
+</tr>
+<tr>
+<th colspan="3"><a name="streams"></a><a href="#streams-note">streams</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="std-file-handles"></a><a href="#std-file-handles-note">standard file handles</a></td>
+<td>process.stdin<br />
+process.stdout<br />
+process.stderr</td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+io.stdin io.stdout io.stderr</td>
+</tr>
+<tr>
+<td><a name="read-line-stdin"></a><a href="#read-line-stdin-note">read line from stdin</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="eof"></a><a href="#eof-note">end-of-file behavior</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="chomp"></a><a href="#chomp-note">chomp</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="write-line-stdout"></a><a href="#write-line-stdout-note">write line to stdout</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>console.log(&quot;Hello, World&quot;);</td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+print(&#x27;Hello, World!&#x27;);<br />
+<br />
+io.stdout.writeln(&#x27;Hello, World!&#x27;);</td>
+</tr>
+<tr>
+<td><a name="printf"></a><a href="#printf-note">write formatted string to stdout</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="open-file"></a><a href="#open-file-note">open file for reading</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="open-file-write"></a><a href="#open-file-write-note">open file for writing</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var f = fs.openSync(&quot;/tmp/test&quot;, &quot;w&quot;);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="file-encoding"></a><a href="#file-encoding-note">set file handle encoding</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="open-file-append"></a><a href="#open-file-append-note">open file for appending</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="close-file"></a><a href="#close-file-note">close file</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="close-file-implicitly"></a><a href="#close-file-implicitly-note">close file implicitly</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="io-err"></a><a href="#io-err-note">i/o error</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="encoding-err"></a><a href="#encoding-err-note">encoding error</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="read-line"></a><a href="#read-line-note">read line</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="file-iterate"></a><a href="#file-iterate-note">iterate over file by line</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="read-file-array"></a><a href="#read-file-array-note">read file into array of strings</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="read-file-str"></a><a href="#read-file-str-note">read file into string</a></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+var s = fs.readFileSync(&#x27;/etc/hosts&#x27;, &#x27;utf8&#x27;);</td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+File f = new io.File(&#x27;/etc/hosts&#x27;);<br />
+f.readAsString().then((String s) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;length: ${s.length}&#x27;);<br />
+});</td>
+</tr>
+<tr>
+<td><a name="write-str"></a><a href="#write-str-note">write string</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="write-line"></a><a href="#write-line-note">write line</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="flush"></a><a href="#flush-note">flush file handle</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="eof-test"></a><a href="#eof-test-note">end-of-file test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="seek"></a><a href="#seek-note">file handle position</a><br />
+<br />
+<span style="color: gray"><em>get, set</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="tmp-file"></a><a href="#tmp-file-note">open temporary file</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="stringio"></a><a href="#stringio-note">in memory file</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="files"></a><a href="#files-note">files</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="file-test"></a><a href="#file-test-note">file exists test, file regular test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+var qry = fs.existsSync(&#x27;/etc/hosts&#x27;);<br />
+<br />
+var stat = fs.statSync(&#x27;/etc/hosts&#x27;);<br />
+var qry2 = stat.isFile();</td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+File f = new io.File(&quot;/tmp/foo&quot;);<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> existence check?</span><br />
+<br />
+if (f.existsSync()) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&quot;is a regular file\n&quot;);<br />
+}</td>
+</tr>
+<tr>
+<td><a name="file-size"></a><a href="#file-size-note">file size</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+var stat = fs.statSync(&#x27;/etc/hosts&#x27;);<br />
+var sz = stat.size;</td>
+<td>f.lengthSync()</td>
+</tr>
+<tr>
+<td><a name="readable-writable-executable"></a><a href="#readable-writable-executable-note">is file readable, writable, executable</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="chmod"></a><a href="#chmod-note">set file permissions</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+fs.chmodSync(&#x27;/tmp/foo&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>parseInt(&#x27;755&#x27;, 8));</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="last-modification-time"></a><a href="#last-modification-time-note">last modification time</a></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+var stat = fs.statSync(&#x27;/etc/hosts&#x27;);<br />
+var dt = stat.mtime;</td>
+<td>import &#x27;dart:io&quot; as io;<br />
+<br />
+File f = new io.File(&quot;/etc/hosts&quot;);<br />
+print(f.lastModifiedSync());</td>
+</tr>
+<tr>
+<td><a name="file-cp-rm-mv"></a><a href="#file-cp-rm-mv-note">copy file, remove file, rename file</a></td>
+<td><span style="color: gray"># npm install fs-extra</span><br />
+var fs = require(&#x27;fs-extra&#x27;);<br />
+<br />
+fs.copySync(&#x27;/tmp/foo&#x27;, &#x27;/tmp/bar&#x27;);<br />
+fs.unlinkSync(&#x27;/tmp/foo&#x27;);<br />
+fs.renameSync(&#x27;/tmp/bar&#x27;, &#x27;/tmp/foo&#x27;);</td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+File f = new io.File(&quot;/tmp/foo&quot;);<br />
+f.copySync(&quot;/tmp/bar&quot;);<br />
+f.deleteSync();<br />
+File f2 = new io.File(&quot;/tmp/bar&quot;);<br />
+f2.renameSync(&quot;/tmp/foo&quot;);</td>
+</tr>
+<tr>
+<td><a name="symlink"></a><a href="#symlink-note">create symlink, symlink test, readlink</a></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+fs.symlinkSync(&#x27;/etc/hosts&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&#x27;/tmp/hosts&#x27;);<br />
+var stat = fs.statSync(&#x27;/tmp/hosts&#x27;);<br />
+stat.isSymbolicLink();<br />
+var path = fs.readlinkSync(<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>&#x27;/tmp/hosts&#x27;);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="unused-file-name"></a><a href="#unused-file-name-note">generate unused file name</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="file-fmt"></a><a href="#file-fmt-note">file formats</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="parse-csv"></a><a href="#parse-csv-note">parse csv</a></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<span style="color: gray"># npm install csv</span><br />
+var csv = require(&#x27;csv&#x27;);<br />
+<br />
+var s = fs.readFileSync(&#x27;no-header.csv&#x27;);<br />
+var a;<br />
+csv().from.string(s).to.array(function(d) { a = d });</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="generate-csv"></a><a href="#generate-csv-note">generate csv</a></td>
+<td><span style="color: gray"># npm install csv</span><br />
+var csv = require(&#x27;csv&#x27;);<br />
+<br />
+var a = [['one', &#x27;une&#x27;, &#x27;uno&#x27;],<br />
+['two', &#x27;deux&#x27;, &#x27;dos&#x27;]];<br />
+<br />
+var s;<br />
+csv().from.array(a).to.string(function (o) { s = o; });</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-json"></a><a href="#parse-json-note">parse json</a></td>
+<td>var s1 = &#x27;{&quot;t&quot;:1,&quot;f&quot;:0}&#x27;;<br />
+var d1 = JSON.parse(s1);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="generate-json"></a><a href="#generate-json-note">generate json</a></td>
+<td>var d2 = {&#x27;t&#x27;: 1, &#x27;f&#x27;: 0};<br />
+var s2 = JSON.stringify(d1);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-yaml"></a><a href="#parse-yaml-note">parse yaml</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="generate-yaml"></a><a href="#generate-yaml-note">generate yaml</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-xml"></a><a href="#parse-xml-note">parse xml</a><br />
+<span style="color: gray"><em>all nodes matching xpath query; first node matching xpath query</em></span></td>
+<td><span style="color: gray"># npm install xmldom xpath</span><br />
+var dom = require(&#x27;xmldom&#x27;).DOMParser;<br />
+var xpath = require(&#x27;xpath&#x27;);<br />
+<br />
+var xml = &#x27;&lt;a&gt;&lt;b&gt;&lt;c ref=&quot;3&quot;&gt;foo&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;&#x27;;<br />
+var doc = new dom().parseFromString(xml);<br />
+var nodes = xpath.select(&#x27;/a/b/c&#x27;, doc);<br />
+nodes.length;<br />
+nodes[0].firstChild.data;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="generate-xml"></a><a href="#generate-xml-note">generate xml</a></td>
+<td><span style="color: gray"># npm install xmlbuilder</span><br />
+var builder = require(&#x27;xmlbuilder&#x27;);<br />
+<br />
+var xml = builder.create(&#x27;a&#x27;).ele(&#x27;b&#x27;, {id: 123}, &#x27;foo&#x27;).end();</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-html"></a><a href="#parse-html-note">parse html</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="directories"></a><a href="#directories-note">directories</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="working-dir"></a><a href="#working-dir-note">working directory</a></td>
+<td>var old_dir = process.cwd();<br />
+<br />
+process.chdir(&quot;/tmp&quot;);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="build-pathname"></a><a href="#build-pathname-note">build pathname</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dirname-basename"></a><a href="#dirname-basename-note">dirname and basename</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="absolute-pathname"></a><a href="#absolute-pathname-note">absolute pathname</a><br />
+<span style="color: gray"><em>and tilde expansion</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dir-iterate"></a><a href="#dir-iterate-note">iterate over directory by file</a></td>
+<td>var fs = require(&#x27;fs&#x27;);<br />
+<br />
+fs.readdirSync(&#x27;/etc&#x27;).forEach(<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function(s) { console.log(s); }<br />
+);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="glob"></a><a href="#glob-note">glob paths</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="mkdir"></a><a href="#mkdir-note">make directory</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="recursive-cp"></a><a href="#recursive-cp-note">recursive copy</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="rmdir"></a><a href="#rmdir-note">remove empty directory</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="rm-rf"></a><a href="#rm-rf-note">remove directory and contents</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="dir-test"></a><a href="#dir-test-note">directory test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+bool isDir;<br />
+<br />
+io.FileSystemEntity.isDirectory(&#x27;/tmp&#x27;).then((isDir) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (isDir) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;is directory&#x27;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>} else {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>print(&#x27;not a directory&#x27;);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+});</td>
+</tr>
+<tr>
+<td><a name="unused-dir"></a><a href="#unused-dir-note">generate unused directory</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="system-tmp-dir"></a><a href="#system-tmp-dir-note">system temporary file directory</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="processes-environment"></a><a href="#processes-environment-note">processes and environment</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="cmd-line-arg"></a><a href="#cmd-line-arg-note">command line arguments</a><br />
+<span style="color: gray"><em>and script name</em></span></td>
+<td>process.argv.slice(2)<br />
+process.argv[1]<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> process.argv[0] contains &quot;node&quot;</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="env-var"></a><a href="#env-var-note">environment variable</a><br />
+<br />
+<span style="color: gray"><em>get, set</em></span></td>
+<td>process.env[&quot;HOME&quot;]<br />
+<br />
+process.env[&quot;PATH&quot;] = &quot;/bin&quot;;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="pid"></a><a href="#pid-note">get pid, parent pid</a></td>
+<td>process.pid<br />
+<span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="user-id-name"></a><a href="#user-id-name-note">user id and name</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="exit"></a><a href="#exit-note">exit</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>process.exit(0);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="signal-handler"></a><a href="#signal-handler-note">set signal handler</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="executable-test"></a><a href="#executable-test-note">executable test</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="external-cmd"></a><a href="#external-cmd-note">external command</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>import &#x27;dart:io&#x27; as io;<br />
+<br />
+io.Process.start(&#x27;ls&#x27;, ['-l', &#x27;/tmp&#x27;]).then((process) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>io.stdout.addStream(process.stdout);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>io.stderr.addStream(process.stderr);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>process.exitCode.then(print);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>});</td>
+</tr>
+<tr>
+<td><a name="shell-esc-external-cmd"></a><a href="#shell-esc-external-cmd-note">shell-escaped external command</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="cmd-subst"></a><a href="#cmd-subst-note">command substitution</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="libraries-namespaces"></a><a href="#libraries-namespaces-note">libraries and namespaces</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="load-lib"></a><a href="#load-lib-note">load library</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> load ./foo.dart:</span><br />
+import &#x27;foo.dart&#x27; as foo;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> load built-in library:</span><br />
+import &#x27;dart:io&#x27; as io;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> library installed by package manager:</span><br />
+import &#x27;package:foo/foo.dart&#x27; as foo;</td>
+</tr>
+<tr>
+<td><a name="load-lib-subdir"></a><a href="#load-lib-subdir-note">load library in subdirectory</a></td>
+<td> </td>
+<td>import &#x27;lib/foo.dart&#x27; as foo;</td>
+</tr>
+<tr>
+<td><a name="hot-patch"></a><a href="#hot-patch-note">hot patch</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="load-err"></a><a href="#load-err-note">load error</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="main-in-lib"></a><a href="#main-in-lib-note">main routine in library</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="lib-path"></a><a href="#lib-path-note">library path</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="lib-path-env"></a><a href="#lib-path-env-note">library path environment variable</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="lib-path-cmd-line"></a><a href="#lib-path-cmd-line-note">library path command line option</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="simple-global-identifiers"></a><a href="#simple-global-identifiers-note">simple global identifiers</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="multiple-label-identifiers"></a><a href="#multiple-label-identifiers-note">multiple label identifiers</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="label-separator"></a><a href="#label-separator-note">label separator</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="root-namespace"></a><a href="#root-namespace-note">root namespace definition</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="namespace-decl"></a><a href="#namespace-decl-note">namespace declaration</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> not required in file containing main():</span><br />
+library foo;</td>
+</tr>
+<tr>
+<td><a name="child-namespace-decl"></a><a href="#child-namespace-decl-note">child namespace declaration</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="import-def"></a><a href="#import-def-note">import definitions</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>import &#x27;foo&#x27; show bar, baz;</td>
+</tr>
+<tr>
+<td><a name="import-namespace"></a><a href="#import-namespace-note">import all definitions in namespace</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td>import &#x27;foo&#x27;;</td>
+</tr>
+<tr>
+<td><a name="import-all-subnamespaces"></a><a href="#import-all-subnamespaces-note">import all subnamespaces</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="shadow-avoidance"></a><a href="#shadow-avoidance-note">shadow avoidance</a></td>
+<td> </td>
+<td>import &#x27;foo&#x27; as fu;</td>
+</tr>
+<tr>
+<th colspan="3"><a name="user-defined-types"></a><a href="#user-defined-types-note">user-defined-types</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="enumerated-type"></a><a href="#enumerated-type-note">enumerated type</a></td>
+<td>enum Color {Red, Green, Blue};<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> assigns c the value 1:</span><br />
+var c: Color = Color.Green;</td>
+<td>enum Color {red, green, blue}<br />
+<br />
+Color col = Color.green;</td>
+</tr>
+<tr>
+<td><a name="struct-def"></a><a href="#struct-def-note">struct definition</a></td>
+<td>interface Medals {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>country: string,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>gold: number,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>silver: number,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>bronze: number<br />
+};</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="optional-struct-member"></a><a href="#optional-struct-member-note">optional struct member</a></td>
+<td>interface Person {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>name: string,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>alma_mater?: string<br />
+}</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="struct-literal"></a><a href="#struct-literal-note">struct literal</a></td>
+<td>var france: Medals = {country: &quot;France&quot;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>gold: 8,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>silver: 7,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>bronze: 9<br />
+};<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> not an error for the literal to contain members<br />
+<span style="white-space: pre-wrap;">//</span> not in the struct definition</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="struct-lookup"></a><a href="#struct-lookup-note">struct lookup</a></td>
+<td>france.gold</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="struct-update"></a><a href="#struct-update-note">struct update</a></td>
+<td>france.gold = 9;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> assignment to members not in struct definition<br />
+<span style="white-space: pre-wrap;">//</span> is permitted</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="type-alias"></a><a href="#type-alias-note">type alias</a></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> function:</span><br />
+interface BinaryOp {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>(x: number, y: number): number<br />
+}<br />
+<br />
+var add: BinaryOp = (x, y) =&gt; { return x + y; }<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> array or dictionary:</span><br />
+interface NumberSeq {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>[index: number]: number<br />
+}<br />
+<br />
+var primes: NumberSeq = [2, 3, 5, 7, 11];</td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> function types only:</span><br />
+typedef num BinaryOp(num x, num y);</td>
+</tr>
+<tr>
+<th colspan="3"><a name="generic-types"></a><a href="#generic-types-note">generic types</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="generic-func"></a><a href="#generic-func-note">generic function</a></td>
+<td>function identity&lt;T&gt;(arg: T): T {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return arg;<br />
+}<br />
+<br />
+console.log(identity(&quot;lorem ipsum&quot;));</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="generic-class"></a><a href="#generic-class-note">generic class</a></td>
+<td>class Holder&lt;T&gt; {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(public value: T) {}<br />
+}<br />
+<br />
+var holder = new Holder&lt;number&gt;(3);<br />
+console.log(holder.value);</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="objects"></a><a href="#objects-note">objects</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="def-class"></a><a href="#def-class-note">define class</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>public value: number;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(v: number) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value = v;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> constructor params declared public or<br />
+<span style="white-space: pre-wrap;">//</span> private become object attributes</span><br />
+class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(public value: number) {}<br />
+}</td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>int value;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Int(int n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value = n;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="create-obj"></a><a href="#create-obj-note">create object</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var i = new Int(0);<br />
+var i2 = new Int(7);</td>
+<td>Int i = new Int(7);</td>
+</tr>
+<tr>
+<td><a name="instance-var"></a><a href="#instance-var-note">instance variable visibility</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="getter-setter"></a><a href="#getter-setter-note">get and set instance variable</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>i.value = i.value + 1;</td>
+<td>i.value = i.value + 1;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> inside method:</span><br />
+this.value = this.value + 1;</td>
+</tr>
+<tr>
+<td><a name="def-method"></a><a href="#def-method-note">define method</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(public value: number) {}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>plus(v: number) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value += v;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>int value;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Int(int n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value = n;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>void plus(num v) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value += v;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="invoke-method"></a><a href="#invoke-method-note">invoke method</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>i.plus(3);</td>
+<td>i.plus(3);</td>
+</tr>
+<tr>
+<td><a name="def-class-method"></a><a href="#def-class-method-note">define class method</a></td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>static getInstances() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return Int.instances;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>static int getInstances() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>return instances;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="invoke-class-method"></a><a href="#invoke-class-method-note">invoke class method</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>Int.getInstances()</td>
+<td>Int.getInstances()</td>
+</tr>
+<tr>
+<td><a name="def-classs-var"></a><a href="#def-class-var-note">define class variable</a></td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>static instances: number = 0;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(public value: number) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Int.instances += 1;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td>class Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>static int instances = 0;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>int value;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>Int(int n) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value = n;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>instances += 1;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+</tr>
+<tr>
+<td><a name="class-var-getter-setter"></a><a href="#class-var-getter-setter-note">get and set class variable</a></td>
+<td>Int.instances = Int.instances + 1;</td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> inside class:</span><br />
+instances = instances + 1;<br />
+<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span> outside class:</span><br />
+Int.instances = Int.instances + 1;</td>
+</tr>
+<tr>
+<td><a name="method-missing"></a><a href="#method-missing-note">handle undefined method invocation</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="destructor"></a><a href="#destructor-note">destructor</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="inheritance-polymorphism"></a><a href="#inheritance-polymorphism-note">inheritance and polymorphism</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="inheritance"></a><a href="#inheritance-note">subclass</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>class Counter extends Int {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>constructor(v: number) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>super(v);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>incr() {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>this.value += 1;<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+}</td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="reflection"></a><a href="#reflection-note">reflection</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="object-id"></a><a href="#object-id-note">object id</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>none</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="inspect-type"></a><a href="#inspect-type-note">inspect type</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>typeof([]) === &#x27;object&#x27;</td>
+<td>var n = 3;<br />
+if (n is int) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n += 1;<br />
+}<br />
+<br />
+if (n is! String) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>n += &quot;s&quot;;<br />
+}</td>
+</tr>
+<tr>
+<td><a name="types"></a><a href="#types-note">basic types</a></td>
+<td>number<br />
+string<br />
+boolean<br />
+undefined<br />
+function<br />
+object<br />
+<br />
+<span style="color: gray"># these evaluate as &#x27;object&#x27;:</span><br />
+typeof(null)<br />
+typeof([])<br />
+typeof({})</td>
+<td>dynamic<br />
+num</td>
+</tr>
+<tr>
+<td><a name="inspect-class"></a><a href="#inspect-class-note">inspect class</a></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> returns prototype object:</span><br />
+Object.getPrototypeOf(o)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="inspect-class-hierarchy"></a><a href="#inspect-class-hierarchy-note">inspect class hierarchy</a></td>
+<td>var pa = Object.getPrototypeOf(o)<br />
+<span style="color: gray"><span style="white-space: pre-wrap;">//</span>prototype&#x27;s of prototype object:</span><br />
+var grandpa = Object.getPrototypeOf(pa)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="has-method"></a><a href="#has-method-note">has method?</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>o.reverse &amp;&amp; typeof(o.reverse) === &#x27;function&#x27;</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="msg-passing"></a><a href="#msg-passing-note">message passing</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><em>not a standard feature</em></span></td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="eval"></a><a href="#eval-note">eval</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>eval(&#x27;1 + 1&#x27;)</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="list-obj-methods"></a><a href="#list-obj-methods-note">list object methods</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="list-obj-attr"></a><a href="#list-obj-attr-note">list object attributes</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="list-loaded-lib"></a><a href="#list-loaded-lib-note">list loaded libraries</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="list-loaded-namespaces"></a><a href="#list-loaded-namespaces-note">list loaded namespaces</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="inspect-namespace"></a><a href="#inspect-namespace-note">inspect namespace</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="pretty-print"></a><a href="#pretty-print-note">pretty-print</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td>var d = {&quot;lorem&quot;: 1, &quot;ipsum&quot;: [2, 3]};<br />
+console.log(JSON.stringify(d, null, 2));</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="src-line-file"></a><a href="#src-line-file-note">source line number and file name</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="cmd-line-doc"></a><a href="#cmd-line-doc-note">command line documentation</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="net-web"></a><a href="#net-web-note">net and web</a></th>
+</tr>
+<tr>
+<th></th>
+<th>typescript</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="hostname-ip"></a><a href="#hostname-ip-note">get local hostname, dns lookup, reverse dns lookup</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="http-get"></a><a href="#http-get-note">http get</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td><span style="color: gray"><span style="white-space: pre-wrap;">//</span> npm install request</span><br />
+var request = require(&#x27;request&#x27;);<br />
+<br />
+request(&#x27;<span style="white-space: pre-wrap;">http://www.google.com</span>&#x27;,<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>function(err, resp, body) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>if (!err &amp;&amp; resp.statusCode == 200) {<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>console.log(body);<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span><span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+<span style="white-space: pre-wrap;">&nbsp;&nbsp;</span>}<br />
+);</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="http-post"></a><a href="#http-post-note">http post</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="serve-pwd"></a><a href="#serve-pwd-note">serve working directory</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="absolute-url"></a><a href="#absolute-url-note">absolute url</a><br />
+<span style="color: gray"><em>from base and relative url</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="parse-url"></a><a href="#parse-url-note">parse url</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="url-encode"></a><a href="#url-encode-note">url encode/decode</a><br />
+<span style="white-space: pre-wrap;">&nbsp;</span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="html-escape"></a><a href="#html-escape-note">html escape</a><br />
+<span style="color: gray"><em>escape character data, escape attribute value, unescape html entities</em></span></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="base64"></a><a href="#base64-note">base64 encode/decode</a></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<th colspan="3"><a name="debugging-profiling"></a><a href="#debugging-profiling-note">debugging and profiling</a></th>
+</tr>
+<tr>
+<th></th>
+<th>node</th>
+<th>dart</th>
+</tr>
+<tr>
+<td><a name="check-syntax"></a><a href="#check-syntax-note">check syntax</a></td>
+<td>$ tsc <span style="white-space: pre-wrap;">--</span>noEmit foo.ts</td>
+<td> </td>
+</tr>
+<tr>
+<td><a name="lint"></a><a href="#lint-note">lint</a></td>
+<td>$ npm install -g tslint<br />
+$ tslint -c ~/.tslint.json -f foo.ts</td>
+<td> </td>
+</tr>
+<tr>
+<th></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">____________________________________________</span></span></th>
+<th><span style="color: #efefef"><span style="white-space: pre-wrap;">____________________________________________</span></span></th>
+</tr>
+</table>
+<p><a name="version-note"></a></p>
+<h1 id="toc0"><span><a href="#version">Version</a></span></h1>
+<p><a name="grammar-execution-note"></a></p>
+<h1 id="toc1"><span><a href="#grammar-execution">Grammar and Execution</a></span></h1>
+<p><a name="variables-expressions-note"></a></p>
+<h1 id="toc2"><span><a href="#variables-expressions">Variables and Expressions</a></span></h1>
+<p><a name="arithmetic-logic-note"></a></p>
+<h1 id="toc3"><span><a href="#arithmetic-logic">Arithmetic and Logic</a></span></h1>
+<p><a name="strings-note"></a></p>
+<h1 id="toc4"><span><a href="#strings">Strings</a></span></h1>
+<p><a name="regexes-note"></a></p>
+<h1 id="toc5"><span><a href="#regexes">Regexes</a></span></h1>
+<p><a name="dates-time-note"></a></p>
+<h1 id="toc6"><span><a href="#dates-time">Dates and Time</a></span></h1>
+<p><a name="arrays-note"></a></p>
+<h1 id="toc7"><span><a href="#arrays">Arrays</a></span></h1>
+<p><a name="dictionaries-note"></a></p>
+<h1 id="toc8"><span><a href="#dictionaries">Dictionaries</a></span></h1>
+<p><a name="functions-note"></a></p>
+<h1 id="toc9"><span><a href="#functions">Functions</a></span></h1>
+<p><a name="execution-control-note"></a></p>
+<h1 id="toc10"><span><a href="#execution-control">Execution Control</a></span></h1>
+<p><a name="exceptions-note"></a></p>
+<h1 id="toc11"><span><a href="#exceptions">Exceptions</a></span></h1>
+<p><a name="streams-note"></a></p>
+<h1 id="toc12"><span><a href="#streams">Streams</a></span></h1>
+<p><a name="files-note"></a></p>
+<h1 id="toc13"><span><a href="#files">Files</a></span></h1>
+<p><a name="file-formats-note"></a></p>
+<h1 id="toc14"><span><a href="#file-formats">File Formats</a></span></h1>
+<p><a name="directories-note"></a></p>
+<h1 id="toc15"><span><a href="#directories">Directories</a></span></h1>
+<p><a name="processes-environment-note"></a></p>
+<h1 id="toc16"><span><a href="#processes-environment">Processes and Environment</a></span></h1>
+<p><a name="libraries-namespaces-note"></a></p>
+<h1 id="toc17"><span><a href="#libraries-namespaces">Libraries and Namespaces</a></span></h1>
+<p><a name="user-defined-types-note"></a></p>
+<h1 id="toc18"><span><a href="#user-defined-types">User-Defined Types</a></span></h1>
+<p><a name="generic-types-note"></a></p>
+<h1 id="toc19"><span><a href="#generic-types">Generic Types</a></span></h1>
+<p><a name="objects-note"></a></p>
+<h1 id="toc20"><span><a href="#objects">Objects</a></span></h1>
+<p><a name="inheritance-polymorphism-note"></a></p>
+<h1 id="toc21"><span><a href="#inheritance-polymorphism">Inheritance and Polymorphism</a></span></h1>
+<p><a name="reflection-note"></a></p>
+<h1 id="toc22"><span><a href="#reflection">Reflection</a></span></h1>
+<p><a name="net-web-note"></a></p>
+<h1 id="toc23"><span><a href="#net-web">Net and Web</a></span></h1>
+<p><a name="debugging-profiling-note"></a></p>
+<h1 id="toc24"><span><a href="#debugging-profiling">Debugging and Profiling</a></span></h1>
+<p><a name="check-syntax-note"></a></p>
+<h2 id="toc25"><span><a href="#check-syntax">check syntax</a></span></h2>
+<p><a name="lint-note"></a></p>
+<h2 id="toc26"><span><a href="#lint">lint</a></span></h2>
+<p><strong>typescript:</strong></p>
+<p>How to get a <tt>tslint.json</tt> file:</p>
+<div class="code">
+<pre>
+<code>$ curl https://github.com/palantir/tslint/blob/master/docs/sample.tslint.json &gt; ~/.tslint.json</code>
+</pre></div>
+<p><a name="typescript"></a></p>
+<h1 id="toc27"><span><a href="#top">TypeScript</a></span></h1>
+<p><a href="http://www.typescriptlang.org/Handbook">Handbook</a></p>
+<p><a name="dart"></a></p>
+<h1 id="toc28"><span><a href="#top">Dart</a></span></h1>
+<p><a href="https://www.dartlang.org/docs/">Programmer's Guide</a><br />
+<a href="https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/home">API Reference</a></p>
+ 
+          </div>
+        </div>
+      </div>
+      <div id="license-area" class="license-area">
+        <a href="https://github.com/clarkgrubb/hyperpolyglot/issues">issue tracker</a> |
+        content of this page licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        creative commons attribution-sharealike 3.0</a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17129977-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
